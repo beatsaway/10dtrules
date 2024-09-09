@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Rules Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            max-width: 1200px; /* Increased max-width */
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-size: 18px;
+            background: linear-gradient(135deg, #6e48aa, #9d50bb);
+            color: #fff;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        .quiz-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px; /* Increased gap */
+        }
+        .column {
+            width: calc(50% - 15px); /* Adjusted for increased gap */
+        }
+        .question {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px; /* Increased padding */
+            margin-bottom: 25px; /* Increased margin */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .question:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .phrase {
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+        }
+        .rule {
+            display: none;
+            margin-top: 15px;
+            color: #ffeb3b;
+            font-size: 1.5em;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            line-height: 1.4; /* Added for better readability */
+        }
+        .emoji {
+            font-size: 2em;
+            margin-right: 20px; /* Increased margin */
+        }
+        @media (max-width: 900px) {
+            .quiz-container {
+                flex-direction: column;
+            }
+            .column {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🛡️ Safety Rules Challenge 🛡️</h1>
+    <div class="quiz-container">
+        <div class="column" id="left-column"></div>
+        <div class="column" id="right-column"></div>
+    </div>
+
+    <script>
+        const safetyRules = [
+            { emoji: "🧥", phrase: "COATS AND BAGS", rule: "Coats and bags should always be left at the front of the room" },
+            { emoji: "🏃", phrase: "RUN", rule: "Never run in the D&T room" },
+            { emoji: "✂️", phrase: "SHARP EQUIPMENT", rule: "Be very careful when carrying and using sharp equipment" },
+            { emoji: "🧠", phrase: "CONCENTRATE", rule: "Concentrate on what you are doing at all times" },
+            { emoji: "👂", phrase: "PAY ATTENTION", rule: "Always pay attention to the teacher's instructions" },
+            { emoji: "❓", phrase: "DO NOT USE", rule: "Do not use any equipment if you don't know how to use it" },
+            { emoji: "🙋", phrase: "PERMISSION", rule: "Do not use any equipment without teacher's permission" },
+            { emoji: "1️⃣", phrase: "ONE PERSON", rule: "One person at a time can use a machine" },
+            { emoji: "🤫", phrase: "DO NOT DISTRACT", rule: "Do not distract anyone who is using a machine or any other equipment" },
+            { emoji: "🛑", phrase: "STOP", rule: "Stop immediately if your teacher asks you to stop" }
+        ];
+
+        const leftColumn = document.getElementById('left-column');
+        const rightColumn = document.getElementById('right-column');
+
+        safetyRules.forEach((item, index) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'question';
+            questionDiv.innerHTML = `
+                <p class="phrase" onclick="toggleRule(${index})"><span class="emoji">${item.emoji}</span>${item.phrase}</p>
+                <p class="rule" id="rule-${index}">${item.rule}</p>
+            `;
+            
+            if (index < 5) {
+                leftColumn.appendChild(questionDiv);
+            } else {
+                rightColumn.appendChild(questionDiv);
+            }
+        });
+
+        function toggleRule(index) {
+            const ruleElement = document.getElementById(`rule-${index}`);
+            ruleElement.style.display = ruleElement.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
