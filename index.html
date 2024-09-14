@@ -3,121 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safety Rules Quiz</title>
+    <title>Interactive Safety Rules Quiz</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            max-width: 1200px; /* Increased max-width */
+            max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f0f0f0;
-            font-size: 18px;
             background: linear-gradient(135deg, #6e48aa, #9d50bb);
             color: #fff;
         }
         h1 {
             text-align: center;
             color: #fff;
-            font-size: 3em;
+            font-size: 2.5em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
-        .quiz-container {
+        .keywords {
             display: flex;
-            justify-content: space-between;
-            gap: 30px; /* Increased gap */
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
         }
-        .column {
-            width: calc(50% - 15px); /* Adjusted for increased gap */
+        .keyword {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2em;
+            text-align: center;
+            width: 150px;
+        }
+        .keyword:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        .keyword.correct {
+            background-color: #4CAF50;
+        }
+        .keyword.incorrect {
+            background-color: #f44336;
+        }
+        .emoji {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 10px;
         }
         .question {
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
-            padding: 25px; /* Increased padding */
-            margin-bottom: 25px; /* Increased margin */
+            padding: 30px;
+            margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-        .question:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-        }
-        .phrase {
-            font-weight: 600;
-            color: #fff;
-            cursor: pointer;
-            font-size: 1.2em;
-            display: flex;
-            align-items: center;
-        }
-        .rule {
-            display: none;
-            margin-top: 15px;
-            color: #ffeb3b;
-            font-size: 1.5em;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            line-height: 1.4; /* Added for better readability */
-        }
-        .emoji {
             font-size: 2em;
-            margin-right: 20px; /* Increased margin */
+            line-height: 1.4;
+            text-align: center;
         }
-        @media (max-width: 900px) {
-            .quiz-container {
-                flex-direction: column;
-            }
-            .column {
-                width: 100%;
-            }
+        .blank {
+            display: inline-block;
+            min-width: 200px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.3);
+            vertical-align: middle;
+        }
+        #nextButton {
+            display: none;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #scoreDisplay {
+            text-align: center;
+            font-size: 1.5em;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>🛡️ Safety Rules Challenge 🛡️</h1>
-    <div class="quiz-container">
-        <div class="column" id="left-column"></div>
-        <div class="column" id="right-column"></div>
-    </div>
+    <h1>🛡️ Interactive Safety Rules Quiz 🛡️</h1>
+    <div id="keywords" class="keywords"></div>
+    <div id="quiz"></div>
+    <button id="nextButton">Next Question</button>
+    <div id="scoreDisplay"></div>
 
     <script>
         const safetyRules = [
-            { emoji: "🧥", phrase: "COATS AND BAGS", rule: "Coats and bags should always be left at the front of the room" },
-            { emoji: "🏃", phrase: "RUN", rule: "Never run in the D&T room" },
-            { emoji: "✂️", phrase: "SHARP EQUIPMENT", rule: "Be very careful when carrying and using sharp equipment" },
-            { emoji: "🧠", phrase: "CONCENTRATE", rule: "Concentrate on what you are doing at all times" },
-            { emoji: "👂", phrase: "PAY ATTENTION", rule: "Always pay attention to the teacher's instructions" },
-            { emoji: "❓", phrase: "DO NOT USE", rule: "Do not use any equipment if you don't know how to use it" },
-            { emoji: "🙋", phrase: "PERMISSION", rule: "Do not use any equipment without teacher's permission" },
-            { emoji: "1️⃣", phrase: "ONE PERSON", rule: "One person at a time can use a machine" },
-            { emoji: "🤫", phrase: "DO NOT DISTRACT", rule: "Do not distract anyone who is using a machine or any other equipment" },
-            { emoji: "🛑", phrase: "STOP", rule: "Stop immediately if your teacher asks you to stop" }
+            { emoji: "🧥", keyword: "COATS AND BAGS", rule: "_____ should be in the cupboard under the table" },
+            { emoji: "🏃", keyword: "RUN", rule: "Never _____ in the D&T room" },
+            { emoji: "✂️", keyword: "SHARP EQUIPMENT", rule: "Be very careful when carrying and using _____" },
+            { emoji: "🧠", keyword: "CONCENTRATE", rule: "_____ on what you are doing at all times" },
+            { emoji: "👂", keyword: "PAY ATTENTION", rule: "Always _____ to the teacher's instructions" },
+            { emoji: "❓", keyword: "DO NOT USE", rule: "_____ any equipment if you don't know how to use it" },
+            { emoji: "🙋", keyword: "PERMISSION", rule: "Do not use any equipment without teacher's _____" },
+            { emoji: "1️⃣", keyword: "ONE PERSON", rule: "_____ at a time can use a machine" },
+            { emoji: "🤫", keyword: "DO NOT DISTRACT", rule: "_____ anyone who is using a machine or any other equipment" },
+            { emoji: "🛑", keyword: "STOP", rule: "_____ immediately if your teacher asks you to stop" }
         ];
 
-        const leftColumn = document.getElementById('left-column');
-        const rightColumn = document.getElementById('right-column');
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+        let questionOrder = [];
+        let quizCompleted = false;
 
-        safetyRules.forEach((item, index) => {
-            const questionDiv = document.createElement('div');
-            questionDiv.className = 'question';
-            questionDiv.innerHTML = `
-                <p class="phrase" onclick="toggleRule(${index})"><span class="emoji">${item.emoji}</span>${item.phrase}</p>
-                <p class="rule" id="rule-${index}">${item.rule}</p>
-            `;
-            
-            if (index < 5) {
-                leftColumn.appendChild(questionDiv);
-            } else {
-                rightColumn.appendChild(questionDiv);
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
             }
-        });
-
-        function toggleRule(index) {
-            const ruleElement = document.getElementById(`rule-${index}`);
-            ruleElement.style.display = ruleElement.style.display === 'none' ? 'block' : 'none';
         }
+
+        function displayKeywords() {
+            const keywordsDiv = document.getElementById('keywords');
+            keywordsDiv.innerHTML = '';
+            safetyRules.forEach((item, index) => {
+                const keywordSpan = document.createElement('span');
+                keywordSpan.className = 'keyword';
+                keywordSpan.innerHTML = `<span class="emoji">${item.emoji}</span>${item.keyword}`;
+                keywordSpan.onclick = () => quizCompleted ? showRule(index) : checkAnswer(index);
+                keywordsDiv.appendChild(keywordSpan);
+            });
+        }
+
+        function displayQuestion() {
+            if (currentQuestion >= safetyRules.length) {
+                showResult();
+                return;
+            }
+            const quizDiv = document.getElementById('quiz');
+            const questionIndex = questionOrder[currentQuestion];
+            quizDiv.innerHTML = `<div class="question">${safetyRules[questionIndex].rule.replace('_____', '<span class="blank"></span>')}</div>`;
+            answered = false;
+            document.getElementById('nextButton').style.display = 'none';
+            updateScoreDisplay();
+        }
+
+        function checkAnswer(index) {
+            if (answered) return;
+            const keywordSpans = document.querySelectorAll('.keyword');
+            if (index === questionOrder[currentQuestion]) {
+                keywordSpans[index].classList.add('correct');
+                score++;
+                answered = true;
+                document.getElementById('nextButton').style.display = 'block';
+            } else {
+                keywordSpans[index].classList.add('incorrect');
+                score = Math.max(0, score - 1);  // Prevent negative scores
+                setTimeout(() => keywordSpans[index].classList.remove('incorrect'), 1000);
+            }
+            updateScoreDisplay();
+        }
+
+        function nextQuestion() {
+            const keywordSpans = document.querySelectorAll('.keyword');
+            keywordSpans.forEach(span => span.classList.remove('correct'));
+            currentQuestion++;
+            displayQuestion();
+        }
+
+        function showResult() {
+            quizCompleted = true;
+            const quizDiv = document.getElementById('quiz');
+            quizDiv.innerHTML = '<div class="question">Quiz completed! Click on any keyword to see its rule.</div>';
+            document.getElementById('nextButton').style.display = 'none';
+            const keywordSpans = document.querySelectorAll('.keyword');
+            keywordSpans.forEach(span => span.classList.add('correct'));
+            updateScoreDisplay();
+        }
+
+        function showRule(index) {
+            const quizDiv = document.getElementById('quiz');
+            quizDiv.innerHTML = `<div class="question">${safetyRules[index].rule.replace('_____', safetyRules[index].keyword)}</div>`;
+        }
+
+        function updateScoreDisplay() {
+            const scoreDisplay = document.getElementById('scoreDisplay');
+            scoreDisplay.textContent = `Score: ${score}`;
+        }
+
+        // Initialize the quiz
+        questionOrder = [...Array(safetyRules.length).keys()];
+        shuffleArray(questionOrder);
+        displayKeywords();
+        displayQuestion();
+
+        document.getElementById('nextButton').addEventListener('click', nextQuestion);
     </script>
 </body>
 </html>
