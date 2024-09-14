@@ -156,7 +156,7 @@
                 document.getElementById('nextButton').style.display = 'block';
             } else {
                 keywordSpans[index].classList.add('incorrect');
-                score = Math.max(0, score - 1);  // Prevent negative scores
+                score--;  // Allow score to go negative
                 setTimeout(() => keywordSpans[index].classList.remove('incorrect'), 1000);
             }
             updateScoreDisplay();
@@ -186,7 +186,7 @@
 
         function updateScoreDisplay() {
             const scoreDisplay = document.getElementById('scoreDisplay');
-            scoreDisplay.textContent = `Score: ${score}`;
+            scoreDisplay.textContent = `Score: ${score}/10`;
         }
 
         // Initialize the quiz
