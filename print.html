@@ -31,6 +31,16 @@
             min-width: 100px;
             border-bottom: 1px solid black;
             margin: 0 3px;
+            min-height: 18px;
+            text-align: center;
+            padding: 2px;
+        }
+        .blank.hover {
+            background-color: #f0f0f0;
+        }
+        .blank.filled {
+            border-bottom-color: #4CAF50;
+            background-color: #e8f5e9;
         }
         .emoji {
             font-size: 16px;
@@ -58,6 +68,19 @@
             border: 1px solid #999;
             border-radius: 3px;
             font-size: 12px;
+            cursor: grab;
+            background-color: #fff;
+            user-select: none;
+        }
+        .keyword.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .keyword.used {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
         }
         .two-column {
             display: flex;
@@ -79,7 +102,6 @@
             display: inline-block;
             min-width: 150px;
             border-bottom: 1px solid black;
-
         }
         .date-line {
             display: inline-block;
@@ -105,10 +127,23 @@
                 margin-top: 20px;
                 margin-bottom: 20px;
             }
+            .keyword {
+                cursor: auto;
+            }
+            .keyword.used {
+                background-color: white;
+                border-color: #999;
+                color: black;
+                cursor: auto;
+            }
         }
-        .print-button {
-            display: block;
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
             margin: 15px auto;
+        }
+        button {
             padding: 8px 16px;
             background-color: #4CAF50;
             color: white;
@@ -117,36 +152,39 @@
             cursor: pointer;
             font-size: 14px;
         }
+        button.reset {
+            background-color: #f44336;
+        }
     </style>
 </head>
 <body>
     
     <div id="quiz" class="two-column">
-        <div class="question">1. <span class="emoji">🧥</span> <span class="blank"></span> should be in the cupboard under the table</div>
-        <div class="question">2. <span class="emoji">🏃</span> Never <span class="blank"></span> in the D&T room</div>
-        <div class="question">3. <span class="emoji">✂️</span> Be very careful when carrying and using <span class="blank"></span></div>
-        <div class="question">4. <span class="emoji">🧠</span> Keep <span class="blank"></span> and <span class="blank"></span> on what you are doing at all times</div>
-        <div class="question">5. <span class="emoji">👂</span> When teacher is talking, always <span class="blank"></span> and pay attention quietly.</div>
-        <div class="question">6. <span class="emoji">❓</span> <span class="blank"></span> any equipment if you don't know how to use it</div>
-        <div class="question">7. <span class="emoji">🙋</span> Do not use any equipment without teacher's <span class="blank"></span></div>
-        <div class="question">8. <span class="emoji">1️⃣</span> <span class="blank"></span> at a time can use a machine</div>
-        <div class="question">9. <span class="emoji">🤫</span> <span class="blank"></span> anyone who is using a machine or any other equipment</div>
-        <div class="question">10. <span class="emoji">🛑</span> <span class="blank"></span> immediately if your teacher asks you to stop</div>
+        <div class="question">1. <span class="emoji">🧥</span> <span class="blank" data-id="1"></span> should be in the cupboard under the table</div>
+        <div class="question">2. <span class="emoji">🏃</span> Never <span class="blank" data-id="2"></span> in the D&T room</div>
+        <div class="question">3. <span class="emoji">✂️</span> Be very careful when carrying and using <span class="blank" data-id="3"></span></div>
+        <div class="question">4. <span class="emoji">🧠</span> Keep <span class="blank" data-id="4"></span> and <span class="blank" data-id="5"></span> on what you are doing at all times</div>
+        <div class="question">5. <span class="emoji">👂</span> When teacher is talking, always <span class="blank" data-id="6"></span> and pay attention quietly.</div>
+        <div class="question">6. <span class="emoji">❓</span> <span class="blank" data-id="7"></span> any equipment if you don't know how to use it</div>
+        <div class="question">7. <span class="emoji">🙋</span> Do not use any equipment without teacher's <span class="blank" data-id="8"></span></div>
+        <div class="question">8. <span class="emoji">1️⃣</span> <span class="blank" data-id="9"></span> at a time can use a machine</div>
+        <div class="question">9. <span class="emoji">🤫</span> <span class="blank" data-id="10"></span> anyone who is using a machine or any other equipment</div>
+        <div class="question">10. <span class="emoji">🛑</span> <span class="blank" data-id="11"></span> immediately if your teacher asks you to stop</div>
     </div>
     
     <div class="keyword-list">
         <h3>Keywords:</h3>
         <div class="keywords-container">
-            <div class="keyword">COATS AND BAGS</div>
-            <div class="keyword">RUN</div>
-            <div class="keyword">QUIET</div>
-            <div class="keyword">SHARP EQUIPMENT</div>
-            <div class="keyword">PAY ATTENTION</div>
-            <div class="keyword">DO NOT USE</div>
-            <div class="keyword">PERMISSION</div>
-            <div class="keyword">ONE PERSON</div>
-            <div class="keyword">DO NOT DISTRACT</div>
-            <div class="keyword">STOP</div>
+            <div class="keyword" draggable="true" data-keyword="COATS AND BAGS">COATS AND BAGS</div>
+            <div class="keyword" draggable="true" data-keyword="RUN">RUN</div>
+            <div class="keyword" draggable="true" data-keyword="QUIET">QUIET</div>
+            <div class="keyword" draggable="true" data-keyword="SHARP EQUIPMENT">SHARP EQUIPMENT</div>
+            <div class="keyword" draggable="true" data-keyword="PAY ATTENTION">PAY ATTENTION</div>
+            <div class="keyword" draggable="true" data-keyword="DO NOT USE">DO NOT USE</div>
+            <div class="keyword" draggable="true" data-keyword="PERMISSION">PERMISSION</div>
+            <div class="keyword" draggable="true" data-keyword="ONE PERSON">ONE PERSON</div>
+            <div class="keyword" draggable="true" data-keyword="DO NOT DISTRACT">DO NOT DISTRACT</div>
+            <div class="keyword" draggable="true" data-keyword="STOP">STOP</div>
         </div>
     </div>
 
@@ -156,7 +194,147 @@
         <span class="signature-line"></span> (sign)
         <span class="date-line"></span> (date)
     </div>
+    
+    <div class="action-buttons no-print">
+        <button class="reset" onclick="resetQuiz()">Reset Quiz</button>
+        <button class="print-button" onclick="window.print()">Print Quiz</button>
+    </div>
+
+    <script>
+        // Global variables
+        let currentDraggedElement = null;
+        const filledAnswers = {};
         
-    <button class="print-button no-print" onclick="window.print()">Print Quiz</button>
+        // Initialize the quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up drag events for all keywords
+            const keywords = document.querySelectorAll('.keyword');
+            keywords.forEach(keyword => {
+                keyword.addEventListener('dragstart', handleDragStart);
+                keyword.addEventListener('dragend', handleDragEnd);
+            });
+            
+            // Set up drop targets (blank spaces)
+            const blanks = document.querySelectorAll('.blank');
+            blanks.forEach(blank => {
+                blank.addEventListener('dragover', handleDragOver);
+                blank.addEventListener('dragenter', handleDragEnter);
+                blank.addEventListener('dragleave', handleDragLeave);
+                blank.addEventListener('drop', handleDrop);
+                
+                // Make blanks clickable to clear
+                blank.addEventListener('click', function() {
+                    if (this.textContent.trim() !== '') {
+                        const keywordValue = this.textContent.trim();
+                        const blankId = this.dataset.id;
+                        
+                        // Find the original keyword and make it available again
+                        const keywords = document.querySelectorAll('.keyword');
+                        keywords.forEach(keyword => {
+                            if (keyword.dataset.keyword === keywordValue) {
+                                keyword.classList.remove('used');
+                            }
+                        });
+                        
+                        // Clear the blank
+                        this.textContent = '';
+                        this.classList.remove('filled');
+                        
+                        // Update stored answers
+                        delete filledAnswers[blankId];
+                    }
+                });
+            });
+        });
+        
+        // Drag and drop handlers
+        function handleDragStart(e) {
+            if (this.classList.contains('used')) {
+                e.preventDefault();
+                return;
+            }
+            
+            this.classList.add('dragging');
+            currentDraggedElement = this;
+            e.dataTransfer.setData('text/plain', this.dataset.keyword);
+            e.dataTransfer.effectAllowed = 'move';
+        }
+        
+        function handleDragEnd() {
+            this.classList.remove('dragging');
+            currentDraggedElement = null;
+        }
+        
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault();
+            }
+            e.dataTransfer.dropEffect = 'move';
+            return false;
+        }
+        
+        function handleDragEnter() {
+            this.classList.add('hover');
+        }
+        
+        function handleDragLeave() {
+            this.classList.remove('hover');
+        }
+        
+        function handleDrop(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            this.classList.remove('hover');
+            
+            // If blank already has content, don't allow drop
+            if (this.classList.contains('filled')) {
+                return false;
+            }
+            
+            const keywordValue = e.dataTransfer.getData('text/plain');
+            const blankId = this.dataset.id;
+            
+            // Fill in the blank
+            this.textContent = keywordValue;
+            this.classList.add('filled');
+            
+            // Mark the keyword as used
+            if (currentDraggedElement) {
+                currentDraggedElement.classList.add('used');
+            } else {
+                // Find the keyword element if currentDraggedElement is not available
+                const keywords = document.querySelectorAll('.keyword');
+                keywords.forEach(keyword => {
+                    if (keyword.dataset.keyword === keywordValue) {
+                        keyword.classList.add('used');
+                    }
+                });
+            }
+            
+            // Store the answer
+            filledAnswers[blankId] = keywordValue;
+            
+            return false;
+        }
+        
+        // Reset the quiz
+        function resetQuiz() {
+            // Clear all blanks
+            const blanks = document.querySelectorAll('.blank');
+            blanks.forEach(blank => {
+                blank.textContent = '';
+                blank.classList.remove('filled');
+            });
+            
+            // Make all keywords available again
+            const keywords = document.querySelectorAll('.keyword');
+            keywords.forEach(keyword => {
+                keyword.classList.remove('used');
+            });
+            
+            // Clear stored answers
+            Object.keys(filledAnswers).forEach(key => delete filledAnswers[key]);
+        }
+    </script>
 </body>
 </html>
