@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Printable Safety Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            max-width: 90vw;
+            margin: 0 auto;
+            padding: 10px;
+            background-color: white;
+            color: black;
+            font-size: 14px;
+        }
+        .instructions {
+            text-align: center;
+            margin-bottom: 15px;
+            font-style: italic;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+        .question {
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 100px;
+            border-bottom: 1px solid black;
+            margin: 0 3px;
+        }
+        .emoji {
+            font-size: 16px;
+            margin-right: 5px;
+        }
+        .keyword-list {
+            margin-top: 15px;
+            border-top: 1px dashed #999;
+            padding-top: 10px;
+            margin-bottom: 15px;
+        }
+        .keyword-list h3 {
+            margin: 0 0 5px 0;
+            font-size: 14px;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .keyword {
+            display: inline-block;
+            margin: 3px 5px;
+            padding: 3px 8px;
+            border: 1px solid #999;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+        .two-column {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .two-column .question {
+            width: 48%;
+            padding-right: 2%;
+        }
+        .last {
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+        .signature-area {
+            margin-top: 25px;
+            margin-bottom: 25px;
+        }
+        .signature-line {
+            display: inline-block;
+            min-width: 150px;
+            border-bottom: 1px solid black;
+
+        }
+        .date-line {
+            display: inline-block;
+            min-width: 100px;
+            border-bottom: 1px solid black;
+            margin: 0 10px;
+        }
+        @media print {
+            body {
+                padding: 0;
+                font-size: 10pt;
+            }
+            .no-print {
+                display: none;
+            }
+            .question {
+                margin-bottom: 8px;
+            }
+            .last {
+                margin-top: 15px;
+            }
+            .signature-area {
+                margin-top: 20px;
+                margin-bottom: 20px;
+            }
+        }
+        .print-button {
+            display: block;
+            margin: 15px auto;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="quiz" class="two-column">
+        <div class="question">1. <span class="emoji">🧥</span> <span class="blank"></span> should be in the cupboard under the table</div>
+        <div class="question">2. <span class="emoji">🏃</span> Never <span class="blank"></span> in the D&T room</div>
+        <div class="question">3. <span class="emoji">✂️</span> Be very careful when carrying and using <span class="blank"></span></div>
+        <div class="question">4. <span class="emoji">🧠</span> Keep <span class="blank"></span> and <span class="blank"></span> on what you are doing at all times</div>
+        <div class="question">5. <span class="emoji">👂</span> When teacher is talking, always <span class="blank"></span> and pay attention quietly.</div>
+        <div class="question">6. <span class="emoji">❓</span> <span class="blank"></span> any equipment if you don't know how to use it</div>
+        <div class="question">7. <span class="emoji">🙋</span> Do not use any equipment without teacher's <span class="blank"></span></div>
+        <div class="question">8. <span class="emoji">1️⃣</span> <span class="blank"></span> at a time can use a machine</div>
+        <div class="question">9. <span class="emoji">🤫</span> <span class="blank"></span> anyone who is using a machine or any other equipment</div>
+        <div class="question">10. <span class="emoji">🛑</span> <span class="blank"></span> immediately if your teacher asks you to stop</div>
+    </div>
+    
+    <div class="keyword-list">
+        <h3>Keywords:</h3>
+        <div class="keywords-container">
+            <div class="keyword">COATS AND BAGS</div>
+            <div class="keyword">RUN</div>
+            <div class="keyword">QUIET</div>
+            <div class="keyword">SHARP EQUIPMENT</div>
+            <div class="keyword">PAY ATTENTION</div>
+            <div class="keyword">DO NOT USE</div>
+            <div class="keyword">PERMISSION</div>
+            <div class="keyword">ONE PERSON</div>
+            <div class="keyword">DO NOT DISTRACT</div>
+            <div class="keyword">STOP</div>
+        </div>
+    </div>
+
+    <div class="last">My name is <span class="signature-line"></span><span class="signature-line"></span>. I am aware that everyone working at D4 design workshop will have to follow the mentioned rules<br> <br> to ensure a safe environment for working and learning. I will be designing a <span class="signature-line"></span><span class="signature-line"></span> this term.</div>
+    
+    <div class="signature-area">
+        <span class="signature-line"></span> (sign)
+        <span class="date-line"></span> (date)
+    </div>
+        
+    <button class="print-button no-print" onclick="window.print()">Print Quiz</button>
+</body>
+</html>
