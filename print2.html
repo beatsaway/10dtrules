@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill in the Blank DT Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .exercise-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .instructions {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .sentence {
+            margin: 15px 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 150px;
+            border-bottom: 2px dashed #ccc;
+            margin: 0 3px;
+            min-height: 18px;
+            text-align: center;
+            padding: 2px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .blank.hover {
+            background-color: #f0f0f0;
+        }
+        .blank.filled {
+            border-bottom-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        .draggable {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: grab;
+            background-color: #fff;
+            user-select: none;
+        }
+        .draggable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .draggable.used {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button.reset {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fill in the Blank DT Exercise</h1>
+    <div class="exercise-container">
+        <div class="instructions">
+            Drag and drop the correct keywords into the blank slots to complete each sentence. You can click on a blank to clear it and reuse the keyword.
+        </div>
+        <div id="exercise">
+            <div class="sentence">
+                Line up quietly in single <span class="blank" data-id="1"></span> outside D4.
+            </div>
+            <div class="sentence">
+                Take out your <span class="blank" data-id="2"></span> and DT book.
+            </div>
+            <div class="sentence">
+                Enter the room quietly and <span class="blank" data-id="3"></span>.
+            </div>
+            <div class="sentence">
+                Bags tucked under tables in <span class="blank" data-id="4"></span>.
+            </div>
+            <div class="sentence">
+                Write down the lesson <span class="blank" data-id="5"></span>, objective, outcome, and <span class="blank" data-id="6"></span> quietly.
+            </div>
+        </div>
+        <div class="keywords-container">
+            <div class="draggable" draggable="true" data-keyword="file">file</div>
+            <div class="draggable" draggable="true" data-keyword="stationery">stationery</div>
+            <div class="draggable" draggable="true" data-keyword="sensibly">sensibly</div>
+            <div class="draggable" draggable="true" data-keyword="cupboard">cupboard</div>
+            <div class="draggable" draggable="true" data-keyword="title">title</div>
+            <div class="draggable" draggable="true" data-keyword="homework">homework</div>
+        </div>
+    </div>
+    <div class="action-buttons">
+        <button class="reset" onclick="resetExercise()">Reset</button>
+    </div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const blanks = document.querySelectorAll('.blank');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        blanks.forEach(blank => {
+            blank.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                blank.classList.add('hover');
+            });
+
+            blank.addEventListener('dragleave', () => {
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                if (!dragging) return;
+
+                // If the blank is already filled, do nothing
+                if (blank.classList.contains('filled')) return;
+
+                blank.textContent = dragging.textContent;
+                blank.classList.add('filled');
+                dragging.classList.add('used');
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('click', () => {
+                if (blank.textContent.trim() !== '') {
+                    const keyword = blank.textContent.trim();
+                    const draggable = Array.from(draggables).find(d => d.textContent === keyword);
+                    if (draggable) draggable.classList.remove('used');
+                    blank.textContent = '';
+                    blank.classList.remove('filled');
+                }
+            });
+        });
+
+        function resetExercise() {
+            blanks.forEach(blank => {
+                blank.textContent = '';
+                blank.classList.remove('filled');
+            });
+            draggables.forEach(draggable => {
+                draggable.classList.remove('used');
+            });
+        }
+    </script>
+</body>
+</html>
