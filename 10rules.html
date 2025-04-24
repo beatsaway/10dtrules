@@ -3,199 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safety Quiz</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Learning Resources</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
-            max-width: 1200px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-            background: linear-gradient(135deg, #6e48aa, #9d50bb);
-            color: #fff;
         }
+        
         h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 2em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 9px;
-        }
-        .keywords {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
+            font-weight: 300;
+            font-size: 24px;
             margin-bottom: 30px;
+            color: #222;
+            text-align: center;
         }
-        .keyword {
-            background-color: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+        
+        .link-list {
+            display: grid;
+            gap: 15px;
+        }
+        
+        .link-item {
+            background-color: white;
+            border-radius: 3px;
             padding: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 1.2em;
-            text-align: center;
-            width: 150px;
-        }
-        .keyword:hover {
-            background-color: rgba(255, 255, 255, 0.3);
-        }
-        .keyword.correct {
-            background-color: #4CAF50;
-        }
-        .keyword.incorrect {
-            background-color: #f44336;
-        }
-        .emoji {
-            font-size: 3em;
             display: block;
-            margin-bottom: 10px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #eaeaea;
+            transition: all 0.2s ease;
         }
-        .question {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            font-size: 2em;
-            line-height: 1.4;
+        
+        .link-item:hover {
+            background-color: #f9f9f9;
+            border-color: #ddd;
+        }
+        
+        .link-item h2 {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 5px 0;
+        }
+        
+        .link-item p {
+            font-size: 14px;
+            margin: 0;
+            color: #666;
+        }
+        
+        footer {
             text-align: center;
-        }
-        .blank {
-            display: inline-block;
-            min-width: 200px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.3);
-            vertical-align: middle;
-        }
-        #nextButton {
-            display: none;
-            margin: 20px auto;
-            padding: 10px 20px;
-            font-size: 1.2em;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #scoreDisplay {
-            text-align: center;
-            font-size: 1.5em;
-            margin-top: 20px;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #999;
         }
     </style>
 </head>
 <body>
-    <h1>🛡️  Safety  Quiz 🛡️</h1>
-    <div id="keywords" class="keywords"></div>
-    <div id="quiz"></div>
-    <button id="nextButton">Next Question</button>
-    <div id="scoreDisplay"></div>
-
-    <script>
-        const safetyRules = [
-            { emoji: "🧥", keyword: "COATS AND BAGS", rule: "_____ should be in the cupboard under the table" },
-            { emoji: "🏃", keyword: "RUN", rule: "Never _____ in the D&T room" },
-            { emoji: "✂️", keyword: "SHARP EQUIPMENT", rule: "Be very careful when carrying and using _____" },
-            { emoji: "🧠", keyword: "CONCENTRATE", rule: "_____ on what you are doing at all times" },
-            { emoji: "👂", keyword: "PAY ATTENTION", rule: "Always _____ to the teacher's instructions" },
-            { emoji: "❓", keyword: "DO NOT USE", rule: "_____ any equipment if you don't know how to use it" },
-            { emoji: "🙋", keyword: "PERMISSION", rule: "Do not use any equipment without teacher's _____" },
-            { emoji: "1️⃣", keyword: "ONE PERSON", rule: "_____ at a time can use a machine" },
-            { emoji: "🤫", keyword: "DO NOT DISTRACT", rule: "_____ anyone who is using a machine or any other equipment" },
-            { emoji: "🛑", keyword: "STOP", rule: "_____ immediately if your teacher asks you to stop" }
-        ];
-
-        let currentQuestion = 0;
-        let score = 0;
-        let answered = false;
-        let questionOrder = [];
-        let quizCompleted = false;
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        function displayKeywords() {
-            const keywordsDiv = document.getElementById('keywords');
-            keywordsDiv.innerHTML = '';
-            safetyRules.forEach((item, index) => {
-                const keywordSpan = document.createElement('span');
-                keywordSpan.className = 'keyword';
-                keywordSpan.innerHTML = `<span class="emoji">${item.emoji}</span>${item.keyword}`;
-                keywordSpan.onclick = () => quizCompleted ? showRule(index) : checkAnswer(index);
-                keywordsDiv.appendChild(keywordSpan);
-            });
-        }
-
-        function displayQuestion() {
-            if (currentQuestion >= safetyRules.length) {
-                showResult();
-                return;
-            }
-            const quizDiv = document.getElementById('quiz');
-            const questionIndex = questionOrder[currentQuestion];
-            quizDiv.innerHTML = `<div class="question">${safetyRules[questionIndex].rule.replace('_____', '<span class="blank"></span>')}</div>`;
-            answered = false;
-            document.getElementById('nextButton').style.display = 'none';
-            updateScoreDisplay();
-        }
-
-        function checkAnswer(index) {
-            if (answered) return;
-            const keywordSpans = document.querySelectorAll('.keyword');
-            if (index === questionOrder[currentQuestion]) {
-                keywordSpans[index].classList.add('correct');
-                score++;
-                answered = true;
-                document.getElementById('nextButton').style.display = 'block';
-            } else {
-                keywordSpans[index].classList.add('incorrect');
-                score--;  // Allow score to go negative
-                setTimeout(() => keywordSpans[index].classList.remove('incorrect'), 1000);
-            }
-            updateScoreDisplay();
-        }
-
-        function nextQuestion() {
-            const keywordSpans = document.querySelectorAll('.keyword');
-            keywordSpans.forEach(span => span.classList.remove('correct'));
-            currentQuestion++;
-            displayQuestion();
-        }
-
-        function showResult() {
-            quizCompleted = true;
-            const quizDiv = document.getElementById('quiz');
-            quizDiv.innerHTML = '<div class="question">Quiz completed! Click on any keyword to see its rule.</div>';
-            document.getElementById('nextButton').style.display = 'none';
-            const keywordSpans = document.querySelectorAll('.keyword');
-            keywordSpans.forEach(span => span.classList.add('correct'));
-            updateScoreDisplay();
-        }
-
-        function showRule(index) {
-            const quizDiv = document.getElementById('quiz');
-            quizDiv.innerHTML = `<div class="question">${safetyRules[index].rule.replace('_____', safetyRules[index].keyword)}</div>`;
-        }
-
-        function updateScoreDisplay() {
-            const scoreDisplay = document.getElementById('scoreDisplay');
-            scoreDisplay.textContent = `Score: ${score}/10`;
-        }
-
-        // Initialize the quiz
-        questionOrder = [...Array(safetyRules.length).keys()];
-        shuffleArray(questionOrder);
-        displayKeywords();
-        displayQuestion();
-
-        document.getElementById('nextButton').addEventListener('click', nextQuestion);
-    </script>
+    <div class="container">
+        <h1>Learning Resources</h1>
+        
+        <div class="link-list">
+            
+            <a href="print2.html" class="link-item">
+                <h2>Classroom Entry</h2>
+                <p>Fill-in-the-blank exercise</p>
+            </a>
+            <a href="print.html" class="link-item">
+                <h2>Health & Safety</h2>
+                <p>Fill-in-the-blank exercise</p>
+            </a>
+            
+            
+            <a href="10rules.html" class="link-item">
+                <h2>Health & Safety</h2>
+                <p>Online quiz</p>
+            </a>
+            
+            <a href="L2_iterative_design.html" class="link-item">
+                <h2>Iterative Design</h2>
+                <p>Fill-in-the-blank exercise</p>
+            </a>
+        </div>
+        
+        <footer>
+            <p>tortorken education© 2025</p>
+        </footer>
+    </div>
 </body>
 </html>
