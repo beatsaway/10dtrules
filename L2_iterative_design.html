@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,9 +95,69 @@
         button.reset {
             background-color: #f44336;
         }
+        /* New styles for video sections */
+        .video-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .discussion-question {
+            font-size: 18px;
+            color: #333;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .question-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- New Video Sections -->
+    <div class="video-section">
+        <div class="sentence">
+            <strong>Historical Examples of Iterative Design:</strong>
+        </div>
+        
+        <!-- First Video -->
+        <div class="discussion-question">What is missing in early aeroplane designs?</div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/hrXDNtFjmoE?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Second Video -->
+        <div class="discussion-question">What is missing in early toilet designs?</div>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/gJODPrCtXF4?start=16" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <!-- Additional Discussion Questions -->
+        <div class="discussion-question">Open Discussion Questions:</div>
+        <div class="question-text">If you time travel to the past, could you build a 2025 aeroplane or toilet? Why?</div>
+        <div class="question-text">How did we get from the past to 2025?</div>
+    </div>
+
+
         <div id="exercise">
             <div class="sentence">
                 <strong>Why Iterative Design Matters:</strong>
@@ -116,13 +175,13 @@
                 <strong>Why Understanding Users is Important:</strong>
             </div>
             <div class="sentence">
-                Users don’t always know exactly what they <span class="blank" data-id="4"></span>.
+                Users don't always know exactly what they <span class="blank" data-id="4"></span>.
             </div>
             <div class="sentence">
                 A good design solves their <span class="blank" data-id="5"></span>.
             </div>
             <div class="sentence">
-                A great design surprises them by giving them something they didn’t even know they <span class="blank" data-id="6"></span>.
+                A great design surprises them by giving them something they didn't even know they <span class="blank" data-id="6"></span>.
             </div>
         </div>
         <div class="keywords-container">
@@ -135,6 +194,7 @@
             <div class="draggable" draggable="true" data-keyword="needed">needed</div>
         </div>
     </div>
+
     <div class="action-buttons">
         <button class="reset" onclick="resetExercise()">Reset</button>
     </div>
