@@ -3,116 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classroom Safety Quizzes</title>
+    <title>Learning Resources</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
+            padding: 40px 20px;
+            background-color: #f7f7f7;
             color: #333;
+            line-height: 1.5;
         }
         
         .container {
-            width: 80%;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-            padding: 20px;
-        }
-        
-        header {
-            background-color: #3498db;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 2rem;
         }
         
         h1 {
-            margin: 0;
+            font-weight: 300;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #222;
+            text-align: center;
         }
         
-        .quiz-links {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .link-list {
+            display: grid;
+            gap: 15px;
         }
         
-        .quiz-card {
+        .link-item {
             background-color: white;
-            border-radius: 5px;
-            padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .quiz-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .quiz-card h2 {
-            color: #2980b9;
-            margin-top: 0;
-        }
-        
-        .quiz-card p {
-            margin-bottom: 20px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #3498db;
-            color: white;
+            border-radius: 3px;
+            padding: 15px;
+            display: block;
             text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            color: #333;
+            border: 1px solid #eaeaea;
+            transition: all 0.2s ease;
         }
         
-        .btn:hover {
-            background-color: #2980b9;
+        .link-item:hover {
+            background-color: #f9f9f9;
+            border-color: #ddd;
+        }
+        
+        .link-item h2 {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 0 0 5px 0;
+        }
+        
+        .link-item p {
+            font-size: 14px;
+            margin: 0;
+            color: #666;
         }
         
         footer {
             text-align: center;
-            margin-top: 2rem;
-            padding: 1rem;
-            color: #777;
+            margin-top: 40px;
+            font-size: 12px;
+            color: #999;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>Classroom Safety Quizzes</h1>
-        </header>
+        <h1>Learning Resources</h1>
         
-        <div class="quiz-links">
-            <div class="quiz-card">
-                <h2>Safety Rules Fill-in-the-Blank Quiz</h2>
-                <p>Test your knowledge of important safety rules with this fill-in-the-blank quiz.</p>
-                <a href="print.html" class="btn">Start Quiz</a>
-            </div>
+        <div class="link-list">
             
-            <div class="quiz-card">
-                <h2>Classroom Entry Fill-in-the-Blank Quiz</h2>
-                <p>Review proper classroom entry procedures with this fill-in-the-blank quiz.</p>
-                <a href="print2.html" class="btn">Start Quiz</a>
-            </div>
+            <a href="print2.html" class="link-item">
+                <h2>Classroom Entry</h2>
+                <p>Fill-in-the-blank exercise</p>
+            </a>
+            <a href="print.html" class="link-item">
+                <h2>Health & Safety</h2>
+                <p>Fill-in-the-blank exercise</p>
+            </a>
             
-            <div class="quiz-card">
-                <h2>10 Health and Safety Rules Quiz</h2>
-                <p>Take this online quiz to test your knowledge of the 10 essential health and safety rules.</p>
-                <a href="10rules.html" class="btn">Start Quiz</a>
-            </div>
+            
+            <a href="10rules.html" class="link-item">
+                <h2>Health & Safety</h2>
+                <p>Online quiz</p>
+            </a>
+            
+            <a href="L2_iterative_design.html" class="link-item">
+                <h2>Iterative Design</h2>
+                <p>Fill-in-the-blank exercise</p>
+            </a>
         </div>
         
         <footer>
-            <p>&copy; 2025 Classroom Safety Training</p>
+            <p>tortorken education© 2025</p>
         </footer>
     </div>
 </body>
