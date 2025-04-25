@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&T Workshop Safety Rules</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .design-brief {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .design-brief h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 0.5rem;
+        }
+
+        .design-brief p {
+            color: #34495e;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+            padding-left: 1rem;
+            border-left: 3px solid #f0f0f0;
+        }
+
+        .design-brief p:last-child {
+            margin-bottom: 0;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin: 2rem 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #3498db;
+            margin: 0.5rem auto;
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .rule-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .rule-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .rule-content {
+            margin-bottom: 1rem;
+        }
+
+        .rule-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .rule-title {
+            color: #2c3e50;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .rule-description {
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        .rule-poster {
+            width: 100%;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .rule-poster:hover {
+            transform: scale(1.02);
+        }
+
+        .additional-examples {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .additional-examples h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+
+        .poster-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+        }
+
+        .poster-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .poster-item:hover {
+            transform: scale(1.02);
+        }
+
+        .poster-image {
+            width: 100%;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .poster-caption {
+            margin-top: 0.5rem;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .poster-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="design-brief">
+            <h2>Design Brief</h2>
+            <p>To remind all students in D&T workshop the importance of health and safety standard, please design a poster about 1 to 2 safety rules on a plain page of your DT book or on an A4 paper.</p>
+            <p>You are encouraged to use visuals and typography in styles that appeal to young people as they are the target users of these posters.</p>
+            <p>Selected posters will be scanned, printed, and used in the workshop.</p>
+            <p>You can have a look at some of the examples below.</p>
+        </div>
+
+        <h2 class="section-title">Healthy and Safety Rules</h2>
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">🧥</div>
+                    <h2 class="rule-title">Coats and Bags</h2>
+                    <p class="rule-description">All coats and bags should be stored in the cupboard under the table to maintain a clean and safe workspace.</p>
+                </div>
+                <img src="pasted_images1.jpg" alt="Coats and bags storage rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">🏃</div>
+                    <h2 class="rule-title">No Running</h2>
+                    <p class="rule-description">Never run in the D&T room. Walking helps maintain a safe environment for everyone.</p>
+                </div>
+                <img src="pasted_images14.jpg" alt="No running rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">✂️</div>
+                    <h2 class="rule-title">Sharp Equipment</h2>
+                    <p class="rule-description">Be very careful when carrying and using sharp equipment. Handle with care and focus.</p>
+                </div>
+                <img src="pasted_images2.jpg" alt="Sharp equipment safety" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">🧠</div>
+                    <h2 class="rule-title">Stay Focused</h2>
+                    <p class="rule-description">Keep quiet and pay attention to what you're doing at all times.</p>
+                </div>
+                <img src="pasted_images7.jpg" alt="Stay focused rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">👂</div>
+                    <h2 class="rule-title">Listen to Teacher</h2>
+                    <p class="rule-description">When the teacher is talking, always listen and pay attention quietly.</p>
+                </div>
+                <img src="pasted_images6.jpg" alt="Listen to teacher rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">❓</div>
+                    <h2 class="rule-title">Equipment Knowledge</h2>
+                    <p class="rule-description">Do not use any equipment if you don't know how to use it. Ask for help!</p>
+                </div>
+                <img src="pasted_images11.jpg" alt="Equipment knowledge rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">🙋</div>
+                    <h2 class="rule-title">Teacher's Permission</h2>
+                    <p class="rule-description">Always get teacher's permission before using any equipment.</p>
+                </div>
+                <img src="pasted_images5.jpg" alt="Teacher's permission rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">1️⃣</div>
+                    <h2 class="rule-title">One at a Time</h2>
+                    <p class="rule-description">Only one person at a time can use a machine.</p>
+                </div>
+                <img src="pasted_images12.jpg" alt="One person at a time rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">🤫</div>
+                    <h2 class="rule-title">No Distractions</h2>
+                    <p class="rule-description">Do not distract anyone who is using a machine or any other equipment.</p>
+                </div>
+                <img src="pasted_images4.jpg" alt="No distractions rule" class="rule-poster">
+            </div>
+
+            <div class="rule-card">
+                <div class="rule-content">
+                    <div class="rule-icon">🛑</div>
+                    <h2 class="rule-title">Stop When Asked</h2>
+                    <p class="rule-description">Stop immediately if your teacher asks you to stop.</p>
+                </div>
+                <img src="pasted_images13.jpg" alt="Stop when asked rule" class="rule-poster">
+            </div>
+        </div>
+
+        <div class="additional-examples">
+            <h3>Additional Example Designs</h3>
+            <div class="poster-gallery">
+                <div class="poster-item">
+                    <img src="pasted_images15.jpg" alt="Never run in workshop" class="poster-image">
+                    <p class="poster-caption">Never Run (Alternative Design)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="pasted_images8.jpg" alt="D&T Room Safety Rules" class="poster-image">
+                    <p class="poster-caption">D&T Room Rules Overview</p>
+                </div>
+                <div class="poster-item">
+                    <img src="pasted_images9.jpg" alt="Keep quiet poster" class="poster-image">
+                    <p class="poster-caption">Keep Quiet and Pay Attention</p>
+                </div>
+                <div class="poster-item">
+                    <img src="pasted_images3.jpg" alt="Keep quiet and focused" class="poster-image">
+                    <p class="poster-caption">Stay Focused (Alternative Design)</p>
+                </div>
+                <div class="poster-item">
+                    <img src="pasted_images10.jpg" alt="Listen when teacher talks" class="poster-image">
+                    <p class="poster-caption">Listen to Teacher (Alternative Design)</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Remember: Safety First in the D&T Workshop!</p>
+        </footer>
+    </div>
+</body>
+</html> 
