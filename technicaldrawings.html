@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perspective Drag and Drop Exercise</title>
+    <title>Perspective and Isometric Projection Drag and Drop Exercise</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             padding: 20px;
             background-color: #f5f5f5;
         }
-        h1 {
+        h1, h2 {
             text-align: center;
             color: #333;
             margin-bottom: 15px;
@@ -22,6 +22,7 @@
             border-radius: 10px;
             padding: 15px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         .instructions {
             margin-bottom: 15px;
@@ -117,12 +118,8 @@
 <body>
     <h1>Perspective Drag and Drop Exercise</h1>
     <div class="exercise-container">
-        <div id="exercise">
-            <div class="section">
-                <div class="sentence">
-                    Perspective is about how we <span class="blank" data-id="1" data-correct="see"></span> things.
-                </div>
-            </div>
+        <div id="exercise1">
+     
             
             <div class="section">
                 <div class="sentence">
@@ -164,8 +161,56 @@
         </div>
     </div>
     <div class="action-buttons">
-        <button class="check" onclick="checkAnswers()">Check Answers</button>
-        <button class="reset" onclick="resetExercise()">Reset</button>
+        <button class="check" onclick="checkAnswers('exercise1')">Check Answers</button>
+        <button class="reset" onclick="resetExercise('exercise1')">Reset</button>
+    </div>
+
+
+    <div class="exercise-container">
+        <div id="exercise2">
+            <div class="section">
+                <div class="sentence">
+                    <b>Isometric projection</b> has <span class="blank" data-id="13" data-correct="zero"></span> vanishing points.
+                </div>
+                <div class="sentence">
+                    Things <span class="blank" data-id="14" data-correct="don't"></span> get smaller if they are <span class="blank" data-id="15" data-correct="further"></span> away.
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="sentence">
+                    It draws a subject's top, left, and right sides <span class="blank" data-id="16" data-correct="isometrically"></span>.
+                </div>
+                <div class="sentence">
+                    The base lines of the left and right sides are <span class="blank" data-id="17" data-correct="mirroring"></span> each other, forming an <span class="blank" data-id="18" data-correct="arrow"></span> with the vertical axis.
+                </div>
+                <div class="sentence">
+                    Either the left or right side can become the <span class="blank" data-id="19" data-correct="front"></span> view in oblique.
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="sentence">
+                    After drawing lines from corners of the front shape to the back at a <span class="blank" data-id="20" data-correct="30"></span> degree angle from the <span class="blank" data-id="21" data-correct="horizontal"></span> line, we draw lines <span class="blank" data-id="22" data-correct="parallel"></span> to lines of the front shape for the base layer.
+                </div>
+            </div>
+        </div>
+        <div class="keywords-container">
+            <div class="draggable" draggable="true" data-keyword="zero">zero</div>
+            <div class="draggable" draggable="true" data-keyword="don't">don't</div>
+            <div class="draggable" draggable="true" data-keyword="further">further</div>
+            <div class="draggable" draggable="true" data-keyword="isometrically">isometrically</div>
+            <div class="draggable" draggable="true" data-keyword="mirroring">mirroring</div>
+            <div class="draggable" draggable="true" data-keyword="arrow">arrow</div>
+            <div class="draggable" draggable="true" data-keyword="front">front</div>
+            <div class="draggable" draggable="true" data-keyword="30">30</div>
+            <div class="draggable" draggable="true" data-keyword="horizontal">horizontal</div>
+            <div class="draggable" draggable="true" data-keyword="parallel">parallel</div>
+        </div>
+    </div>
+    <div class="action-buttons">
+        <button class="check" onclick="checkAnswers('exercise2')">Check Answers</button>
+        <button class="reset" onclick="resetExercise('exercise2')">Reset</button>
     </div>
 
     <script>
@@ -210,8 +255,12 @@
             blank.addEventListener('click', () => {
                 if (blank.textContent.trim() !== '') {
                     const keyword = blank.textContent.trim();
-                    const draggable = Array.from(draggables).find(d => d.textContent === keyword);
-                    if (draggable) draggable.classList.remove('used');
+                    const draggables = document.querySelectorAll('.draggable');
+                    draggables.forEach(draggable => {
+                        if (draggable.textContent === keyword) {
+                            draggable.classList.remove('used');
+                        }
+                    });
                     blank.textContent = '';
                     blank.classList.remove('filled');
                     blank.classList.remove('incorrect');
@@ -219,8 +268,9 @@
             });
         });
 
-        function checkAnswers() {
-            blanks.forEach(blank => {
+        function checkAnswers(exerciseId) {
+            const exerciseBlanks = document.querySelectorAll(`#${exerciseId} .blank`);
+            exerciseBlanks.forEach(blank => {
                 if (blank.textContent.trim() !== '') {
                     const isCorrect = blank.textContent.trim() === blank.dataset.correct;
                     if (!isCorrect) {
@@ -232,14 +282,21 @@
             });
         }
 
-        function resetExercise() {
-            blanks.forEach(blank => {
-                blank.textContent = '';
-                blank.classList.remove('filled');
-                blank.classList.remove('incorrect');
-            });
-            draggables.forEach(draggable => {
-                draggable.classList.remove('used');
+        function resetExercise(exerciseId) {
+            const exerciseBlanks = document.querySelectorAll(`#${exerciseId} .blank`);
+            exerciseBlanks.forEach(blank => {
+                if (blank.textContent.trim() !== '') {
+                    const keyword = blank.textContent.trim();
+                    const draggables = document.querySelectorAll('.draggable');
+                    draggables.forEach(draggable => {
+                        if (draggable.textContent === keyword) {
+                            draggable.classList.remove('used');
+                        }
+                    });
+                    blank.textContent = '';
+                    blank.classList.remove('filled');
+                    blank.classList.remove('incorrect');
+                }
             });
         }
     </script>
