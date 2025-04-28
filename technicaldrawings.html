@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspective Drag and Drop Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .exercise-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .instructions {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        .section {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .sentence {
+            margin: 8px 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 2px dashed #ccc;
+            margin: 0 3px;
+            min-height: 18px;
+            text-align: center;
+            padding: 1px 2px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .blank.hover {
+            background-color: #f0f0f0;
+        }
+        .blank.filled {
+            border-bottom-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        .blank.incorrect {
+            border-bottom-color: #f44336;
+            background-color: #ffebee;
+            color: #f44336;
+        }
+        .draggable {
+            display: inline-block;
+            margin: 4px;
+            padding: 6px 10px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: grab;
+            background-color: #fff;
+            user-select: none;
+        }
+        .draggable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .draggable.used {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px auto 5px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button.reset {
+            background-color: #f44336;
+        }
+        button.check {
+            background-color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Perspective Drag and Drop Exercise</h1>
+    <div class="exercise-container">
+        <div id="exercise">
+            <div class="section">
+                <div class="sentence">
+                    Perspective is about how we <span class="blank" data-id="1" data-correct="see"></span> things.
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="sentence">
+                    <b>One point perspective</b> has <span class="blank" data-id="2" data-correct="one"></span> vanishing point.
+                </div>
+                <div class="sentence">
+                    Things get <span class="blank" data-id="3" data-correct="smaller"></span> and vanish at the vanishing point because it's too <span class="blank" data-id="4" data-correct="far"></span> to see.
+                </div>
+                <div class="sentence">
+                    After connecting <span class="blank" data-id="5" data-correct="corners"></span> of the front shape to VP, we draw lines <span class="blank" data-id="6" data-correct="parallel"></span> to lines of the front shape for the <span class="blank" data-id="7" data-correct="back"></span> layer.
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="sentence">
+                    <b>Oblique projection</b> has <span class="blank" data-id="8" data-correct="zero"></span> vanishing points.
+                </div>
+                <div class="sentence">
+                    Things <span class="blank" data-id="9" data-correct="don't"></span> get smaller if they are <span class="blank" data-id="10" data-correct="further"></span> away.
+                </div>
+                <div class="sentence">
+                    After drawing lines from corners of the front shape to <span class="blank" data-id="11" data-correct="top-right"></span> direction at <span class="blank" data-id="12" data-correct="45"></span> degree angle, we draw lines parallel to lines of the front shape for the base layer.
+                </div>
+            </div>
+        </div>
+        <div class="keywords-container">
+            <div class="draggable" draggable="true" data-keyword="see">see</div>
+            <div class="draggable" draggable="true" data-keyword="one">one</div>
+            <div class="draggable" draggable="true" data-keyword="smaller">smaller</div>
+            <div class="draggable" draggable="true" data-keyword="far">far</div>
+            <div class="draggable" draggable="true" data-keyword="corners">corners</div>
+            <div class="draggable" draggable="true" data-keyword="parallel">parallel</div>
+            <div class="draggable" draggable="true" data-keyword="back">back</div>
+            <div class="draggable" draggable="true" data-keyword="zero">zero</div>
+            <div class="draggable" draggable="true" data-keyword="don't">don't</div>
+            <div class="draggable" draggable="true" data-keyword="further">further</div>
+            <div class="draggable" draggable="true" data-keyword="top-right">top-right</div>
+            <div class="draggable" draggable="true" data-keyword="45">45</div>
+        </div>
+    </div>
+    <div class="action-buttons">
+        <button class="check" onclick="checkAnswers()">Check Answers</button>
+        <button class="reset" onclick="resetExercise()">Reset</button>
+    </div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const blanks = document.querySelectorAll('.blank');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        blanks.forEach(blank => {
+            blank.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                blank.classList.add('hover');
+            });
+
+            blank.addEventListener('dragleave', () => {
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                if (!dragging) return;
+
+                // If the blank is already filled, do nothing
+                if (blank.classList.contains('filled')) return;
+
+                blank.textContent = dragging.textContent;
+                blank.classList.add('filled');
+                blank.classList.remove('incorrect'); // Remove any previous incorrect marking
+                dragging.classList.add('used');
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('click', () => {
+                if (blank.textContent.trim() !== '') {
+                    const keyword = blank.textContent.trim();
+                    const draggable = Array.from(draggables).find(d => d.textContent === keyword);
+                    if (draggable) draggable.classList.remove('used');
+                    blank.textContent = '';
+                    blank.classList.remove('filled');
+                    blank.classList.remove('incorrect');
+                }
+            });
+        });
+
+        function checkAnswers() {
+            blanks.forEach(blank => {
+                if (blank.textContent.trim() !== '') {
+                    const isCorrect = blank.textContent.trim() === blank.dataset.correct;
+                    if (!isCorrect) {
+                        blank.classList.add('incorrect');
+                    } else {
+                        blank.classList.remove('incorrect');
+                    }
+                }
+            });
+        }
+
+        function resetExercise() {
+            blanks.forEach(blank => {
+                blank.textContent = '';
+                blank.classList.remove('filled');
+                blank.classList.remove('incorrect');
+            });
+            draggables.forEach(draggable => {
+                draggable.classList.remove('used');
+            });
+        }
+    </script>
+</body>
+</html>
