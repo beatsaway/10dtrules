@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hazard Matching Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+
+    .list {
+      width: 30%;
+      min-height: 300px;
+      border: 2px dashed #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .list h2 {
+      margin-bottom: 10px;
+    }
+
+    .draggable {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 5px;
+      text-align: center;
+      cursor: grab;
+    }
+
+    .draggable:active {
+      cursor: grabbing;
+    }
+
+    .list .placeholder {
+      color: #aaa;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Hazard Matching Game</h1>
+<p>Drag and drop the risks and control measures to match the hazards.</p>
+
+<div class="container">
+  <!-- Hazards List -->
+  <div class="list" id="hazards">
+    <h2>Hazards</h2>
+    <div class="draggable" draggable="true" id="hazard-1">Sharp Tools</div>
+    <div class="draggable" draggable="true" id="hazard-2">Sanding Machines</div>
+    <div class="draggable" draggable="true" id="hazard-3">Pillar Drills</div>
+    <div class="draggable" draggable="true" id="hazard-4">Hot Glue Guns</div>
+    <div class="draggable" draggable="true" id="hazard-5">Scroll Saws</div>
+  </div>
+
+  <!-- Risks List -->
+  <div class="list" id="risks">
+    <h2>Risks</h2>
+    <div class="draggable" draggable="true" id="risk-1">Cuts or lacerations</div>
+    <div class="draggable" draggable="true" id="risk-2">Abrasions or inhalation of dust</div>
+    <div class="draggable" draggable="true" id="risk-3">Puncture wounds or flying debris</div>
+    <div class="draggable" draggable="true" id="risk-4">Burns from hot adhesive</div>
+    <div class="draggable" draggable="true" id="risk-5">Cuts or material splinters</div>
+  </div>
+
+  <!-- Control Measures List -->
+  <div class="list" id="controls">
+    <h2>Control Measures</h2>
+    <div class="draggable" draggable="true" id="control-1">Use cutting mats and proper technique</div>
+    <div class="draggable" draggable="true" id="control-2">Wear goggles and dust masks</div>
+    <div class="draggable" draggable="true" id="control-3">Use guards and secure workpieces</div>
+    <div class="draggable" draggable="true" id="control-4">Use heat-resistant mats and supervise use</div>
+    <div class="draggable" draggable="true" id="control-5">Use sharp blades and blade guards</div>
+  </div>
+</div>
+
+<script>
+  const draggables = document.querySelectorAll('.draggable');
+  const lists = document.querySelectorAll('.list');
+
+  draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => {
+      draggable.classList.add('dragging');
+    });
+
+    draggable.addEventListener('dragend', () => {
+      draggable.classList.remove('dragging');
+    });
+  });
+
+  lists.forEach(list => {
+    list.addEventListener('dragover', e => {
+      e.preventDefault();
+      const draggingItem = document.querySelector('.dragging');
+      list.appendChild(draggingItem);
+    });
+  });
+</script>
+
+</body>
+</html>
