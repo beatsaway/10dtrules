@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,6 +42,7 @@
       margin: 5px;
       text-align: center;
       cursor: grab;
+      position: relative;
     }
 
     .draggable:active {
@@ -54,90 +56,197 @@
       cursor: not-allowed;
     }
 
-    .placeholder {
-      color: #aaa;
-      margin-top: 20px;
+    /* Popup styling */
+    .popup {
+      display: none;
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 1px solid #ccc;
+      background: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 200px;
+      z-index: 10;
       text-align: center;
+    }
+
+    .popup img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+
+    .popup::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 10px;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+    }
+
+    .draggable:hover .popup {
+      display: block;
     }
   </style>
 </head>
 <body>
 
-<h1>Hazard Matching Game</h1>
-<p>Rearrange the risks and control measures within their lists to match the hazards in the correct order.</p>
-
+<h2>Matching Hazard with Risk and Control Measures</h2><p>Please match each risk and each control measure to a specific hazard.</p>
 <div class="container">
   <!-- Hazards List -->
-  <div class="list">
-    <h2>Hazards</h2>
-    <div class="draggable fixed">1. Sharp Tools</div>
-    <div class="draggable fixed">2. Sanding Machines</div>
-    <div class="draggable fixed">3. Pillar Drills</div>
-    <div class="draggable fixed">4. Hot Glue Guns</div>
-    <div class="draggable fixed">5. Scroll Saws</div>
+<div class="list">
+  <h2>Hazards</h2>
+  <div class="draggable fixed">
+    1. Craft Knife
+    <div class="popup">
+      <img src="craftknife.jpg" alt="Craft Knife">
+      <p>Craft Knife: A tool with a sharp blade used for cutting materials.</p>
+    </div>
   </div>
+  <div class="draggable fixed">
+    2. Disc Sander
+    <div class="popup">
+      <img src="discsander.jpg" alt="Disc Sander">
+      <p>Disc Sander: A tool used for sanding surfaces to smooth them.</p>
+    </div>
+  </div>
+  <div class="draggable fixed">
+    3. Pillar Drill
+    <div class="popup">
+      <img src="pillardrill.jpg" alt="Pillar Drill">
+      <p>Pillar Drill: A stationary drill press used for precise drilling.</p>
+    </div>
+  </div>
+  <div class="draggable fixed">
+    4. Hot Glue Gun
+    <div class="popup">
+      <img src="hotgluegun.jpg" alt="Hot Glue Gun">
+      <p>Hot Glue Gun: A tool that dispenses hot adhesive for bonding materials.</p>
+    </div>
+  </div>
+  <div class="draggable fixed">
+    5. Scroll Saw
+    <div class="popup">
+      <img src="scroll_saw.jpg" alt="Scroll Saw">
+      <p>Scroll Saw: A tool used for intricate cutting of wood, metal, or other materials.</p>
+    </div>
+  </div>
+</div>
 
   <!-- Risks List -->
   <div class="list" id="risks">
     <h2>Risks</h2>
-    <div class="draggable" draggable="true">Cuts or lacerations</div>
-    <div class="draggable" draggable="true">Abrasions or inhalation of dust</div>
-    <div class="draggable" draggable="true">Puncture wounds or flying debris</div>
-    <div class="draggable" draggable="true">Burns from hot adhesive</div>
-    <div class="draggable" draggable="true">Cuts or material splinters</div>
+    <div class="draggable" draggable="true">
+      Cuts or <span class="hover-word" data-word="laceration">lacerations</span>
+      <div class="popup">
+        <img src="laceration.jpg" alt="Laceration">
+        <p>Laceration: A deep cut or tear in the skin.</p>
+      </div>
+    </div>
+    <div class="draggable" draggable="true">
+      Abrasions or <span class="hover-word" data-word="abrasion">inhalation of dust</span>
+      <div class="popup">
+        <img src="abrasion.jpg" alt="Abrasion">
+        <p>Abrasion: A scrape caused by rubbing or scraping the skin.</p>
+      </div>
+    </div>
+    <div class="draggable" draggable="true">
+      <span class="hover-word" data-word="puncture">Puncture</span> wounds or flying debris
+      <div class="popup">
+        <img src="puncture.jpg" alt="Puncture">
+        <p>Puncture: A small hole made by a sharp object.</p>
+      </div>
+    </div>
+    <div class="draggable" draggable="true">
+      Burns from hot adhesive
+      <div class="popup">
+        <img src="burn.jpg" alt="Burn">
+        <p>Burn: Injury caused by exposure to heat, flame, or chemicals.</p>
+      </div>
+    </div>
+    <div class="draggable" draggable="true">
+      Cuts or material <span class="hover-word" data-word="splinter">splinters</span>
+      <div class="popup">
+        <img src="splinter.jpg" alt="Splinter">
+        <p>Splinter: A small, thin, sharp piece of material that can pierce the skin.</p>
+      </div>
+    </div>
   </div>
 
-  <!-- Control Measures List -->
-  <div class="list" id="controls">
-    <h2>Control Measures</h2>
-    <div class="draggable" draggable="true">Use cutting mats and proper technique</div>
-    <div class="draggable" draggable="true">Wear goggles and dust masks</div>
-    <div class="draggable" draggable="true">Use guards and secure workpieces</div>
-    <div class="draggable" draggable="true">Use heat-resistant mats and supervise use</div>
-    <div class="draggable" draggable="true">Use sharp blades and blade guards</div>
+<div class="list" id="controls">
+  <h2>Control Measures</h2>
+  <div class="draggable" draggable="true">
+    Use cutting mats and proper technique
+    <div class="popup">
+      <img src="cuttingmat.jpg" alt="Cutting Mat">
+      <p>Cutting Mat: A surface designed to protect worktables while cutting materials.</p>
+    </div>
   </div>
+  <div class="draggable" draggable="true">
+    Wear goggles and dust masks
+    <div class="popup">
+      <img src="goggles.jpg" alt="Goggles">
+      <p>Goggles: Protective eyewear to shield eyes from dust and debris.</p>
+    </div>
+  </div>
+  <div class="draggable" draggable="true">
+    Use guards and secure workpieces
+    <div class="popup">
+      <img src="guards.jpg" alt="Guards">
+      <p>Guards: Safety barriers to protect users from moving parts and debris.</p>
+    </div>
+  </div>
+  <div class="draggable" draggable="true">
+    Use heat-resistant mats and supervise use
+    <div class="popup">
+      <img src="supervise.jpg" alt="Supervise">
+      <p>Supervise: Ensure proper usage of tools and safety equipment.</p>
+    </div>
+  </div>
+  <div class="draggable" draggable="true">
+    Use sharp blades and blade guards
+    <div class="popup">
+      <img src="bladeguard.jpg" alt="Blade Guard">
+      <p>Blade Guard: A protective cover to shield users from sharp blades.</p>
+    </div>
+  </div>
+</div>
 </div>
 
 <script>
   const draggables = document.querySelectorAll('.draggable');
-  const lists = document.querySelectorAll('.list');
+  let draggedItem = null;
 
   draggables.forEach(draggable => {
     draggable.addEventListener('dragstart', () => {
-      draggable.classList.add('dragging');
+      draggedItem = draggable;
+    });
+
+    draggable.addEventListener('dragover', e => {
+      e.preventDefault();
+    });
+
+    draggable.addEventListener('drop', () => {
+      if (draggedItem && draggedItem !== draggable) {
+        // Swap the innerHTML of the dragged item and the target item
+        const tempContent = draggedItem.innerHTML;
+        draggedItem.innerHTML = draggable.innerHTML;
+        draggable.innerHTML = tempContent;
+      }
+      draggedItem = null;
     });
 
     draggable.addEventListener('dragend', () => {
-      draggable.classList.remove('dragging');
+      draggedItem = null;
     });
   });
-
-  lists.forEach(list => {
-    list.addEventListener('dragover', e => {
-      e.preventDefault();
-      const afterElement = getDragAfterElement(list, e.clientY);
-      const draggingItem = document.querySelector('.dragging');
-      if (afterElement == null) {
-        list.appendChild(draggingItem);
-      } else {
-        list.insertBefore(draggingItem, afterElement);
-      }
-    });
-  });
-
-  function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')];
-
-    return draggableElements.reduce((closest, child) => {
-      const box = child.getBoundingClientRect();
-      const offset = y - box.top - box.height / 2;
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child };
-      } else {
-        return closest;
-      }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
-  }
 </script>
 
 </body>
