@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Keywords Exercise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .exercise-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .sentence {
+            margin: 15px 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 100px;
+            border-bottom: 2px dashed #ccc;
+            margin: 0 3px;
+            min-height: 18px;
+            text-align: center;
+            padding: 2px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .blank.hover {
+            background-color: #f0f0f0;
+        }
+        .blank.filled {
+            border-bottom-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        .draggable {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: grab;
+            background-color: #fff;
+            user-select: none;
+        }
+        .draggable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .draggable.used {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button.reset {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop Keywords Exercise</h1>
+    <div class="exercise-container">
+        <div id="exercise">
+            <div class="sentence">
+                When you go to <span class="blank" data-id="1"></span>, your <span class="blank" data-id="2"></span> starts cleaning its <span class="blank" data-id="3"></span>. It will <span class="blank" data-id="4"></span> most things you <span class="blank" data-id="5"></span> during the day. Only what you pay the most <span class="blank" data-id="6"></span> to during the day, will the brain remember for a bit longer.
+            </div>
+            <div class="sentence">
+                Even if you understand well what a <span class="blank" data-id="7"></span> is about or what the class activities are about, you still have to pay full <span class="blank" data-id="8"></span> to it, if you want that <span class="blank" data-id="9"></span> to stay in your brain after sleep.
+            </div>
+            <div class="sentence">
+                When you chat with <span class="blank" data-id="10"></span> or do things that <span class="blank" data-id="11"></span> yourself from learning during lesson, you are not going to remember much from what you have learnt in that lesson. Because you will forget about it after sleep. Because your brain thinks that you're not taking those <span class="blank" data-id="12"></span> seriously.
+            </div>
+        </div>
+        <div class="keywords-container">
+            <div class="draggable" draggable="true" id="keyword1">sleep</div>
+            <div class="draggable" draggable="true" id="keyword2">brain</div>
+            <div class="draggable" draggable="true" id="keyword3">memory</div>
+            <div class="draggable" draggable="true" id="keyword4">forget</div>
+            <div class="draggable" draggable="true" id="keyword5">experience</div>
+            <div class="draggable" draggable="true" id="keyword6">attention</div>
+            <div class="draggable" draggable="true" id="keyword7">lesson</div>
+            <div class="draggable" draggable="true" id="keyword8">information</div>
+            <div class="draggable" draggable="true" id="keyword9">friends</div>
+            <div class="draggable" draggable="true" id="keyword10">distract</div>
+            <div class="draggable" draggable="true" id="keyword11">attention</div>
+            <div class="draggable" draggable="true" id="keyword12">information</div>
+        </div>
+    </div>
+    <div class="action-buttons">
+        <button class="reset" onclick="resetExercise()">Reset</button>
+    </div>
+
+    <script>
+        const draggables = document.querySelectorAll('.draggable');
+        const blanks = document.querySelectorAll('.blank');
+
+        // Add dragstart and dragend event listeners to draggables
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', (event) => {
+                event.dataTransfer.setData("text", event.target.id);
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        // Add dragover, drop, and click event listeners to blanks
+        blanks.forEach(blank => {
+            blank.addEventListener('dragover', (event) => {
+                event.preventDefault(); // Required for the drop event to work
+                blank.classList.add('hover'); // Add hover effect
+            });
+
+            blank.addEventListener('dragleave', () => {
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('drop', (event) => {
+                event.preventDefault();
+                const data = event.dataTransfer.getData("text");
+                const dragging = document.getElementById(data);
+
+                // Check if the blank is already filled or the keyword is used
+                if (!blank.classList.contains('filled') && dragging && !dragging.classList.contains('used')) {
+                    blank.textContent = dragging.textContent; // Set keyword in blank
+                    blank.classList.add('filled'); // Mark blank as filled
+                    dragging.classList.add('used'); // Mark keyword as used
+                    blank.classList.remove('hover'); // Remove hover effect
+                }
+            });
+
+            // Allow clicking on a blank to reset it
+            blank.addEventListener('click', () => {
+                if (blank.textContent.trim() !== '') {
+                    const keyword = blank.textContent.trim();
+                    const draggable = Array.from(draggables).find(d => d.textContent === keyword);
+                    if (draggable) draggable.classList.remove('used');
+                    blank.textContent = '';
+                    blank.classList.remove('filled');
+                }
+            });
+        });
+
+        // Reset the exercise
+        function resetExercise() {
+            blanks.forEach(blank => {
+                blank.textContent = '';
+                blank.classList.remove('filled');
+            });
+            draggables.forEach(draggable => {
+                draggable.classList.remove('used');
+            });
+        }
+    </script>
+</body>
+</html>
