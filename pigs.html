@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Scenarios Quiz</title>
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-light: #818CF8;
+            --secondary: #4B5563;
+            --dark: #1E293B;
+            --light: #F1F5F9;
+            --success: #34D399;
+            --warning: #FBBF24;
+            --error: #F87171;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F8FAFC;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            margin-top: 10px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .quiz-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 25px;
+            position: relative;
+            overflow: visible;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .question-image {
+            width: 500px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        
+        .question-content {
+            flex: 1;
+        }
+        
+        .scenario-emoji {
+            font-size: 40px;
+            margin-right: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        
+        .scenario-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .scenario-description {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        .options {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+        
+        .option {
+            padding: 14px 18px;
+            border: 2px solid var(--light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            width: auto;
+            align-self: start;
+            font-size: 18px;
+        }
+        
+        .option:hover {
+            border-color: var(--primary-light);
+            background-color: rgba(99, 102, 241, 0.05);
+        }
+        
+        .option.selected {
+            border-color: var(--primary);
+            background-color: rgba(99, 102, 241, 0.1);
+        }
+        
+        .option.correct {
+            border-color: var(--success);
+            background-color: rgba(52, 211, 153, 0.1);
+        }
+        
+        /* No special styling for incorrect options */
+        
+        .material-icon {
+            font-size: 28px;
+            margin-right: 12px;
+        }
+        
+        /* Tooltip/popup feedback styles */
+        .feedback-tooltip {
+            position: fixed;
+            background-color: white;
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-weight: 500;
+            max-width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        
+        .feedback-tooltip.correct {
+            border-left: 4px solid var(--success);
+            color: #065F46;
+        }
+        
+        .feedback-tooltip.incorrect {
+            border-left: 4px solid var(--primary);
+            color: var(--dark);
+        }
+        
+        .feedback-tooltip.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .result-container {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+        
+        .result-emoji {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .result-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .result-message {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+        
+        .restart-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .restart-button:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .submit-quiz {
+            background-color: var(--success);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .submit-quiz:hover {
+            background-color: #10B981;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            header {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .scenario-emoji {
+                font-size: 30px;
+            }
+            
+            .scenario-title {
+                font-size: 18px;
+            }
+            
+            .feedback-tooltip {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Three Little Pigs: Material Challenge</h1>
+            <div class="subtitle">Which material would be best for each situation?</div>
+        </header>
+        
+        <div id="quizContainer">
+            <!-- Quiz questions will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="result-container" id="resultContainer" style="display: none;">
+            <div class="result-emoji" id="resultEmoji">🎉</div>
+            <div class="result-title" id="resultTitle">Great job!</div>
+            <div class="result-message" id="resultMessage">You've completed the quiz!</div>
+            <button class="restart-button" id="restartButton">Try Again</button>
+        </div>
+    </div>
+    
+    <!-- Global tooltip element that will be positioned and shown on demand -->
+    <div id="feedbackTooltip" class="feedback-tooltip"></div>
+    
+    <script>
+        // Quiz Questions
+        const questions = [
+            {
+                id: 1,
+                emoji: "🐺",
+                title: "The Big Bad Wolf Test",
+                description: "The three little pigs need to protect themselves from the wolf who can huff and puff with great force. Which material would be best for their house?",
+                options: [
+                    { text: "Paper and Card 📦", correct: false, icon: "📦", feedback: "Too weak! The wolf will blow it down easily." },
+                    { text: "Untreated Wood 🪵", correct: false, icon: "🪵", feedback: "Better, but still not strong enough against the wolf's mighty lungs!" },
+                    { text: "Bricks 🧱", correct: true, icon: "🧱", feedback: "Perfect! Strong, durable, and the wolf can huff and puff all day without success." },
+                    { text: "Straw 🌾", correct: false, icon: "🌾", feedback: "This will be the first house to fall!" }
+                ]
+            },
+            {
+                id: 2,
+                emoji: "🌧️",
+                title: "Rainy Day Disaster",
+                description: "It's been raining for days and the pigs' village is flooding! Which material would be worst for building a flood-proof house?",
+                options: [
+                    { text: "Treated Metal 🔧", correct: false, icon: "🔧", feedback: "Treated metal can resist water quite well." },
+                    { text: "Waterproof Polymers 🧪", correct: false, icon: "🧪", feedback: "Waterproof polymers are designed to keep water out." },
+                    { text: "Cardboard 📦", correct: true, icon: "📦", feedback: "Correct! Cardboard gets soggy and falls apart when wet." },
+                    { text: "Sealed Concrete 🏢", correct: false, icon: "🏢", feedback: "Sealed concrete can stand up to water quite well." }
+                ]
+            },
+            {
+                id: 3,
+                emoji: "🥶",
+                title: "Arctic Adventure",
+                description: "The pigs are building a house in a very cold place with snow and ice. Which material would keep them warmest?",
+                options: [
+                    { text: "Thin Metal Sheets 🔧", correct: false, icon: "🔧", feedback: "Metal conducts heat away quickly, making the house very cold!" },
+                    { text: "Insulating Foam 🧁", correct: true, icon: "🧁", feedback: "Correct! Insulating materials trap heat inside the house." },
+                    { text: "Single-Layer Glass 🪟", correct: false, icon: "🪟", feedback: "Glass lets heat escape easily unless it's double or triple glazed." },
+                    { text: "Marble 🗿", correct: false, icon: "🗿", feedback: "Cold stone feels cold and doesn't insulate well." }
+                ]
+            },
+            {
+                id: 4,
+                emoji: "🔥",
+                title: "Fire Safety First",
+                description: "After having their houses blown down and flooded, the pigs want a fire-resistant house. Which material is best?",
+                options: [
+                    { text: "Wood Panels 🪵", correct: false, icon: "🪵", feedback: "Wood burns easily unless treated with special chemicals." },
+                    { text: "Plastic Siding 🧩", correct: false, icon: "🧩", feedback: "Many plastics melt or burn when exposed to fire." },
+                    { text: "Brick and Concrete 🧱", correct: true, icon: "🧱", feedback: "Correct! Brick and concrete don't burn and provide excellent fire resistance." },
+                    { text: "Straw Roof 🌾", correct: false, icon: "🌾", feedback: "Straw is highly flammable and dangerous in a fire!" }
+                ]
+            },
+            {
+                id: 5,
+                emoji: "🌱",
+                title: "Eco-Friendly Piggies",
+                description: "The three little pigs want to build a house that's kind to the environment. Which material is most eco-friendly?",
+                options: [
+                    { text: "PVC Plastic 🧪", correct: false, icon: "🧪", feedback: "PVC is made from non-renewable petrochemicals and can be difficult to recycle." },
+                    { text: "Sustainable Bamboo 🎋", correct: true, icon: "🎋", feedback: "Correct! Bamboo grows quickly, is renewable, and biodegradable." },
+                    { text: "Aluminum 🥫", correct: false, icon: "🥫", feedback: "While recyclable, producing new aluminum uses lots of energy." },
+                    { text: "Concrete 🏢", correct: false, icon: "🏢", feedback: "Concrete production creates a lot of carbon emissions." }
+                ]
+            },
+            {
+                id: 6,
+                emoji: "🏗️",
+                title: "Quick Construction",
+                description: "The wolf is coming tomorrow! The pigs need to build a strong house very quickly. Which material would be fastest to build with?",
+                options: [
+                    { text: "Cast Concrete 🏢", correct: false, icon: "🏢", feedback: "Concrete needs time to cure and dry properly." },
+                    { text: "Stone Masonry 🗿", correct: false, icon: "🗿", feedback: "Laying stones takes skilled work and lots of time." },
+                    { text: "Pre-made Panels 📋", correct: true, icon: "📋", feedback: "Correct! Pre-fabricated panels can be assembled quickly while still being strong." },
+                    { text: "Hand-cut Timber 🪵", correct: false, icon: "🪵", feedback: "Cutting and fitting timber pieces takes considerable time." }
+                ]
+            }
+        ];
+        
+        // Variables
+        let score = 0;
+        let answeredQuestions = new Set();
+        
+        // DOM Elements
+        const quizContainer = document.getElementById('quizContainer');
+        const resultContainer = document.getElementById('resultContainer');
+        const resultEmoji = document.getElementById('resultEmoji');
+        const resultTitle = document.getElementById('resultTitle');
+        const resultMessage = document.getElementById('resultMessage');
+        const restartButton = document.getElementById('restartButton');
+        const feedbackTooltip = document.getElementById('feedbackTooltip');
+        
+        // Function to render all questions
+        function renderAllQuestions() {
+            questions.forEach((question, index) => {
+                // Create question card
+                const questionCard = document.createElement('div');
+                questionCard.className = 'quiz-card';
+                questionCard.id = `question-${question.id}`;
+                
+                // Create image
+                const imageElement = document.createElement('img');
+                imageElement.src = `pig${index + 1}.jpg`;
+                imageElement.alt = `Pig scenario ${index + 1}`;
+                imageElement.className = 'question-image';
+                
+                // Create content container
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'question-content';
+                
+                // Create question title
+                const titleDiv = document.createElement('div');
+                titleDiv.className = 'scenario-title';
+                titleDiv.innerHTML = `<span class="scenario-emoji">${question.emoji}</span> ${question.title}`;
+                
+                // Create question description
+                const descriptionDiv = document.createElement('div');
+                descriptionDiv.className = 'scenario-description';
+                descriptionDiv.textContent = question.description;
+                
+                // Create options container
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'options';
+                
+                // Create each option
+                question.options.forEach((option, optIndex) => {
+                    const optionDiv = document.createElement('div');
+                    optionDiv.className = 'option';
+                    optionDiv.dataset.index = optIndex;
+                    optionDiv.dataset.questionId = question.id;
+                    optionDiv.innerHTML = `<span class="material-icon">${option.icon}</span> ${option.text}`;
+                    
+                    // Add click event
+                    optionDiv.addEventListener('click', (event) => {
+                        // Handle UI updates
+                        if (option.correct) {
+                            optionDiv.classList.add('correct');
+                            
+                            // Only count score once per question
+                            if (!answeredQuestions.has(question.id)) {
+                                score++;
+                                answeredQuestions.add(question.id);
+                            }
+                        }
+                        // No specific styling for incorrect options
+                        
+                        // Show the tooltip at the mouse position
+                        showTooltip(event, option.feedback, option.correct);
+                    });
+                    
+                    optionsDiv.appendChild(optionDiv);
+                });
+                
+                // Append all elements to the content div
+                contentDiv.appendChild(titleDiv);
+                contentDiv.appendChild(descriptionDiv);
+                contentDiv.appendChild(optionsDiv);
+                
+                // Append image and content to the question card
+                questionCard.appendChild(imageElement);
+                questionCard.appendChild(contentDiv);
+                
+                // Append the question card to the quiz container
+                quizContainer.appendChild(questionCard);
+            });
+        }
+        
+        // Function to show tooltip at mouse position
+        function showTooltip(event, feedback, isCorrect) {
+            // Set tooltip content and style
+            feedbackTooltip.textContent = feedback;
+            feedbackTooltip.className = 'feedback-tooltip';
+            if (isCorrect) {
+                feedbackTooltip.classList.add('correct');
+            } else {
+                feedbackTooltip.classList.add('incorrect');
+            }
+            
+            // Position the tooltip near the mouse
+            const x = event.clientX;
+            const y = event.clientY;
+            
+            // Adjust position to avoid going off-screen
+            const tooltipWidth = 300;
+            const tooltipHeight = 100; // Approximate height
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            
+            let posX = x + 15; // Add a small offset
+            let posY = y + 15;
+            
+            // Ensure tooltip stays within viewport
+            if (posX + tooltipWidth > windowWidth) {
+                posX = x - tooltipWidth - 10;
+            }
+            
+            if (posY + tooltipHeight > windowHeight) {
+                posY = y - tooltipHeight - 10;
+            }
+            
+            feedbackTooltip.style.left = `${posX}px`;
+            feedbackTooltip.style.top = `${posY}px`;
+            
+            // Show the tooltip
+            feedbackTooltip.classList.add('show');
+            
+            // Close tooltip after 3 seconds
+            setTimeout(() => {
+                feedbackTooltip.classList.remove('show');
+            }, 3000);
+        }
+        
+        // Function to show results
+        function showResults() {
+            resultContainer.style.display = 'block';
+            submitQuizButton.style.display = 'none';
+            
+            // Scroll to results
+            resultContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            const percentage = (score / questions.length) * 100;
+            
+            if (percentage === 100) {
+                resultEmoji.textContent = '🏆';
+                resultTitle.textContent = 'Perfect Score!';
+                resultMessage.textContent = `Amazing! You got all ${score} out of ${questions.length} questions correct!`;
+            } else if (percentage >= 80) {
+                resultEmoji.textContent = '🎉';
+                resultTitle.textContent = 'Great Job!';
+                resultMessage.textContent = `You got ${score} out of ${questions.length} questions correct!`;
+            } else if (percentage >= 60) {
+                resultEmoji.textContent = '👍';
+                resultTitle.textContent = 'Good Effort!';
+                resultMessage.textContent = `You got ${score} out of ${questions.length} questions correct!`;
+            } else {
+                resultEmoji.textContent = '📚';
+                resultTitle.textContent = 'Keep Learning!';
+                resultMessage.textContent = `You got ${score} out of ${questions.length} questions correct. Try again!`;
+            }
+        }
+        
+        // Event listener for restart button
+        restartButton.addEventListener('click', () => {
+            // Reset score and answered questions
+            score = 0;
+            answeredQuestions.clear();
+            
+            // Reset all options
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            
+            // Hide results
+            resultContainer.style.display = 'none';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Initialize quiz
+        renderAllQuestions();
+    </script>
+</body>
+</html>
