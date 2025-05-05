@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Material Categorisation Fill-in-the-Blanks Exercise</title>
+    <style>
+        :root {
+            --primary: #6366F1;
+            --primary-light: #818CF8;
+            --secondary: #4B5563;
+            --dark: #1E293B;
+            --light: #F1F5F9;
+            --success: #34D399;
+            --warning: #FBBF24;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #F8FAFC;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.3;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-size: 20px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 5px;
+        }
+        
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            gap: 10px;
+        }
+        
+        .tab-button {
+            background-color: var(--light);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+            flex-grow: 1;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .tab-button:hover {
+            background-color: var(--primary-light);
+            color: white;
+        }
+        
+        .tab-button.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+            background-color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .keyword {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .keyword:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background-color: var(--primary-light);
+            cursor: grab;
+        }
+        
+        .keyword.dragging {
+            opacity: 0.7;
+            cursor: grabbing;
+        }
+        
+        .keyword.used {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .fill-blank.dragover {
+            background-color: rgba(99, 102, 241, 0.2);
+            border-bottom: 2px dashed var(--secondary);
+        }
+        
+        .fill-blank {
+            display: inline-block;
+            min-width: 120px;
+            height: 24px;
+            border-bottom: 2px dashed var(--primary);
+            margin: 0 5px;
+            padding: 2px 5px;
+            text-align: center;
+            vertical-align: middle;
+            color: var(--secondary);
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .fill-blank.filled {
+            background-color: rgba(99, 102, 241, 0.1);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .fill-blank.correct {
+            background-color: rgba(52, 211, 153, 0.2);
+            border-bottom: 2px solid var(--success);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--dark);
+            opacity: 0.8;
+        }
+        
+        .button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .button:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:disabled {
+            background-color: var(--light);
+            color: #94A3B8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .toggle-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+        
+        .toggle-button:hover {
+            background-color: var(--primary-light);
+        }
+        
+        .toggle-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .pulse {
+            animation: pulse 0.5s;
+        }
+        
+        @media (max-width: 600px) {
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="intro">Introduction</button>
+            <button class="tab-button" data-tab="part1">Core</button>
+            <button class="tab-button" data-tab="part2">Physical</button>
+            <button class="tab-button" data-tab="part3">Mechanical</button>
+            <button class="tab-button" data-tab="part4">Environmental</button>
+            <button class="tab-button" data-tab="part5">Origin</button>
+        </div>
+
+        <div class="tab-content active" id="intro">
+            <h2>Introduction</h2>
+            <p>Materials can be categorised in different ways depending on what properties we're considering. As designers, we need to understand these categories to make informed decisions about which materials to use in our projects.</p>
+            
+            <button id="toggleReasons" class="toggle-button">Why do we need to categorise materials by properties?</button>
+            <div id="reasonsContent" class="toggle-content">
+                <ol>
+                    <li><strong>Efficient Selection:</strong> Categorisation helps designers quickly narrow down suitable materials for specific applications, saving time in the design process.</li>
+                    <li><strong>Performance Prediction:</strong> By understanding categories of properties, designers can predict how materials will behave under different conditions without testing every possible material.</li>
+                    <li><strong>Innovation Opportunities:</strong> Categorisation highlights gaps or opportunities for new materials with specific combinations of properties that don't yet exist.</li>
+                    <li><strong>Communication Clarity:</strong> Categories create a shared language for designers, engineers, and manufacturers to communicate precisely about material requirements.</li>
+                    <li><strong>Sustainability Planning:</strong> Categorising materials by environmental impact helps designers make more sustainable choices and understand the lifecycle implications of their material selections.</li>
+                </ol>
+            </div>
+            
+        </div>
+
+        <div class="tab-content" id="part1">
+            <h2>Part 1: Core Material Categories</h2>
+            <p>The five main categories of materials used in Design & Technology are:</p>
+            <p><span class="fill-blank" data-correct="Paper and card"></span> (e.g., cartridge paper, cardboard)</p>
+            <p><span class="fill-blank" data-correct="Timber"></span> (e.g., pine, oak, plywood)</p>
+            <p><span class="fill-blank" data-correct="Metals"></span> (e.g., aluminium, steel, copper)</p>
+            <p><span class="fill-blank" data-correct="Polymers"></span> (e.g., acrylic, polypropylene, PVC)</p>
+            <p><span class="fill-blank" data-correct="Textiles"></span> (e.g., cotton, polyester, felt)</p>
+            
+            <div class="keywords-container">
+                <span class="keyword">Polymers</span>
+                <span class="keyword">Textiles</span>
+                <span class="keyword">Paper and card</span>
+                <span class="keyword">Metals</span>
+                <span class="keyword">Timber</span>
+            </div>
+        </div>
+
+        <div class="tab-content" id="part2">
+            <h2>Part 2: Categorising by Physical Properties</h2>
+            <p>Physical properties are characteristics that can be observed or measured without changing the material.</p>
+            <p>How heavy or light a material is for its size is called its <span class="fill-blank" data-correct="density"></span>.</p>
+            <p>The ability of a material to allow heat to pass through it is called <span class="fill-blank" data-correct="thermal"></span> <span class="fill-blank" data-correct="conductivity"></span>.</p>
+            <p>The ability of a material to allow electricity to flow through it is called <span class="fill-blank" data-correct="electrical"></span> <span class="fill-blank" data-correct="conductivity"></span>.</p>
+            <p>How resistant a material is to being scratched is known as its <span class="fill-blank" data-correct="hardness"></span>.</p>
+            <p>The ability of a material to allow light to pass through completely is called <span class="fill-blank" data-correct="transparency"></span>, while partially allowing light through is called <span class="fill-blank" data-correct="translucency"></span>.</p>
+            
+            <div class="keywords-container">
+                <span class="keyword">hardness</span>
+                <span class="keyword">transparency</span>
+                <span class="keyword">density</span>
+                <span class="keyword">conductivity</span>
+                <span class="keyword">translucency</span>
+                <span class="keyword">thermal</span>
+                <span class="keyword">electrical</span>
+            </div>
+        </div>
+
+        <div class="tab-content" id="part3">
+            <h2>Part 3: Categorising by Working Properties</h2>
+            <p>Working properties describe how a material behaves when it is manipulated.</p>
+            <p>The ability of a material to withstand compression, tension and shear is called <span class="fill-blank" data-correct="strength"></span>.</p>
+            <p>The ability to withstand impact without damage is known as <span class="fill-blank" data-correct="hardness"></span>.</p>
+            <p>Materials that are hard to break or snap and can absorb shock exhibit <span class="fill-blank" data-correct="toughness"></span>.</p>
+            <p>Being able to bend or shape easily makes a material <span class="fill-blank" data-correct="malleable"></span>.</p>
+            <p>Materials that can be stretched are described as having <span class="fill-blank" data-correct="ductility"></span>.</p>
+            <p>The ability to be stretched and then return to its original shape is called <span class="fill-blank" data-correct="elasticity"></span>.</p>
+            
+            <div class="keywords-container">
+                <span class="keyword">hardness</span>
+                <span class="keyword">ductility</span>
+                <span class="keyword">elasticity</span>
+                <span class="keyword">malleable</span>
+                <span class="keyword">strength</span>
+                <span class="keyword">toughness</span>
+            </div>
+        </div>  
+
+        <div class="tab-content" id="part4">
+            <h2>Part 4: Categorising by Environmental Impact</h2>
+            <p>Materials can be categorised based on their impact on the environment.</p>
+            <p>Materials that can be broken down naturally by bacteria are called <span class="fill-blank" data-correct="biodegradable"></span>.</p>
+            <p>Materials that can be processed and used again are called <span class="fill-blank" data-correct="recyclable"></span>.</p>
+            <p>Materials that come from sources that can be regrown or replaced are called <span class="fill-blank" data-correct="renewable"></span>.</p>
+            <p>The total amount of greenhouse gases produced during a material's life cycle is called its <span class="fill-blank" data-correct="carbon"></span> <span class="fill-blank" data-correct="footprint"></span>.</p>
+            <p>Materials made from oil are called <span class="fill-blank" data-correct="petrochemical"></span> and are generally considered <span class="fill-blank" data-correct="non"></span> renewable.</p>
+            
+            <div class="keywords-container">
+                <span class="keyword">carbon</span>
+                <span class="keyword">non</span>
+                <span class="keyword">recyclable</span>
+                <span class="keyword">footprint</span>
+                <span class="keyword">renewable</span>
+                <span class="keyword">petrochemical</span>
+                <span class="keyword">biodegradable</span>
+            </div>
+        </div>
+
+        <div class="tab-content" id="part5">
+            <h2>Part 5: Categorising by Origin</h2>
+            <p>Materials can be categorised by where they come from.</p>
+            <p>Materials that come directly from plants or animals are called <span class="fill-blank" data-correct="natural"></span> materials.</p>
+            <p>Materials that are made in factories using chemical processes are called <span class="fill-blank" data-correct="synthetic"></span> materials.</p>
+            <p>Materials that combine two or more different materials to create better properties are called <span class="fill-blank" data-correct="composite"></span> materials.</p>
+            <p>Materials that have not been processed are called <span class="fill-blank" data-correct="raw"></span> materials.</p>
+            <p>Materials that have undergone industrial processing are called <span class="fill-blank" data-correct="manufactured"></span> materials.</p>
+            
+            <div class="keywords-container">
+                <span class="keyword">synthetic</span>
+                <span class="keyword">raw</span>
+                <span class="keyword">manufactured</span>
+                <span class="keyword">composite</span>
+                <span class="keyword">natural</span>
+            </div>
+        </div>
+        
+        <button id="checkButton" class="button" disabled>Check Answers</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tabId = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to current button and content
+                    button.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // Toggle functionality for reasons
+            const toggleButton = document.getElementById('toggleReasons');
+            const reasonsContent = document.getElementById('reasonsContent');
+            
+            toggleButton.addEventListener('click', function() {
+                if (reasonsContent.style.display === 'block') {
+                    reasonsContent.style.display = 'none';
+                } else {
+                    reasonsContent.style.display = 'block';
+                }
+            });
+            
+            // Drag and drop functionality
+            const keywords = document.querySelectorAll('.keyword');
+            const blanks = document.querySelectorAll('.fill-blank');
+            const checkButton = document.getElementById('checkButton');
+            let draggedKeyword = null;
+            
+            // Make all keywords draggable
+            keywords.forEach(keyword => {
+                keyword.setAttribute('draggable', 'true');
+                
+                keyword.addEventListener('dragstart', function(e) {
+                    if (this.classList.contains('used')) {
+                        e.preventDefault();
+                        return;
+                    }
+                    draggedKeyword = this;
+                    e.dataTransfer.setData('text/plain', this.textContent);
+                    setTimeout(() => this.classList.add('dragging'), 0);
+                });
+                
+                keyword.addEventListener('dragend', function() {
+                    this.classList.remove('dragging');
+                });
+                
+                // For mobile support, also keep click functionality
+                keyword.addEventListener('click', function() {
+                    if (this.classList.contains('used')) return;
+                    
+                    // Find the first empty blank in the current tab
+                    const currentTab = document.querySelector('.tab-content.active');
+                    const emptyBlank = currentTab.querySelector('.fill-blank:not(.filled)');
+                    
+                    if (emptyBlank) {
+                        emptyBlank.textContent = this.textContent;
+                        emptyBlank.classList.add('filled');
+                        this.classList.add('used');
+                        emptyBlank.setAttribute('data-keyword-id', Array.from(keywords).indexOf(this));
+                        
+                        updateProgress();
+                        checkTabCompletion();
+                        updateCheckButtonState();
+                    }
+                });
+            });
+            
+            // Make blanks drop targets
+            blanks.forEach(blank => {
+                blank.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                    if (!this.classList.contains('filled')) {
+                        this.classList.add('dragover');
+                    }
+                });
+                
+                blank.addEventListener('dragleave', function() {
+                    this.classList.remove('dragover');
+                });
+                
+                blank.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    this.classList.remove('dragover');
+                    
+                    if (!draggedKeyword || this.classList.contains('filled')) return;
+                    
+                    this.textContent = draggedKeyword.textContent;
+                    this.classList.add('filled');
+                    draggedKeyword.classList.add('used');
+                    this.setAttribute('data-keyword-id', Array.from(keywords).indexOf(draggedKeyword));
+                    
+                    // Add a little animation
+                    this.classList.add('pulse');
+                    setTimeout(() => this.classList.remove('pulse'), 500);
+                    
+                    updateProgress();
+                    checkTabCompletion();
+                    updateCheckButtonState();
+                });
+                
+                // Make filled blanks clickable to remove the word
+                blank.addEventListener('click', function() {
+                    if (this.classList.contains('filled')) {
+                        const keywordId = this.getAttribute('data-keyword-id');
+                        if (keywordId !== null) {
+                            keywords[keywordId].classList.remove('used');
+                        }
+                        
+                        this.textContent = '';
+                        this.classList.remove('filled');
+                        this.classList.remove('correct');
+                        this.removeAttribute('data-keyword-id');
+                        
+                        updateProgress();
+                        checkTabCompletion();
+                        updateCheckButtonState();
+                    }
+                });
+            });
+            
+            // Check answers functionality
+            checkButton.addEventListener('click', function() {
+                const filledBlanks = document.querySelectorAll('.fill-blank.filled');
+                let allCorrect = true;
+                
+                filledBlanks.forEach(blank => {
+                    const userAnswer = blank.textContent;
+                    const correctAnswer = blank.getAttribute('data-correct');
+                    
+                    if (userAnswer === correctAnswer) {
+                        blank.classList.add('correct');
+                    } else {
+                        allCorrect = false;
+                    }
+                });
+                
+                if (allCorrect && filledBlanks.length === blanks.length) {
+                    alert('Congratulations! All answers are correct!');
+                }
+            });
+            
+            // Update progress function
+            function updateProgress() {
+                // Progress bar functionality removed as per request
+            }
+            
+            // Check if current tab is complete
+            function checkTabCompletion() {
+                // Section complete alerts removed as per request
+            }
+            
+            // Update check button state
+            function updateCheckButtonState() {
+                const filledBlanks = document.querySelectorAll('.fill-blank.filled');
+                checkButton.disabled = filledBlanks.length === 0;
+            }
+            
+            // Initialize
+            updateProgress();
+            updateCheckButtonState();
+        });
+    </script>
+</body>
+</html>
