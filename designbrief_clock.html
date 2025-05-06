@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Design Brief Model Answers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .question-block {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .question {
+      font-weight: bold;
+      color: #007BFF;
+      margin: 0;
+    }
+
+    .answer-area {
+      display: none;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Design Brief – Model Answers</h1>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">1. What exactly are you being asked to design and make?</p>
+    <div class="answer-area">
+      A bold, pop-art styled wall clock using MDF and acrylic, designed for display in Pallant House Gallery.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">2. How long do you have to complete your prototype?</p>
+    <div class="answer-area">
+      Two months to produce a neat, well-made indoor display prototype.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">3. Who will be using or viewing your clock in the gallery?</p>
+    <div class="answer-area">
+      Gallery visitors including tourists, students, professionals, and pop art enthusiasts.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">4. Where will your clock be displayed, and why does that matter?</p>
+    <div class="answer-area">
+      It will be displayed indoors in each exhibition room, so it must be suitable for gallery conditions and visible to visitors.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">5. What visual style should your clock reflect? Why?</p>
+    <div class="answer-area">
+      A bold, playful style inspired by pop culture trends of the new generation, to fit the pop art theme and appeal to the target audience.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">6. Besides looking good, what functional requirement must your clock meet?</p>
+    <div class="answer-area">
+      It must clearly show the time using provided clock hands and battery pack, with easy readability.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">7. What materials will you be using to construct your clock?</p>
+    <div class="answer-area">
+      A base of MDF, a top layer of acrylic, and standard clock components (hands and battery pack).
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">8. What is the size of the clock, and how will you put it together?</p>
+    <div class="answer-area">
+      The clock will be 19cm by 19cm. A hole is drilled in the center for the clock hands, with acrylic mounted on MDF.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">9. What features or limitations do you need to consider when making the clock?</p>
+    <div class="answer-area">
+      Design must fit provided materials and components, be durable enough for indoor display, and meet gallery standards.
+    </div>
+  </div>
+
+  <div class="question-block" onclick="toggleAnswer(this)">
+    <p class="question">10. How can you make sure your design appeals to a wide range of visitors, especially those interested in pop art?</p>
+    <div class="answer-area">
+      By using vibrant colours, iconic imagery, and clear, fun design elements inspired by modern pop culture and classic pop art.
+    </div>
+  </div>
+
+  <script>
+    function toggleAnswer(container) {
+      const answer = container.querySelector('.answer-area');
+      answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
