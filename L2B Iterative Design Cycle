@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Design Cycle</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+
+    h2 {
+      margin-bottom: 30px;
+    }
+
+    .cycle-table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 500px;
+      height: 500px;
+    }
+
+    .cycle-table td {
+      width: 33.33%;
+      height: 33.33%;
+      position: relative;
+      border: 1px solid #ddd;
+    }
+
+    .step {
+      text-align: center;
+      font-size: 18px;
+      padding: 20px;
+    }
+
+    .step span {
+      display: block;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .arrow {
+      font-size: 24px;
+      position: absolute;
+    }
+
+    /* Arrow positions */
+    .arrow1 { bottom: 10px; right: 10px; } /* Top-right arrow (Research → Design) */
+    .arrow2 { bottom: 10px; left: 10px; }  /* Top-left arrow (Design → Make) */
+    .arrow3 { top: 10px; left: 10px; }    /* Bottom-left arrow (Make → Evaluate) */
+    .arrow4 { top: 10px; right: 10px; }    /* Bottom-right arrow (Evaluate → Research) */
+
+  </style>
+</head>
+<body>
+
+<h2>Design Cycle</h2>
+<table class="cycle-table">
+  <tr>
+    <td></td>
+    <td class="step research">
+      <span>🔍</span>
+      Research
+    </td>
+    <td><div class="arrow arrow1">➡️</div></td>
+  </tr>
+  <tr>
+    <td class="step evaluate">
+      <span>📋</span>
+      Evaluate
+    </td>
+    <td></td>
+    <td class="step design">
+      <span>✏️</span>
+      Design
+    </td>
+  </tr>
+  <tr>
+    <td><div class="arrow arrow4">➡️</div></td>
+    <td class="step make">
+      <span>🛠️</span>
+      Make
+    </td>
+    <td><div class="arrow arrow2">⬅️</div></td>
+  </tr>
+</table>
+
+</body>
+</html>
