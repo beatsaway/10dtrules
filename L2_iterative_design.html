@@ -155,12 +155,38 @@
             border-radius: 5px;
             font-size: 14px;
         }
+        /* New styles for click-to-reveal */
+        .reveal-container {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .reveal-text {
+            display: inline-block;
+            color: #2196F3;
+            font-weight: 500;
+        }
+        .reveal-content {
+            display: none;
+            background-color: #e3f2fd;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 5px;
+            border-left: 4px solid #2196F3;
+        }
+        .reveal-content.visible {
+            display: block;
+        }
+        .video-topic {
+            margin-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="topic-container">
         <div class="topic-title">Topic: Design Evolution</div>
-        <div class="sentence">Core Question: How and why has product design changed over time?</div>
+        <div class="sentence">Core Question: Why and how has product design changed over time?</div>
         <div class="keywords">
             <div class="keyword">Iterative Design</div>
             <div class="keyword">Users</div>
@@ -169,54 +195,177 @@
             <div class="keyword">Technologies</div>
             <div class="keyword">Creativity</div>
         </div>
-    </div>
-
-    <div class="exercise-container">
-        <div class="sentence">
-            <strong>What is iterative design? (Hint: Iterative means 'repeating') Why does it matter, to whom?</strong>
-        </div>
-    </div>
-
-    <!-- Video Sections -->
+    </div>    <!-- Video Sections -->
     <div class="video-section">
+        
         <div class="sentence">
-            <strong>Historical Examples of Iterative Design:</strong>
+            <strong>What is iterative design? </strong>(Hint: 'iterative' means 'repeating')
+        </div>
+        <div class="sentence">
+            <strong>Why does it matter, to whom? </strong>(Hint: see examples below)
+        </div>
+
+        <!-- First Video - Aeroplane -->
+        <div class="video-topic">
+            <div class="discussion-question">Evolution of Aeroplanes</div>
+            
+            <!-- Click to reveal sections -->
+            <div class="reveal-container">
+                <div class="reveal-text">What are the missing features in early aeroplane designs?</div>
+                <div class="reveal-content">wheels, jet engines, metal body, AC, toilet, wifi, GPS</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What are the problems then?</div>
+                <div class="reveal-content">Safety, Speed, Comfort, Entertainment</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">To whom?</div>
+                <div class="reveal-content"><strong>Users: </strong> pilots, passengers, people on the plane.</div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/hrXDNtFjmoE?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
         
-        <!-- First Video -->
-        <div class="discussion-question">What's missing in early aeroplane designs? What's the problem, to whom?</div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/hrXDNtFjmoE?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- iPhone Short Video -->
+        <div class="video-topic">
+            <div class="discussion-question">Evolution of the iPhone</div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What are the missing features in the first iPhone?</div>
+                <div class="reveal-content">Powerful Chip, Front camera, high-resolution screen, Touch ID/Face ID, water resistance, wireless charging, 4G, 5Gconnectivity...</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What problems were they addressing?</div>
+                <div class="reveal-content">Speed, Convenience, Efficiency, Security, Connectivity, Video/Photo quality...</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">Who benefits from these improvements?</div>
+                <div class="reveal-content"><strong>Users: </strong>individuals, businesses, learners, families, content creators, app/game developers...</div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/jsWk-5TpbWg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
         
-        <!-- Second Video -->
-        <div class="discussion-question">What's missing in early toilet designs? What's the problem, to whom?</div>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/gJODPrCtXF4?start=16" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- Minecraft Video -->
+        <div class="video-topic">
+            <div class="discussion-question">Evolution of Minecraft</div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What was missing in the oldest Minecraft game?</div>
+                <div class="reveal-content">Survival mode, mobs/creatures, different biomes, redstone mechanics, villages, enchantments, multiplayer features, complex crafting recipes</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What problems were solved through iterations?</div>
+                <div class="reveal-content">Limited gameplay options, lack of challenge, limited creative expression, social interaction, long-term engagement</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">Who benefits from these improvements?</div>
+                <div class="reveal-content"><strong>Users: </strong>Casual gamers, creative builders, technical players, content creators, educators</div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/LEG9feKeQMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <!-- Second Fill in Blank Exercise (moved here) -->
+        <div class="exercise-container" id="exercise0">
+            <div class="sentence">
+                <strong>Why <a href="https://iterativedesign.netlify.app/">Iterative Design</a> Matters:</strong>
+            </div>
+            <div class="sentence">
+                You collect <span class="blank" data-id="e2-1"></span>, make changes to improve design version by version.
+            </div>
+            <div class="sentence">
+                Small efforts add up over time to create <span class="blank" data-id="e2-2"></span>.
+            </div>
+            <div class="sentence">
+                It allows you to try out different ideas and fit them in the <span class="blank" data-id="e2-3"></span>.
+            </div>
+            <div class="sentence">
+                <strong>Why Understanding Users is Important:</strong>
+            </div>
+            <div class="sentence">
+                Users don't always know exactly what they <span class="blank" data-id="e2-4"></span>.
+            </div>
+            <div class="sentence">
+                A good design solves their <span class="blank" data-id="e2-5"></span>.
+            </div>
+            <div class="sentence">
+                A great design gives users what they couldn't even <span class="blank" data-id="e2-6"></span>.
+            </div>
+
+            <div class="keywords-container">
+                <div class="draggable" draggable="true" data-keyword="want">want</div>
+                <div class="draggable" draggable="true" data-keyword="dream of">dream of</div>
+                <div class="draggable" draggable="true" data-keyword="design context">design context</div>
+                <div class="draggable" draggable="true" data-keyword="feedback">feedback</div>
+                <div class="draggable" draggable="true" data-keyword="better designs">better designs</div>
+                <div class="draggable" draggable="true" data-keyword="problems">problems</div>
+            </div>
+        </div>
+        
+        <!-- Second Video - Toilet -->
+        <div class="video-topic">
+            <div class="discussion-question">Evolution of Toilets</div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What's missing in early toilet designs?</div>
+                <div class="reveal-content">Flushing mechanisms, sewer systems, water efficiency, hygiene features, comfort design, odor control</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">What problems did these solve?</div>
+                <div class="reveal-content">Hygiene issues, disease spread, waste management, water conservation, comfort, public health</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">Who benefits from these improvements?</div>
+                <div class="reveal-content"><strong>Users:</strong> individuals, communities, urban planners</div>
+            </div>
+            
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/gJODPrCtXF4?start=16" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
         
         <!-- Additional Discussion Questions -->
-        <div class="discussion-question">Open Discussion Questions:</div>
-        <div class="question-text">If you time travel to the past, could you build a 2025 aeroplane or 2025 toilet? Why?</div>
-        <div class="question-text">How did we get from the past to 2025?</div>
+        <div class="question-text">If you time travel to the past, could you build a 2025 flush toilet? Why?</div>
+        
+        <div class="reveal-container">
+            <div class="">What would be the challenges?</div>
+            <div class="reveal-content"><strong>Lack of technologies: </strong>Infrastructure requirements (plumbing, sewage systems), material limitations, manufacturing capabilities, specialized knowledge needed, tools and precision required</div>
+        </div>
     </div>
-
+<br>
     <!-- First Fill in Blank Exercise -->
-    <div class="exercise-container" id="exercise1">
+    <div class="exercise-container" id="exercise1"><img src='https://www.sharplesschool.co.uk/wp-content/uploads/DT-KS3.png'>
         <div class="sentence">
-            <strong>Fill in Blank Exercise 1:</strong>
+            <strong>How has product design changed over time?</strong>
         </div>
         <div class="sentence">
-            Designers must identify <span class="blank" data-id="e1-1"></span> that <span class="blank" data-id="e1-2"></span> experience.
+            Designers identify and try to solve <span class="blank" data-id="e1-1"></span> that <span class="blank" data-id="e1-2"></span> experience.
         </div>
         <div class="sentence">
-            Innovation requires the process of <span class="blank" data-id="e1-3"></span>, learning <span class="blank" data-id="e1-4"></span> from mistakes and facts.
+            Innovation requires the process of <span class="blank" data-id="e1-3"></span>.</div> 
+
+        <div class="sentence">Part of the process is to learn <span class="blank" data-id="e1-4"></span> from mistakes and facts.
         </div>
         <div class="sentence">
-            It also requires designers to think <span class="blank" data-id="e1-5"></span> to dream big.
+            It also requires designers to think <span class="blank" data-id="e1-5"></span> and dream big for new ideas.
         </div>
         <div class="sentence">
-            <span class="blank" data-id="e1-6"></span> empower designers to explore more possibilities.
+            <span class="blank" data-id="e1-6"></span> empower designers to try and realise more new ideas.
         </div>
 
         <div class="keywords-container">
@@ -226,54 +375,6 @@
             <div class="draggable" draggable="true" data-keyword="problems">problems</div>
             <div class="draggable" draggable="true" data-keyword="users">users</div>
             <div class="draggable" draggable="true" data-keyword="iterative design">iterative design</div>
-        </div>
-
-        <div class="action-buttons">
-            <button class="reset" onclick="resetExercise('exercise1')">Reset Exercise 1</button>
-        </div>
-    </div>
-
-    <!-- Second Fill in Blank Exercise -->
-    <div class="exercise-container" id="exercise2">
-        <div class="sentence">
-            <strong>Fill in Blank Exercise 2:</strong>
-        </div>
-        <div class="sentence">
-            <strong>Why <a href="https://iterativedesign.netlify.app/">Iterative Design</a> Matters:</strong>
-        </div>
-        <div class="sentence">
-            You collect <span class="blank" data-id="e2-1"></span>, make changes, and improve your design version by version.
-        </div>
-        <div class="sentence">
-            Small efforts add up over time to create <span class="blank" data-id="e2-2"></span>.
-        </div>
-        <div class="sentence">
-            It helps you try out different ideas and understand the <span class="blank" data-id="e2-3"></span>.
-        </div>
-        <div class="sentence">
-            <strong>Why Understanding Users is Important:</strong>
-        </div>
-        <div class="sentence">
-            Users don't always know exactly what they <span class="blank" data-id="e2-4"></span>.
-        </div>
-        <div class="sentence">
-            A good design solves their <span class="blank" data-id="e2-5"></span>.
-        </div>
-        <div class="sentence">
-            A great design surprises them by giving them something they didn't even know they <span class="blank" data-id="e2-6"></span>.
-        </div>
-
-        <div class="keywords-container">
-            <div class="draggable" draggable="true" data-keyword="want">want</div>
-            <div class="draggable" draggable="true" data-keyword="design context">design context</div>
-            <div class="draggable" draggable="true" data-keyword="feedback">feedback</div>
-            <div class="draggable" draggable="true" data-keyword="better designs">better designs</div>
-            <div class="draggable" draggable="true" data-keyword="problems">problems</div>
-            <div class="draggable" draggable="true" data-keyword="needed">needed</div>
-        </div>
-
-        <div class="action-buttons">
-            <button class="reset" onclick="resetExercise('exercise2')">Reset Exercise 2</button>
         </div>
     </div>
 
@@ -312,7 +413,7 @@
 
                 // Check if the blank and draggable belong to the same exercise
                 const blankId = blank.getAttribute('data-id');
-                const dragExercise = blankId.startsWith('e1') ? 'exercise1' : 'exercise2';
+                const dragExercise = blankId.startsWith('e1') ? 'exercise1' : 'exercise0';
                 const blankContainer = document.getElementById(dragExercise);
                 const dragParent = dragging.closest('.exercise-container');
 
@@ -330,7 +431,7 @@
                 if (blank.textContent.trim() !== '') {
                     const keyword = blank.textContent.trim();
                     const blankId = blank.getAttribute('data-id');
-                    const exerciseId = blankId.startsWith('e1') ? 'exercise1' : 'exercise2';
+                    const exerciseId = blankId.startsWith('e1') ? 'exercise1' : 'exercise0';
                     const container = document.getElementById(exerciseId);
                     const draggable = Array.from(container.querySelectorAll('.draggable')).find(d => d.textContent === keyword);
                     
@@ -355,6 +456,44 @@
                 draggable.classList.remove('used');
             });
         }
+
+        // Set up click-to-reveal functionality
+        const revealContainers = document.querySelectorAll('.reveal-container');
+        
+        revealContainers.forEach(container => {
+            const revealText = container.querySelector('.reveal-text');
+            const revealContent = container.querySelector('.reveal-content');
+            
+            container.addEventListener('click', () => {
+                revealContent.classList.toggle('visible');
+                
+                // Change the text when revealed/hidden
+                if (!revealContent.classList.contains('visible')) {
+                
+                    if (revealText.textContent.startsWith('Hide')) {
+                        // Extract the original question type and capitalized first letter
+                        const hiddenContent = revealText.textContent.substring(5);
+                        let originalQuestion = '';
+                        
+                        // Reconstruct the original question format based on content
+                        if (hiddenContent.includes('features') || hiddenContent.includes('missing')) {
+                            originalQuestion = 'What are the missing features';
+                        } else if (hiddenContent.includes('problems')) {
+                            originalQuestion = 'What problems';
+                        } else if (hiddenContent.includes('benefits') || hiddenContent.includes('whom')) {
+                            originalQuestion = 'Who benefits from these improvements';
+                        } else if (hiddenContent.includes('factors')) {
+                            originalQuestion = 'What factors would make it difficult';
+                        } else {
+                            // Generic fallback
+                            originalQuestion = 'What ' + hiddenContent;
+                        }
+                        
+                        revealText.textContent = originalQuestion + '?';
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
