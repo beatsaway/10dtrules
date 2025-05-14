@@ -16,12 +16,13 @@
             text-align: center;
             color: #333;
         }
-         a { text-decoration: none; }
+        a { text-decoration: none; }
         .exercise-container {
             background-color: white;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
         }
         .instructions {
             margin-bottom: 20px;
@@ -130,24 +131,66 @@
             line-height: 1.6;
             margin-bottom: 15px;
         }
+        .topic-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .topic-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .keyword {
+            background-color: #e0f7fa;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
+    <div class="topic-container">
+        <div class="topic-title">Topic: Design Evolution</div>
+        <div class="sentence">Core Question: How and why has product design changed over time?</div>
+        <div class="keywords">
+            <div class="keyword">Iterative Design</div>
+            <div class="keyword">Users</div>
+            <div class="keyword">Problems</div>
+            <div class="keyword">Evaluation</div>
+            <div class="keyword">Technologies</div>
+            <div class="keyword">Creativity</div>
+        </div>
+    </div>
 
-    <!-- New Video Sections -->
+    <div class="exercise-container">
+        <div class="sentence">
+            <strong>What is iterative design? (Hint: Iterative means 'repeating') Why does it matter, to whom?</strong>
+        </div>
+    </div>
+
+    <!-- Video Sections -->
     <div class="video-section">
         <div class="sentence">
             <strong>Historical Examples of Iterative Design:</strong>
         </div>
         
         <!-- First Video -->
-        <div class="discussion-question">What's missing in early aeroplane designs?</div>
+        <div class="discussion-question">What's missing in early aeroplane designs? What's the problem, to whom?</div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/hrXDNtFjmoE?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         
         <!-- Second Video -->
-        <div class="discussion-question">What's missing in early toilet designs?</div>
+        <div class="discussion-question">What's missing in early toilet designs? What's the problem, to whom?</div>
         <div class="video-container">
             <iframe src="https://www.youtube.com/embed/gJODPrCtXF4?start=16" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
@@ -157,36 +200,70 @@
         <div class="question-text">If you time travel to the past, could you build a 2025 aeroplane or 2025 toilet? Why?</div>
         <div class="question-text">How did we get from the past to 2025?</div>
     </div>
-<br><br><br><br><br><br><br><br><br>
 
-        <div id="exercise">
-            <div class="sentence">
-                <strong>Why <a href="https://iterativedesign.netlify.app/">Iterative Design</a> Matters:</strong>
-            </div>
-            <div class="sentence">
-                You collect <span class="blank" data-id="1"></span>, make changes, and improve your design step by step.
-            </div>
-            <div class="sentence">
-                Small efforts add up over time to create <span class="blank" data-id="2"></span>.
-            </div>
-            <div class="sentence">
-                It helps you try out different ideas and understand the <span class="blank" data-id="3"></span>.
-            </div>
-            <div class="sentence">
-                <strong>Why Understanding Users is Important:</strong>
-            </div>
-            <div class="sentence">
-                Users don't always know exactly what they <span class="blank" data-id="4"></span>.
-            </div>
-            <div class="sentence">
-                A good design solves their <span class="blank" data-id="5"></span>.
-            </div>
-            <div class="sentence">
-                A great design surprises them by giving them something they didn't even know they <span class="blank" data-id="6"></span>.
-            </div>
+    <!-- First Fill in Blank Exercise -->
+    <div class="exercise-container" id="exercise1">
+        <div class="sentence">
+            <strong>Fill in Blank Exercise 1:</strong>
         </div>
+        <div class="sentence">
+            Designers must identify <span class="blank" data-id="e1-1"></span> that <span class="blank" data-id="e1-2"></span> experience.
+        </div>
+        <div class="sentence">
+            Innovation requires the process of <span class="blank" data-id="e1-3"></span>, learning <span class="blank" data-id="e1-4"></span> from mistakes and facts.
+        </div>
+        <div class="sentence">
+            It also requires designers to think <span class="blank" data-id="e1-5"></span> to dream big.
+        </div>
+        <div class="sentence">
+            <span class="blank" data-id="e1-6"></span> empower designers to explore more possibilities.
+        </div>
+
         <div class="keywords-container">
-            
+            <div class="draggable" draggable="true" data-keyword="critically from mistakes">critically</div>
+            <div class="draggable" draggable="true" data-keyword="creatively">creatively</div>
+            <div class="draggable" draggable="true" data-keyword="Technologies">Technologies</div>
+            <div class="draggable" draggable="true" data-keyword="problems">problems</div>
+            <div class="draggable" draggable="true" data-keyword="users">users</div>
+            <div class="draggable" draggable="true" data-keyword="iterative design">iterative design</div>
+        </div>
+
+        <div class="action-buttons">
+            <button class="reset" onclick="resetExercise('exercise1')">Reset Exercise 1</button>
+        </div>
+    </div>
+
+    <!-- Second Fill in Blank Exercise -->
+    <div class="exercise-container" id="exercise2">
+        <div class="sentence">
+            <strong>Fill in Blank Exercise 2:</strong>
+        </div>
+        <div class="sentence">
+            <strong>Why <a href="https://iterativedesign.netlify.app/">Iterative Design</a> Matters:</strong>
+        </div>
+        <div class="sentence">
+            You collect <span class="blank" data-id="e2-1"></span>, make changes, and improve your design version by version.
+        </div>
+        <div class="sentence">
+            Small efforts add up over time to create <span class="blank" data-id="e2-2"></span>.
+        </div>
+        <div class="sentence">
+            It helps you try out different ideas and understand the <span class="blank" data-id="e2-3"></span>.
+        </div>
+        <div class="sentence">
+            <strong>Why Understanding Users is Important:</strong>
+        </div>
+        <div class="sentence">
+            Users don't always know exactly what they <span class="blank" data-id="e2-4"></span>.
+        </div>
+        <div class="sentence">
+            A good design solves their <span class="blank" data-id="e2-5"></span>.
+        </div>
+        <div class="sentence">
+            A great design surprises them by giving them something they didn't even know they <span class="blank" data-id="e2-6"></span>.
+        </div>
+
+        <div class="keywords-container">
             <div class="draggable" draggable="true" data-keyword="want">want</div>
             <div class="draggable" draggable="true" data-keyword="design context">design context</div>
             <div class="draggable" draggable="true" data-keyword="feedback">feedback</div>
@@ -194,13 +271,14 @@
             <div class="draggable" draggable="true" data-keyword="problems">problems</div>
             <div class="draggable" draggable="true" data-keyword="needed">needed</div>
         </div>
-    </div>
 
-    <div class="action-buttons">
-        <button class="reset" onclick="resetExercise()">Reset</button>
+        <div class="action-buttons">
+            <button class="reset" onclick="resetExercise('exercise2')">Reset Exercise 2</button>
+        </div>
     </div>
 
     <script>
+        // Set up drag and drop for all exercises
         const draggables = document.querySelectorAll('.draggable');
         const blanks = document.querySelectorAll('.blank');
 
@@ -232,16 +310,30 @@
                 // If the blank is already filled, do nothing
                 if (blank.classList.contains('filled')) return;
 
-                blank.textContent = dragging.textContent;
-                blank.classList.add('filled');
-                dragging.classList.add('used');
+                // Check if the blank and draggable belong to the same exercise
+                const blankId = blank.getAttribute('data-id');
+                const dragExercise = blankId.startsWith('e1') ? 'exercise1' : 'exercise2';
+                const blankContainer = document.getElementById(dragExercise);
+                const dragParent = dragging.closest('.exercise-container');
+
+                // Only allow drops within the same exercise
+                if (dragParent.id === blankContainer.id) {
+                    blank.textContent = dragging.textContent;
+                    blank.classList.add('filled');
+                    dragging.classList.add('used');
+                }
+                
                 blank.classList.remove('hover');
             });
 
             blank.addEventListener('click', () => {
                 if (blank.textContent.trim() !== '') {
                     const keyword = blank.textContent.trim();
-                    const draggable = Array.from(draggables).find(d => d.textContent === keyword);
+                    const blankId = blank.getAttribute('data-id');
+                    const exerciseId = blankId.startsWith('e1') ? 'exercise1' : 'exercise2';
+                    const container = document.getElementById(exerciseId);
+                    const draggable = Array.from(container.querySelectorAll('.draggable')).find(d => d.textContent === keyword);
+                    
                     if (draggable) draggable.classList.remove('used');
                     blank.textContent = '';
                     blank.classList.remove('filled');
@@ -249,12 +341,17 @@
             });
         });
 
-        function resetExercise() {
-            blanks.forEach(blank => {
+        function resetExercise(exerciseId) {
+            const container = document.getElementById(exerciseId);
+            const exerciseBlanks = container.querySelectorAll('.blank');
+            const exerciseDraggables = container.querySelectorAll('.draggable');
+            
+            exerciseBlanks.forEach(blank => {
                 blank.textContent = '';
                 blank.classList.remove('filled');
             });
-            draggables.forEach(draggable => {
+            
+            exerciseDraggables.forEach(draggable => {
                 draggable.classList.remove('used');
             });
         }
