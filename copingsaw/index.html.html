@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DT Lesson: Coping Saw & Pencil Topper Exercises</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .exercise-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        .instructions {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .sentence {
+            margin: 15px 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 120px;
+            border-bottom: 2px dashed #ccc;
+            margin: 0 3px;
+            min-height: 18px;
+            text-align: center;
+            padding: 2px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+        .blank small {
+            color: #666;
+            font-size: 10px;
+            position: absolute;
+            margin-top: 6px;
+            margin-left: 0;
+            background: #e6e6e6;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .blank.hover {
+            background-color: #f0f0f0;
+        }
+        .blank.filled {
+            border-bottom-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        .draggable {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: grab;
+            background-color: #fff;
+            user-select: none;
+        }
+        .draggable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .draggable.used {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f0f8ff;
+            border-radius: 8px;
+        }
+        .emoji {
+            margin-right: 5px;
+        }
+        .exercise-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DT Lesson: Coping Saw & Pencil Topper</h1>
+    
+    <!-- Exercise 1 -->
+    <div class="exercise-container">
+        <div class="exercise-title">
+            <h2>How to use coping saw properly and effectively:</h2>
+        </div>
+        
+        <div id="exercise1">
+            <div class="sentence">
+                <span class="emoji">🤔</span> I need to place my piece in the vice so that the part I will be cutting is about <span class="blank" data-id="1"><small>(1)</small></span> close to the vice. This will prevent the <span class="blank" data-id="2"><small>(2)</small></span> from wobbling.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> I need to make a little <span class="blank" data-id="3"><small>(3)</small></span> on where I want to cut. This will prevent the <span class="blank" data-id="4"><small>(4)</small></span> from wobbling when I start cutting.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> I need to focus my energy on <span class="blank" data-id="5"><small>(5)</small></span> instead of <span class="blank" data-id="6"><small>(6)</small></span> when cutting. This is because the teeth on the blade are pointing <span class="blank" data-id="7"><small>(7)</small></span> me. Pushing is for <span class="blank" data-id="8"><small>(8)</small></span> the blade. Pulling is for <span class="blank" data-id="9"><small>(9)</small></span>.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> I need to stand like a <span class="blank" data-id="10"><small>(10)</small></span> when cutting. It will help me cut more easily by shifting part of my <span class="blank" data-id="11"><small>(11)</small></span> weight from my front leg to my back leg when I pull the blade.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> To make sure the <span class="blank" data-id="12"><small>(12)</small></span> of the shape is cut out to be the same, I need to make sure my blade is always positioned <span class="blank" data-id="13"><small>(13)</small></span> to the piece I cut. It means forming a 90 degree angle to the piece. This will also prevent the blade from <span class="blank" data-id="14"><small>(14)</small></span>. Also, it is always good to do <span class="blank" data-id="15"><small>(15)</small></span> relatively straight cuts instead of one long cut.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> To cut a curve line, I need to <span class="blank" data-id="16"><small>(16)</small></span> than I <span class="blank" data-id="17"><small>(17)</small></span>. Otherwise, the blade will not have enough room to turn.
+            </div>
+        </div>
+        
+        <div class="keywords-container" id="keywords1">
+            <div class="draggable" draggable="true" data-keyword="1 cm">1 cm</div>
+            <div class="draggable" draggable="true" data-keyword="piece">piece</div>
+            <div class="draggable" draggable="true" data-keyword="dent">dent</div>
+            <div class="draggable" draggable="true" data-keyword="blade">blade</div>
+            <div class="draggable" draggable="true" data-keyword="pulling">pulling</div>
+            <div class="draggable" draggable="true" data-keyword="pushing">pushing</div>
+            <div class="draggable" draggable="true" data-keyword="away from">away from</div>
+            <div class="draggable" draggable="true" data-keyword="repositioning">repositioning</div>
+            <div class="draggable" draggable="true" data-keyword="cutting">cutting</div>
+            <div class="draggable" draggable="true" data-keyword="boxer">boxer</div>
+            <div class="draggable" draggable="true" data-keyword="body">body</div>
+            <div class="draggable" draggable="true" data-keyword="front and back">front and back</div>
+            <div class="draggable" draggable="true" data-keyword="perpendicular">perpendicular</div>
+            <div class="draggable" draggable="true" data-keyword="breaking">breaking</div>
+            <div class="draggable" draggable="true" data-keyword="multiple">multiple</div>
+            <div class="draggable" draggable="true" data-keyword="cut">cut</div>
+            <div class="draggable" draggable="true" data-keyword="turn">turn</div>
+        </div>
+    </div>
+    
+    <!-- Insert demo image between the two exercises -->
+    <div style="text-align:center; margin: 30px 0;">
+        <img src="demo.png" alt="Demo" style="max-width:100%; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+    </div>
+    
+    <!-- Exercise 2 -->
+    <div class="exercise-container">
+        <div class="exercise-title">
+            <h2>How to mark and cut our pencil topper properly:</h2>
+        </div>
+        
+        <div id="exercise2">
+            <div class="sentence">
+                <span class="emoji">🤔</span> Get the cardboard [prototype] of your pencil topper, use it to [trace] the shape outline onto <span class="blank" data-id="1"><small>(1)</small></span> of plywood, with [pencil]. This ensures they are all <span class="blank" data-id="2"><small>(2)</small></span>. If you don't have that cardboard, you need to draw and cut a card or cardboard to make one.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> Among the 3 pieces, the <span class="blank" data-id="3"><small>(3)</small></span> one is for making a hole to hold the <span class="blank" data-id="4"><small>(4)</small></span>. You need to place your pencil onto it, then trace it <span class="blank" data-id="5"><small>(5)</small></span> to get a [rectangle] shape.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> You will cut the thick piece of plywood first. It will be the <span class="blank" data-id="6"><small>(6)</small></span> piece of your pencil topper. Cut a little bit <span class="blank" data-id="7"><small>(7)</small></span> the pencil lines you draw, so that you can <span class="blank" data-id="8"><small>(8)</small></span> it smoothly later to its shape.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> To ensure the front and back shape is cut out to be the same, you can use <span class="blank" data-id="9"><small>(9)</small></span> hands to make sure your blade is always <span class="blank" data-id="10"><small>(10)</small></span> to the piece. You should also cut <span class="blank" data-id="11"><small>(11)</small></span> to make your cut as smooth as possible.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> When you do a curve cut, you must <span class="blank" data-id="12"><small>(12)</small></span> more than you <span class="blank" data-id="13"><small>(13)</small></span>. Do it <span class="blank" data-id="14"><small>(14)</small></span> and <span class="blank" data-id="15"><small>(15)</small></span> and you will be fine.
+            </div>
+            <div class="sentence">
+                <span class="emoji">🤔</span> If your blade got stuck or you broke it, <span class="blank" data-id="16"><small>(16)</small></span> for help <span class="blank" data-id="17"><small>(17)</small></span>.
+            </div>
+        </div>
+        
+        <div class="keywords-container" id="keywords2">
+            <div class="draggable" draggable="true" data-keyword="all 3 pieces">all 3 pieces</div>
+            <div class="draggable" draggable="true" data-keyword="the same">the same</div>
+            <div class="draggable" draggable="true" data-keyword="thickest">thickest</div>
+            <div class="draggable" draggable="true" data-keyword="pencil">pencil</div>
+            <div class="draggable" draggable="true" data-keyword="carefully">carefully</div>
+            <div class="draggable" draggable="true" data-keyword="middle">middle</div>
+            <div class="draggable" draggable="true" data-keyword="away from">away from</div>
+            <div class="draggable" draggable="true" data-keyword="sand">sand</div>
+            <div class="draggable" draggable="true" data-keyword="two">two</div>
+            <div class="draggable" draggable="true" data-keyword="perpendicular">perpendicular</div>
+            <div class="draggable" draggable="true" data-keyword="slowly">slowly</div>
+            <div class="draggable" draggable="true" data-keyword="cut">cut</div>
+            <div class="draggable" draggable="true" data-keyword="turn">turn</div>
+            <div class="draggable" draggable="true" data-keyword="ask staff">ask staff</div>
+            <div class="draggable" draggable="true" data-keyword="immediately">immediately</div>
+        </div>
+    </div>
+
+    <script>
+        // Track which exercise a draggable belongs to
+        const draggables1 = document.querySelectorAll('#keywords1 .draggable');
+        const draggables2 = document.querySelectorAll('#keywords2 .draggable');
+        const blanks = document.querySelectorAll('.blank');
+
+        // Randomize keywords for both exercises
+        function shuffleKeywords(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const keywords = Array.from(container.children);
+            for (let i = keywords.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [keywords[i], keywords[j]] = [keywords[j], keywords[i]];
+            }
+            keywords.forEach(keyword => container.appendChild(keyword));
+        }
+        shuffleKeywords('keywords1');
+        shuffleKeywords('keywords2');
+
+        // Setup first exercise draggables
+        draggables1.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        // Setup second exercise draggables
+        draggables2.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        // Setup all blanks
+        blanks.forEach(blank => {
+            blank.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                blank.classList.add('hover');
+            });
+
+            blank.addEventListener('dragleave', () => {
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                if (!dragging) return;
+
+                // If the blank is already filled, do nothing
+                if (blank.classList.contains('filled')) return;
+
+                blank.textContent = dragging.textContent;
+                blank.innerHTML = blank.innerHTML.replace(/<small>\([a-z]\)<\/small>/g, '') + dragging.textContent;
+                blank.classList.add('filled');
+                dragging.classList.add('used');
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('click', () => {
+                if (blank.textContent.trim() !== '' && !blank.textContent.trim().match(/^\([a-z]\)$/)) {
+                    const keyword = blank.textContent.trim();
+                    
+                    // Save the label
+                    const label = blank.querySelector('small');
+                    
+                    // Check in the first keywords container
+                    let draggable = Array.from(draggables1).find(d => d.textContent === keyword);
+                    
+                    // If not found in the first container, check the second
+                    if (!draggable) {
+                        draggable = Array.from(draggables2).find(d => d.textContent === keyword);
+                    }
+                    
+                    if (draggable) draggable.classList.remove('used');
+                    
+                    // Clear and restore the label
+                    blank.innerHTML = '';
+                    if (label) blank.appendChild(label);
+                    
+                    blank.classList.remove('filled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
