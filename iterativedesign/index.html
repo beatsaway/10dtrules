@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iterative design quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        a { text-decoration: none; }
+        .exercise-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+        .instructions {
+            margin-bottom: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .sentence {
+            margin: 15px 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 150px;
+            border-bottom: 2px dashed #ccc;
+            margin: 0 3px;
+            min-height: 18px;
+            text-align: center;
+            padding: 2px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+            position: relative;
+        }
+        .blank small {
+            color: #888;
+            font-size: 10px;
+            position: absolute;
+            left: 4px;
+            top: 2px;
+            background: #f3f3f3;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .blank.hover {
+            background-color: #f0f0f0;
+        }
+        .blank.filled {
+            border-bottom-color: #4CAF50;
+            background-color: #e8f5e9;
+        }
+        .draggable {
+            display: inline-block;
+            margin: 5px;
+            padding: 8px 12px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: grab;
+            background-color: #fff;
+            user-select: none;
+        }
+        .draggable.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+        .draggable.used {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+        .keywords-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 0px;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px auto;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button.reset {
+            background-color: #f44336;
+        }
+        /* New styles for video sections */
+        .video-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .discussion-question {
+            font-size: 18px;
+            color: #333;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+        .question-text {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        .topic-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .topic-title {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .keyword {
+            background-color: #e0f7fa;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        /* New styles for click-to-reveal */
+        .reveal-container {
+            margin: 10px 0;
+            cursor: pointer;
+        }
+        .reveal-text {
+            display: inline-block;
+            color: #2196F3;
+            font-weight: 500;
+        }
+        .reveal-content {
+            display: none;
+            background-color: #e3f2fd;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-top: 5px;
+            border-left: 4px solid #2196F3;
+        }
+        .reveal-content.visible {
+            display: block;
+        }
+        .video-topic {
+            margin-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 20px;
+        }
+        /* Styles for print mode */
+        .print-mode .video-container {
+            display: none;
+        }
+        /* Print media query */
+        @media print {
+            .print-button-container, 
+            .video-container {
+                display: none !important;
+            }
+            body {
+                background-color: white;
+            }
+        }
+        .exercise-columns {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 0;
+            position: relative;
+        }
+        .exercise-columns > .exercise-column:first-child {
+            border-right: 2px solid #e0e0e0;
+        }
+        .exercise-columns > .exercise-column {
+            /* Ensure columns don't overlap the border visually */
+            padding-right: 18px;
+        }
+        .exercise-columns > .exercise-column:last-child {
+            padding-right: 0;
+            padding-left: 18px;
+        }
+        .exercise-column {
+            flex: 1 1 0;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            padding: 20px 18px 18px 18px;
+            min-width: 260px;
+        }
+        @media (max-width: 700px) {
+            .exercise-columns {
+                flex-direction: column;
+            }
+            .exercise-columns > .exercise-column:first-child {
+                border-right: none;
+                padding-right: 0;
+            }
+            .exercise-columns > .exercise-column:last-child {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="topic-container">
+        <div class="topic-title">Topic: Design Evolution</div>
+        <div class="sentence">Core Question: How and why has product design changed over time?</div>
+        <div class="keywords">
+            <div class="keyword">Iterative Design</div>
+            <div class="keyword">Users</div>
+            <div class="keyword">Problems</div>
+            <div class="keyword">Evaluation</div>
+            <div class="keyword">Technologies</div>
+            <div class="keyword">Creativity</div>
+        </div>
+    </div>    <!-- Video Sections -->
+    <div class="video-section">
+        
+        <div class="sentence reveal-container" id="iterative-design-question" style="cursor:pointer;">
+            <strong>What is iterative design? How does it work? </strong>(Hint: 'iterative' means 'repeating')
+            
+            <div class="reveal-content" id="iterative-design-answer" style="display:none;">
+               It's a repeating cycle to research, design, make, and evaluate. <div id="iterative-cycle"></div>
+            </div>
+        </div>
+        <script src="iterativecycle.js"></script>
+        <script src="simplecycle.js"></script>
+        <div class="sentence">
+            <strong>Why does it matter? Who cares? </strong>(Hint: see examples below)
+        </div>
+
+        <!-- First Video - Aeroplane -->
+        <div class="video-topic">
+            <div class="discussion-question toggle-video" data-target="aeroplanes-video">Evolution of Aeroplanes</div>
+            <div class="video-container" id="aeroplanes-video" style="display:none;">
+                <iframe src="https://www.youtube.com/embed/hrXDNtFjmoE?start=5" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <!-- Click to reveal sections -->
+            <div class="reveal-container">
+                <div class="reveal-text">💡🔧 What are the missing features in early aeroplane designs?</div>
+                <div class="reveal-content">Wheels, jet engines, metal body, AC, toilet, wifi, GPS</div>
+            </div>
+            <div class="reveal-container">
+                <div class="reveal-text">❓ What problems needed to be solved?</div>
+                <div class="reveal-content">Safety, Speed, Comfort, Entertainment</div>
+            </div>
+            <div class="reveal-container">
+                <div class="reveal-text">👥 Who benefits?</div>
+                <div class="reveal-content"><strong>Users: </strong> pilots, passengers, people on the plane.</div>
+            </div>
+            <div class="simple-cycle"></div>
+        </div>
+        
+        <!-- iPhone Short Video -->
+        <div class="video-topic">
+            <div class="discussion-question toggle-video" data-target="iphone-video">Evolution of the iPhone</div>
+            <div class="video-container" id="iphone-video" style="display:none;">
+                <iframe src="https://www.youtube.com/embed/jsWk-5TpbWg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="reveal-container">
+                <div class="reveal-text">💡🔧 What are the differences between the first iPhone and the latest model?</div>
+                <div class="reveal-content">Powerful chip, front camera, high-resolution screen, Touch ID/Face ID, water resistance, wireless charging, 4G, 5G connectivity...</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">❓ What problems needed to be addressed?</div>
+                <div class="reveal-content">Speed, Convenience, Efficiency, Security, Connectivity, Video/Photo quality...</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">👥 Who benefits from these features?</div>
+                <div class="reveal-content"><strong>Users: </strong>individuals, businesses, learners, families, content creators, app/game developers...</div>
+            </div>
+            <div class="simple-cycle"></div>
+        </div>
+        
+        <!-- Minecraft Video -->
+        <div class="video-topic">
+            <div class="discussion-question toggle-video" data-target="minecraft-video">Evolution of Minecraft</div>
+            <div class="video-container" id="minecraft-video" style="display:none;">
+                <iframe src="https://www.youtube.com/embed/LEG9feKeQMY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">💡🔧 What's missing in the oldest Minecraft game?</div>
+                <div class="reveal-content">Survival mode, mobs/creatures, different biomes, redstone mechanics, villages, enchantments, multiplayer features, complex crafting recipes</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">❓ What problems were solved through iterations?</div>
+                <div class="reveal-content">Limited gameplay options, lack of challenge, limited creative expression, social interaction, long-term engagement</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">👥 Who benefits from these improvements?</div>
+                <div class="reveal-content"><strong>Users: </strong>Casual gamers, creative builders, technical players, content creators, educators</div>
+            </div>
+            <div class="simple-cycle"></div>
+        </div>
+        
+        <!-- Second Video - Toilet -->
+        <div class="video-topic">
+            <div class="discussion-question toggle-video" data-target="toilets-video">Evolution of Toilets</div>
+            <div class="video-container" id="toilets-video" style="display:none;">
+                <iframe src="https://www.youtube.com/embed/gJODPrCtXF4?start=16" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">💡🔧 What's missing in early toilet designs?</div>
+                <div class="reveal-content">Flushing mechanisms, sewer systems, water efficiency, hygiene features, comfort design, odor control</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">❓ What problems needed to be solved?</div>
+                <div class="reveal-content">Hygiene issues, disease spread, waste management, water conservation, comfort, public health</div>
+            </div>
+            
+            <div class="reveal-container">
+                <div class="reveal-text">👥 Who benefits from these improvements?</div>
+                <div class="reveal-content"><strong>Users:</strong> individuals, communities, urban planners</div>
+            </div>
+            <div class="simple-cycle"></div>
+        </div>
+        
+        <!-- Additional Discussion Questions -->
+        <div class="question-text">If you time travel to the past, could you build a 2025 flush toilet? Why?</div>
+        
+        <div class="reveal-container">
+            <div class="reveal-text">🤔 What would be the challenges?</div>
+            <div class="reveal-content"><strong>Lack of technologies: </strong>Infrastructure requirements (plumbing, sewage systems), material limitations, manufacturing capabilities, specialized knowledge needed, tools and precision required</div>
+        </div>
+    </div>
+
+    <!-- Updated How and Why has product design changed over time? exercise -->
+    <div class="exercise-container" id="exercise1">
+        <div class="sentence">
+            <strong>How has product design changed over time?</strong>
+        </div>
+        <div class="exercise-columns" style="box-shadow:none;gap:18px;padding:0;background:none;">
+            <div class="exercise-column" style="box-shadow:none;padding:0;background:none;min-width:0;">
+                <div class="sentence">
+                    Designers can collect user <span class="blank" data-id="e1-1"><small>(1)</small></span> 🙋🏻‍♂️ to make improvements 🛠️ on existing design accordingly.
+                </div>
+                <div class="sentence">
+                    Small efforts 🌱 add up over time to create <span class="blank" data-id="e1-2"><small>(2)</small></span>.
+                </div>
+                <div class="sentence">
+                    This repeating process 🔄 creates and selects better design to fit into existing <span class="blank" data-id="e1-3"><small>(3)</small></span>.
+                </div>
+            </div>
+            <div class="exercise-column" style="box-shadow:none;padding:0;background:none;min-width:0;">
+                <div class="sentence">
+                    Designers imagine 🧠 how new <span class="blank" data-id="e1-4"><small>(4)</small></span> 💡 can be applied to make new and better products for <span class="blank" data-id="e1-5"><small>(5)</small></span>.
+                </div>
+                <div class="sentence">
+                    It might solve ❓ <span class="blank" data-id="e1-6"><small>(6)</small></span> that have never been solved by existing products on the market.
+                </div>
+            </div>
+        </div>
+        <div class="keywords-container">
+            <div class="draggable" draggable="true" data-keyword="users">users</div>
+            <div class="draggable" draggable="true" data-keyword="better design">better design</div>
+            <div class="draggable" draggable="true" data-keyword="problems">problems</div>
+            <div class="draggable" draggable="true" data-keyword="feedback">feedback</div>
+            <div class="draggable" draggable="true" data-keyword="design context">design context</div>
+            <div class="draggable" draggable="true" data-keyword="technologies">technologies</div>
+        </div>
+    </div>
+    <div class="exercise-container" id="exercise2">
+        <div class="sentence">
+            <strong>Why has product design changed over time?</strong>
+        </div>
+        <div class="exercise-columns" style="th-shadow:none;gap:18px;padding:0;background:none;">
+            <div class="exercise-column" style="box-shadow:none;padding:0;background:none;min-width:0;">
+                <div class="sentence">
+                    It can be due to <span class="blank" data-id="e2-1"><small>(1)</small></span> 📊.
+                </div>
+                <div class="sentence">
+                    It means there is a demand in the market, where users 👥 have <span class="blank" data-id="e2-2"><small>(2)</small></span> and desires unfulfilled.
+                </div>
+                <div class="sentence">
+                    Good design solves user <span class="blank" data-id="e2-3"><small>(3)</small></span>  more effectively than before.
+                </div>
+            </div>
+            <div class="exercise-column" style="box-shadow:none;padding:0;background:none;min-width:0;">
+                <div class="sentence">
+                    It can be due to <span class="blank" data-id="e2-4"><small>(4)</small></span> 🤖.
+                </div>
+                <div class="sentence">
+                    It means there is advancement in technologies, that empower designers to realise <span class="blank" data-id="e2-5"><small>(5)</small></span> ✨ design ideas.
+                </div>
+                <div class="sentence">
+                    Great design gives users 👥 what they couldn't even <span class="blank" data-id="e2-6"><small>(6)</small></span> 🤔.
+                </div>
+            </div>
+        </div>
+        <div class="keywords-container">
+            <div class="draggable" draggable="true" data-keyword="market pull">market pull</div>
+            <div class="draggable" draggable="true" data-keyword="dream of">dream of</div>
+            <div class="draggable" draggable="true" data-keyword="problems">problems</div>
+            <div class="draggable" draggable="true" data-keyword="innovative">innovative</div>
+            <div class="draggable" draggable="true" data-keyword="technology push">technology push</div>
+            <div class="draggable" draggable="true" data-keyword="needs">needs</div>
+        </div>
+    </div>
+
+    <script>
+        // Set up drag and drop for all exercises
+        const draggables = document.querySelectorAll('.draggable');
+        const blanks = document.querySelectorAll('.blank');
+
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+
+        blanks.forEach(blank => {
+            blank.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                blank.classList.add('hover');
+            });
+
+            blank.addEventListener('dragleave', () => {
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const dragging = document.querySelector('.dragging');
+                if (!dragging) return;
+
+                // If the blank is already filled, do nothing
+                if (blank.classList.contains('filled')) return;
+
+                // Check if the blank and draggable belong to the same exercise
+                const dragParent = dragging.closest('.exercise-container');
+                const blankParent = blank.closest('.exercise-container');
+
+                // Only allow drops within the same exercise
+                if (dragParent && blankParent && dragParent.id === blankParent.id) {
+                    blank.textContent = dragging.textContent;
+                    blank.classList.add('filled');
+                    dragging.classList.add('used');
+                }
+                
+                blank.classList.remove('hover');
+            });
+
+            blank.addEventListener('click', () => {
+                if (blank.textContent.trim() !== '') {
+                    const keyword = blank.textContent.trim();
+                    const blankParent = blank.closest('.exercise-container');
+                    const draggable = Array.from(blankParent.querySelectorAll('.draggable')).find(d => d.textContent === keyword);
+                    
+                    if (draggable) draggable.classList.remove('used');
+                    blank.textContent = '';
+                    blank.classList.remove('filled');
+                }
+            });
+        });
+
+        function resetExercise(exerciseId) {
+            const container = document.getElementById(exerciseId);
+            const exerciseBlanks = container.querySelectorAll('.blank');
+            const exerciseDraggables = container.querySelectorAll('.draggable');
+            
+            exerciseBlanks.forEach(blank => {
+                blank.textContent = '';
+                blank.classList.remove('filled');
+            });
+            
+            exerciseDraggables.forEach(draggable => {
+                draggable.classList.remove('used');
+            });
+        }
+
+        // Set up click-to-reveal functionality
+        const revealContainers = document.querySelectorAll('.reveal-container');
+        
+        revealContainers.forEach(container => {
+            const revealText = container.querySelector('.reveal-text');
+            const revealContent = container.querySelector('.reveal-content');
+            if (!revealText || !revealContent) return;
+            // Only toggle when clicking the question (reveal-text)
+            revealText.addEventListener('click', function(e) {
+                revealContent.classList.toggle('visible');
+                // Change the text when revealed/hidden
+                if (!revealContent.classList.contains('visible')) {
+                    if (revealText.textContent.startsWith('Hide')) {
+                        const hiddenContent = revealText.textContent.substring(5);
+                        let originalQuestion = '';
+                        if (hiddenContent.includes('features') || hiddenContent.includes('missing')) {
+                            originalQuestion = '💡 What are the missing features';
+                        } else if (hiddenContent.includes('problems')) {
+                            originalQuestion = '❓ What problems';
+                        } else if (hiddenContent.includes('benefits') || hiddenContent.includes('whom')) {
+                            originalQuestion = '👥 Who benefits from these improvements';
+                        } else if (hiddenContent.includes('factors')) {
+                            originalQuestion = '🤔 What factors would make it difficult';
+                        } else {
+                            originalQuestion = '❓ What ' + hiddenContent;
+                        }
+                        revealText.textContent = originalQuestion + '?';
+                    }
+                }
+                e.stopPropagation();
+            });
+            // Prevent clicks on the revealed content from toggling it off
+            revealContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Add click-to-toggle for video topics
+        const toggles = document.querySelectorAll('.toggle-video');
+        toggles.forEach(toggle => {
+            toggle.style.cursor = 'pointer';
+            toggle.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-target');
+                const video = document.getElementById(targetId);
+                if (video) {
+                    video.style.display = (video.style.display === 'none' || video.style.display === '') ? 'block' : 'none';
+                }
+            });
+        });
+
+        // Add click-to-reveal for the iterative design question
+        const iterativeDesignQuestion = document.getElementById('iterative-design-question');
+        const iterativeDesignAnswer = document.getElementById('iterative-design-answer');
+        if (iterativeDesignQuestion && iterativeDesignAnswer) {
+            iterativeDesignQuestion.addEventListener('click', function(e) {
+                // Prevent toggling when clicking the answer itself
+                if (e.target === iterativeDesignAnswer) return;
+                iterativeDesignAnswer.style.display = (iterativeDesignAnswer.style.display === 'none' || iterativeDesignAnswer.style.display === '') ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
