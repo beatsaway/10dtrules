@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme and Pop Art Fill-in-the-Blank Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .quiz-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 32px;
+        }
+        .question {
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .blank {
+            display: inline-block;
+            min-width: 100px;
+            height: 30px;
+            border: 2px dashed #3498db;
+            border-radius: 5px;
+            margin: 0 5px;
+            vertical-align: middle;
+            background-color: #eef7ff;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            position: relative;
+            padding: 0 8px;
+            white-space: nowrap;
+            transition: min-width 0.2s, width 0.2s;
+        }
+	.blank::before {
+            content: attr(data-number);
+            position: absolute;
+            top: 0px;
+            right: 0px;
+
+            color: #555;
+
+            width: 16px;
+            height: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        .option {
+            background-color: #3498db;
+            color: white;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s;
+        }
+        .option:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .option.dragging {
+            opacity: 0.5;
+        }
+        .filled-correct {
+            background-color: #2ecc71;
+            color: white;
+            border: 2px solid #27ae60;
+        }
+        .filled-incorrect {
+            background-color: #ff9999;
+            color: white;
+            border: 2px solid #e74c3c;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 600px) {
+            .blank {
+                min-width: 70px;
+            }
+        }
+        /* Hide TikTok 'Watch on TikTok' button */
+        .tiktok-embed [data-e2e="browse-link"],
+        .tiktok-embed .tiktok-link {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/DhEyoDCTSDQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="question">
+            Pop Art emerged in the <span class="blank" data-answer="1950s" data-number="7"></span> as a movement that challenged traditional 
+            fine art by including imagery from <span class="blank" data-answer="popular" data-number="8"></span> culture. 
+            Artists like <span class="blank" data-answer="Warhol" data-number="9"></span> used commercial items and 
+            <span class="blank" data-answer="advertising" data-number="10"></span> as subject matter. 
+            Pop Art uses <span class="blank" data-answer="bright" data-number="11"></span> colors and often features 
+            <span class="blank" data-answer="repetition" data-number="12"></span> of everyday objects or celebrities.
+        </p>
+        
+        <div class="options-container">
+            <div class="option" draggable="true" data-text="repetition">repetition</div>
+            <div class="option" draggable="true" data-text="advertising">advertising</div>
+            <div class="option" draggable="true" data-text="bright">bright</div>
+            <div class="option" draggable="true" data-text="1950s">1950s</div>
+            <div class="option" draggable="true" data-text="Warhol">Warhol</div>
+            <div class="option" draggable="true" data-text="popular">popular</div>
+        </div>
+    </div>
+    
+    <div class="quiz-container">
+        <div class="video-container">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fnqJaFxp7Xk?start=2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p class="question">
+            Richard Dawkins said a meme is like a <span class="blank" data-answer="cultural" data-number="1"></span> gene and can be <span class="blank" data-answer="imitated" data-number="2"></span> easily. 
+            Memes are cross-media but mostly <span class="blank" data-answer="visual" data-number="3"></span>. 
+            They are <span class="blank" data-answer="emotional" data-number="4"></span>, and relatable. 
+            Memes are also used widely as a form of <span class="blank" data-answer="expression" data-number="5"></span> in different topics 
+            because they are seemingly <span class="blank" data-answer="harmless" data-number="6"></span>. Memes is the pop art of the digital age.
+        </p>
+        
+        <div class="options-container">
+            <div class="option" draggable="true" data-text="emotional">emotional</div>
+            <div class="option" draggable="true" data-text="cultural">cultural</div>
+            <div class="option" draggable="true" data-text="expression">expression</div>
+            <div class="option" draggable="true" data-text="harmless">harmless</div>
+            <div class="option" draggable="true" data-text="visual">visual</div>
+            <div class="option" draggable="true" data-text="imitated">imitated</div>
+        </div>
+    </div>
+    
+    <div class="quiz-container">
+        <div style="display: flex; flex-direction: column; gap: 24px; align-items: center;">
+            
+            <div style="display: flex; flex-direction: row; gap: 30px; justify-content: center; align-items: flex-start; width: 100%;">
+                <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@coolkidsthog/video/7496000555312008456" data-video-id="7496000555312008456" style="max-width: 325px;min-width: 325px; margin-bottom: 0;">
+                    <section> </section>
+                </blockquote>
+                <script async src="https://www.tiktok.com/embed.js"></script>
+                <div style="flex: 1;"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Tralalero_Tralala.webp/225px-Tralalero_Tralala.webp.png" alt="Tralalero Tralala Meme" style="max-width: 325px; width: 100%; object-fit: contain; align-self: center;" />
+                    <p class="question" style="margin-top: 0;">
+                        The picture is a meme <span class="blank" data-answer="substitute" data-number="13"></span> a human wearing Nike shoes with a shark.<br>
+                        In the TikTok video, they <span class="blank" data-answer="combine" data-number="14"></span> multiple memes into one. <span class="blank" data-answer="adapt" data-number="15"></span> the Baby Shark tune to <span class="blank" data-answer="put it into another use" data-number="16"></span>. They <span class="blank" data-answer="modify" data-number="17"></span> the tralalero shark to make a whole family of sharks. For example, they<span class="blank" data-answer="eliminate" data-number="18"></span> the third leg from the original tralalero, and <span class="blank" data-answer="reverse" data-number="19"></span> the scary vibe of sharks to family loving.
+                    </p>
+                    <div class="options-container">
+                        <div class="option" draggable="true" data-text="eliminate">eliminate</div>
+                        <div class="option" draggable="true" data-text="combine">combine</div>
+                        <div class="option" draggable="true" data-text="put it into another use">put it into another use</div>
+                        <div class="option" draggable="true" data-text="substitute">substitute</div>
+                        <div class="option" draggable="true" data-text="reverse">reverse</div>
+                        <div class="option" draggable="true" data-text="adapt">adapt</div>
+                        <div class="option" draggable="true" data-text="modify">modify</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 18px;">
+            The above is a great example of the <strong>SCAMPER</strong> technique for brainstorming design ideas. <strong>SCAMPER</strong> stands for <strong>S</strong>ubstitute, <strong>C</strong>ombine, <strong>A</strong>dapt, <strong>M</strong>odify (also magnify and minify), <strong>P</strong>ut to another use, <strong>E</strong>liminate, and <strong>R</strong>everse.<br><br>
+        </div>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 18px; margin-bottom: 30px; flex-wrap: wrap;">
+        <a href="https://www.tiktok.com/@quizmasteraz" target="_blank" style="display: inline-block; background-color: #ff0050; color: #fff; padding: 12px 28px; border-radius: 6px; font-size: 18px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 6px rgba(0,0,0,0.08); transition: background 0.2s;">Pop Art Works</a>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
+            <span style="background: #ffe066; color: #333; font-weight: bold; border-radius: 4px; padding: 4px 10px; font-size: 15px;">Bold lines</span>
+            <span style="background: #ffe066; color: #333; font-weight: bold; border-radius: 4px; padding: 4px 10px; font-size: 15px;">Bright colours</span>
+            <span style="background: #ffe066; color: #333; font-weight: bold; border-radius: 4px; padding: 4px 10px; font-size: 15px;">Catchy shapes</span>
+            <span style="background: #ffe066; color: #333; font-weight: bold; border-radius: 4px; padding: 4px 10px; font-size: 15px;">Repetition</span>
+            <span style="background: #ffe066; color: #333; font-weight: bold; border-radius: 4px; padding: 4px 10px; font-size: 15px;">Comic style</span>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const options = document.querySelectorAll('.option');
+            const blanks = document.querySelectorAll('.blank');
+            
+            let draggingElement = null;
+            
+            // Add drag functionality to options
+            options.forEach(option => {
+                option.addEventListener('dragstart', function(e) {
+                    draggingElement = this;
+                    this.classList.add('dragging');
+                    
+                    // For Firefox compatibility
+                    e.dataTransfer.setData('text/plain', '');
+                });
+                
+                option.addEventListener('dragend', function() {
+                    this.classList.remove('dragging');
+                    draggingElement = null;
+                });
+            });
+            
+            // Add drop functionality to blanks
+            blanks.forEach(blank => {
+                blank.addEventListener('dragover', function(e) {
+                    e.preventDefault();
+                });
+                
+                blank.addEventListener('drop', function(e) {
+                    e.preventDefault();
+                    
+                    if (draggingElement && !this.classList.contains('filled-correct') && !this.classList.contains('filled-incorrect')) {
+                        // Check if answer is correct
+                        const correctAnswer = this.getAttribute('data-answer');
+                        const providedAnswer = draggingElement.getAttribute('data-text');
+                        
+                        this.textContent = draggingElement.textContent;
+                        this.dataset.optionId = draggingElement.getAttribute('data-text');
+                        
+                        if (correctAnswer === providedAnswer) {
+                            this.classList.add('filled-correct');
+                        } else {
+                            this.classList.add('filled-incorrect');
+                        }
+                        
+                        draggingElement.style.visibility = 'hidden';
+                    }
+                });
+                
+                // Add click functionality to remove words from blanks
+                blank.addEventListener('click', function() {
+                    if (this.textContent && (this.classList.contains('filled-correct') || this.classList.contains('filled-incorrect'))) {
+                        const optionText = this.dataset.optionId;
+                        
+                        // Find the corresponding option and make it visible again
+                        options.forEach(option => {
+                            if (option.getAttribute('data-text') === optionText) {
+                                option.style.visibility = 'visible';
+                            }
+                        });
+                        
+                        // Reset the blank
+                        this.textContent = '';
+                        this.classList.remove('filled-correct', 'filled-incorrect');
+                        delete this.dataset.optionId;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
