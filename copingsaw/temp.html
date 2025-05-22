@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Using coping saw to cut pencil topper mid layer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      gap: 20px;
+    }
+    .left-panel {
+      width: 40%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .left-panel img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .right-panel {
+      width: 60%;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .sentence {
+      margin: 15px 0;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .blank {
+      display: inline-block;
+      min-width: 120px;
+      border-bottom: 2px dashed #ccc;
+      margin: 0 3px;
+      min-height: 18px;
+      text-align: center;
+      padding: 2px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      position: relative;
+    }
+    .blank small {
+      color: #666;
+      font-size: 10px;
+      position: absolute;
+      margin-top: 6px;
+      background: #e6e6e6;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .blank.filled.correct {
+      border-bottom-color: #4CAF50;
+      background-color: #e8f5e9;
+    }
+    .blank.filled.incorrect {
+      border-bottom-color: #f44336;
+      background-color: #fdecea;
+    }
+    .keywords-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f0f8ff;
+      border-radius: 8px;
+    }
+    .draggable {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 12px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: grab;
+      background-color: #fff;
+      user-select: none;
+    }
+    .draggable.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+    .draggable.used {
+      background-color: #f0f0f0;
+      border-color: #ccc;
+      color: #999;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="left-panel">
+    <img src="demo.png" alt="Hint: Blade positioning">
+
+    <img src="blade.png" alt="Hint: Multiple Cuts">
+    <img src="space.png" alt="Hint: Space between cuts">
+  </div>
+
+  <div class="right-panel">
+    <h2>Using coping saw to cut pencil topper mid layer</h2>
+
+    <div class="sentence">
+      I place the blade <span class="blank" data-id="1"><small>(1)</small></span> against the edge of the piece.
+    
+      They always form a 90 degree angle. So I can cut the front and back of the piece <span class="blank" data-id="2"><small>(2)</small></span> shape and prevent the blade from getting <span class="blank" data-id="3"><small>(3)</small></span> as I cut deeper.
+    </div>
+    <div class="sentence">
+      Out of the 3 plywood pieces for making the pencil topper, I cut the middle piece first, which is the <span class="blank" data-id="4"><small>(4)</small></span> and must have a <span class="blank" data-id="5"><small>(5)</small></span> rectangle space for fitting and holding my <span class="blank" data-id="6"><small>(6)</small></span> firmly.
+    </div>
+    <div class="sentence">
+      To cut out the rectangle properly, I cut the <span class="blank" data-id="7"><small>(7)</small></span> first, then the <span class="blank" data-id="8"><small>(8)</small></span>. I will then have more <span class="blank" data-id="9"><small>(9)</small></span> to cut the remaining bit.
+    </div>
+    <div class="sentence">
+      I cut a bit <span class="blank" data-id="10"><small>(10)</small></span> the pencil line of my shape so I can <span class="blank" data-id="11"><small>(11)</small></span> to it later.
+    </div>
+    <div class="sentence">
+      I do <span class="blank" data-id="12"><small>(12)</small></span> shorter cuts that are relatively straight instead of cutting my shape in one go.
+    </div>
+    <div class="sentence">
+      I cut more <span class="blank" data-id="13"><small>(13)</small></span> and turn more <span class="blank" data-id="14"><small>(14)</small></span> to not break the blade.
+    </div>
+
+    <div class="keywords-container" id="keywords">
+      <div class="draggable" draggable="true">thickest</div>
+      <div class="draggable" draggable="true">tight</div>
+      <div class="draggable" draggable="true">pencil</div>
+      <div class="draggable" draggable="true">big triangle</div>
+      <div class="draggable" draggable="true">smaller one</div>
+      <div class="draggable" draggable="true">space</div>
+      <div class="draggable" draggable="true">away from</div>
+      <div class="draggable" draggable="true">sand</div>
+      <div class="draggable" draggable="true">multiple</div>
+      <div class="draggable" draggable="true">perpendicular</div>
+      <div class="draggable" draggable="true">the same</div>
+      <div class="draggable" draggable="true">stuck</div>
+      <div class="draggable" draggable="true">quickly</div>
+      <div class="draggable" draggable="true">slowly</div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const correctAnswers = {
+    1: 'perpendicular',
+    2: 'the same',
+    3: 'stuck',
+    4: 'thickest',
+    5: 'tight',
+    6: 'pencil',
+    7: 'big triangle',
+    8: 'smaller one',
+    9: 'space',
+    10: 'away from',
+    11: 'sand',
+    12: 'multiple',
+    13: 'quickly',
+    14: 'slowly',
+  };
+
+  const draggables = document.querySelectorAll('.draggable');
+  const blanks = document.querySelectorAll('.blank');
+
+  draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => {
+      draggable.classList.add('dragging');
+    });
+    draggable.addEventListener('dragend', () => {
+      draggable.classList.remove('dragging');
+    });
+  });
+
+  blanks.forEach(blank => {
+    blank.addEventListener('dragover', e => e.preventDefault());
+
+    blank.addEventListener('drop', e => {
+      e.preventDefault();
+      const dragging = document.querySelector('.dragging');
+      if (!dragging || blank.classList.contains('filled')) return;
+
+      const answerText = dragging.textContent.trim();
+      const correct = correctAnswers[blank.dataset.id];
+
+      const label = blank.querySelector('small');
+      blank.innerHTML = '';
+      blank.appendChild(label);
+      blank.appendChild(document.createTextNode(' ' + answerText));
+
+      blank.classList.add('filled');
+      dragging.classList.add('used');
+
+      if (answerText === correct) {
+        blank.classList.add('correct');
+        blank.classList.remove('incorrect');
+      } else {
+        blank.classList.add('incorrect');
+        blank.classList.remove('correct');
+      }
+    });
+
+    blank.addEventListener('click', () => {
+      if (!blank.classList.contains('filled')) return;
+
+      const keyword = blank.textContent.trim().replace(/\(\d+\)/, '').trim();
+      const label = blank.querySelector('small');
+      const draggable = Array.from(draggables).find(d => d.textContent === keyword);
+      if (draggable) draggable.classList.remove('used');
+
+      blank.innerHTML = '';
+      blank.appendChild(label);
+      blank.classList.remove('filled', 'correct', 'incorrect');
+    });
+
+    blank.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      if (blank.classList.contains('filled')) return;
+
+      const correct = correctAnswers[blank.dataset.id];
+      const label = blank.querySelector('small');
+      blank.innerHTML = '';
+      blank.appendChild(label);
+      blank.appendChild(document.createTextNode(' ' + correct));
+      blank.classList.add('filled', 'correct');
+
+      const draggable = Array.from(draggables).find(d => d.textContent === correct);
+      if (draggable) draggable.classList.add('used');
+    });
+  });
+</script>
+
+</body>
+</html>
