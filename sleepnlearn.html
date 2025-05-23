@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,9 +47,15 @@
     .blank.hover {
       background-color: #f0f0f0;
     }
-    .blank.filled {
+    .blank.filled-correct {
+      background-color: #c8e6c9 !important; /* green */
       border-bottom-color: #4CAF50;
-      background-color: #e8f5e9;
+      color: #222;
+    }
+    .blank.filled-incorrect {
+      background-color: #ffcccb !important; /* pink */
+      border-bottom-color: #e57373;
+      color: #222;
     }
     .draggable {
       display: inline-block;
@@ -161,6 +168,11 @@
     .quad { background: #fff3cd !important; }   /* Yellow for 4x */
     .oct { background: #fde2e4 !important; }    /* Pink for 8x */
     .sixteen { background: #bee1e6 !important; }/* Blue for 16x */
+    .sim-warning {
+      color: #c62828;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
     @media (max-width: 600px) {
       .container, .sim-section, .top-exercise-container {
         padding: 14px 6vw;
@@ -202,7 +214,7 @@
   </div>
 
   <div class="container">
-    <h1>Please answer the following questions:</h1>
+    <h1>Self-evaluation: Am I learning with great focus, undistracted?</h1>
     <div class="question">
       <strong>1. When was the last time I got distracted in a lesson? By what?</strong>
       <textarea class="answer-box"></textarea>
@@ -267,15 +279,31 @@
   </div>
 
   <div class="sim-section">
-    <h2>Compound Interest Law Illustration</h2>
-    <label for="rate">Compound Interest Rate per Cycle (%):</label>
+    <h2>This tool can help you with question 5 6 7 8 and 9 --- Compound Rate Calculator:</h2>
+    <label for="rate">Compound Rate per Cycle (%):</label>
     <input type="number" id="rate" value="10" min="0" step="0.01">
     <label for="cycles">Number of Cycles:</label>
-    <input type="number" id="cycles" value="20" min="1" step="1">
+    <input type="number" id="cycles" value="20" min="1" step="1" max="100000">
     <button onclick="calculate()">Go</button>
+    <div id="sim-warning" class="sim-warning"></div>
     <div id="table-container"></div>
-    <script>
-    // Drag and Drop Script (for top exercise)
+  </div>
+  <script>
+    // DRAG & DROP LOGIC WITH CORRECTNESS CHECK
+    const correctAnswers = {
+      1: "sleep",
+      2: "brain",
+      3: "memory",
+      4: "forget",
+      5: "experience",
+      6: "attention",
+      7: "lesson",
+      8: "attention",
+      9: "information",
+      10: "friends",
+      11: "distract",
+      12: "information"
+    };
     const draggables = document.querySelectorAll('.draggable');
     const blanks = document.querySelectorAll('.blank');
     draggables.forEach(draggable => {
@@ -299,9 +327,16 @@
         event.preventDefault();
         const data = event.dataTransfer.getData("text");
         const dragging = document.getElementById(data);
-        if (!blank.classList.contains('filled') && dragging && !dragging.classList.contains('used')) {
+        if (!blank.classList.contains('filled-correct') && !blank.classList.contains('filled-incorrect') && dragging && !dragging.classList.contains('used')) {
           blank.textContent = dragging.textContent;
-          blank.classList.add('filled');
+          let blankId = blank.getAttribute('data-id');
+          if (dragging.textContent.trim().toLowerCase() === correctAnswers[blankId]) {
+            blank.classList.add('filled-correct');
+            blank.classList.remove('filled-incorrect');
+          } else {
+            blank.classList.add('filled-incorrect');
+            blank.classList.remove('filled-correct');
+          }
           dragging.classList.add('used');
           blank.classList.remove('hover');
         }
@@ -312,14 +347,14 @@
           const draggable = Array.from(draggables).find(d => d.textContent === keyword);
           if (draggable) draggable.classList.remove('used');
           blank.textContent = '';
-          blank.classList.remove('filled');
+          blank.classList.remove('filled-correct', 'filled-incorrect');
         }
       });
     });
     function resetExercise() {
       blanks.forEach(blank => {
         blank.textContent = '';
-        blank.classList.remove('filled');
+        blank.classList.remove('filled-correct', 'filled-incorrect');
       });
       draggables.forEach(draggable => {
         draggable.classList.remove('used');
@@ -330,24 +365,41 @@
       let rate = parseFloat(document.getElementById('rate').value) / 100;
       let cycles = parseInt(document.getElementById('cycles').value, 10);
       let container = document.getElementById('table-container');
+      let warning = document.getElementById('sim-warning');
+      const ABSOLUTE_LIMIT = 100000;
+      const WARNING_LIMIT = 10000;
+      warning.textContent = '';
       if (isNaN(rate) || rate <= 0 || isNaN(cycles) || cycles < 1) {
         container.innerHTML = '<p style="color:red;">Please enter valid values.</p>';
         return;
+      }
+      if (cycles > ABSOLUTE_LIMIT) {
+        warning.textContent = `Sorry, please enter cycles no more than ${ABSOLUTE_LIMIT}.`;
+        container.innerHTML = '';
+        return;
+      }
+      if (cycles > WARNING_LIMIT) {
+        warning.textContent = `Warning: Rendering over ${WARNING_LIMIT} rows may freeze your browser for a while.`;
       }
       let rows = [];
       let value = 1;
       let targets = [2, 4, 8, 16];
       let reached = 0;
+      let showEvery = 1;
+      if (cycles > 1000) showEvery = 10;
+      if (cycles > 10000) showEvery = 100;
       for (let i = 0; i <= cycles; ++i) {
-        let highlight = '';
-        if (Math.abs(value - targets[reached]) < 1e-8 || value >= targets[reached]) {
-          if (targets[reached] === 2) highlight = 'double';
-          if (targets[reached] === 4) highlight = 'quad';
-          if (targets[reached] === 8) highlight = 'oct';
-          if (targets[reached] === 16) highlight = 'sixteen';
-          reached++;
+        if ((i % showEvery === 0) || i === cycles || value >= 16) {
+          let highlight = '';
+          if (Math.abs(value - targets[reached]) < 1e-8 || value >= targets[reached]) {
+            if (targets[reached] === 2) highlight = 'double';
+            if (targets[reached] === 4) highlight = 'quad';
+            if (targets[reached] === 8) highlight = 'oct';
+            if (targets[reached] === 16) highlight = 'sixteen';
+            reached++;
+          }
+          rows.push(`<tr class="${highlight}"><td>${i}</td><td>${value.toFixed(6)}</td></tr>`);
         }
-        rows.push(`<tr class="${highlight}"><td>${i}</td><td>${value.toFixed(6)}</td></tr>`);
         if (value >= 16) break;
         value *= (1 + rate);
       }
@@ -363,7 +415,6 @@
         </p>
       `;
     }
-    </script>
-  </div>
+  </script>
 </body>
 </html>
