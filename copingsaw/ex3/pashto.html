@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ps">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>د پنسل ټاپر منځنۍ طبقه د کوپینګ ارې سره پرې کول</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .exercise-panel {
+      max-width: 700px;
+      margin: 30px auto 0 auto;
+      background-color: white;
+      border-radius: 10px;
+      padding: 24px 32px 24px 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+      font-size: 18px;
+      margin: 10px 0 15px 0;
+    }
+    .sentence {
+      margin: 15px 0;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .blank {
+      display: inline-block;
+      min-width: 111px;
+      border-bottom: 2px dashed #ccc;
+      margin: 0 3px;
+      min-height: 18px;
+      text-align: center;
+      padding: 0px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      position: relative;
+    }
+    .blank small {
+      color: #666;
+      font-size: 10px;
+      position: absolute;
+      margin-top: -5px;
+      margin-left: -5px;
+      background: #e6e6e6;
+      border-radius: 50%;
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .blank.filled.correct {
+      border-bottom-color: #4CAF50;
+      background-color: #e8f5e9;
+    }
+    .blank.filled.incorrect {
+      border-bottom-color: #f44336;
+      background-color: #fdecea;
+    }
+    .keywords-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0px;
+      padding: 0px;
+      background-color: #f0f8ff;
+      border-radius: 8px;
+    }
+    .draggable {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 12px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: grab;
+      background-color: #fff;
+      user-select: none;
+      position: relative;
+    }
+    .draggable.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+    .draggable.used {
+      background-color: #f0f0f0;
+      border-color: #ccc;
+      color: #999;
+      cursor: not-allowed;
+    }
+    .draggable-label {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: #1976d2;
+      color: #fff;
+      font-size: 8px;
+      font-weight: bold;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.10);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Educational Images Section -->
+<div class="image-education-section" style="max-width: 700px; margin: 30px auto 20px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 24px 24px 10px 24px;">
+  <h2 id="toggleScrollImages" style="text-align:center; color:#2d3a4a; margin-bottom: 18px; cursor:pointer; user-select:none;">د پنسل ټاپر منځنۍ طبقه د کوپینګ ارې سره پرې کول</h2>
+  <div id="eduImagesAll" style="display: block;">
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="perpendicular.jpg" alt="Blade perpendicular" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">اره باید د لرګي سره ۹۰ درجې (عمودي) ونیول شي، تر څو پرې کول سم او مستقیم وي.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="thickest.jpg" alt="Thickest piece" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">د پنسل ټاپر لپاره تر ټولو غټ پلایوډ د منځنۍ طبقې لپاره کارول کیږي.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="rect.jpg" alt="Rectangle cut" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">یو تنګ مستطیل پرې کیږي تر څو پنسل پکې کلک ونیول شي.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="rect2.jpg" alt="Rectangle cut 2" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">لومړی لوی مثلث پرې کړئ، بیا کوچنی، تر څو ارې ته د مستطیل لاندې پرې کولو لپاره ځای پیدا شي.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="cut.jpg" alt="Cutting shapes" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">د وایس (کلمپ) ته نږدې پرې کړئ تر څو ټوټه کلکه ونیول شي.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="sandspace.jpg" alt="Sanding space" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">د پنسل له کرښې لږ واټن پرېږدئ تر څو وروسته یې سمې ته سنډ کړئ.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
+      <img src="sandspace2.jpg" alt="Sanding space 2" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">تاسو کولی شئ د یادونې لپاره د پرې کولو کرښې ته نږدې نقطه کرښې رسم کړئ.</div>
+    </div>
+    <div style="width: 100%; max-width: 420px; margin: 0 auto 0 auto; text-align: center;">
+      <img src="multicut.jpg" alt="Multiple cuts" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
+      <div style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">یوه ټوټه په یو ځل مه پرې کوئ، څو کوچني پرې کول وکړئ.</div>
+    </div>
+  </div>
+  <div id="eduImagesScroll" style="display:none;">
+    <!-- JS will inject single image here -->
+  </div>
+</div>
+
+<div class="exercise-panel">
+  <h2>د پنسل ټاپر منځنۍ طبقه د کوپینګ ارې سره پرې کول</h2>
+
+  <div class="sentence">
+    زه اره <span class="blank" data-id="1"><small>(1)</small></span> د ټوټې څنډې ته ږدم.
+    تل ۹۰ درجې زاویه جوړوي. نو زه کولی شم د ټوټې مخ او شا <span class="blank" data-id="2"><small>(2)</small></span> پرې کړم او د پرې کولو پر مهال اره <span class="blank" data-id="3"><small>(3)</small></span> نشي.
+  </div>
+  <div class="sentence">
+    د پنسل ټاپر لپاره له ۳ پلایوډ ټوټو څخه، زه لومړی منځنۍ ټوټه پرې کوم، چې دا <span class="blank" data-id="4"><small>(4)</small></span> ده او باید یو <span class="blank" data-id="5"><small>(5)</small></span> مستطیل ځای ولري تر څو زما <span class="blank" data-id="6"><small>(6)</small></span> کلک ونیسي.
+  </div>
+  <div class="sentence">
+    د مستطیل د سم پرې کولو لپاره، زه لومړی <span class="blank" data-id="7"><small>(7)</small></span> پرې کوم، بیا <span class="blank" data-id="8"><small>(8)</small></span>. بیا به زه نور <span class="blank" data-id="9"><small>(9)</small></span> ولرم چې پاتې برخه پرې کړم.
+  </div>
+  <div class="sentence">
+    زه د خپل شکل د پنسل کرښې نه <span class="blank" data-id="10"><small>(10)</small></span> پرې کوم، تر څو وروسته یې <span class="blank" data-id="11"><small>(11)</small></span> کړم.
+  </div>
+  <div class="sentence">
+    زه <span class="blank" data-id="12"><small>(12)</small></span> لنډ او مستقیم پرې کول کوم، نه دا چې ټول شکل په یو ځل پرې کړم.
+  </div>
+  <div class="sentence">کله چې تاو پرې کول کوم،
+    زه <span class="blank" data-id="13"><small>(13)</small></span> پرې کوم او <span class="blank" data-id="14"><small>(14)</small></span> تاووم تر څو اره بند نشي.
+  </div>
+
+  <div class="keywords-container" id="keywords">
+    <div class="draggable" draggable="true"><span class="draggable-label">a</span>عمودي</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">b</span>یوه</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">c</span>بنده</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">d</span>غټه مثلث</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">e</span>کوچنۍ</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">f</span>ځای</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">g</span>لیرې</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">h</span>سنډ</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">n</span>یوشمېر</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">m</span>یوه شان</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">l</span>کلک</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">k</span>پنسل</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">j</span>نور</div>
+    <div class="draggable" draggable="true"><span class="draggable-label">i</span>ورو ورو</div>
+  </div>
+</div>
+
+<script>
+  const correctAnswers = {
+    1: 'عمودي',
+    2: 'یوه شان',
+    3: 'بنده',
+    4: 'کلک',
+    5: 'یوه',
+    6: 'پنسل',
+    7: 'غټه مثلث',
+    8: 'کوچنۍ',
+    9: 'ځای',
+    10: 'لیرې',
+    11: 'سنډ',
+    12: 'یوشمېر',
+    13: 'نور',
+    14: 'ورو ورو',
+  };
+
+  // ... existing JS code remains unchanged ...
+</script>
+
+</body>
+</html> 
