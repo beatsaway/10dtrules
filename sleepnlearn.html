@@ -1,197 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag and Drop Keywords Exercise</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .exercise-container {
-            background-color: white;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .sentence {
-            margin: 15px 0;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .blank {
-            display: inline-block;
-            min-width: 100px;
-            border-bottom: 2px dashed #ccc;
-            margin: 0 3px;
-            min-height: 18px;
-            text-align: center;
-            padding: 2px;
-            background-color: #f9f9f9;
-            cursor: pointer;
-        }
-        .blank.hover {
-            background-color: #f0f0f0;
-        }
-        .blank.filled {
-            border-bottom-color: #4CAF50;
-            background-color: #e8f5e9;
-        }
-        .draggable {
-            display: inline-block;
-            margin: 5px;
-            padding: 8px 12px;
-            border: 1px solid #999;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: grab;
-            background-color: #fff;
-            user-select: none;
-        }
-        .draggable.dragging {
-            opacity: 0.5;
-            cursor: grabbing;
-        }
-        .draggable.used {
-            background-color: #f0f0f0;
-            border-color: #ccc;
-            color: #999;
-            cursor: not-allowed;
-        }
-        .keywords-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 15px auto;
-        }
-        button {
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button.reset {
-            background-color: #f44336;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Focus Activities</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fa;
+      margin: 0;
+      padding: 0;
+    }
+    /* Drag and Drop Exercise Styles */
+    .top-exercise-container {
+      max-width: 800px;
+      margin: 32px auto 30px auto;
+      padding: 20px 24px 30px 24px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+    }
+    .top-exercise-container h1 {
+      text-align: center;
+      color: #333;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    .sentence {
+      margin: 15px 0;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    .blank {
+      display: inline-block;
+      min-width: 100px;
+      border-bottom: 2px dashed #ccc;
+      margin: 0 3px;
+      min-height: 18px;
+      text-align: center;
+      padding: 2px;
+      background-color: #f9f9f9;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .blank.hover {
+      background-color: #f0f0f0;
+    }
+    .blank.filled {
+      border-bottom-color: #4CAF50;
+      background-color: #e8f5e9;
+    }
+    .draggable {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 12px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: grab;
+      background-color: #fff;
+      user-select: none;
+      transition: background 0.2s, border 0.2s, color 0.2s;
+    }
+    .draggable.dragging {
+      opacity: 0.5;
+      cursor: grabbing;
+    }
+    .draggable.used {
+      background-color: #f0f0f0;
+      border-color: #ccc;
+      color: #999;
+      cursor: not-allowed;
+    }
+    .keywords-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .action-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 15px auto 0 auto;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button.reset {
+      background-color: #f44336;
+    }
+    /* Focus Questions Styles */
+    .container {
+      max-width: 750px;
+      margin: 20px auto 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #d3d3d3;
+      padding: 32px 40px;
+    }
+    .container h1 {
+      color: #1c4c8a;
+      margin-bottom: 24px;
+      font-size: 1.7em;
+    }
+    .question {
+      margin-bottom: 28px;
+      padding: 14px 20px;
+      background: #eaf1fb;
+      border-left: 4px solid #1c4c8a;
+      border-radius: 4px;
+    }
+    .question strong {
+      color: #1c4c8a;
+    }
+    .answer-box {
+      width: 100%;
+      min-height: 48px;
+      margin-top: 8px;
+      margin-bottom: 4px;
+      border: none;
+      background: transparent;
+      font-size: 1em;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    .answer-box:focus {
+      outline: none;
+    }
+    .hint {
+      font-size: 0.96em;
+      color: #657492;
+      margin-bottom: 8px;
+    }
+    /* Compound Interest Simulation Styles */
+    .sim-section {
+      max-width: 750px;
+      margin: 60px auto 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #d3d3d3;
+      padding: 32px 40px;
+    }
+    .sim-section h2 {
+      color: #16754f;
+      margin-top: 0;
+    }
+    label { display: block; margin: 1em 0 0.5em; }
+    input, button { padding: 0.5em; margin-bottom: 1em; }
+    table { border-collapse: collapse; width: 100%; margin-top: 2em; }
+    th, td { border: 1px solid #ccc; padding: 0.5em 1em; text-align: right; }
+    th { background: #eee; }
+    .double { background: #d1e7dd !important; } /* Green for 2x */
+    .quad { background: #fff3cd !important; }   /* Yellow for 4x */
+    .oct { background: #fde2e4 !important; }    /* Pink for 8x */
+    .sixteen { background: #bee1e6 !important; }/* Blue for 16x */
+    @media (max-width: 600px) {
+      .container, .sim-section, .top-exercise-container {
+        padding: 14px 6vw;
+      }
+    }
+  </style>
 </head>
 <body>
+  <div class="top-exercise-container">
     <h1>Drag and Drop Keywords Exercise</h1>
-    <div class="exercise-container">
-        <div id="exercise">
-            <div class="sentence">
-                When you go to <span class="blank" data-id="1"></span>, your <span class="blank" data-id="2"></span> starts cleaning its <span class="blank" data-id="3"></span>. It will <span class="blank" data-id="4"></span> most things you <span class="blank" data-id="5"></span> during the day. Only what you pay the most <span class="blank" data-id="6"></span> to during the day, will the brain remember for a bit longer.
-            </div>
-            <div class="sentence">
-                Even if you understand well what a <span class="blank" data-id="7"></span> is about or what the class activities are about, you still have to pay full <span class="blank" data-id="8"></span> to it, if you want that <span class="blank" data-id="9"></span> to stay in your brain after sleep.
-            </div>
-            <div class="sentence">
-                When you chat with <span class="blank" data-id="10"></span> or do things that <span class="blank" data-id="11"></span> yourself from learning during lesson, you are not going to remember much from what you have learnt in that lesson. Because you will forget about it after sleep. Because your brain thinks that you're not taking those <span class="blank" data-id="12"></span> seriously.
-            </div>
-        </div>
-        <div class="keywords-container">
-            <div class="draggable" draggable="true" id="keyword5">experience</div>
-            <div class="draggable" draggable="true" id="keyword8">information</div>
-            <div class="draggable" draggable="true" id="keyword10">distract</div>
-            <div class="draggable" draggable="true" id="keyword4">forget</div>
-            <div class="draggable" draggable="true" id="keyword1">sleep</div>
-            <div class="draggable" draggable="true" id="keyword2">brain</div>
-            <div class="draggable" draggable="true" id="keyword3">memory</div>
-            <div class="draggable" draggable="true" id="keyword11">attention</div>
-            <div class="draggable" draggable="true" id="keyword12">information</div>
-
-            <div class="draggable" draggable="true" id="keyword6">attention</div>
-            <div class="draggable" draggable="true" id="keyword7">lesson</div>
-
-            <div class="draggable" draggable="true" id="keyword9">friends</div>
-
-
-        </div>
+    <div id="exercise">
+      <div class="sentence">
+        When you go to <span class="blank" data-id="1"></span>, your <span class="blank" data-id="2"></span> starts cleaning its <span class="blank" data-id="3"></span>. It will <span class="blank" data-id="4"></span> most things you <span class="blank" data-id="5"></span> during the day. Only what you pay the most <span class="blank" data-id="6"></span> to during the day, will the brain remember for a bit longer.
+      </div>
+      <div class="sentence">
+        Even if you understand well what a <span class="blank" data-id="7"></span> is about or what the class activities are about, you still have to pay full <span class="blank" data-id="8"></span> to it, if you want that <span class="blank" data-id="9"></span> to stay in your brain after sleep.
+      </div>
+      <div class="sentence">
+        When you chat with <span class="blank" data-id="10"></span> or do things that <span class="blank" data-id="11"></span> yourself from learning during lesson, you are not going to remember much from what you have learnt in that lesson. Because you will forget about it after sleep. Because your brain thinks that you're not taking those <span class="blank" data-id="12"></span> seriously.
+      </div>
+    </div>
+    <div class="keywords-container">
+      <div class="draggable" draggable="true" id="keyword5">experience</div>
+      <div class="draggable" draggable="true" id="keyword8">information</div>
+      <div class="draggable" draggable="true" id="keyword10">distract</div>
+      <div class="draggable" draggable="true" id="keyword4">forget</div>
+      <div class="draggable" draggable="true" id="keyword1">sleep</div>
+      <div class="draggable" draggable="true" id="keyword2">brain</div>
+      <div class="draggable" draggable="true" id="keyword3">memory</div>
+      <div class="draggable" draggable="true" id="keyword11">attention</div>
+      <div class="draggable" draggable="true" id="keyword12">information</div>
+      <div class="draggable" draggable="true" id="keyword6">attention</div>
+      <div class="draggable" draggable="true" id="keyword7">lesson</div>
+      <div class="draggable" draggable="true" id="keyword9">friends</div>
     </div>
     <div class="action-buttons">
-        <button class="reset" onclick="resetExercise()">Reset</button>
+      <button class="reset" onclick="resetExercise()">Reset</button>
     </div>
+  </div>
 
+  <div class="container">
+    <h1>Please answer the following questions:</h1>
+    <div class="question">
+      <strong>1. When was the last time I got distracted in a lesson? By what?</strong>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>2. What distracts me from my learning the most during lessons? (Mention 3 things)</strong>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>3. What can I do to prevent myself from getting distracted by those things during lessons? (Mention 3 actions)</strong>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>4. Why is it important to focus and not be disruptive during lessons? (Give 3 reasons)</strong>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>5. If another student learns 1% more than you every day because they focus better in lessons, how much more will they have learnt than you by the time you do your GCSEs?</strong>
+      <div class="hint">
+        <ul style="margin: 0 0 0 18px; padding: 0;">
+          <li>There are about 200 school days in a year, and GCSEs are in 5 years.</li>
+          <li>They learn 1% more each day, so their learning grows by 1.01 each day.</li>
+          <li>After 5 years: 1.01<sup>1000</sup> = <span style="color:#1c4c8a;"><strong>?</strong></span></li>
+          <li>By the time of GCSEs, what they have learnt will be __________ more than me.</li>
+        </ul>
+      </div>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>6. If another student learns 12% more than you because they are more focused in lessons every week, how much will they have learnt more than you after 6 weeks?</strong>
+      <div class="hint">
+        Their learning : Your learning = 1.12<sup>6</sup> = <span style="color:#1c4c8a;"><strong>?</strong></span><br>
+        After 6 weeks, what they have learnt will be __________ more than me.
+      </div>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>7. If another student learns 2% more than you each lesson, and there are 5 lessons a day, how much will they have learnt more than you after 4 weeks (20 school days)?</strong>
+      <div class="hint">
+        Number of lessons = 20 days × 5 = 100 lessons<br>
+        Their learning : Your learning = 1.02<sup>100</sup> = <span style="color:#1c4c8a;"><strong>?</strong></span><br>
+        After 4 weeks, what they have learnt will be __________ more than me.
+      </div>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>8. If someone improves their focus so they learn 5% more per lesson, how much will they have learnt more than you after 50 lessons?</strong>
+      <div class="hint">
+        Their learning : Your learning = 1.05<sup>50</sup> = <span style="color:#1c4c8a;"><strong>?</strong></span><br>
+        After 50 lessons, what they have learnt will be __________ more than me.
+      </div>
+      <textarea class="answer-box"></textarea>
+    </div>
+    <div class="question">
+      <strong>9. Suppose you improve and learn 1% more each lesson for a year (let’s say 200 lessons). How much more will you know by the end of the year compared to if you stayed the same?</strong>
+      <div class="hint">
+        Your learning with improvement : Your previous learning = 1.01<sup>200</sup> = <span style="color:#1c4c8a;"><strong>?</strong></span><br>
+        By the end of the year, I will know __________ more than before.
+      </div>
+      <textarea class="answer-box"></textarea>
+    </div>
+  </div>
+
+  <div class="sim-section">
+    <h2>Compound Interest Law Illustration</h2>
+    <label for="rate">Compound Interest Rate per Cycle (%):</label>
+    <input type="number" id="rate" value="10" min="0" step="0.01">
+    <label for="cycles">Number of Cycles:</label>
+    <input type="number" id="cycles" value="20" min="1" step="1">
+    <button onclick="calculate()">Go</button>
+    <div id="table-container"></div>
     <script>
-        const draggables = document.querySelectorAll('.draggable');
-        const blanks = document.querySelectorAll('.blank');
-
-        // Add dragstart and dragend event listeners to draggables
-        draggables.forEach(draggable => {
-            draggable.addEventListener('dragstart', (event) => {
-                event.dataTransfer.setData("text", event.target.id);
-                draggable.classList.add('dragging');
-            });
-
-            draggable.addEventListener('dragend', () => {
-                draggable.classList.remove('dragging');
-            });
-        });
-
-        // Add dragover, drop, and click event listeners to blanks
-        blanks.forEach(blank => {
-            blank.addEventListener('dragover', (event) => {
-                event.preventDefault(); // Required for the drop event to work
-                blank.classList.add('hover'); // Add hover effect
-            });
-
-            blank.addEventListener('dragleave', () => {
-                blank.classList.remove('hover');
-            });
-
-            blank.addEventListener('drop', (event) => {
-                event.preventDefault();
-                const data = event.dataTransfer.getData("text");
-                const dragging = document.getElementById(data);
-
-                // Check if the blank is already filled or the keyword is used
-                if (!blank.classList.contains('filled') && dragging && !dragging.classList.contains('used')) {
-                    blank.textContent = dragging.textContent; // Set keyword in blank
-                    blank.classList.add('filled'); // Mark blank as filled
-                    dragging.classList.add('used'); // Mark keyword as used
-                    blank.classList.remove('hover'); // Remove hover effect
-                }
-            });
-
-            // Allow clicking on a blank to reset it
-            blank.addEventListener('click', () => {
-                if (blank.textContent.trim() !== '') {
-                    const keyword = blank.textContent.trim();
-                    const draggable = Array.from(draggables).find(d => d.textContent === keyword);
-                    if (draggable) draggable.classList.remove('used');
-                    blank.textContent = '';
-                    blank.classList.remove('filled');
-                }
-            });
-        });
-
-        // Reset the exercise
-        function resetExercise() {
-            blanks.forEach(blank => {
-                blank.textContent = '';
-                blank.classList.remove('filled');
-            });
-            draggables.forEach(draggable => {
-                draggable.classList.remove('used');
-            });
+    // Drag and Drop Script (for top exercise)
+    const draggables = document.querySelectorAll('.draggable');
+    const blanks = document.querySelectorAll('.blank');
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', (event) => {
+        event.dataTransfer.setData("text", event.target.id);
+        draggable.classList.add('dragging');
+      });
+      draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+      });
+    });
+    blanks.forEach(blank => {
+      blank.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        blank.classList.add('hover');
+      });
+      blank.addEventListener('dragleave', () => {
+        blank.classList.remove('hover');
+      });
+      blank.addEventListener('drop', (event) => {
+        event.preventDefault();
+        const data = event.dataTransfer.getData("text");
+        const dragging = document.getElementById(data);
+        if (!blank.classList.contains('filled') && dragging && !dragging.classList.contains('used')) {
+          blank.textContent = dragging.textContent;
+          blank.classList.add('filled');
+          dragging.classList.add('used');
+          blank.classList.remove('hover');
         }
+      });
+      blank.addEventListener('click', () => {
+        if (blank.textContent.trim() !== '') {
+          const keyword = blank.textContent.trim();
+          const draggable = Array.from(draggables).find(d => d.textContent === keyword);
+          if (draggable) draggable.classList.remove('used');
+          blank.textContent = '';
+          blank.classList.remove('filled');
+        }
+      });
+    });
+    function resetExercise() {
+      blanks.forEach(blank => {
+        blank.textContent = '';
+        blank.classList.remove('filled');
+      });
+      draggables.forEach(draggable => {
+        draggable.classList.remove('used');
+      });
+    }
+    // Compound Interest Law Simulation Script
+    function calculate() {
+      let rate = parseFloat(document.getElementById('rate').value) / 100;
+      let cycles = parseInt(document.getElementById('cycles').value, 10);
+      let container = document.getElementById('table-container');
+      if (isNaN(rate) || rate <= 0 || isNaN(cycles) || cycles < 1) {
+        container.innerHTML = '<p style="color:red;">Please enter valid values.</p>';
+        return;
+      }
+      let rows = [];
+      let value = 1;
+      let targets = [2, 4, 8, 16];
+      let reached = 0;
+      for (let i = 0; i <= cycles; ++i) {
+        let highlight = '';
+        if (Math.abs(value - targets[reached]) < 1e-8 || value >= targets[reached]) {
+          if (targets[reached] === 2) highlight = 'double';
+          if (targets[reached] === 4) highlight = 'quad';
+          if (targets[reached] === 8) highlight = 'oct';
+          if (targets[reached] === 16) highlight = 'sixteen';
+          reached++;
+        }
+        rows.push(`<tr class="${highlight}"><td>${i}</td><td>${value.toFixed(6)}</td></tr>`);
+        if (value >= 16) break;
+        value *= (1 + rate);
+      }
+      container.innerHTML = `
+        <table>
+          <thead><tr><th>Cycle</th><th>Value</th></tr></thead>
+          <tbody>${rows.join('')}</tbody>
+        </table>
+        <p><b>Legend:</b> <span style="background:#d1e7dd;">2x</span>
+          <span style="background:#fff3cd;">4x</span>
+          <span style="background:#fde2e4;">8x</span>
+          <span style="background:#bee1e6;">16x</span>
+        </p>
+      `;
+    }
     </script>
+  </div>
 </body>
 </html>
