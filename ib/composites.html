@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Composites: Materials, Types, and Uses – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Composites: Materials, Types, and Uses <span>🧩🏗️</span></h1>
+      <p><strong>Composites: stronger together—engineering the future!</strong> <span>🚀</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Composite</strong> – Material made from two or more different materials bonded together</li>
+        <li><strong>Matrix</strong> – The binding agent or glue in a composite</li>
+        <li><strong>Reinforcement</strong> – The fibers, sheets, or particles that add strength</li>
+        <li><strong>Fiber</strong> – Long, thin reinforcement (e.g., glass, carbon, Kevlar)</li>
+        <li><strong>Sheet</strong> – Flat reinforcement layer (e.g., wood veneer)</li>
+        <li><strong>Particle</strong> – Small pieces used as reinforcement (e.g., gravel in concrete)</li>
+        <li><strong>Resin</strong> – A plastic (often thermoset) used as a matrix</li>
+        <li><strong>Thermoplastic</strong> – Plastic that can be reheated and reshaped</li>
+        <li><strong>Thermoset</strong> – Plastic that cannot be reshaped after setting</li>
+        <li><strong>Pultrusion</strong> – Process of pulling fibers through resin to make sheets</li>
+        <li><strong>Lamination</strong> – Gluing thin sheets together (e.g., plywood)</li>
+        <li><strong>Concrete</strong> – Composite of cement, water, aggregate, and air</li>
+        <li><strong>Aggregate</strong> – Gravel, sand, or crushed stone in concrete</li>
+        <li><strong>Plywood</strong> – Composite of wood veneers glued in layers</li>
+        <li><strong>Particle board</strong> – Composite of wood particles and glue</li>
+        <li><strong>MDF</strong> – Medium density fiberboard, engineered wood composite</li>
+        <li><strong>Laminated veneer lumber</strong> – Thicker wood sheets glued together</li>
+        <li><strong>Fiberglass</strong> – Glass fibers in resin matrix</li>
+        <li><strong>Kevlar</strong> – Synthetic fiber, very strong, used in composites</li>
+        <li><strong>Carbon fiber</strong> – Carbon fibers in resin, very strong and light</li>
+        <li><strong>Omnidirectional</strong> – Strong in all directions</li>
+        <li><strong>Corrosion</strong> – Gradual destruction by chemical reaction</li>
+        <li><strong>Aesthetics</strong> – Visual appeal</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What are Composites?</h3><div class="concept-content"><p>Composites are materials made by combining two or more different materials (matrix + reinforcement) to create a material with improved properties. <br><em>Example:</em> Concrete, plywood, fiberglass, carbon fiber, Kevlar.</p></div></div>
+      <div class="concept-card"><h3>How Composites are Made</h3><div class="concept-content"><ul><li><strong>Matrix:</strong> The glue or binder (resin, cement, plastic, metal, ceramic)</li><li><strong>Reinforcement:</strong> Fibers (glass, carbon, Kevlar), sheets (wood veneer), or particles (gravel)</li><li><strong>Processes:</strong> Weaving, molding, pultrusion (pulling fibers through resin), lamination (gluing sheets)</li></ul></div></div>
+      <div class="concept-card"><h3>Types of Composites</h3><div class="concept-content"><ul><li><strong>Concrete:</strong> Cement + water + aggregate + air</li><li><strong>Plywood:</strong> Layers of wood veneer glued cross-grain</li><li><strong>Particle board/MDF:</strong> Wood particles/fibers + glue</li><li><strong>Laminated veneer lumber:</strong> Thicker wood sheets glued together</li><li><strong>Fiberglass:</strong> Glass fibers + resin</li><li><strong>Kevlar:</strong> Synthetic fiber + resin (used in vests, canoes)</li><li><strong>Carbon fiber:</strong> Carbon fibers + resin (used in bikes, planes, cars)</li></ul></div></div>
+      <div class="concept-card"><h3>Advantages & Disadvantages</h3><div class="concept-content"><ul><li><strong>Advantages:</strong> High strength, low mass, omnidirectional properties, complex shapes, corrosion resistance, lower cost, fewer parts</li><li><strong>Disadvantages:</strong> Hard to repair, sometimes less aesthetic, if broken may need to replace whole part</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>The Roman Pantheon dome is 2,000-year-old concrete!</li>
+        <li>Kevlar is used in bulletproof vests and canoes.</li>
+        <li>Carbon fiber is used in bikes, planes, and supercars.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Composite Terms <span>🔗</span></h2>
+      <p>Match each composite term or type to its definition or use. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Composite',
+          'Matrix',
+          'Reinforcement',
+          'Pultrusion',
+          'Lamination',
+          'Concrete',
+          'Aggregate',
+          'Plywood',
+          'Particle board',
+          'MDF',
+          'Fiberglass',
+          'Kevlar',
+          'Carbon fiber',
+          'Omnidirectional',
+          'Corrosion'
+        ];
+        const matchingDefs = [
+          'Material made from two or more different materials bonded together',
+          'The binding agent or glue in a composite',
+          'The fibers, sheets, or particles that add strength',
+          'Process of pulling fibers through resin to make sheets',
+          'Gluing thin sheets together (e.g., plywood)',
+          'Cement + water + aggregate + air',
+          'Gravel, sand, or crushed stone in concrete',
+          'Composite of wood veneers glued in layers',
+          'Composite of wood particles and glue',
+          'Medium density fiberboard, engineered wood composite',
+          'Glass fibers in resin matrix',
+          'Synthetic fiber, very strong, used in vests and canoes',
+          'Carbon fibers in resin, very strong and light',
+          'Strong in all directions',
+          'Gradual destruction by chemical reaction'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 15; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 15; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are composites often stronger than their individual components?
+        <div class="model-answer"><strong>Model Answer:</strong> The combination of matrix and reinforcement gives improved properties—strength, toughness, and sometimes lower mass—compared to the individual materials alone.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main disadvantage of composites when they break?
+        <div class="model-answer"><strong>Model Answer:</strong> They are difficult to repair; often the whole part must be replaced if it breaks.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of a composite and its use.
+        <div class="model-answer"><strong>Model Answer:</strong> Carbon fiber (carbon fibers + resin) is used in bike frames, airplane parts, and supercars for high strength and low weight.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Composites: stronger together—engineering the future! <span>🧩🏗️</span></h3>
+      <p>From concrete to carbon fiber, composites shape our world.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

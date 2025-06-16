@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashevsky's Five Principles of Sustainable Design – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Dashevsky's Five Principles of Sustainable Design <span>🔄☀️🛡️⚡🤝</span></h1>
+      <p><strong>Five keys to designing for a better world!</strong> <span>🌍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Cyclic</strong> – Use recycled/compostable materials, close the loop</li>
+        <li><strong>Solar</strong> – Use renewable energy for manufacturing and use</li>
+        <li><strong>Safe</strong> – Non-toxic, non-polluting byproducts</li>
+        <li><strong>Efficient</strong> – Less energy, materials, and water than older products</li>
+        <li><strong>Social</strong> – Uphold human rights, fair trade, safe work, and justice</li>
+        <li><strong>Triple bottom line</strong> – People, planet, profit (social, environmental, economic)</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Cyclic</h3><div class="concept-content"><ul><li>Use recycled or compostable materials</li><li>Design for closed-loop systems (cradle to cradle)</li><li>Example: bioplastics, recycled steel</li></ul></div></div>
+      <div class="concept-card"><h3>Solar</h3><div class="concept-content"><ul><li>Use renewable energy (solar, wind, hydro, etc.)</li><li>Reduce reliance on fossil fuels</li><li>Example: solar-powered devices, wind-powered factories</li></ul></div></div>
+      <div class="concept-card"><h3>Safe</h3><div class="concept-content"><ul><li>Non-toxic, non-polluting byproducts</li><li>Protect air, water, land, and people</li><li>Example: hydrogen fuel cell cars (water as byproduct)</li></ul></div></div>
+      <div class="concept-card"><h3>Efficient</h3><div class="concept-content"><ul><li>Use less energy, materials, and water</li><li>Lower costs and environmental impact</li><li>Example: LED bulbs, efficient appliances</li></ul></div></div>
+      <div class="concept-card"><h3>Social</h3><div class="concept-content"><ul><li>Support human rights, fair trade, safe work, and justice</li><li>Example: fair trade products, safe working conditions</li></ul></div></div>
+      <div class="concept-card"><h3>Triple Bottom Line Connections</h3><div class="concept-content"><ul><li>Cyclic, solar, safe, and efficient = environmental & economic</li><li>Social = social sustainability</li><li>All five together = true sustainable design</li></ul></div></div>
+      <div class="concept-card"><h3>Real-World Examples</h3><div class="concept-content"><ul><li>Bioplastics (cyclic), solar panels (solar), non-toxic paints (safe), LED bulbs (efficient), fair trade chocolate (social)</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Some companies design products to be taken apart with just a screwdriver—easy to recycle!</li>
+        <li>Solar-powered calculators have been around since the 1970s.</li>
+        <li>Fair trade certification helps ensure better wages and working conditions for farmers.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Dashevsky's Principles <span>🔗</span></h2>
+      <p>Match each principle to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Cyclic",
+          "Solar",
+          "Safe",
+          "Efficient",
+          "Social"
+        ];
+        const matchingDefs = [
+          "Use recycled/compostable materials, close the loop",
+          "Use renewable energy for manufacturing and use",
+          "Non-toxic, non-polluting byproducts",
+          "Less energy, materials, and water than older products",
+          "Uphold human rights, fair trade, safe work, and justice"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 5; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 5; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name Dashevsky's five principles of sustainable design.
+        <div class="model-answer"><strong>Model Answer:</strong> Cyclic, solar, safe, efficient, social.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does "cyclic" mean in sustainable design?
+        <div class="model-answer"><strong>Model Answer:</strong> Using recycled or compostable materials and designing for closed-loop systems.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of the "social" principle in design.
+        <div class="model-answer"><strong>Model Answer:</strong> Fair trade products, safe working conditions, or supporting human rights.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Design with all five in mind! <span>🔄☀️🛡️⚡🤝</span></h3>
+      <p>How will you use Dashevsky's principles in your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

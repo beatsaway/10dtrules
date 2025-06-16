@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Research: Purpose & Consumer Reactions (9.4a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Market Research: Purpose & Consumer Reactions <span>📊🧑‍💼</span></h1>
+      <p><strong>Why do market research? How do people react to new tech and green design?</strong> <span>🔍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Market Research</strong> – Systematic gathering and analysis of data about individuals and organizations to inform decisions</li>
+        <li><strong>Demographics</strong> – Statistical data about populations (age, income, etc.)</li>
+        <li><strong>Market Segment</strong> – A subgroup of people with shared characteristics/needs</li>
+        <li><strong>Technophile</strong> – Loves new technology, early adopter</li>
+        <li><strong>Techno-cautious</strong> – Waits for proof before adopting new tech</li>
+        <li><strong>Technophobe</strong> – Resists technological change</li>
+        <li><strong>Eco-warrior</strong> – Actively demonstrates for environmental causes</li>
+        <li><strong>Eco-champion</strong> – Champions green design in their organization</li>
+        <li><strong>Eco-fan</strong> – Enthusiastically adopts green practices</li>
+        <li><strong>Ecophobe</strong> – Resents environmental protection efforts</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Why Do Market Research? <span>❓</span></h2>
+      <div class="concept-card"><h3>Purpose of Market Research</h3><div class="concept-content"><ul><li>Improve products/services</li><li>Identify new ideas or needs</li><li>Increase chances of market success</li><li>Set the right price</li><li>Understand constraints and requirements</li><li>Identify promotional strategies</li></ul></div></div>
+      <div class="concept-card"><h3>Demographics & Market Segments</h3><div class="concept-content"><ul><li>Demographics: age, family, income, trends</li><li>Market segment: group with shared needs/preferences</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Consumer Reactions to Technology <span>📱</span></h2>
+      <div class="concept-card"><h3>Technophile</h3><div class="concept-content"><ul><li>Loves new tech, early adopter</li><li>Example: camping out for new iPhone</li></ul></div></div>
+      <div class="concept-card"><h3>Techno-cautious</h3><div class="concept-content"><ul><li>Waits for proof before buying</li><li>Majority of consumers</li></ul></div></div>
+      <div class="concept-card"><h3>Technophobe</h3><div class="concept-content"><ul><li>Resists new tech, prefers what they know</li><li>Often older demographic</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Consumer Reactions to Green Design <span>🌱</span></h2>
+      <div class="concept-card"><h3>Eco-warrior</h3><div class="concept-content"><ul><li>Actively demonstrates for the environment</li><li>Small but passionate market segment</li></ul></div></div>
+      <div class="concept-card"><h3>Eco-champion</h3><div class="concept-content"><ul><li>Champions green design in organizations</li><li>Bigger segment, influential</li></ul></div></div>
+      <div class="concept-card"><h3>Eco-fan</h3><div class="concept-content"><ul><li>Adopts green practices as a consumer</li><li>Example: brings reusable bags</li></ul></div></div>
+      <div class="concept-card"><h3>Ecophobe</h3><div class="concept-content"><ul><li>Resents environmental protection</li><li>Example: "coal rolling" trucks</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Fact <span>🤔</span></h2>
+      <ul class="tips-list">
+        <li>Market research can reveal surprising new markets—like the rise of plant-based meat!</li>
+        <li>Technophobes sometimes become technophiles after trying new tech.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main purpose of market research?
+        <div class="model-answer"><strong>Model Answer:</strong> To systematically gather and analyze data to inform product and marketing decisions.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Who are technophiles?
+        <div class="model-answer"><strong>Model Answer:</strong> People who love new technology and are early adopters.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is an ecophobe?
+        <div class="model-answer"><strong>Model Answer:</strong> Someone who resents or opposes environmental protection efforts.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Know your market! <span>📊💡</span></h3>
+      <p>How would you use market research for your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

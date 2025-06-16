@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invention & Intellectual Property – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Invention & Intellectual Property <span>💡🔒</span></h1>
+      <p><strong>Discover how new ideas are born—and protected!</strong> <span>🚀</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Invention</strong> – Discovering a new principle that leads to a novel product</li>
+        <li><strong>Motivators for invention</strong> – Personal interest, constructive discontent, money, scientific curiosity, necessity</li>
+        <li><strong>Lone inventor</strong> – Someone working (often alone) on a novel product, sometimes isolated</li>
+        <li><strong>Intellectual property (IP)</strong> – Legal rights for creations of the mind (inventions, designs, etc.)</li>
+        <li><strong>Patent</strong> – Government-granted right to make/sell an invention for a set time</li>
+        <li><strong>Copyright</strong> – Legal right for creators to control use/distribution of their work</li>
+        <li><strong>Trademark</strong> – Symbol, word, or phrase legally registered to represent a company/product</li>
+        <li><strong>Public domain</strong> – When copyright expires or is given up; anyone can use the work</li>
+        <li><strong>First to market</strong> – First product of its type released; can make the most money</li>
+        <li><strong>Shelf technology</strong> – Tech that's developed but not released until later</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is Invention?</h3><div class="concept-content"><ul><li>Discovering a new principle or idea</li><li>Leads to a novel product or technical advance</li><li>Most inventions build on previous inventions</li></ul></div></div>
+      <div class="concept-card"><h3>Motivators for Invention</h3><div class="concept-content"><ul><li>Personal interest/tinkering</li><li>Making life better</li><li>Constructive discontent (not happy with current solutions)</li><li>Desire to make money</li><li>Scientific/technical curiosity</li><li>Necessity (solving urgent problems)</li></ul></div></div>
+      <div class="concept-card"><h3>The Lone Inventor</h3><div class="concept-content"><ul><li>Works alone or in an organization, deeply committed</li><li>May become isolated or face resistance</li><li>Examples: Tesla, Edison, Ford</li><li>Advantages: full control, driven by vision</li><li>Disadvantages: may lack business/marketing skills, struggle with teamwork, lack resources</li></ul></div></div>
+      <div class="concept-card"><h3>Intellectual Property Types</h3><div class="concept-content"><ul><li><strong>Patent:</strong> Exclusive right to make/sell an invention for a set time</li><li><strong>Copyright:</strong> Exclusive right to use/distribute creative works</li><li><strong>Trademark:</strong> Registered symbol/word for a company/product</li><li><strong>Public domain:</strong> Work is free for anyone to use</li></ul></div></div>
+      <div class="concept-card"><h3>First to Market</h3><div class="concept-content"><ul><li>First product of its type to be released</li><li>Can dominate the market and make the most profit</li><li>Example: iPhone</li></ul></div></div>
+      <div class="concept-card"><h3>Shelf Technology</h3><div class="concept-content"><ul><li>Developed but not released right away</li><li>May be too expensive or not needed yet</li><li>Can be revived later (e.g., iPad developed before iPhone)</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Henry Ford said, "We only live by the grace of invention."</li>
+        <li>Cars saved cities from horse manure problems—but created new issues like pollution!</li>
+        <li>Many famous inventors struggled to get their ideas to market.</li>
+        <li>Some inventions are shelved for years before being released.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: IP Terms <span>🔗</span></h2>
+      <p>Match each intellectual property term to its definition. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Patent',
+          'Copyright',
+          'Trademark',
+          'Public domain',
+          'First to market',
+          'Shelf technology'
+        ];
+        const matchingDefs = [
+          'Exclusive right to make/sell an invention',
+          'Exclusive right to use/distribute creative works',
+          'Registered symbol/word for a company/product',
+          'Work is free for anyone to use',
+          'First product of its type released',
+          'Developed but not released until later'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What motivates people to invent?
+        <div class="model-answer"><strong>Model Answer:</strong> Personal interest, making life better, constructive discontent, money, scientific curiosity, necessity.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What are the advantages and disadvantages of being a lone inventor?
+        <div class="model-answer"><strong>Model Answer:</strong> Advantages: full control, driven by vision. Disadvantages: may lack business/marketing skills, struggle with teamwork, lack resources.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a patent?
+        <div class="model-answer"><strong>Model Answer:</strong> A government-granted right to make or sell an invention for a set number of years.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Invention powers progress! <span>💡🚀</span></h3>
+      <p>Protect your ideas—and turn them into reality!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

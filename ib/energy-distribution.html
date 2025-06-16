@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Distribution (2.3) – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .model-answer { display: none; }
+        .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+        .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+        .matching-terms, .matching-defs { flex: 1; }
+        .matching-terms .pair-item, .matching-defs .pair-item {
+            background: #f7f7fa;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            user-select: none;
+            position: relative;
+        }
+        .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+        .pair-item.paired { border-width: 2px; }
+        .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+        .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+        .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+        .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+        .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+        .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+        .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+        .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+        .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+        .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+        .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+        @media (max-width: 700px) {
+            .matching-cols { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Energy Distribution <span>🔌🌐</span></h1>
+            <p><strong>Why does it matter?</strong> How we move and use energy shapes our world, from powering cities to driving cars! <span>🚗⚡</span></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Power grid</strong> <span>🌐</span> – Network for delivering electricity from producers to consumers</li>
+                <li><strong>Local generation</strong> <span>🏠</span> – Producing energy close to where it's used</li>
+                <li><strong>CHP (Combined Heat & Power)</strong> <span>🔥⚡</span> – Plants that generate both heat and electricity for local use</li>
+                <li><strong>Embodied carbon</strong> <span>🌫️</span> – Total greenhouse gases released during a product's life cycle</li>
+                <li><strong>Greenhouse gas</strong> <span>🌍</span> – Gases that trap heat in the atmosphere (CO₂, methane, etc.)</li>
+                <li><strong>Global warming potential (GWP)</strong> <span>🔥</span> – How much a gas contributes to global warming compared to CO₂</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>How is Energy Distributed? <span>🔌</span></h2>
+            <div class="concept-card">
+                <h3>The Power Grid</h3>
+                <div class="concept-content">
+                    <p>The power grid is a huge network that delivers electricity from power plants to homes and businesses. It connects many sources and users, making energy available almost everywhere.</p>
+                    <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=20Vb6hlLQSg" target="_blank">How the Power Grid Works (YouTube)</a></div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Local Generation</h3>
+                <div class="concept-content">
+                    <p>Energy can also be produced close to where it's used, like with solar panels on homes or small local power plants. This can make energy supply more reliable and reduce losses.</p>
+                    <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=QzQYA9Qjsi0" target="_blank">Local Power Generation (YouTube)</a></div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>CHP (Combined Heat & Power)</h3>
+                <div class="concept-content">
+                    <p>CHP plants generate both heat and electricity for local communities, making energy use more efficient by capturing heat that would otherwise be wasted.</p>
+                    <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=QzQYA9Qjsi0" target="_blank">Combined Heat & Power (YouTube)</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Case Study: Gas vs. Electric Cars <span>🚗⚡</span></h2>
+            <div class="concept-card">
+                <h3>Gas-Powered Cars</h3>
+                <div class="concept-content">
+                    <ul>
+                        <li>Quick to refuel, cheap to buy, lots of infrastructure</li>
+                        <li>Higher maintenance, less environmentally friendly</li>
+                        <li>Relies on fossil fuels (petrol/gasoline)</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Electric Cars</h3>
+                <div class="concept-content">
+                    <ul>
+                        <li>Cheaper to maintain, more environmentally friendly</li>
+                        <li>Slower to charge, higher upfront cost (but dropping!)</li>
+                        <li>Can use renewable energy for charging</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Embodied Carbon & Greenhouse Gases <span>🌫️🌍</span></h2>
+            <div class="concept-card">
+                <h3>Embodied Carbon</h3>
+                <div class="concept-content">
+                    <p>The total greenhouse gases released during a product's life cycle, from making it to using and disposing of it.</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Greenhouse Gases & GWP</h3>
+                <div class="concept-content">
+                    <p>CO₂ is the most common greenhouse gas, but others like methane and nitrous oxide are much more potent. Global Warming Potential (GWP) compares their impact to CO₂ (GWP = 1).</p>
+                    <div class="example"><strong>Example:</strong> Methane GWP ≈ 25, Nitrous tetrafluoride GWP ≈ 17,000!</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Carbon Emissions by Sector</h3>
+                <div class="concept-content">
+                    <p>Electricity production, transportation, and agriculture are the biggest sources of global greenhouse gas emissions. Reducing emissions in these sectors has a huge impact!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+            <ul class="tips-list">
+                <li>Electric cars can be charged at home using solar panels!</li>
+                <li>Some greenhouse gases stay in the atmosphere for thousands of years.</li>
+                <li>Combined Heat & Power (CHP) can make local energy use up to 80% efficient.</li>
+            </ul>
+            <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=20Vb6hlLQSg" target="_blank">How the Power Grid Works (YouTube)</a></div>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise: Cars & Energy <span>🔗</span></h2>
+            <p>Match each car type or energy method to its main advantage or disadvantage. Click a type, then click a feature to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms"></div>
+                    <div class="matching-defs"></div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <script>
+                const matchingTerms = [
+                    'Gas-powered car',
+                    'Electric car',
+                    'Power grid',
+                    'Local generation',
+                    'CHP (Combined Heat & Power)',
+                    'Methane',
+                    'CO₂',
+                    'Nitrous tetrafluoride'
+                ];
+                const matchingDefs = [
+                    'Quick to refuel, lots of infrastructure',
+                    'Cheaper to maintain, more eco-friendly',
+                    'Delivers electricity from plants to users',
+                    'Produces energy close to where it's used',
+                    'Generates both heat and electricity efficiently',
+                    '25x more potent than CO₂ as a greenhouse gas',
+                    'Most common greenhouse gas (GWP = 1)',
+                    '17,000x more potent than CO₂ as a greenhouse gas'
+                ];
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null);
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is the power grid?
+                <div class="model-answer"><strong>Model Answer:</strong> The power grid is a network that delivers electricity from producers to consumers.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is the main advantage of electric cars over gas-powered cars?
+                <div class="model-answer"><strong>Model Answer:</strong> Electric cars are cheaper to maintain and more environmentally friendly.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is global warming potential (GWP)?
+                <div class="model-answer"><strong>Model Answer:</strong> GWP is a measure of how much a greenhouse gas contributes to global warming compared to CO₂.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                Which sector produces the most global greenhouse gas emissions?
+                <div class="model-answer"><strong>Model Answer:</strong> Electricity production is the largest source of global greenhouse gas emissions.</div>
+            </div>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Power the future! <span>🔌🌱</span></h3>
+            <p>Understanding energy distribution helps you design smarter, greener, and more resilient systems for everyone!</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

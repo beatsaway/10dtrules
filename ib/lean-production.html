@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lean Production: Principles & Practice (10.2a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Lean Production: Principles & Practice <span>🍃🏭</span></h1>
+      <p><strong>How do companies cut waste and boost quality? Lean is the answer!</strong> <span>🔄</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Lean Production</strong> – Long-term strategy to reduce waste and improve processes</li>
+        <li><strong>Waste</strong> – Anything that does not add value (time, materials, effort)</li>
+        <li><strong>Continuous Improvement</strong> – Ongoing, incremental improvements (Kaizen)</li>
+        <li><strong>Kaizen</strong> – Japanese for "continuous improvement"; culture of small, ongoing changes</li>
+        <li><strong>Just in Time</strong> – Producing only what is needed, when it is needed</li>
+        <li><strong>Zero Defects</strong> – Aim for no faulty products or waste</li>
+        <li><strong>Empowerment</strong> – Workers are encouraged to suggest/process improvements</li>
+        <li><strong>Flow</strong> – Smooth, uninterrupted movement of products through production</li>
+        <li><strong>Inventory</strong> – Stock of materials, components, or finished goods</li>
+        <li><strong>Customer Pull</strong> – Producing based on customer demand, not forecasts</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>What is Lean Production? <span>❓</span></h2>
+      <div class="concept-card"><h3>Definition</h3><div class="concept-content"><ul><li>Long-term strategy to reduce waste and improve efficiency</li><li>Focuses on continual feedback and incremental improvement</li><li>Goal: reduce waste, save money, increase profits</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Lean Principles <span>🧠</span></h2>
+      <div class="concept-card"><h3>Eliminate Waste</h3><div class="concept-content"><ul><li>Zero defects, minimize inventory, avoid overproduction</li></ul></div></div>
+      <div class="concept-card"><h3>Maximize Flow</h3><div class="concept-content"><ul><li>Keep machines and people working, avoid idle time</li></ul></div></div>
+      <div class="concept-card"><h3>Customer Pull</h3><div class="concept-content"><ul><li>Produce only what customers want, when they want it</li></ul></div></div>
+      <div class="concept-card"><h3>Empower Workers</h3><div class="concept-content"><ul><li>Workers suggest improvements, are highly trained</li></ul></div></div>
+      <div class="concept-card"><h3>Continuous Improvement (Kaizen)</h3><div class="concept-content"><ul><li>Small, ongoing changes for better quality and efficiency</li></ul></div></div>
+      <div class="concept-card"><h3>Supplier Partnerships</h3><div class="concept-content"><ul><li>Strong relationships for reliable, timely supply</li></ul></div></div>
+      <div class="concept-card"><h3>Rapid Changeover</h3><div class="concept-content"><ul><li>Processes can adapt quickly to new products or changes</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Advantages & Disadvantages <span>⚖️</span></h2>
+      <div class="concept-card"><h3>Advantages</h3><div class="concept-content"><ul><li>Reduces costs and waste</li><li>Increases customer satisfaction</li><li>Improves quality and productivity</li><li>Reduces environmental impact</li><li>Boosts profits and competitive advantage</li><li>Improves working conditions</li></ul></div></div>
+      <div class="concept-card"><h3>Disadvantages</h3><div class="concept-content"><ul><li>High initial capital costs</li><li>Requires culture change and buy-in</li><li>Can cause delivery delays if not managed well</li><li>Supply problems can disrupt production</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Lean production was pioneered by Toyota and is now used worldwide.</li>
+        <li>Kaizen means "change for better" in Japanese.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main goal of lean production?
+        <div class="model-answer"><strong>Model Answer:</strong> To reduce waste and improve efficiency.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is Kaizen?
+        <div class="model-answer"><strong>Model Answer:</strong> Continuous, incremental improvement involving all workers.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one disadvantage of lean production.
+        <div class="model-answer"><strong>Model Answer:</strong> High initial capital costs or risk of supply problems.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Lean = less waste, more value! <span>🍃💡</span></h3>
+      <p>How would you make your next project leaner?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

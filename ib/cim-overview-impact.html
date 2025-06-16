@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Integrated Manufacturing (CIM): Overview & Impact (10.3a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Computer Integrated Manufacturing (CIM): Overview & Impact <span>🤖🏭</span></h1>
+      <p><strong>How do computers run the modern factory? What does it mean for jobs and skills?</strong> <span>💻</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>CIM</strong> – Computer Integrated Manufacturing: using computers to integrate all aspects of production</li>
+        <li><strong>Automation</strong> – Using machines/robots to perform tasks with little human input</li>
+        <li><strong>Integration</strong> – Linking design, procurement, manufacturing, and distribution</li>
+        <li><strong>Design</strong> – Using CAD and computers to create/test products</li>
+        <li><strong>Procurement</strong> – Buying materials/components, often automated</li>
+        <li><strong>Manufacturing</strong> – Making products, often with robots</li>
+        <li><strong>Distribution</strong> – Delivering products, tracked by computers</li>
+        <li><strong>Job Loss</strong> – Fewer jobs for humans, more for robots</li>
+        <li><strong>Skills</strong> – Higher education/skills needed for modern manufacturing jobs</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>What is CIM? <span>❓</span></h2>
+      <div class="concept-card"><h3>Definition</h3><div class="concept-content"><ul><li>System using computers to integrate all production steps</li><li>From design to procurement, manufacturing, and distribution</li></ul></div></div>
+      <div class="concept-card"><h3>Automation & Integration</h3><div class="concept-content"><ul><li>Computers/robots handle tasks once done by humans</li><li>Processes are linked for efficiency</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Impact on Jobs & Skills <span>👩‍💻🤖</span></h2>
+      <div class="concept-card"><h3>Job Loss</h3><div class="concept-content"><ul><li>Robots replace many manual jobs</li><li>Fewer people needed on the production line</li></ul></div></div>
+      <div class="concept-card"><h3>Need for Higher Skills</h3><div class="concept-content"><ul><li>Workers must understand computers, math, science</li><li>More education/training required</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Advantages & Disadvantages <span>⚖️</span></h2>
+      <div class="concept-card"><h3>Advantages</h3><div class="concept-content"><ul><li>Greater efficiency and consistency</li><li>24/7 operation, fewer errors, higher quality</li><li>Lower long-term costs</li></ul></div></div>
+      <div class="concept-card"><h3>Disadvantages</h3><div class="concept-content"><ul><li>High initial investment</li><li>Job loss, need for retraining</li><li>Less individuality in work</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>CIM & Scales of Production <span>📏</span></h2>
+      <div class="concept-card"><h3>One-off Production</h3><div class="concept-content"><ul><li>Not cost-effective for small/custom jobs</li></ul></div></div>
+      <div class="concept-card"><h3>Batch & Mass Production</h3><div class="concept-content"><ul><li>Highly suited for batch/mass production</li><li>Flexible, efficient, fewer errors, lower costs</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Apple, Tesla, and Toyota all use CIM to streamline their factories.</li>
+        <li>Modern factory workers often need a university degree!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does CIM stand for?
+        <div class="model-answer"><strong>Model Answer:</strong> Computer Integrated Manufacturing.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one advantage and one disadvantage of CIM.
+        <div class="model-answer"><strong>Model Answer:</strong> Advantage: greater efficiency. Disadvantage: job loss or high initial investment.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why do modern factory workers need more education?
+        <div class="model-answer"><strong>Model Answer:</strong> They must understand computers, math, and science to work with automated systems.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Automation is the future! <span>🤖💡</span></h3>
+      <p>How would you use CIM in your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

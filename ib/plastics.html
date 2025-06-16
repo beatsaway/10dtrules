@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plastics: Types, Properties, and Environmental Impact – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Plastics: Types, Properties, and Environmental Impact <span>🧴♻️</span></h1>
+      <p><strong>Plastics: convenient, clever, but complicated for our planet!</strong> <span>🌍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Polymer</strong> – Large molecule made of repeating units (monomers)</li>
+        <li><strong>Monomer</strong> – Small molecule that joins to form polymers</li>
+        <li><strong>Plastic</strong> – Synthetic polymer, can be shaped</li>
+        <li><strong>Thermoplastic</strong> – Plastic that can be reheated and reshaped</li>
+        <li><strong>Thermoset</strong> – Plastic that cannot be reshaped after setting</li>
+        <li><strong>Hydrocarbon</strong> – Molecule made of hydrogen and carbon (source for plastics)</li>
+        <li><strong>Ethylene, Propylene</strong> – Hydrocarbons used to make plastics</li>
+        <li><strong>Microplastics</strong> – Tiny plastic particles from breakdown of larger plastics</li>
+        <li><strong>Recycling</strong> – Process of reusing materials to make new products</li>
+        <li><strong>Resin code</strong> – Number code identifying plastic type for recycling</li>
+        <li><strong>Ductile</strong> – Can be stretched into wire</li>
+        <li><strong>Stiffness</strong> – Resistance to bending</li>
+        <li><strong>Dimensional stability</strong> – Maintains shape/size under stress</li>
+        <li><strong>ABS</strong> – Acrylonitrile butadiene styrene (Lego, 3D printing)</li>
+        <li><strong>PET</strong> – Polyethylene terephthalate (bottles, containers)</li>
+        <li><strong>PVC</strong> – Polyvinyl chloride (pipes, cables)</li>
+        <li><strong>HIPS</strong> – High impact polystyrene (toys, utensils)</li>
+        <li><strong>Polyurethane</strong> – Thermoset (sponges, wheels, toys)</li>
+        <li><strong>Urea formaldehyde</strong> – Thermoset (MDF, insulation)</li>
+        <li><strong>Melamine</strong> – Thermoset (hard plates, laminates)</li>
+        <li><strong>Epoxy resin</strong> – Thermoset (adhesives, coatings)</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What are Plastics?</h3><div class="concept-content"><p>Plastics are synthetic polymers—large molecules made of repeating monomers. They're light, strong, and resistant to biological activity. <br><em>Fun fact:</em> Every piece of plastic ever made still exists!</p></div></div>
+      <div class="concept-card"><h3>Environmental Impact</h3><div class="concept-content"><p>Plastics are often single-use and take 400–500 years to break down. They become microplastics, polluting oceans and harming wildlife. Only about 20% are recycled.</p></div></div>
+      <div class="concept-card"><h3>Thermoplastics</h3><div class="concept-content"><ul><li>Can be reheated and reshaped repeatedly</li><li>Linear chains with weak bonds between them</li><li>Examples: <strong>PP</strong> (polypropylene), <strong>PE</strong> (polyethylene), <strong>PET</strong>, <strong>ABS</strong>, <strong>HIPS</strong>, <strong>PVC</strong></li><li>Ductile, low stiffness, easy to manufacture and recycle</li></ul></div></div>
+      <div class="concept-card"><h3>Thermosets</h3><div class="concept-content"><ul><li>Once set, cannot be reshaped (strong cross-links)</li><li>High stiffness and strength, but not recyclable</li><li>Examples: <strong>Polyurethane</strong>, <strong>Urea formaldehyde</strong>, <strong>Melamine</strong>, <strong>Epoxy resin</strong></li></ul></div></div>
+      <div class="concept-card"><h3>Recycling & Resin Codes</h3><div class="concept-content"><ul><li>Thermoplastics are easier to recycle than thermosets</li><li>Resin codes identify plastic types for recycling</li><li>Sorting and cleaning are major challenges</li><li>Most plastics still end up in landfills</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Lego bricks are made from ABS plastic.</li>
+        <li>Only about 1/5 of plastic products are recycled.</li>
+        <li>Microplastics are found in oceans, rivers, and even the air!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Plastic Types <span>🔗</span></h2>
+      <p>Match each plastic type or term to its definition or use. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Polymer',
+          'Monomer',
+          'Thermoplastic',
+          'Thermoset',
+          'Microplastics',
+          'ABS',
+          'PET',
+          'PVC',
+          'HIPS',
+          'Polyurethane',
+          'Urea formaldehyde',
+          'Melamine',
+          'Epoxy resin',
+          'Resin code',
+          'Recycling'
+        ];
+        const matchingDefs = [
+          'Large molecule made of repeating units',
+          'Small molecule that joins to form polymers',
+          'Plastic that can be reheated and reshaped',
+          'Plastic that cannot be reshaped after setting',
+          'Tiny plastic particles from breakdown of larger plastics',
+          'Used for Lego, 3D printing',
+          'Used for bottles, containers',
+          'Used for pipes, cables',
+          'Used for toys, utensils',
+          'Thermoset used for sponges, wheels, toys',
+          'Thermoset used in MDF, insulation',
+          'Thermoset used for hard plates, laminates',
+          'Thermoset used for adhesives, coatings',
+          'Number code identifying plastic type for recycling',
+          'Process of reusing materials to make new products'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 15; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 15; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between thermoplastic and thermoset plastics?
+        <div class="model-answer"><strong>Model Answer:</strong> Thermoplastics can be reheated and reshaped; thermosets cannot be reshaped after setting due to strong cross-links.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are microplastics a problem?
+        <div class="model-answer"><strong>Model Answer:</strong> Microplastics pollute the environment, harm marine life, and are difficult to remove from ecosystems.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are thermoplastics easier to recycle than thermosets?
+        <div class="model-answer"><strong>Model Answer:</strong> Thermoplastics can be melted and reshaped, while thermosets cannot be remelted due to their strong cross-linked structure.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Plastics: convenient, clever, but complicated for our planet! <span>🧴♻️</span></h3>
+      <p>Think before you toss—reduce, reuse, recycle!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

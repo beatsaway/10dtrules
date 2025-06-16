@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Stream Mapping (10.2b) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Value Stream Mapping <span>🗺️📊</span></h1>
+      <p><strong>How do you visualize and improve every step from design to delivery?</strong> <span>🔍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Value Stream Mapping</strong> – Lean tool to analyze and improve the flow of materials and information</li>
+        <li><strong>Material Flow</strong> – Movement of materials through production</li>
+        <li><strong>Information Flow</strong> – Communication between customers, suppliers, and production</li>
+        <li><strong>Lead Time</strong> – Total time from order to delivery</li>
+        <li><strong>Value Added</strong> – Time spent actually improving the product</li>
+        <li><strong>Inventory</strong> – Stock of materials or products at each stage</li>
+        <li><strong>Process</strong> – Steps or activities in production</li>
+        <li><strong>Customer Demand</strong> – What the customer wants and when</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>What is Value Stream Mapping? <span>❓</span></h2>
+      <div class="concept-card"><h3>Definition</h3><div class="concept-content"><ul><li>Visual tool to map every step from design to delivery</li><li>Shows material and information flow</li><li>Used to spot waste and improve processes</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>How It Works <span>🔧</span></h2>
+      <div class="concept-card"><h3>Information Flow</h3><div class="concept-content"><ul><li>Tracks communication between customers, suppliers, and production</li><li>Ensures the right info is available at every step</li></ul></div></div>
+      <div class="concept-card"><h3>Material Flow</h3><div class="concept-content"><ul><li>Shows how materials move through each process</li><li>Highlights inventory at each stage</li></ul></div></div>
+      <div class="concept-card"><h3>Time Ladders</h3><div class="concept-content"><ul><li>Visualize value added time vs. total lead time</li><li>Helps identify bottlenecks and delays</li></ul></div></div>
+      <div class="concept-card"><h3>Value Added vs. Lead Time</h3><div class="concept-content"><ul><li>Value added: time spent improving the product</li><li>Lead time: total time from start to finish</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Why It Matters <span>🌟</span></h2>
+      <div class="concept-card"><h3>Spotting Waste</h3><div class="concept-content"><ul><li>Helps teams see where time/materials are wasted</li><li>Focuses improvement efforts</li></ul></div></div>
+      <div class="concept-card"><h3>Continuous Improvement</h3><div class="concept-content"><ul><li>Used in Kaizen to drive ongoing process improvements</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Value stream mapping is used by companies like Toyota, Amazon, and Nike to streamline operations.</li>
+        <li>It can be used for services (like hospitals) as well as manufacturing!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main purpose of value stream mapping?
+        <div class="model-answer"><strong>Model Answer:</strong> To visualize and improve the flow of materials and information, reducing waste.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between value added time and lead time?
+        <div class="model-answer"><strong>Model Answer:</strong> Value added is time spent improving the product; lead time is the total time from start to finish.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one benefit of value stream mapping.
+        <div class="model-answer"><strong>Model Answer:</strong> Helps spot waste and focus improvement efforts.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Map it, improve it! <span>🗺️💡</span></h3>
+      <p>How could you use value stream mapping in your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

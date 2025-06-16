@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beyond Usability: Designing for Pleasure & Emotion – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Beyond Usability: Designing for Pleasure & Emotion <span>💖🎨</span></h1>
+      <p><strong>Great design isn't just usable—it's delightful!</strong> <span>😊</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Four Pleasures</strong> – Socio, physio, psycho, and ideo pleasure</li>
+        <li><strong>Socio pleasure</strong> – Pleasure from social interaction and belonging</li>
+        <li><strong>Physio pleasure</strong> – Sensual pleasure from touch, taste, sound, etc.</li>
+        <li><strong>Psycho pleasure</strong> – Pleasure from cognition, discovery, and achievement</li>
+        <li><strong>Ideo pleasure</strong> – Pleasure from ideals, values, and aesthetics</li>
+        <li><strong>Visceral design</strong> – Design that appeals to instinct and expectations</li>
+        <li><strong>Behavioral design</strong> – Focuses on use, mastery, and functionality</li>
+        <li><strong>Reflective design</strong> – Evokes memory, meaning, and personal stories</li>
+        <li><strong>ACT model</strong> – Attract, Converse, Transact: aesthetics, interaction, function</li>
+        <li><strong>Aesthetics</strong> – Visual appeal and beauty</li>
+        <li><strong>Interaction</strong> – How users engage with a product</li>
+        <li><strong>Function</strong> – How well a product works and solves problems</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>The Four Pleasures</h3><div class="concept-content"><ul><li><strong>Socio pleasure:</strong> Belonging, socializing, group identity (e.g., gaming with friends)</li><li><strong>Physio pleasure:</strong> Sensual—touch, taste, sound, satisfaction from effective objects</li><li><strong>Psycho pleasure:</strong> Intellect, discovery, solving problems, achievement</li><li><strong>Ideo pleasure:</strong> Ideals, values, culture, aesthetics (e.g., eco-friendly bikes)</li></ul></div></div>
+      <div class="concept-card"><h3>Levels of Appeal</h3><div class="concept-content"><ul><li><strong>Visceral:</strong> Immediate, instinctive attraction ("I want it!")</li><li><strong>Behavioral:</strong> Mastery, usability, accomplishment ("I can use it!")</li><li><strong>Reflective:</strong> Memory, meaning, personal story ("It completes me!")</li></ul></div></div>
+      <div class="concept-card"><h3>Visceral Design</h3><div class="concept-content"><ul><li>Appeals to expectations and senses</li><li>Looks, feels, and works as expected</li></ul></div></div>
+      <div class="concept-card"><h3>Behavioral Design</h3><div class="concept-content"><ul><li>Focuses on use, function, and mastery</li><li>Easy to use, satisfying to master</li></ul></div></div>
+      <div class="concept-card"><h3>Reflective Design</h3><div class="concept-content"><ul><li>Evokes memory, meaning, and culture</li><li>Personal stories and emotional connection</li></ul></div></div>
+      <div class="concept-card"><h3>ACT Model: Attract, Converse, Transact</h3><div class="concept-content"><ul><li><strong>Attract:</strong> Aesthetics—what draws you in?</li><li><strong>Converse:</strong> Interaction—can you use it easily?</li><li><strong>Transact:</strong> Function—does it work and solve your problem?</li><li>Great products are desirable, usable, and useful!</li></ul></div></div>
+      <div class="concept-card"><h3>Real-World Examples</h3><div class="concept-content"><ul><li>Sports fans (socio pleasure), delicious food (physio), solving puzzles (psycho), eco-friendly bikes (ideo)</li><li>Beautiful cars (attract), easy-to-use gadgets (converse), clever storage solutions (transact)</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Some people collect washing machines for the joy (and emotion) it brings!</li>
+        <li>Video games today are designed for both social and psycho pleasure.</li>
+        <li>Eco-friendly products often appeal to ideo pleasure—aligning with users' values.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Pleasure & Emotion <span>🔗</span></h2>
+      <p>Match each concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Socio pleasure",
+          "Physio pleasure",
+          "Psycho pleasure",
+          "Ideo pleasure",
+          "Visceral design",
+          "Behavioral design",
+          "Reflective design",
+          "Attract",
+          "Converse",
+          "Transact"
+        ];
+        const matchingDefs = [
+          "Pleasure from social interaction and belonging",
+          "Sensual pleasure from touch, taste, sound, etc.",
+          "Pleasure from cognition, discovery, and achievement",
+          "Pleasure from ideals, values, and aesthetics",
+          "Design that appeals to instinct and expectations",
+          "Focuses on use, mastery, and functionality",
+          "Evokes memory, meaning, and personal stories",
+          "Aesthetics—what draws you in?",
+          "Interaction—can you use it easily?",
+          "Function—does it work and solve your problem?"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What are the four pleasures in design?
+        <div class="model-answer"><strong>Model Answer:</strong> Socio pleasure, physio pleasure, psycho pleasure, and ideo pleasure.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is visceral design?
+        <div class="model-answer"><strong>Model Answer:</strong> Design that appeals to instinct, expectations, and the senses.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does the ACT model stand for?
+        <div class="model-answer"><strong>Model Answer:</strong> Attract (aesthetics), Converse (interaction), Transact (function).</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Design for delight! <span>💖🎨</span></h3>
+      <p>How will you make your next project more pleasurable and emotional?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

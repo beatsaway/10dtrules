@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Human Factors & Ergonomics – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .reveal-answer-btn { pointer-events: none; opacity: 0.7; }
+        .sample-q .model-answer { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Human Factors & Ergonomics <span>🧑‍🤝‍🧑🪑</span></h1>
+            <p><strong>Big Idea:</strong> People come in all shapes and sizes! Great design means planning for everyone, not just the average. <span>🌍</span></p>
+            <p><em>For both SL & HL learners. <span style="color:#fd79a8;">HL-exclusive</span> content is highlighted.</em></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Anthropometrics</strong> <span>📏</span> – Measurement of human body dimensions (from Greek: <em>anthro</em> = people, <em>metrics</em> = measure)</li>
+                <li><strong>Ergonomics</strong> <span>🪑</span> – Designing for human comfort, safety, and efficiency</li>
+                <li><strong>Percentile</strong> <span>🔢</span> – Statistical value showing how a measurement compares to a population</li>
+                <li><strong>Biomechanics</strong> <span>🏋️</span> – Study of movement and forces on the human body</li>
+                <li><strong>Physiological factors</strong> <span>💪</span> – Physical characteristics affecting performance (e.g. strength, stamina)</li>
+                <li><strong>Psychological factors</strong> <span>🧠</span> – Mental processes affecting interaction (e.g. perception, memory)</li>
+                <li><strong>Static data</strong> <span>🧍</span> – Measurements when the body is still</li>
+                <li><strong>Dynamic data</strong> <span>🏃</span> – Measurements when the body is moving</li>
+                <li><strong>Inclusive design</strong> <span>♿</span> – Designing products accessible to as many people as possible</li>
+                <li><strong>Usability</strong> <span>👍</span> – How easy and satisfying a product is to use</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Key Concepts & Examples <span>💡</span></h2>
+            <div class="concept-group">
+                <h2><span>🌟</span> Start Here: The Big Idea</h2>
+                <p style="margin-bottom:10px;">Before you dive into the details, get the big picture of why human factors matter in design!</p>
+                <div class="example" style="background:#fffbe7; color:#222; border-left:4px solid #fdcb6e;">
+                    <strong>Did You Know?</strong> <span>🤔</span> <br>
+                    If all shoes were designed for Shaquille O'Neal's feet, most people couldn't wear them! Designers use <strong>anthropometric data</strong> to fit the majority, not just the extremes.
+                </div>
+                <div class="hl-only">
+                    <strong>HL Exclusive <span>🔥</span>:</strong> HL students must also understand advanced topics like biomechanics (forces and movement in the body), detailed statistical analysis of anthropometric data, and the impact of extreme users on design decisions.
+                </div>
+            </div>
+            <div class="concept-group">
+                <h2><span>📊</span> Data Concepts</h2>
+                <div class="concept-subgroup">
+                    <h3><span>📏</span> Measurement & Data Collection</h3>
+                    <p style="margin-bottom:8px;">How do we measure and collect information about people for design?</p>
+                    <div class="concept-card">
+                        <h3>Anthropometrics <span>📏</span></h3>
+                        <div class="concept-content">
+                            <p>Anthropometrics = <em>people measurement</em>. Designers use this science to make sure products fit real users. <br><span style="color:#1976d2;">Anthro</span> = people, <span style="color:#1976d2;">metrics</span> = measure.</p>
+                            <div class="example"><strong>Example:</strong> Door handles are placed at a height most people can reach, based on anthropometric data. <span>🚪</span></div>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h3>Static & Structural Data <span>🧍</span></h3>
+                        <div class="concept-content">
+                            <p>Static data: measuring the body while still (e.g., height, arm length). Structural data: measurements from a fixed position.</p>
+                            <div class="example"><strong>Example:</strong> Measuring height with a height gauge. <span>📏</span></div>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h3>Dynamic & Functional Data <span>🏃</span></h3>
+                        <div class="concept-content">
+                            <p>Dynamic data: measuring the body in motion (e.g., reach, reaction time). Functional data: collected while doing a task (e.g., reaching for something).</p>
+                            <div class="example"><strong>Example:</strong> Measuring how far you can reach while sitting at a desk. <span>🖐️</span></div>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h3>Primary vs. Secondary Data <span>📊</span></h3>
+                        <div class="concept-content">
+                            <p><strong>Primary data</strong>: you collect it yourself (e.g., measuring classmates). <br><strong>Secondary data</strong>: someone else collected it (e.g., US Army database).</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="height:12px;"></div>
+                <div class="concept-subgroup">
+                    <h3><span>🔢</span> Understanding & Using Data</h3>
+                    <p style="margin-bottom:8px;">How do we interpret, categorize, and use data to make better design decisions?</p>
+                    <div class="concept-card">
+                        <h3>Percentiles <span>🔢</span></h3>
+                        <div class="concept-content">
+                            <p>Designers use percentiles (like 5th, 50th, 95th) to fit the majority. <br>For example, a car seat might adjust from the 5th percentile female to the 95th percentile male. <span>🚗</span></p>
+                            <div class="example"><strong>Example:</strong> If you only design shoes for the 95th percentile, you'll go out of business fast! <span>👟</span></div>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h3>Types of Data <span>🔠</span></h3>
+                        <div class="concept-content">
+                            <ul>
+                                <li><strong>Interval</strong> (numeric, exact differences, e.g., temperature)</li>
+                                <li><strong>Nominal</strong> (names/categories, e.g., car types)</li>
+                                <li><strong>Ordinal</strong> (ranked, e.g., chili pepper hotness)</li>
+                                <li><strong>Qualitative</strong> (descriptive, e.g., how people feel)</li>
+                                <li><strong>Quantitative</strong> (measured with numbers, e.g., height)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <h3>Range of Sizes & Adjustability <span>📏↔️</span></h3>
+                        <div class="concept-content">
+                            <p>Designers often create products with a <strong>range of sizes</strong> (like shoes) or <strong>adjustability</strong> (like adjustable skates or desks) to fit more people.</p>
+                            <div class="example"><strong>Example:</strong> Adjustable inline skates grow with your feet! <span>🛼</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="concept-group">
+                <h2><span>🪑</span> Design Concepts</h2>
+                <div class="concept-card">
+                    <h3>What are Human Factors & Ergonomics? <span>🧑‍🔬</span></h3>
+                    <div class="concept-content">
+                        <p>It's about making products, systems, and environments fit the people who use them. <span>✔️</span> The goal: comfort, safety, and effectiveness for everyone.</p>
+                        <div class="example"><strong>Example:</strong> A chair with adjustable height and lumbar support fits more users and reduces back pain. <span>🪑</span></div>
+                    </div>
+                </div>
+                <div class="concept-card">
+                    <h3>Clearance, Reach & Workspace Envelope <span>🖐️🖥️</span></h3>
+                    <div class="concept-content">
+                        <p><strong>Clearance</strong>: space between objects (e.g., eyes and screen). <br><strong>Reach</strong>: how far you can reach (e.g., to a keyboard). <br><strong>Workspace envelope</strong>: the 3D space you can access while working.</p>
+                        <div class="example"><strong>Example:</strong> Your workspace envelope is everything you can reach from your chair. <span>💺</span></div>
+                    </div>
+                </div>
+                <div class="concept-card">
+                    <h3>Ergonomics <span>🪑</span></h3>
+                    <div class="concept-content">
+                        <p>Making products comfortable and efficient to use. Includes physical (body fit), cognitive (mental workload), and organizational (work environment) factors.</p>
+                        <div class="example"><strong>Example:</strong> A computer mouse shaped to fit your hand reduces strain. <span>🖱️</span></div>
+                    </div>
+                </div>
+                <div class="concept-card">
+                    <h3>Physiological & Psychological Factors <span>💪🧠</span></h3>
+                    <div class="concept-content">
+                        <p>Physical (strength, stamina) and mental (attention, memory) factors matter for safety and effectiveness.</p>
+                        <div class="example"><strong>Example:</strong> Emergency stop buttons are big and red for a reason! <span>🛑</span></div>
+                    </div>
+                </div>
+                <div class="concept-card">
+                    <h3>Inclusive Design <span>♿</span></h3>
+                    <div class="concept-content">
+                        <p>Design for everyone—regardless of age, ability, or background.</p>
+                        <div class="example"><strong>Example:</strong> Elevators with braille and audio signals help visually impaired users. <span>🛗</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Sample Questions & Model Answers <span>📝</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                <strong>Q1 (SL/HL):</strong> Why do designers use the 5th and 95th percentiles when designing a product?
+                <div class="model-answer"><strong>Model Answer:</strong> Designers use the 5th and 95th percentiles to ensure that products are usable by the vast majority of people, not just the average. This helps make products more inclusive and reduces the risk of excluding users at the extremes.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                <strong>Q2 (SL/HL):</strong> Give an example of how psychological factors influence product design.
+                <div class="model-answer"><strong>Model Answer:</strong> Designers use color, shape, and layout to make controls easy to find and use. For example, using red for emergency buttons makes them stand out and easy to identify quickly.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                <strong>Q3 (HL):</strong> Explain the importance of biomechanics in ergonomic design.
+                <div class="model-answer"><strong>Model Answer:</strong> Biomechanics helps designers understand how forces act on the body during product use. This knowledge allows them to reduce strain, prevent injury, and improve comfort, especially for products used repeatedly or for long periods.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Class Activities <span>🧑‍🔬</span></h2>
+            <ul class="activity-list">
+                <li>Measure the hand span, height, and arm length of classmates. Plot the data and discuss how it would affect the design of a school desk. <span>📏🧑‍🏫</span></li>
+                <li>Analyze a common product (e.g., scissors, remote control) for ergonomic strengths and weaknesses. Suggest improvements. <span>✂️📺</span></li>
+                <li>Design a poster explaining the difference between static and dynamic data, with examples. <span>🧍🏃</span></li>
+                <li>Role-play as different users (child, elderly, left-handed) and test a product for inclusivity. <span>🎭</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Homework <span>🏠</span></h2>
+            <ul class="homework-list">
+                <li>Find a product at home that is uncomfortable or hard to use. Write a paragraph explaining why, using at least three key terms from the vocabulary list. <span>📝</span></li>
+                <li>Research a famous ergonomic product (e.g., Aeron chair, OXO Good Grips tools) and explain what makes it successful. <span>🔍</span></li>
+                <li>Interview a family member about a product they find easy or hard to use. Summarize your findings and suggest a design improvement. <span>👨‍👩‍👧‍👦</span></li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Extra Tips & Resources <span>🌟</span></h2>
+            <ul>
+                <li>Check out <a href="https://www.ergonomics.org.uk/" target="_blank">The Chartered Institute of Ergonomics & Human Factors</a> for real-world case studies. <span>🌐</span></li>
+                <li>Watch YouTube videos on "bad design" and discuss what could be improved ergonomically. <span>📺</span></li>
+                <li>Try using a product with your non-dominant hand to experience design challenges. <span>✋</span></li>
+            </ul>
+        </div>
+
+        <div class="section" style="background:#e3f2fd;">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <ul>
+                <li>What does "anthropometrics" mean? <span>🤔</span></li>
+                <li>Give an example of static vs. dynamic data. <span>🧍🏃</span></li>
+                <li>Why is adjustability important in product design? <span>🔧</span></li>
+                <li>What is the difference between primary and secondary data? <span>📊</span></li>
+            </ul>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Ready to design for everyone? <span>🌈</span></h3>
+            <p>Human factors and ergonomics is the foundation of great design. The best products fit people—not the other way around!</p>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise <span>🔗</span></h2>
+            <p>Match each vocabulary word to its correct definition. Click a term, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms"></div>
+                    <div class="matching-defs"></div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <style>
+                .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+                .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+                .matching-terms, .matching-defs { flex: 1; }
+                .matching-terms .pair-item, .matching-defs .pair-item {
+                    background: #f7f7fa;
+                    border: 1px solid #bbb;
+                    border-radius: 6px;
+                    margin-bottom: 10px;
+                    padding: 10px 12px;
+                    cursor: pointer;
+                    transition: background 0.2s, border 0.2s;
+                    user-select: none;
+                    position: relative;
+                }
+                .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+                .pair-item.paired { border-width: 2px; }
+                .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+                .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+                .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+                /* Pair colors */
+                .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+                .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+                .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+                .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+                .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+                .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+                .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+                .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+                @media (max-width: 700px) {
+                    .matching-cols { flex-direction: column; gap: 0; }
+                }
+            </style>
+            <script>
+                const matchingTerms = [
+                    'Anthropometrics <span>📏</span>',
+                    'Ergonomics <span>🪑</span>',
+                    'Percentile <span>🔢</span>',
+                    'Biomechanics <span>🏋️</span>',
+                    'Physiological factors <span>💪</span>',
+                    'Psychological factors <span>🧠</span>',
+                    'Static data <span>🧍</span>',
+                    'Dynamic data <span>🏃</span>'
+                ];
+                const matchingDefs = [
+                    'Measurement of human body dimensions',
+                    'Designing for human comfort, safety, and efficiency',
+                    'Statistical value showing how a measurement compares to a population',
+                    'Study of movement and forces on the human body',
+                    'Physical characteristics affecting performance (e.g. strength, stamina)',
+                    'Mental processes affecting interaction (e.g. perception, memory)',
+                    'Measurements when the body is still',
+                    'Measurements when the body is moving'
+                ];
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null);
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        // Toggle concept-card content
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                // Only toggle if header or card background is clicked, not links inside
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

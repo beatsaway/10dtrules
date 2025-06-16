@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scales of Production: One-Off, Batch, and Mass Production – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Scales of Production: One-Off, Batch, and Mass Production <span>🏭🎂</span></h1>
+      <p><strong>From custom cakes to millions of smartphones—production scales shape our world!</strong> <span>📱</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>One-off production</strong> – Making a single, unique product (job production)</li>
+        <li><strong>Job production</strong> – UK term for one-off production</li>
+        <li><strong>Batch production</strong> – Making a set number of items in a limited run</li>
+        <li><strong>Mass production</strong> – Making huge numbers of standardized products</li>
+        <li><strong>Flow production</strong> – Another term for mass production</li>
+        <li><strong>Prototype</strong> – First version of a product, often one-off</li>
+        <li><strong>Customization</strong> – Tailoring a product to individual needs</li>
+        <li><strong>Economies of scale</strong> – Cost advantages from large-scale production</li>
+        <li><strong>Capital investment</strong> – Money spent on equipment and facilities</li>
+        <li><strong>Retooling</strong> – Changing equipment for a new batch or product</li>
+        <li><strong>Standardization</strong> – Making products with uniform specifications</li>
+        <li><strong>Spare parts</strong> – Replacement parts for products</li>
+        <li><strong>Motivated workers</strong> – Workers who take pride in their craft</li>
+        <li><strong>Flexibility</strong> – Ability to change or adapt production</li>
+        <li><strong>Mass market</strong> – Large group of consumers for a product</li>
+        <li><strong>Niche market</strong> – Small, specialized market segment</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is One-Off/Job Production?</h3><div class="concept-content"><p>Making a single, unique product for an individual customer. <br><strong>Examples:</strong> Custom cakes, tailored suits, custom houses, one-off cars.<br><strong>Pros:</strong> Customizable, high quality, motivated workers, flexible.<br><strong>Cons:</strong> Expensive, slow, needs skilled workers, no spare parts.</p></div></div>
+      <div class="concept-card"><h3>What is Batch Production?</h3><div class="concept-content"><p>Making a set number of items in a limited run. <br><strong>Examples:</strong> Batches of cookies, limited edition sneakers.<br><strong>Pros:</strong> Flexible between batches, lower risk, less capital investment than mass production.<br><strong>Cons:</strong> More expensive than mass production, retooling takes time, may not meet high demand.</p></div></div>
+      <div class="concept-card"><h3>What is Mass/Flow Production?</h3><div class="concept-content"><p>Making huge numbers of standardized products on production lines. <br><strong>Examples:</strong> Cars, smartphones, T-shirts.<br><strong>Pros:</strong> Cheap (economies of scale), fast, easy to find spare parts, meets high demand.<br><strong>Cons:</strong> Not customizable, high capital investment, less motivated workers, needs a mass market.</p></div></div>
+      <div class="concept-card"><h3>Economies of Scale</h3><div class="concept-content"><p>Producing in large quantities lowers the cost per unit. <br><strong>Why?</strong> Bulk buying of materials, specialized workers, automation, and efficient processes.</p></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Custom cars, cakes, and houses are one-off productions.</li>
+        <li>Mass production made T-shirts and smartphones affordable for everyone.</li>
+        <li>Ferrari and Lamborghini sometimes make one-off cars for clients.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Production Types <span>🔗</span></h2>
+      <p>Match each production type or term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'One-off production',
+          'Batch production',
+          'Mass production',
+          'Customization',
+          'Economies of scale',
+          'Capital investment',
+          'Retooling',
+          'Standardization',
+          'Spare parts',
+          'Motivated workers',
+          'Flexibility',
+          'Mass market',
+          'Niche market'
+        ];
+        const matchingDefs = [
+          'Making a single, unique product',
+          'Making a set number of items in a limited run',
+          'Making huge numbers of standardized products',
+          'Tailoring a product to individual needs',
+          'Cost advantages from large-scale production',
+          'Money spent on equipment and facilities',
+          'Changing equipment for a new batch or product',
+          'Making products with uniform specifications',
+          'Replacement parts for products',
+          'Workers who take pride in their craft',
+          'Ability to change or adapt production',
+          'Large group of consumers for a product',
+          'Small, specialized market segment'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 13; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 13; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the main advantage of mass production?
+        <div class="model-answer"><strong>Model Answer:</strong> It lowers the cost per unit (economies of scale) and allows for fast, high-volume production.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is one-off production so expensive?
+        <div class="model-answer"><strong>Model Answer:</strong> It requires skilled labor, is slow, and doesn't benefit from economies of scale.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's a disadvantage of batch production?
+        <div class="model-answer"><strong>Model Answer:</strong> Retooling between batches takes time and can be expensive; it's also more expensive than mass production per unit.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>From custom cakes to millions of smartphones—production scales shape our world! <span>🏭🎂</span></h3>
+      <p>Choosing the right scale of production is key to success in design and business.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

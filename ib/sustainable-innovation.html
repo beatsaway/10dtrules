@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainable Innovation – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Sustainable Innovation <span>💡🌱</span></h1>
+      <p><strong>Turning new ideas into a better, sustainable future!</strong> <span>🌍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Innovation</strong> – An invention that is a commercial success</li>
+        <li><strong>Sustainable innovation</strong> – Innovation that benefits economy, society, and environment (triple bottom line)</li>
+        <li><strong>Stakeholder</strong> – Anyone affected by or involved in an innovation (e.g., government, industry, local people)</li>
+        <li><strong>Radical change</strong> – Major, fundamental redesign or shift</li>
+        <li><strong>Time scale</strong> – The long period (20–40 years) needed for sustainable innovation</li>
+        <li><strong>Top-down strategy</strong> – Leadership sets goals and pushes them down</li>
+        <li><strong>Bottom-up strategy</strong> – Workforce or community develops solutions and pushes them up</li>
+        <li><strong>Think global, act local</strong> – Big vision, small steps</li>
+        <li><strong>Government intervention</strong> – Regulations, education, taxes, subsidies to support sustainability</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is Sustainable Innovation?</h3><div class="concept-content"><ul><li>Innovation that is commercially successful <em>and</em> benefits the environment and society</li><li>Requires cooperation between government, industry, and local people</li></ul></div></div>
+      <div class="concept-card"><h3>Triple Bottom Line</h3><div class="concept-content"><ul><li>Economy: profit and growth</li><li>Environment: protect resources, reduce harm</li><li>Society: benefit people and communities</li></ul></div></div>
+      <div class="concept-card"><h3>Stakeholder Cooperation</h3><div class="concept-content"><ul><li>Industry, government, and local people must work together</li><li>Different priorities can make this challenging</li></ul></div></div>
+      <div class="concept-card"><h3>Radical Change & Time Scales</h3><div class="concept-content"><ul><li>Sustainable innovation often requires big, expensive, long-term changes</li><li>Can take 20–40 years to implement</li></ul></div></div>
+      <div class="concept-card"><h3>Top-Down vs. Bottom-Up</h3><div class="concept-content"><ul><li>Top-down: leadership or government sets goals and enforces them</li><li>Bottom-up: solutions come from the workforce or community</li><li>Both are needed for lasting change</li></ul></div></div>
+      <div class="concept-card"><h3>Think Global, Act Local</h3><div class="concept-content"><ul><li>Big vision for the planet, but action starts with small, local steps</li><li>Example: local seed ball project to fight deforestation</li></ul></div></div>
+      <div class="concept-card"><h3>Government Intervention</h3><div class="concept-content"><ul><li>Regulations: set and enforce rules (e.g., pollution limits)</li><li>Education: inform and guide consumers</li><li>Taxes: penalize polluting products</li><li>Subsidies: support sustainable solutions (e.g., wind, solar)</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Some sustainable innovations, like wind power, took decades to become mainstream.</li>
+        <li>"Think global, act local" is a motto for many environmental movements.</li>
+        <li>Subsidies for solar panels have helped millions of homes go green.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Sustainable Innovation <span>🔗</span></h2>
+      <p>Match each concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Sustainable innovation",
+          "Triple bottom line",
+          "Stakeholder",
+          "Radical change",
+          "Time scale",
+          "Top-down strategy",
+          "Bottom-up strategy",
+          "Think global, act local",
+          "Government intervention"
+        ];
+        const matchingDefs = [
+          "Innovation that benefits economy, society, and environment (triple bottom line)",
+          "People, planet, and profit (social, environmental, economic)",
+          "Anyone affected by or involved in an innovation (e.g., government, industry, local people)",
+          "Major, fundamental redesign or shift",
+          "The long period (20–40 years) needed for sustainable innovation",
+          "Leadership sets goals and pushes them down",
+          "Workforce or community develops solutions and pushes them up",
+          "Big vision, small steps",
+          "Regulations, education, taxes, subsidies to support sustainability"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 9; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 9; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is sustainable innovation?
+        <div class="model-answer"><strong>Model Answer:</strong> An innovation that is commercially successful and benefits the environment and society (triple bottom line).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between top-down and bottom-up strategies?
+        <div class="model-answer"><strong>Model Answer:</strong> Top-down: leadership sets and enforces goals; bottom-up: solutions come from the workforce or community.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name two ways governments can support sustainable innovation.
+        <div class="model-answer"><strong>Model Answer:</strong> Regulations, education, taxes, or subsidies.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Innovate for a better world! <span>💡🌱</span></h3>
+      <p>How will you help drive sustainable innovation?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

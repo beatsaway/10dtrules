@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation and Markets – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Innovation and Markets <span>🚀📈</span></h1>
+      <p><strong>How companies grow, compete, and make an impact!</strong></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Ansoff Matrix</strong> – A tool for planning growth via new/existing products and markets</li>
+        <li><strong>Pioneering strategy</strong> – Being first to market with a new innovation</li>
+        <li><strong>Imitative strategy</strong> – Developing products similar to existing ones</li>
+        <li><strong>Market development</strong> – Finding new uses or markets for existing products</li>
+        <li><strong>Product development</strong> – Creating new or improved products for existing customers</li>
+        <li><strong>Market penetration</strong> – Increasing sales of existing products in existing markets</li>
+        <li><strong>Diversification</strong> – Expanding into new products or markets</li>
+        <li><strong>Hybrid model</strong> – Using more than one strategy at once</li>
+        <li><strong>Corporate Social Responsibility (CSR)</strong> – Companies acting ethically for society and the environment</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Ansoff Matrix</h3><div class="concept-content"><ul><li>Framework for growth: market penetration, market development, product development, diversification</li><li>Helps companies decide how to expand</li></ul></div></div>
+      <div class="concept-card"><h3>Pioneering vs. Imitative</h3><div class="concept-content"><ul><li><strong>Pioneering:</strong> First to market, high risk, high reward, needs strong R&D and market research</li><li><strong>Imitative:</strong> Follows existing products, less risk, focuses on branding and improvements</li></ul></div></div>
+      <div class="concept-card"><h3>Market Development</h3><div class="concept-content"><ul><li>Finding new uses or new customers for existing products</li><li>Example: colored duct tape for new markets</li></ul></div></div>
+      <div class="concept-card"><h3>Product Development</h3><div class="concept-content"><ul><li>Creating new or improved products for current customers</li><li>Example: Post-its in new sizes/colors</li></ul></div></div>
+      <div class="concept-card"><h3>Market Penetration</h3><div class="concept-content"><ul><li>Increasing sales to existing customers or finding new customers for existing products</li><li>Measured as product sales / total market potential</li><li>Strategies: promotions, celebrity endorsements, bonus offers</li></ul></div></div>
+      <div class="concept-card"><h3>Diversification</h3><div class="concept-content"><ul><li>Expanding into new products or markets</li><li>Example: Nike moving from shoes to all sporting goods</li></ul></div></div>
+      <div class="concept-card"><h3>Hybrid Models</h3><div class="concept-content"><ul><li>Combining multiple strategies (e.g., imitative + diversification)</li><li>Reduces risk, maximizes sales</li></ul></div></div>
+      <div class="concept-card"><h3>Corporate Social Responsibility (CSR)</h3><div class="concept-content"><ul><li>Companies act ethically for economic, social, and environmental good (triple bottom line)</li><li>Examples: TOMS Shoes, Patagonia, Starbucks, Lego</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Adidas pioneered the modern running shoe; Bose pioneered noise-cancelling headphones.</li>
+        <li>Celebrity endorsements (like George Clooney for Nespresso) can boost market penetration.</li>
+        <li>CSR can actually increase sales by building customer trust and loyalty.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Strategies & Examples <span>🔗</span></h2>
+      <p>Match each strategy to its example or definition. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Pioneering strategy",
+          "Imitative strategy",
+          "Market development",
+          "Product development",
+          "Market penetration",
+          "Diversification",
+          "Hybrid model",
+          "Corporate Social Responsibility (CSR)"
+        ];
+        const matchingDefs = [
+          "Being first to market with a new innovation",
+          "Developing products similar to existing ones",
+          "Finding new uses or customers for existing products",
+          "Creating new or improved products for current customers",
+          "Increasing sales of existing products in existing markets",
+          "Expanding into new products or markets",
+          "Using more than one strategy at once",
+          "Companies acting ethically for society and the environment"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between pioneering and imitative strategies?
+        <div class="model-answer"><strong>Model Answer:</strong> Pioneering: first to market, high risk/reward; Imitative: follows existing products, less risk, focuses on branding.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the Ansoff Matrix used for?
+        <div class="model-answer"><strong>Model Answer:</strong> Planning company growth through market penetration, market development, product development, and diversification.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of Corporate Social Responsibility (CSR).
+        <div class="model-answer"><strong>Model Answer:</strong> TOMS Shoes donates a pair for every pair sold; Patagonia uses ethical materials; Starbucks uses fair trade coffee.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Innovate and grow! <span>🚀🌱</span></h3>
+      <p>How would you launch a new product?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batteries (2.3) – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .model-answer { display: none; }
+        .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+        .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+        .matching-terms, .matching-defs { flex: 1; }
+        .matching-terms .pair-item, .matching-defs .pair-item {
+            background: #f7f7fa;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            user-select: none;
+            position: relative;
+        }
+        .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+        .pair-item.paired { border-width: 2px; }
+        .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+        .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+        .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+        .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+        .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+        .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+        .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+        .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+        .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+        .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+        .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+        @media (max-width: 700px) {
+            .matching-cols { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Batteries <span>🔋⚡</span></h1>
+            <p><strong>Why does it matter?</strong> Batteries power our world—from phones to cars! Understanding how they work helps us design better, safer, and more sustainable products. <span>🌍</span></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Battery</strong> <span>🔋</span> – Device that stores chemical energy and converts it to electrical energy</li>
+                <li><strong>Anode</strong> <span>➖</span> – The negative electrode where oxidation occurs</li>
+                <li><strong>Cathode</strong> <span>➕</span> – The positive electrode where reduction occurs</li>
+                <li><strong>Electrolyte</strong> <span>💧</span> – Substance that allows ions to move between electrodes</li>
+                <li><strong>Primary battery</strong> <span>🗑️</span> – Single-use, not rechargeable</li>
+                <li><strong>Secondary battery</strong> <span>🔄</span> – Rechargeable battery</li>
+                <li><strong>Capacitor</strong> <span>⚡</span> – Device that stores and releases electrical energy quickly</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>How Do Batteries Work? <span>🔬</span></h2>
+            <div class="concept-card">
+                <h3>Battery Basics</h3>
+                <div class="concept-content">
+                    <p>A battery stores chemical energy and converts it to electrical energy. Most batteries have two different metals (anode & cathode) separated by an electrolyte. The flow of electrons from anode to cathode creates electricity!</p>
+                    <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=9OVtk6G2TnQ" target="_blank">How Batteries Work (YouTube)</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Types of Batteries <span>🔋</span></h2>
+            <div class="concept-card">
+                <h3>Zinc Carbon <span>🗑️</span></h3>
+                <div class="concept-content">
+                    <p><strong>Classic throwaway!</strong> These are the OG batteries you find in TV remotes and cheap toys. The zinc case is the anode, and the inside paste is the cathode. <br><em>Fun fact:</em> They're cheap but run out fast and can leak if left in devices too long. Not rechargeable!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Alkaline <span>🔄</span></h3>
+                <div class="concept-content">
+                    <p><strong>Everyday hero!</strong> Used in most household gadgets (clocks, game controllers, flashlights). They last longer than zinc carbon and can sometimes be recharged. <br><em>Fun fact:</em> The name comes from the alkaline electrolyte (potassium hydroxide) inside. More eco-friendly than zinc carbon!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Lithium Ion <span>📱</span></h3>
+                <div class="concept-content">
+                    <p><strong>Power for your pocket!</strong> Found in smartphones, laptops, and electric cars. Super lightweight, high energy, and rechargeable hundreds of times. <br><em>Fun fact:</em> They can catch fire if damaged, but tech keeps getting safer. The reason your phone lasts all day!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Lead Acid <span>🚗</span></h3>
+                <div class="concept-content">
+                    <p><strong>Car starter!</strong> These chunky batteries are under the hood of most cars. They deliver a big burst of power to start engines and are very reliable. <br><em>Fun fact:</em> They're heavy but can be recycled almost endlessly. Invented in 1859—oldest rechargeable battery still in use!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Nickel Iron <span>🔋</span></h3>
+                <div class="concept-content">
+                    <p><strong>Super durable!</strong> Invented by Thomas Edison, these batteries last for decades and can survive rough treatment. <br><em>Fun fact:</em> They're slow to charge and not very energy dense, so you won't find them in your phone, but they're used in off-grid solar setups!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Nickel Cadmium <span>⚠️</span></h3>
+                <div class="concept-content">
+                    <p><strong>Old-school rechargeable!</strong> Used in power tools and some older gadgets. They can handle lots of charge cycles but contain toxic cadmium. <br><em>Fun fact:</em> If you don't fully discharge them, they can "forget" their capacity (memory effect). Recycle responsibly!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Nickel Metal Hydride <span>🔋</span></h3>
+                <div class="concept-content">
+                    <p><strong>Eco upgrade!</strong> Common in hybrid cars and rechargeable AA/AAA batteries. Safer and greener than nickel cadmium, with more energy packed in. <br><em>Fun fact:</em> They replaced nickel cadmium in most gadgets and don't suffer from the memory effect as much!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Capacitors <span>⚡</span></h2>
+            <div class="concept-card">
+                <h3>What is a Capacitor?</h3>
+                <div class="concept-content">
+                    <p>Capacitors store and release electrical energy quickly. They're not batteries—they can't store much energy, but they help smooth out electrical flow in circuits.</p>
+                    <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=Kcl5F3b8g8g" target="_blank">Capacitors Explained (YouTube)</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise: Battery Types <span>🔗</span></h2>
+            <p>Match each battery type to its correct feature or use. Click a type, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms"></div>
+                    <div class="matching-defs"></div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <script>
+                const matchingTerms = [
+                    'Zinc Carbon',
+                    'Alkaline',
+                    'Lithium Ion',
+                    'Lead Acid',
+                    'Nickel Iron',
+                    'Nickel Cadmium',
+                    'Nickel Metal Hydride',
+                    'Capacitor'
+                ];
+                const matchingDefs = [
+                    'Standard disposable battery (AA/AAA), not rechargeable',
+                    'Common in AA/AAA, sometimes rechargeable, more recyclable',
+                    'Rechargeable, used in phones, laptops, electric cars',
+                    'Rechargeable, used in car engines, delivers high voltage',
+                    'Invented by Edison, durable, less common',
+                    'Rechargeable, contains toxic cadmium',
+                    'Rechargeable, used in hybrid cars and electronics',
+                    'Stores and releases electrical energy quickly, not a battery'
+                ];
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null);
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is a battery?
+                <div class="model-answer"><strong>Model Answer:</strong> A battery is a device that stores chemical energy and converts it into electrical energy.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                Which battery type is used in most smartphones?
+                <div class="model-answer"><strong>Model Answer:</strong> Lithium ion batteries are used in most smartphones.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is the main difference between a battery and a capacitor?
+                <div class="model-answer"><strong>Model Answer:</strong> A battery stores much more energy and releases it slowly, while a capacitor stores less energy but releases it very quickly.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                Why is cadmium in batteries a problem?
+                <div class="model-answer"><strong>Model Answer:</strong> Cadmium is a toxic heavy metal that can harm the environment and human health if not disposed of properly.</div>
+            </div>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Power up your knowledge! <span>🔋🌟</span></h3>
+            <p>Understanding batteries helps you design safer, greener, and more efficient products for the future!</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

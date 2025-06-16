@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Mitigation Strategies (2.2) – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .model-answer { display: none; }
+        .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+        .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+        .matching-terms, .matching-defs { flex: 1; }
+        .matching-terms .pair-item, .matching-defs .pair-item {
+            background: #f7f7fa;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            user-select: none;
+            position: relative;
+        }
+        .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+        .pair-item.paired { border-width: 2px; }
+        .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+        .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+        .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+        .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+        .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+        .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+        .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+        .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+        @media (max-width: 700px) {
+            .matching-cols { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Waste Mitigation Strategies <span>♻️🗑️</span></h1>
+            <p><strong>Why does it matter?</strong> Waste mitigation is about using less stuff and less energy—helping the planet and saving resources for the future! <span>🌍</span></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Dematerialization</strong> <span>📉</span> – Using less material and energy in products and processes</li>
+                <li><strong>Embodied energy</strong> <span>⚡</span> – Total energy used to make, transport, use, and dispose of a product</li>
+                <li><strong>Reuse</strong> <span>🔁</span> – Using a product again for the same or a new purpose</li>
+                <li><strong>Repair</strong> <span>🛠️</span> – Fixing a product to extend its life</li>
+                <li><strong>Recycle</strong> <span>♻️</span> – Turning waste into new products</li>
+                <li><strong>Recondition</strong> <span>🔧</span> – Restoring a product to like-new condition</li>
+                <li><strong>Re-engineer</strong> <span>💡</span> – Redesigning to improve efficiency or reduce material/energy use</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>What is Dematerialization? <span>📉</span></h2>
+            <div class="concept-card">
+                <h3>Less Stuff, Less Energy</h3>
+                <div class="concept-content">
+                    <p>Dematerialization means using fewer resources and less energy. It's about making products lighter, more efficient, and less wasteful—good for the planet and your wallet!</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Embodied Energy Example <span>🥫⚡</span></h3>
+                <div class="concept-content">
+                    <p>An aluminum can has about <strong>4 megajoules</strong> of embodied energy! That's the total energy from mining bauxite, smelting, manufacturing, transporting, filling, and even recycling or dumping the can.</p>
+                    <div class="example"><strong>Fun Fact:</strong> A liter of petrol contains about <strong>34.2 megajoules</strong> of energy—almost 9 times more than a can!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>The 5 Rs of Waste Mitigation <span>🔁🛠️♻️🔧💡</span></h2>
+            <div class="concept-card">
+                <h3>Reuse <span>🔁</span></h3>
+                <div class="concept-content">
+                    <p>Use a product again, either for the same purpose or a new one.</p>
+                    <div class="example"><strong>Example:</strong> Making a vertical garden from old plastic bottles.</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Repair <span>🛠️</span></h3>
+                <div class="concept-content">
+                    <p>Fixing broken products instead of throwing them away.</p>
+                    <div class="example"><strong>Example:</strong> The TV show <em>The Repair Shop</em>—restoring clocks, ceramics, and more!</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Recycle <span>♻️</span></h3>
+                <div class="concept-content">
+                    <p>Turning waste materials into new products.</p>
+                    <div class="example"><strong>Example:</strong> Plastic bricks made from recycled bottles, used to build schools in the Ivory Coast.</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Recondition <span>🔧</span></h3>
+                <div class="concept-content">
+                    <p>Restoring used products to like-new condition.</p>
+                    <div class="example"><strong>Example:</strong> Retreading old tires to give them new life.</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Re-engineer <span>💡</span></h3>
+                <div class="concept-content">
+                    <p>Redesigning products to use less material or energy, or to last longer.</p>
+                    <div class="example"><strong>Example:</strong> The evolution of light bulbs: from energy-hungry incandescents to efficient LEDs.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise: The 5 Rs <span>🔗</span></h2>
+            <p>Match each "R" to its correct definition. Click a term, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms"></div>
+                    <div class="matching-defs"></div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <script>
+                const matchingTerms = [
+                    'Reuse <span>🔁</span>',
+                    'Repair <span>🛠️</span>',
+                    'Recycle <span>♻️</span>',
+                    'Recondition <span>🔧</span>',
+                    'Re-engineer <span>💡</span>'
+                ];
+                const matchingDefs = [
+                    'Use a product again, for the same or a new purpose',
+                    'Fix a product to extend its life',
+                    'Turn waste into new products',
+                    'Restore a product to like-new condition',
+                    'Redesign to improve efficiency or reduce material/energy use'
+                ];
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null);
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 5; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 5; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is dematerialization?
+                <div class="model-answer"><strong>Model Answer:</strong> Dematerialization is the process of using less material and energy in products and processes, making them lighter, more efficient, and less wasteful.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                Give an example of embodied energy in a product.
+                <div class="model-answer"><strong>Model Answer:</strong> An aluminum can has about 4 megajoules of embodied energy, which includes all the energy used from mining bauxite to manufacturing, transporting, and recycling or disposing of the can.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                List the 5 Rs of waste mitigation.
+                <div class="model-answer"><strong>Model Answer:</strong> Reuse, Repair, Recycle, Recondition, Re-engineer.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                How does re-engineering help reduce waste?
+                <div class="model-answer"><strong>Model Answer:</strong> Re-engineering involves redesigning products to use less material or energy, or to last longer, which reduces waste and resource consumption.</div>
+            </div>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Design for less waste! <span>♻️🌱</span></h3>
+            <p>Understanding waste mitigation strategies helps you design smarter, greener products. Every little bit helps!</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

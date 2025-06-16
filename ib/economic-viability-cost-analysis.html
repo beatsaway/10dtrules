@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economic Viability & Cost Analysis (10.4b) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Economic Viability & Cost Analysis <span>💸📈</span></h1>
+      <p><strong>How do you make sure a product is worth making? Let's break down costs, pricing, and profit!</strong> <span>🧮</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Economic Viability</strong> – Can a product make money?</li>
+        <li><strong>Cost Effectiveness</strong> – Most efficient way to design/produce a product</li>
+        <li><strong>Value for Money</strong> – Relationship between worth and price</li>
+        <li><strong>Fixed Cost</strong> – Costs that don't change with production (e.g., rent, machinery)</li>
+        <li><strong>Variable Cost</strong> – Costs that change with output (e.g., materials, fuel)</li>
+        <li><strong>Total Cost</strong> – Fixed + variable costs</li>
+        <li><strong>Cost Analysis Tool</strong> – Tool to assess risks/gains and break-even point</li>
+        <li><strong>Break-even Point</strong> – Sales needed to cover all costs</li>
+        <li><strong>Pricing Strategies</strong> – Ways to set product price (market, retail, wholesale, etc.)</li>
+        <li><strong>ROI</strong> – Return on Investment: profit as a percentage of money invested</li>
+        <li><strong>Unit Cost</strong> – Cost to produce/store/sell one item</li>
+        <li><strong>Sales Volume</strong> – Amount of product sold in a time period</li>
+        <li><strong>Financial Return</strong> – Profit from a sale or investment</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Concepts <span>💡</span></h2>
+      <div class="concept-card"><h3>Economic Viability</h3><div class="concept-content"><ul><li>Product must be able to make a profit</li><li>Consider all costs before launching</li></ul></div></div>
+      <div class="concept-card"><h3>Types of Costs</h3><div class="concept-content"><ul><li><strong>Fixed:</strong> Don't change with output (e.g., rent)</li><li><strong>Variable:</strong> Change with output (e.g., materials)</li><li><strong>Total:</strong> Fixed + variable</li></ul></div></div>
+      <div class="concept-card"><h3>Cost Analysis Tool</h3><div class="concept-content"><ul><li>Assesses risks/gains of making a product</li><li>Finds break-even point</li></ul></div></div>
+      <div class="concept-card"><h3>Break-even Point</h3><div class="concept-content"><ul><li>Where total revenue = total cost</li><li>After this, you make profit!</li></ul></div></div>
+      <div class="concept-card"><h3>Pricing Strategies</h3><div class="concept-content"><ul><li>Market, retail, wholesale, manufacturing, target pricing</li><li>Must cover all costs and allow for profit</li></ul></div></div>
+      <div class="concept-card"><h3>ROI & Financial Return</h3><div class="concept-content"><ul><li>ROI: profit as % of investment</li><li>Financial return: profit from sales or investments</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Amazon famously didn't make a profit for years—until their sales volume exploded!</li>
+        <li>Break-even analysis is used by everyone from lemonade stands to car companies.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a fixed cost? Give an example.
+        <div class="model-answer"><strong>Model Answer:</strong> A cost that doesn't change with output, e.g., rent or machinery.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the break-even point?
+        <div class="model-answer"><strong>Model Answer:</strong> The number of sales needed to cover all costs (no profit, no loss).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does ROI stand for?
+        <div class="model-answer"><strong>Model Answer:</strong> Return on Investment.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Would you invest in your own product? <span>🤔💰</span></h3>
+      <p>Think about costs before you launch!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

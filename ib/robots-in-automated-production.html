@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robots in Automated Production – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Robots in Automated Production <span>🤖🏭</span></h1>
+      <p><strong>From factory lines to AI doctors—robots are changing how we work and live!</strong> <span>🚀</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Robot</strong> – Automatically controlled, reprogrammable, multi-purpose machine</li>
+        <li><strong>Automated production</strong> – Use of machines/robots to make products with little human input</li>
+        <li><strong>Efficiency</strong> – Doing tasks quickly and with little waste</li>
+        <li><strong>Consistency</strong> – Doing tasks the same way every time</li>
+        <li><strong>Creative destruction</strong> – Old jobs/industries replaced by new ones</li>
+        <li><strong>Skilled worker</strong> – Worker with specialized training</li>
+        <li><strong>Programmer</strong> – Person who writes code for robots</li>
+        <li><strong>Technician</strong> – Person who maintains/repairs robots</li>
+        <li><strong>Work envelope</strong> – 3D space where a robot operates</li>
+        <li><strong>Operating envelope</strong> – Area where a robot is active (keep humans out!)</li>
+        <li><strong>Load capacity</strong> – Maximum weight a robot can handle</li>
+        <li><strong>Industrial robot</strong> – Robot used in factories/production lines</li>
+        <li><strong>Service robot</strong> – Robot that helps people (e.g., Roomba, rescue bots)</li>
+        <li><strong>Personal care robot</strong> – Robot that assists with daily living</li>
+        <li><strong>Medical robot</strong> – Robot used in healthcare (e.g., surgery)</li>
+        <li><strong>Single task robot</strong> – Robot that does one job</li>
+        <li><strong>Multiple task robot</strong> – Robot that can do several jobs</li>
+        <li><strong>Machine to machine (M2M)</strong> – Machines communicating with each other</li>
+        <li><strong>First generation robot</strong> – Needs constant human supervision</li>
+        <li><strong>Second generation robot</strong> – Has sensors, less human supervision</li>
+        <li><strong>Third generation robot</strong> – Autonomous, operates without human supervision</li>
+        <li><strong>Artificial intelligence (AI)</strong> – Machines that mimic human learning/problem solving</li>
+        <li><strong>Universal basic income (UBI)</strong> – Government payments to all citizens, regardless of work</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Benefits of Robots in Production</h3><div class="concept-content"><ul><li>Increased efficiency—robots don't need breaks!</li><li>High consistency—robots repeat tasks exactly</li><li>Great for mass production, not for unique/custom items</li></ul></div></div>
+      <div class="concept-card"><h3>Job Impacts & Creative Destruction</h3><div class="concept-content"><ul><li>Robots replace routine, repetitive jobs</li><li>Reduces need for skilled workers (lower wages, fewer jobs)</li><li>Creates new jobs: programmers, designers, technicians</li><li>Fewer new jobs than old jobs lost</li><li>Creative destruction: old industries replaced by new ones (e.g., cobblers → factory workers → robot techs)</li></ul></div></div>
+      <div class="concept-card"><h3>Types of Robots</h3><div class="concept-content"><ul><li><strong>Industrial:</strong> Factory robots (welding, assembly)</li><li><strong>Service:</strong> Roomba, rescue robots, delivery bots</li><li><strong>Personal care:</strong> Assisting disabled/elderly</li><li><strong>Medical:</strong> Surgery, diagnosis</li><li><strong>Single task:</strong> Does one job (e.g., vacuuming)</li><li><strong>Multiple task:</strong> Can do several jobs</li><li><strong>Machine to machine (M2M):</strong> Smart fridges, automated ordering</li></ul></div></div>
+      <div class="concept-card"><h3>Robot Generations</h3><div class="concept-content"><ul><li><strong>First gen:</strong> Mechanical arms, need constant supervision</li><li><strong>Second gen:</strong> Sensors, less supervision, can sync with other robots</li><li><strong>Third gen:</strong> Autonomous, own control unit, operate without humans (e.g., Mars rovers)</li></ul></div></div>
+      <div class="concept-card"><h3>Artificial Intelligence (AI)</h3><div class="concept-content"><ul><li>Mimics human learning and problem solving</li><li>Facial recognition, diagnosis, decision making</li><li>AI is replacing some jobs (e.g., doctors, customer service)</li></ul></div></div>
+      <div class="concept-card"><h3>Universal Basic Income (UBI)</h3><div class="concept-content"><ul><li>Government payments to all citizens, regardless of work</li><li>Idea: support people as robots/AI take over jobs</li><li>Pros: helps meet basic needs, more freedom</li><li>Cons: cost, motivation to work?</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Robots don't need sleep, lunch breaks, or vacations!</li>
+        <li>Roombas are service robots that can entertain pets.</li>
+        <li>Mars rovers are third-generation autonomous robots.</li>
+        <li>AI doctors can sometimes diagnose diseases better than humans.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Robots & Automation <span>🔗</span></h2>
+      <p>Match each robot/automation term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Robot',
+          'Automated production',
+          'Creative destruction',
+          'Work envelope',
+          'Load capacity',
+          'Industrial robot',
+          'Service robot',
+          'Personal care robot',
+          'Medical robot',
+          'Single task robot',
+          'Multiple task robot',
+          'Machine to machine (M2M)',
+          'First generation robot',
+          'Second generation robot',
+          'Third generation robot',
+          'Artificial intelligence (AI)',
+          'Universal basic income (UBI)'
+        ];
+        const matchingDefs = [
+          'Automatically controlled, reprogrammable, multi-purpose machine',
+          'Use of machines/robots to make products with little human input',
+          'Old jobs/industries replaced by new ones',
+          '3D space where a robot operates',
+          'Maximum weight a robot can handle',
+          'Robot used in factories/production lines',
+          'Robot that helps people (e.g., Roomba, rescue bots)',
+          'Robot that assists with daily living',
+          'Robot used in healthcare (e.g., surgery)',
+          'Robot that does one job',
+          'Robot that can do several jobs',
+          'Machines communicating with each other',
+          'Needs constant human supervision',
+          'Has sensors, less human supervision',
+          'Autonomous, operates without human supervision',
+          'Machines that mimic human learning/problem solving',
+          'Government payments to all citizens, regardless of work'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 17; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 17; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is creative destruction?
+        <div class="model-answer"><strong>Model Answer:</strong> The process where new technologies (like robots) replace old jobs/industries, creating new ones but often with fewer jobs.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between first, second, and third generation robots?
+        <div class="model-answer"><strong>Model Answer:</strong> First gen: need constant supervision; second gen: have sensors, less supervision; third gen: autonomous, operate without humans.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is universal basic income (UBI) being discussed more today?
+        <div class="model-answer"><strong>Model Answer:</strong> As robots and AI take over more jobs, UBI is considered to help people meet basic needs even if they lose work to automation.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>From factory lines to AI doctors—robots are changing how we work and live! <span>🤖🏭</span></h3>
+      <p>Robots and AI are shaping the future—how will you adapt?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

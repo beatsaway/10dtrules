@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIM: Investment, Maintenance & Production Scales (10.3b) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>CIM: Investment, Maintenance & Production Scales <span>💸🛠️</span></h1>
+      <p><strong>What does it take to run a computer-integrated factory? What are the costs and benefits?</strong> <span>🏭</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>CAD</strong> – Computer-Aided Design: designing and testing products virtually</li>
+        <li><strong>Planning</strong> – Organizing production using computer data</li>
+        <li><strong>Purchasing</strong> – Automated buying of materials/components</li>
+        <li><strong>Cost Accounting</strong> – Budgeting and tracking costs with computers</li>
+        <li><strong>Inventory Control</strong> – Tracking materials/products, often just-in-time</li>
+        <li><strong>Distribution</strong> – Managing delivery and storage with computers</li>
+        <li><strong>Investment</strong> – Money spent on robots, computers, and training</li>
+        <li><strong>Maintenance</strong> – Keeping machines running, often by skilled workers</li>
+        <li><strong>Training</strong> – Teaching workers to use and maintain advanced systems</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Elements of CIM <span>🧩</span></h2>
+      <div class="concept-card"><h3>CAD & Planning</h3><div class="concept-content"><ul><li>Design and test products virtually</li><li>Plan production using data from design/testing</li></ul></div></div>
+      <div class="concept-card"><h3>Purchasing & Inventory</h3><div class="concept-content"><ul><li>Computers order materials/components automatically</li><li>Track inventory and use just-in-time methods</li></ul></div></div>
+      <div class="concept-card"><h3>Cost Accounting & Distribution</h3><div class="concept-content"><ul><li>Automated budgeting, receipts, and pricing</li><li>Computers manage delivery and storage</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Investment & Maintenance <span>💰🛠️</span></h2>
+      <div class="concept-card"><h3>Investment</h3><div class="concept-content"><ul><li>High initial cost for robots, computers, and software</li><li>Long-term savings from efficiency and lower labor costs</li></ul></div></div>
+      <div class="concept-card"><h3>Maintenance</h3><div class="concept-content"><ul><li>Requires highly skilled workers</li><li>Computers can detect breakdowns early, reducing costs</li></ul></div></div>
+      <div class="concept-card"><h3>Training</h3><div class="concept-content"><ul><li>Workers need advanced training in computers and engineering</li><li>Training is expensive but necessary for modern factories</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>CIM & Production Scales <span>📏</span></h2>
+      <div class="concept-card"><h3>One-off Production</h3><div class="concept-content"><ul><li>Not cost-effective for custom/small runs</li></ul></div></div>
+      <div class="concept-card"><h3>Batch & Mass Production</h3><div class="concept-content"><ul><li>Best suited for batch/mass production</li><li>Flexible, efficient, and consistent</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Some factories run 24/7 with almost no human workers!</li>
+        <li>Modern car mechanics often need computer science skills.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is CIM expensive to set up?
+        <div class="model-answer"><strong>Model Answer:</strong> High costs for robots, computers, and training workers.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is one advantage of computer-based maintenance?
+        <div class="model-answer"><strong>Model Answer:</strong> Computers can detect breakdowns early, reducing maintenance costs.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is CIM not used for one-off production?
+        <div class="model-answer"><strong>Model Answer:</strong> The cost is too high for small/custom jobs.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Would you trust a robot to build your next phone? <span>🤔📱</span></h3>
+      <p>Think about the future of work in a CIM world!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

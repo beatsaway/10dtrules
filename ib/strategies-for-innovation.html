@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategies for Innovation – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Strategies for Innovation <span>💡🔄</span></h1>
+      <p><strong>How do new ideas actually happen?</strong> <span>✨</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Active insight (Eureka moment)</strong> – Sudden realization or solution after thinking about a problem</li>
+        <li><strong>Adaptation</strong> – Using a solution from one field in another (e.g., hovercraft → hover mower)</li>
+        <li><strong>Technology transfer</strong> – Applying a tech advance from one area to another (e.g., radar → microwave oven)</li>
+        <li><strong>Analogy</strong> – Using an idea from one context to solve a problem in another (e.g., bats → sonar)</li>
+        <li><strong>Chance discovery</strong> – Unexpected finding that leads to a new idea (e.g., Velcro)</li>
+        <li><strong>Technology push</strong> – New tech or research leads to new products (e.g., Post-it notes)</li>
+        <li><strong>Market pull</strong> – Market demand drives invention (e.g., Sugru moldable rubber)</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Active Insight (Eureka Moment)</h3><div class="concept-content"><ul><li>Sudden realization or solution after thinking about a problem</li><li>Often comes after a period of frustration or deep thought</li><li>Example: Archimedes and the crown</li></ul></div></div>
+      <div class="concept-card"><h3>Adaptation</h3><div class="concept-content"><ul><li>Solution from one field used in another</li><li>Example: Hovercraft principle used for hover mowers</li><li>Biomimicry: Kingfisher beak inspires bullet train design</li></ul></div></div>
+      <div class="concept-card"><h3>Technology Transfer</h3><div class="concept-content"><ul><li>Tech advance in one area applied to another</li><li>Example: Radar tech → microwave oven</li></ul></div></div>
+      <div class="concept-card"><h3>Analogy</h3><div class="concept-content"><ul><li>Idea from one context inspires solution in another</li><li>Example: Bats use echolocation → sonar for boats</li></ul></div></div>
+      <div class="concept-card"><h3>Chance Discovery</h3><div class="concept-content"><ul><li>Unexpected finding leads to new idea</li><li>Example: Velcro inspired by burrs sticking to clothes</li></ul></div></div>
+      <div class="concept-card"><h3>Technology Push</h3><div class="concept-content"><ul><li>New tech or research leads to new products</li><li>Example: Post-it notes from failed adhesive</li></ul></div></div>
+      <div class="concept-card"><h3>Market Pull</h3><div class="concept-content"><ul><li>Market demand drives invention</li><li>Example: Sugru moldable rubber invented to meet user needs</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Many "Eureka moments" come after lots of hard work!</li>
+        <li>Biomimicry: Nature inspires many inventions (e.g., kingfisher → bullet train)</li>
+        <li>Velcro was inspired by burrs sticking to socks in Switzerland.</li>
+        <li>Post-it notes were invented by accident!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Strategies <span>🔗</span></h2>
+      <p>Match each innovation strategy to its definition or example. Click a strategy, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Active insight',
+          'Adaptation',
+          'Technology transfer',
+          'Analogy',
+          'Chance discovery',
+          'Technology push',
+          'Market pull'
+        ];
+        const matchingDefs = [
+          'Sudden realization or solution after thinking about a problem',
+          'Solution from one field used in another',
+          'Tech advance in one area applied to another',
+          'Idea from one context inspires solution in another',
+          'Unexpected finding leads to new idea',
+          'New tech or research leads to new products',
+          'Market demand drives invention'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 7; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 7; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is an active insight (Eureka moment)?
+        <div class="model-answer"><strong>Model Answer:</strong> A sudden realization or solution after thinking about a problem.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of adaptation in innovation.
+        <div class="model-answer"><strong>Model Answer:</strong> Using the hovercraft principle to create a hover mower; kingfisher beak inspiring bullet train design.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between technology push and market pull?
+        <div class="model-answer"><strong>Model Answer:</strong> Technology push: new tech leads to new products (e.g., Post-it notes). Market pull: market demand drives invention (e.g., Sugru).</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Innovation is everywhere—look for your next Eureka moment! <span>💡✨</span></h3>
+      <p>What strategy will spark your next big idea?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

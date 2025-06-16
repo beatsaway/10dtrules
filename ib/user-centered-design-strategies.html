@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategies for User-Centered Design – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Strategies for User-Centered Design <span>🧑‍🔬🛠️</span></h1>
+      <p><strong>How do you gather the best data for great design?</strong> <span>🔍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Field research</strong> – Gathering data in the user's natural environment</li>
+        <li><strong>Method of extremes</strong> – Designing for the 5th to 95th percentile of users</li>
+        <li><strong>Observation</strong> – Watching users interact with a product</li>
+        <li><strong>Interview</strong> – One-on-one discussion to gather user feedback</li>
+        <li><strong>Focus group</strong> – Group interview to collect diverse opinions</li>
+        <li><strong>Questionnaire</strong> – Survey to collect data from many users</li>
+        <li><strong>Affinity diagramming</strong> – Grouping ideas/facts into themes</li>
+        <li><strong>Participatory design</strong> – Actively involving users in the design process</li>
+        <li><strong>Prototype</strong> – Early model of a product for testing</li>
+        <li><strong>Usability testing</strong> – Testing how easy and effective a product is to use</li>
+        <li><strong>Natural environment</strong> – Real-world setting where a product is used</li>
+        <li><strong>Usability laboratory</strong> – Controlled environment for testing products</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Field Research</h3><div class="concept-content"><ul><li>Gathering data in the user's real environment</li><li>Reduces artificial effects of lab testing</li><li>Can reveal unrecognized issues</li></ul></div></div>
+      <div class="concept-card"><h3>Method of Extremes</h3><div class="concept-content"><ul><li>Design for the 5th to 95th percentile</li><li>Accommodates most users</li><li>Examples: doorways, furniture for children</li></ul></div></div>
+      <div class="concept-card"><h3>Observation</h3><div class="concept-content"><ul><li>Watch users interact with a product</li><li>Can be in the field or in a lab</li><li>Helps spot usability issues</li></ul></div></div>
+      <div class="concept-card"><h3>Interviews & Focus Groups</h3><div class="concept-content"><ul><li>Interviews: one-on-one, in-depth feedback</li><li>Focus groups: group discussion, dynamic, observe body language</li><li>Clarifying questions possible</li></ul></div></div>
+      <div class="concept-card"><h3>Questionnaires</h3><div class="concept-content"><ul><li>Surveys for large sample sizes</li><li>Cheap, easy to distribute</li><li>Responses may be biased to extremes</li></ul></div></div>
+      <div class="concept-card"><h3>Affinity Diagramming</h3><div class="concept-content"><ul><li>Group facts, opinions, or ideas into themes</li><li>Helps visualize and organize data</li><li>Builds teamwork</li></ul></div></div>
+      <div class="concept-card"><h3>Participatory Design</h3><div class="concept-content"><ul><li>Actively involve users in the design process</li><li>Can use paper prototypes or real products</li><li>Users help shape the design</li></ul></div></div>
+      <div class="concept-card"><h3>Prototypes & Usability Testing</h3><div class="concept-content"><ul><li>Prototypes: early models for testing</li><li>Usability testing: see how easy/effective a product is</li><li>Can be done in natural or lab environments</li></ul></div></div>
+      <div class="concept-card"><h3>Natural vs. Lab Environments</h3><div class="concept-content"><ul><li>Natural: real-world, authentic, mostly qualitative data</li><li>Lab: controlled, can use sensors, more observers, quantitative data</li></ul></div></div>
+      <div class="concept-card"><h3>Advantages & Disadvantages</h3><div class="concept-content"><ul><li>Field: authentic, detailed, but narrow and time-consuming</li><li>Lab: controlled, measurable, but costly and less natural</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Usability labs often have one-way mirrors so observers can watch without being seen!</li>
+        <li>Affinity diagramming is used by top companies to organize ideas after brainstorming.</li>
+        <li>Participatory design can include users as "co-designers" of products.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: UCD Strategies <span>🔗</span></h2>
+      <p>Match each concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Field research",
+          "Method of extremes",
+          "Observation",
+          "Interview",
+          "Focus group",
+          "Questionnaire",
+          "Affinity diagramming",
+          "Participatory design",
+          "Prototype",
+          "Usability testing",
+          "Natural environment",
+          "Usability laboratory"
+        ];
+        const matchingDefs = [
+          "Gathering data in the user's natural environment",
+          "Designing for the 5th to 95th percentile of users",
+          "Watching users interact with a product",
+          "One-on-one discussion to gather user feedback",
+          "Group interview to collect diverse opinions",
+          "Survey to collect data from many users",
+          "Grouping ideas/facts into themes",
+          "Actively involving users in the design process",
+          "Early model of a product for testing",
+          "Testing how easy and effective a product is to use",
+          "Real-world setting where a product is used",
+          "Controlled environment for testing products"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 12; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 12; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is field research?
+        <div class="model-answer"><strong>Model Answer:</strong> Gathering data in the user's natural environment, not a lab.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the method of extremes?
+        <div class="model-answer"><strong>Model Answer:</strong> Designing for the 5th to 95th percentile of users to accommodate most people.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one advantage and one disadvantage of usability labs.
+        <div class="model-answer"><strong>Model Answer:</strong> Advantage: controlled environment, measurable data. Disadvantage: costly, less natural.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Design with users in mind! <span>🧑‍🔬🛠️</span></h3>
+      <p>Which strategy will you use in your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

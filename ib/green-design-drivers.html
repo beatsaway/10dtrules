@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drivers of Green Design – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .sample-q { cursor: pointer; transition: background 0.2s; }
+    .sample-q:hover { background: #f5f5f5; }
+    .sample-q .model-answer { display: none; }
+    .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+    .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+    .matching-terms, .matching-defs { flex: 1; }
+    .matching-terms .pair-item, .matching-defs .pair-item {
+      background: #f7f7fa;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      user-select: none;
+      position: relative;
+    }
+    .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+    .pair-item.paired { border-width: 2px; }
+    .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+    .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+    .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+    .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+    .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+    .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+    .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+    .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+    .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+    .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+    .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+    @media (max-width: 700px) {
+      .matching-cols { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Drivers of Green Design <span>🌱🚦</span></h1>
+      <p><strong>Why does it matter?</strong> Understanding what pushes green design forward helps us create a more sustainable world! <span>🌍✨</span></p>
+    </div>
+
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Consumer pressure</strong> <span>🛒</span> – When individuals or groups push for positive change</li>
+        <li><strong>Environmental legislation</strong> <span>📜</span> – Laws and regulations to protect the environment</li>
+        <li><strong>Incremental change</strong> <span>🔄</span> – Small improvements over time</li>
+        <li><strong>Radical change</strong> <span>🚀</span> – Big, fundamental changes to products or processes</li>
+        <li><strong>Prevention principle</strong> <span>⛔</span> – Avoiding or minimizing waste before it happens</li>
+        <li><strong>Precautionary principle</strong> <span>⚠️</span> – Taking action to prevent harm even if evidence isn't conclusive</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Drivers of Green Design <span>🚦</span></h2>
+      <div class="concept-card">
+        <h3>Consumer Pressure</h3>
+        <div class="concept-content">
+          <p>Individuals and groups (like Green America) push for positive change—think fair trade chocolate or eco-friendly products. <br><em>Example:</em> Consumer groups grading chocolate brands for fair trade quality.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Environmental Legislation</h3>
+        <div class="concept-content">
+          <p>Governments pass laws to protect the environment. <br><em>Examples:</em> Take-back programs for electronics, wildlife overpasses, green building codes.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Designer's Role</h3>
+        <div class="concept-content">
+          <p>Designers can make a difference by considering environmental impact at every stage—production, use, and disposal. <br><em>Example:</em> Choosing recyclable materials, designing for disassembly, using clean tech.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Incremental vs. Radical Change <span>🔄🚀</span></h2>
+      <div class="concept-card">
+        <h3>Incremental Change</h3>
+        <div class="concept-content">
+          <p>Small improvements over time—like using more recycled materials or making products easier to disassemble. <br><em>Example:</em> Avoiding composite materials, using clean tech in manufacturing.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Radical Change</h3>
+        <div class="concept-content">
+          <p>Big, fundamental changes—like a complete overhaul of a product or process. <br><em>Example:</em> Switching to a totally new, green manufacturing system.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Principles of Environmental Law <span>⚖️</span></h2>
+      <div class="concept-card">
+        <h3>Prevention Principle</h3>
+        <div class="concept-content">
+          <p>Avoid or minimize waste and harm before it happens. <br><em>Example:</em> Banning lead paint after learning about its dangers.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Precautionary Principle</h3>
+        <div class="concept-content">
+          <p>Take action to prevent harm even if the science isn't 100% certain. <br><em>Example:</em> Limiting chemicals like Teflon "forever chemicals" before all risks are known.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Some countries require electronics companies to take back old products for recycling!</li>
+        <li>Wildlife overpasses help animals cross highways safely and keep populations healthy.</li>
+        <li>"Forever chemicals" can last for decades in the environment and our bodies.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Drivers & Principles <span>🔗</span></h2>
+      <p>Match each driver or principle to its effect or example. Click a driver, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Consumer pressure',
+          'Environmental legislation',
+          'Designer\'s role',
+          'Incremental change',
+          'Radical change',
+          'Prevention principle',
+          'Precautionary principle',
+          'Wildlife overpass'
+        ];
+        const matchingDefs = [
+          'Individuals or groups push for positive change',
+          'Laws and regulations to protect the environment',
+          'Choosing recyclable materials, designing for disassembly',
+          'Small improvements over time',
+          'Big, fundamental changes to products or processes',
+          'Avoiding or minimizing waste before it happens',
+          'Taking action to prevent harm even if evidence isn\'t conclusive',
+          'Helps animals cross highways safely'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is consumer pressure?
+        <div class="model-answer"><strong>Model Answer:</strong> When individuals or groups push for positive change, like demanding eco-friendly products.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the prevention principle?
+        <div class="model-answer"><strong>Model Answer:</strong> Avoiding or minimizing waste and harm before it happens.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of environmental legislation.
+        <div class="model-answer"><strong>Model Answer:</strong> Take-back programs for electronics, wildlife overpasses, or green building codes.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the precautionary principle?
+        <div class="model-answer"><strong>Model Answer:</strong> Taking action to prevent harm even if the science isn't 100% certain.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+
+    <div class="footer">
+      <h3>Push for green change! <span>🌱🚦</span></h3>
+      <p>Everyone—consumers, designers, and lawmakers—can help drive a greener future.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

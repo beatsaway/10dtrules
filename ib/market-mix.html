@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Mix (9.3a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Market Mix: The 4 Ps <span>📦💸</span></h1>
+      <p><strong>How do designers get products to market? It's all about the 4 Ps!</strong> <span>🛒</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Market Mix</strong> – The combination of factors (4 Ps) that influence how a product is marketed</li>
+        <li><strong>Product</strong> – The item or service being sold</li>
+        <li><strong>Price</strong> – How much the product costs</li>
+        <li><strong>Place</strong> – Where the product is sold</li>
+        <li><strong>Promotion</strong> – How customers are made aware of the product</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>The 4 Ps <span>🧩</span></h2>
+      <div class="concept-card"><h3>Product</h3><div class="concept-content"><ul><li>What features does it have?</li><li>How does it meet user needs?</li><li>How is it different from competitors?</li><li>Can it be trusted? (Standardization)</li></ul></div></div>
+      <div class="concept-card"><h3>Price</h3><div class="concept-content"><ul><li>Cost-plus pricing: add a profit margin to costs</li><li>Demand pricing: set price based on demand</li><li>Competitor pricing: price compared to rivals</li><li>Psychological pricing: e.g., $9.99 instead of $10</li></ul></div></div>
+      <div class="concept-card"><h3>Place</h3><div class="concept-content"><ul><li>Where is the product sold?</li><li>Brick & mortar stores: physical shops</li><li>Online: e-commerce</li><li>Hybrid: buy online, pick up in store</li></ul></div></div>
+      <div class="concept-card"><h3>Promotion</h3><div class="concept-content"><ul><li>Advertising: TV, online, print</li><li>Publicity: news, reviews</li><li>Personal selling: direct to customer</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Fact <span>🤔</span></h2>
+      <ul class="tips-list">
+        <li>The "4 Ps" model was first published in 1960 and is still used worldwide!</li>
+        <li>Apple Stores are a classic example of combining Place and Promotion for maximum impact.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What are the 4 Ps of the market mix?
+        <div class="model-answer"><strong>Model Answer:</strong> Product, Price, Place, Promotion.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of psychological pricing.
+        <div class="model-answer"><strong>Model Answer:</strong> Pricing something at $9.99 instead of $10 to make it seem cheaper.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's a hybrid store?
+        <div class="model-answer"><strong>Model Answer:</strong> A store that combines online and physical shopping, e.g., order online, pick up in store.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Great marketing = great design! <span>📦💡</span></h3>
+      <p>How would you market your next big idea?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

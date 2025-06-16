@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IB Design Tech SL Guide 🌱</title>
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #74b9ff 0%, #0088c4 100%);
+            --accent-gradient: linear-gradient(135deg, #1976d2, #0984e3);
+            --sl-gradient: linear-gradient(135deg, #a29bfe, #815cec);
+            --core-gradient: linear-gradient(135deg, #525ec3, #015cec);
+            --highlight-gradient: linear-gradient(135deg, #1199c4, #008894);
+            --warning-gradient: linear-gradient(135deg, #ffe082 0%, #ffb74d 100%);
+            --white: #fff;
+            --black: #2c3e50;
+            --blue: #1976d2;
+            --green: #1976d2;
+            --border-radius: 20px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--primary-gradient);
+            color: var(--black);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 40px 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .header .badge {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin: 10px 0;
+            box-shadow: 0 4px 15px rgba(0,184,148,0.2);
+        }
+        .header p {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.95);
+            margin-bottom: 18px;
+        }
+        .card {
+            background: rgba(255,255,255,0.97);
+            border-radius: var(--border-radius);
+            padding: 28px;
+            margin-bottom: 22px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: var(--black);
+        }
+        .card h2 {
+            font-size: 1.7rem;
+            margin-bottom: 18px;
+            color: var(--blue);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            margin: 20px 0 12px 0;
+            color: var(--green);
+            border-left: 4px solid var(--blue);
+            padding-left: 12px;
+        }
+        .highlight-box {
+            background: var(--highlight-gradient);
+            color: var(--white);
+            padding: 22px;
+            border-radius: 15px;
+            margin: 22px 0;
+            text-align: center;
+        }
+        .highlight-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .curriculum-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+        }
+        .curriculum-table th, .curriculum-table td {
+            border: 1px solid #b2bec3;
+            padding: 10px 8px;
+            text-align: left;
+        }
+        .curriculum-table th {
+            background: var(--sl-gradient);
+            color: var(--black);
+        }
+        .curriculum-table td {
+            background: #f7fbff;
+        }
+        .warning-box {
+            font-size: 1.08rem;
+            line-height: 1.7;
+            color: #222f3e;
+            background: var(--warning-gradient);
+            padding: 22px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #d63031;
+        }
+        .warning-box strong {
+            color: var(--blue);
+            font-weight: 700;
+        }
+        .reveal-answer-btn {
+            margin-top: 10px;
+            background: var(--accent-gradient);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 7px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .reveal-answer-btn:hover {
+            background: var(--blue);
+        }
+        .model-answer {
+            display: none;
+            margin-top: 10px;
+            background: #e3f2fd;
+            color: var(--black);
+            border-radius: 8px;
+            padding: 10px 14px;
+        }
+        .footer {
+            text-align: center;
+            padding: 24px;
+            background: rgba(255,255,255,0.12);
+            border-radius: var(--border-radius);
+            color: var(--black);
+            margin-top: 32px;
+            font-size: 1rem;
+        }
+        @media (max-width: 600px) {
+            body { font-size: 1rem; line-height: 1.7; padding: 0 4px; }
+            .container { padding: 8px; }
+            .card, .highlight-box, .footer, .warning-box { padding: 14px; margin-bottom: 14px; }
+            .card h2, .card h3, .footer h3 { font-size: 1.1rem; }
+            .curriculum-table th, .curriculum-table td { padding: 7px 4px; }
+        }
+        .topnav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: linear-gradient(90deg, #55efc4 0%, #74b9ff 100%);
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0.7rem 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .topnav a {
+            color: #222f3e;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 6px 18px;
+            border-radius: 8px;
+            transition: background 0.2s, color 0.2s;
+        }
+        .topnav a.active, .topnav a:hover {
+            background: #00b894;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .topnav {
+                gap: 0.5rem;
+                font-size: 0.98rem;
+            }
+            .topnav a {
+                padding: 6px 8px;
+                font-size: 1rem;
+            }
+        }
+        .topic-links-list {
+            list-style: none;
+            padding: 0;
+            margin: 12px 0 0 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .topic-link-item {
+            display: inline-block;
+        }
+        .topic-link-item a {
+            display: block;
+            background: linear-gradient(90deg, #f7fbff 60%, #e3f2fd 100%);
+            color: #1976d2;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            text-decoration: none;
+            box-shadow: 0 1px 4px rgba(30,60,90,0.06);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .topic-link-item a:hover, .topic-link-item a:focus {
+            background: linear-gradient(90deg, #d0e6ff 60%, #b3c6fc 100%);
+            color: #0d47a1;
+            box-shadow: 0 2px 8px rgba(30,60,90,0.13);
+            outline: none;
+        }
+        @media (max-width: 600px) {
+            .topic-links-list {
+                gap: 7px;
+            }
+            .topic-link-item a {
+                font-size: 1rem;
+                padding: 12px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="topnav">
+        <a href="subjectbrief.html">Subject Brief</a>
+        <a href="dthl.html">HL</a>
+        <a href="dtsl.html" class="active">SL</a>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <h1>IB Design Technology SL 🌱</h1>
+            <div class="badge">STANDARD LEVEL</div>
+            <p>A balanced, challenging programme for future-ready learners aged 16–19.</p>
+            <p><em>Developing design thinkers for a better world.</em></p>
+        </div>
+
+        <div class="highlight-box">
+            <h3>🌍 What is the IB Diploma Programme?</h3>
+            <p>The IB DP is a rigorous, balanced education for ages 16–19, preparing students for university and life. It encourages curiosity, compassion, intercultural understanding, and open-mindedness. Students develop skills in thinking, research, social, self-management, and communication.</p>
+        </div>
+
+        <div class="card">
+            <h2>🧭 Course Description & Aims</h2>
+            <p>The DP design technology course develops internationally minded people who understand design and technology's role in creating a better world. Inquiry and problem-solving are central, using the design cycle to structure analysis, solution development, and evaluation. Students gain critical-thinking and design skills, applying knowledge ethically and practically.</p>
+            <ul>
+                <li>Curiosity and independent learning about the technological world</li>
+                <li>Exploring concepts with local and global significance</li>
+                <li>Critical and creative thinking to solve complex problems</li>
+                <li>Confident, creative communication and collaboration</li>
+                <li>Integrity, honesty, and responsibility in design</li>
+                <li>Appreciation of global cultures and perspectives</li>
+                <li>Willingness to explore new ideas and defend proposals</li>
+                <li>Balance and well-being through design and technology</li>
+                <li>Empathy and respect for others and the environment</li>
+                <li>Reflecting on the impact of design and technology on society and the environment</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📚 Curriculum Model Overview</h2>
+            <table class="curriculum-table">
+                <thead>
+                    <tr><th>Component</th><th>Recommended Teaching Hours</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1. Human factors and ergonomics</td><td>12</td></tr>
+                    <tr><td>2. Resource management and sustainable production</td><td>22</td></tr>
+                    <tr><td>3. Modelling</td><td>12</td></tr>
+                    <tr><td>4. Raw material to final product</td><td>23</td></tr>
+                    <tr><td>5. Innovation and design</td><td>13</td></tr>
+                    <tr><td>6. Classic design</td><td>8</td></tr>
+                    <tr><td><strong>Core total</strong></td><td><strong>90</strong></td></tr>
+                    <tr><td>Practical work (Design project, Group 4 project, Teacher-directed activities)</td><td>60</td></tr>
+                    <tr><td>Design project</td><td>40</td></tr>
+                    <tr><td>Group 4 project</td><td>10</td></tr>
+                    <tr><td>Teacher-directed activities</td><td>10</td></tr>
+                </tbody>
+            </table>
+            <div class="highlight-box">
+                <h3>🤝 The Group 4 Project</h3>
+                <p>A collaborative activity where students from different sciences work together, sharing concepts and appreciating the environmental, social, and ethical implications of science and technology. Emphasis is on interdisciplinary cooperation and scientific processes.</p>
+            </div>
+        </div>
+        <div class="card">
+            <h2>🔗 Clickable Topic Links</h2>
+            <ul class="topic-links-list">
+                <li class="topic-link-item"><a href="human-factors.html">Human Factors & Ergonomics</a></li>
+                <li class="topic-link-item"><a href="psychological-factors.html">Psychological Factors</a></li>
+                <li class="topic-link-item"><a href="physiological-factors.html">Physiological Factors</a></li>
+            </ul>
+            <ul class="topic-links-list">
+                <li class="topic-link-item"><a href="resources-and-reserves.html">Resources & Reserves (2.1)</a></li>
+                <li class="topic-link-item"><a href="waste-mitigation-strategies.html">Waste Mitigation Strategies (2.2)</a></li>
+                <li class="topic-link-item"><a href="waste-mitigation-methods.html">Waste Mitigation Methods (2.2)</a></li>
+                <li class="topic-link-item"><a href="batteries.html">Batteries (2.3)</a></li>
+                <li class="topic-link-item"><a href="energy-utilization.html">Energy Utilization (2.3)</a></li>
+                <li class="topic-link-item"><a href="energy-distribution.html">Energy Distribution (2.3)</a></li>
+                <li class="topic-link-item"><a href="clean-technology.html">Clean Technology (2.4)</a></li>
+            </ul>
+            <ul class="topic-links-list">
+                <li class="topic-link-item"><a href="concept-modeling.html">Concept Modeling (3.1)</a></li>
+                <li class="topic-link-item"><a href="graphical-modeling.html">Graphical Modeling (3.2)</a></li>
+                <li class="topic-link-item"><a href="physical-modeling.html">Physical Modeling (3.3)</a></li>
+                <li class="topic-link-item"><a href="computer-aided-design.html">Computer-Aided Design (3.4)</a></li>
+                <li class="topic-link-item"><a href="rapid-prototyping.html">Rapid Prototyping (3.5)</a></li>
+                <li class="topic-link-item"><a href="advanced-cad-tech.html">Advanced CAD Technologies (3.6)</a></li>
+                <li class="topic-link-item"><a href="additive-manufacturing-tech.html">Additive Manufacturing Techniques (3.7)</a></li>
+            </ul>
+            <ul class="topic-links-list">
+                <li class="topic-link-item"><a href="properties-of-materials.html">Properties of Materials (4.0)</a></li>
+                <li class="topic-link-item"><a href="smart-materials.html">Smart Materials (4.1)</a></li>
+                <li class="topic-link-item"><a href="material-graphs-selection.html">Material Graphs & Selection Charts (4.2)</a></li>
+                <li class="topic-link-item"><a href="metals.html">Metals (4.2a)</a></li>
+                <li class="topic-link-item"><a href="alloys.html">Alloys (4.2b)</a></li>
+                <li class="topic-link-item"><a href="timber.html">Timber (4.2c)</a></li>
+                <li class="topic-link-item"><a href="glass.html">Glass (4.2d)</a></li>
+                <li class="topic-link-item"><a href="plastics.html">Plastics (4.2e)</a></li>
+                <li class="topic-link-item"><a href="textiles.html">Textiles (4.2f)</a></li>
+                <li class="topic-link-item"><a href="composites.html">Composites (4.2g)</a></li>
+                <li class="topic-link-item"><a href="scales-of-production.html">Scales of Production (4.3)</a></li>
+                <li class="topic-link-item"><a href="manufacturing-processes.html">Manufacturing Processes (4.4)</a></li>
+                <li class="topic-link-item"><a href="shaping-and-joining.html">Shaping & Joining Techniques (4.5)</a></li>
+                <li class="topic-link-item"><a href="production-systems.html">Production Systems (4.6)</a></li>
+                <li class="topic-link-item"><a href="robots-in-automated-production.html">Robots in Automated Production (4.7)</a></li>
+            </ul>
+            <ul class="topic-links-list">
+                <li class="topic-link-item"><a href="invention-and-intellectual-property.html">Invention & Intellectual Property (5.1)</a></li>
+                <li class="topic-link-item"><a href="innovation-and-diffusion.html">Innovation & Diffusion (5.2)</a></li>
+                <li class="topic-link-item"><a href="strategies-for-innovation.html">Strategies for Innovation (5.3)</a></li>
+                <li class="topic-link-item"><a href="stakeholders-in-innovation.html">Stakeholders in Innovation (5.4)</a></li>
+                <li class="topic-link-item"><a href="product-life-cycles.html">Product Life Cycles (5.5)</a></li>
+                <li class="topic-link-item"><a href="product-versions-and-strategies.html">Product Versions & Strategies (5.6)</a></li>
+                <li class="topic-link-item"><a href="rogers-characteristics-of-innovation.html">Rogers' Characteristics of Innovation (5.7)</a></li>
+                <li class="topic-link-item"><a href="innovation-design-and-marketing-specifications.html">Innovation Design & Marketing Specs (5.8)</a></li>
+            </ul>
+            <ul class="topic-links-list">
+                <li class="topic-link-item"><a href="characteristics-of-classic-design.html">Characteristics of Classic Design (6.1)</a></li>
+                <li class="topic-link-item"><a href="classic-designs-examples.html">Classic Designs: Examples & Impact (6.2)</a></li>
+                <li class="topic-link-item"><a href="classic-design-form-and-function.html">Classic Design: Form & Function (6.3)</a></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>📝 Assessment Model</h2>
+            <table class="curriculum-table">
+                <thead>
+                    <tr><th>Type</th><th>Format</th><th>Time (hours)</th><th>Weighting (%)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>External</td><td>Paper 1: Multiple-choice (core)</td><td>0.75</td><td>30</td></tr>
+                    <tr><td>External</td><td>Paper 2: Data-based, short-answer, extended-response (core)</td><td>1.5</td><td>30</td></tr>
+                    <tr><td>Internal</td><td>Design project (individual)</td><td>40</td><td>40</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2 class="collapsible">🏆 Sample SL Questions</h2>
+            <div class="content">
+                <div class="warning-box">
+                    <strong>Sample (Paper 1):</strong> Which phrase best reflects the philosophy of the circular economy?<br>
+                    A. Cradle to cradle<br>B. Cradle to grave<br>C. Made to be made again<br>D. Take, make, dispose
+                    <br><button class="reveal-answer-btn" type="button">Show Model Answer</button>
+                    <div class="model-answer"><strong>Model Answer:</strong> <span>A. Cradle to cradle. This phrase reflects the circular economy's goal of designing products so that materials can be reused or recycled continuously, minimizing waste.</span></div>
+                </div>
+                <div class="warning-box">
+                    <strong>Sample (Paper 2):</strong> Explain how the use of "design for the environment" software assists designers in choosing materials.
+                    <br><button class="reveal-answer-btn" type="button">Show Model Answer</button>
+                    <div class="model-answer"><strong>Model Answer:</strong> <span>Such software helps designers compare the environmental impacts of different materials, such as energy use, recyclability, and pollution, so they can select options that are more sustainable and eco-friendly.</span></div>
+                </div>
+                <div class="warning-box">
+                    <strong>Sample (Paper 2):</strong> Discuss why the use of thermoplastic renders a product green but not sustainable.
+                    <br><button class="reveal-answer-btn" type="button">Show Model Answer</button>
+                    <div class="model-answer"><strong>Model Answer:</strong> <span>Thermoplastics can be recycled, making them a 'green' choice. However, if they are made from non-renewable resources or not recycled properly, they are not truly sustainable in the long term.</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>Ready to start your SL journey?</h3>
+            <p>For official resources and past papers, check out the <a href="https://www.ibo.org/programmes/diploma-programme/curriculum/sciences/design-technology/" target="_blank">IB Online Curriculum Centre</a>.</p>
+            <p>For more on how the DP prepares students for university, visit <a href="https://www.ibo.org/recognition" target="_blank">ibo.org/recognition</a>.</p>
+        </div>
+    </div>
+    <script>
+        // Collapsible sample questions
+        document.querySelectorAll('.collapsible').forEach(button => {
+            button.addEventListener('click', function() {
+                this.classList.toggle('active');
+                const content = this.nextElementSibling;
+                content.classList.toggle('active');
+            });
+        });
+        // Toggle model answers
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.reveal-answer-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    if (answer.style.display === 'none' || answer.style.display === '') {
+                        answer.style.display = 'block';
+                        this.textContent = 'Hide Model Answer';
+                    } else {
+                        answer.style.display = 'none';
+                        this.textContent = 'Show Model Answer';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

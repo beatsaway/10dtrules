@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Characteristics of Classic Design – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Characteristics of Classic Design <span>🎨🏆</span></h1>
+      <p><strong>What makes a product a timeless classic?</strong> <span>⏳</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Classic design</strong> – Product that serves as a standard of its time, manufactured industrially, with timeless appeal</li>
+        <li><strong>Iconic</strong> – Instantly recognizable, famous, and representative</li>
+        <li><strong>Longevity</strong> – Lasts a long time, often unchanged</li>
+        <li><strong>Demand</strong> – Ongoing desire for the product</li>
+        <li><strong>Imitation</strong> – Widely copied by others</li>
+        <li><strong>Collectibility</strong> – Becomes valuable to collectors over time</li>
+        <li><strong>Mass production</strong> – Made industrially, affordable for many</li>
+        <li><strong>Image</strong> – Instantly recognizable look or shape</li>
+        <li><strong>Status</strong> – Ownership increases perceived status</li>
+        <li><strong>Culture</strong> – Reflects or shapes cultural values</li>
+        <li><strong>Obsolescence</strong> – Outdated, but classic designs can transcend this</li>
+        <li><strong>Omnipresence</strong> – Exists and circulates for a long time</li>
+        <li><strong>Ubiquity</strong> – Can be found almost everywhere</li>
+        <li><strong>Dominant design</strong> – Features recognized as essential by most manufacturers</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is a Classic Design?</h3><div class="concept-content"><ul><li>Standard of its time, manufactured industrially</li><li>Timeless appeal, often unchanged for decades</li><li>Example: Swiss Army Knife</li></ul></div></div>
+      <div class="concept-card"><h3>Iconic & Longevity</h3><div class="concept-content"><ul><li>Instantly recognizable, famous</li><li>Lasts for generations (e.g., Telecaster guitar, Porsche 911, Levi's jeans)</li></ul></div></div>
+      <div class="concept-card"><h3>Demand & Imitation</h3><div class="concept-content"><ul><li>Ongoing demand, not heavily dependent on marketing</li><li>Often widely imitated (e.g., knockoff guitars, jeans)</li></ul></div></div>
+      <div class="concept-card"><h3>Collectibility</h3><div class="concept-content"><ul><li>Classic designs can become valuable collectibles (e.g., Star Wars figures, classic cars, toys)</li><li>Value increases as supply decreases</li></ul></div></div>
+      <div class="concept-card"><h3>Mass Production</h3><div class="concept-content"><ul><li>Industrial manufacturing makes classics affordable</li><li>Before mass production, classics were for elites only</li></ul></div></div>
+      <div class="concept-card"><h3>Image & Status</h3><div class="concept-content"><ul><li>Instantly recognizable look (e.g., Coke bottle, VW Beetle)</li><li>Ownership can increase perceived status</li></ul></div></div>
+      <div class="concept-card"><h3>Culture</h3><div class="concept-content"><ul><li>Reflects or shapes cultural values and subcultures (e.g., Air Jordans, youth culture)</li></ul></div></div>
+      <div class="concept-card"><h3>Obsolescence & Collectibility</h3><div class="concept-content"><ul><li>Classics can transcend obsolescence (e.g., glass insulators, Fisher Price toys)</li><li>Still desired and collected even if not used</li></ul></div></div>
+      <div class="concept-card"><h3>Omnipresence & Ubiquity</h3><div class="concept-content"><ul><li>Classics are everywhere and have existed for a long time (e.g., telephones, iPhones)</li></ul></div></div>
+      <div class="concept-card"><h3>Dominant Design</h3><div class="concept-content"><ul><li>Features recognized as essential by most manufacturers (e.g., Bic pen)</li><li>Defies obsolescence, changes risk profit</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>The Coke bottle shape is over 100 years old and instantly recognizable worldwide!</li>
+        <li>Classic Star Wars figures can be worth thousands today.</li>
+        <li>Classic designs are often imitated, but the originals hold the most value.</li>
+        <li>Some classic designs, like the Swiss Army Knife, have barely changed in decades.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Classic Design <span>🔗</span></h2>
+      <p>Match each characteristic to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Classic design",
+          "Iconic",
+          "Longevity",
+          "Demand",
+          "Imitation",
+          "Collectibility",
+          "Mass production",
+          "Image",
+          "Status",
+          "Culture",
+          "Obsolescence",
+          "Omnipresence",
+          "Ubiquity",
+          "Dominant design"
+        ];
+        const matchingDefs = [
+          "Product that serves as a standard of its time, manufactured industrially, with timeless appeal",
+          "Instantly recognizable, famous, and representative",
+          "Lasts a long time, often unchanged",
+          "Ongoing desire for the product",
+          "Widely copied by others",
+          "Becomes valuable to collectors over time",
+          "Made industrially, affordable for many",
+          "Instantly recognizable look or shape",
+          "Ownership increases perceived status",
+          "Reflects or shapes cultural values",
+          "Outdated, but classic designs can transcend this",
+          "Exists and circulates for a long time",
+          "Can be found almost everywhere",
+          "Features recognized as essential by most manufacturers"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 14; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 14; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What makes a design "classic"?
+        <div class="model-answer"><strong>Model Answer:</strong> It's a standard of its time, manufactured industrially, with timeless appeal and instant recognition.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why do classic designs often become collectible?
+        <div class="model-answer"><strong>Model Answer:</strong> As supply decreases and demand remains, value increases—especially for originals.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a dominant design?
+        <div class="model-answer"><strong>Model Answer:</strong> A design whose features are recognized as essential by most manufacturers (e.g., Bic pen).</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Classic designs stand the test of time! <span>🏆⏳</span></h3>
+      <p>What will be the next design classic?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

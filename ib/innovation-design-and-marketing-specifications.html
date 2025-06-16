@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Innovation Design & Marketing Specifications – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Innovation Design & Marketing Specifications <span>📊🛍️</span></h1>
+      <p><strong>How do you know if your design will succeed in the market?</strong> <span>💡</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Market analysis</strong> – Appraisal of the economic viability of a design from a market perspective</li>
+        <li><strong>Target market</strong> – The specific group a product is aimed at</li>
+        <li><strong>Market sector</strong> – Large division of a market (e.g., electronics, household, automotive)</li>
+        <li><strong>Market segment</strong> – Smaller division based on consumer characteristics (e.g., age, gender, ethnicity)</li>
+        <li><strong>User need</strong> – The need or problem a product solves for users</li>
+        <li><strong>Consumer need</strong> – How consumers identify needs/wants when buying</li>
+        <li><strong>Marketer need</strong> – Needs created or influenced by marketing (e.g., Listerine and halitosis)</li>
+        <li><strong>New products</strong> – Innovations that create new needs or wants</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Market Analysis</h3><div class="concept-content"><ul><li>Is there a market for your design?</li><li>Considers costs, pricing, and potential users</li><li>Techniques: sales data, Google Trends, questionnaires, focus groups, interviews</li></ul></div></div>
+      <div class="concept-card"><h3>Target Market</h3><div class="concept-content"><ul><li>The specific group your product is aimed at</li><li>Identified by market sector and segment</li></ul></div></div>
+      <div class="concept-card"><h3>Market Sector & Segment</h3><div class="concept-content"><ul><li><strong>Sector:</strong> Large division (e.g., electronics, household, automotive)</li><li><strong>Segment:</strong> Smaller group (e.g., age, gender, ethnicity)</li></ul></div></div>
+      <div class="concept-card"><h3>User Need</h3><div class="concept-content"><ul><li>Is there a real need for your product?</li><li>Considers demand, magnitude, profitability, perception, and IP issues</li></ul></div></div>
+      <div class="concept-card"><h3>Consumer Need</h3><div class="concept-content"><ul><li>How consumers identify needs/wants when buying</li><li>Out of stock, dissatisfaction, changing circumstances, related products, marketer need, new products</li></ul></div></div>
+      <div class="concept-card"><h3>Marketer Need</h3><div class="concept-content"><ul><li>Needs created or influenced by marketing</li><li>Example: Listerine invented "halitosis" (bad breath)!</li></ul></div></div>
+      <div class="concept-card"><h3>New Products</h3><div class="concept-content"><ul><li>Innovations can create new needs/wants</li><li>Example: Nobody needed an iPad until it existed!</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Thomas Edison said, "Anything that won't sell, I don't want to invent."</li>
+        <li>Market analysis can use Google Trends, but questionnaires and focus groups are more reliable.</li>
+        <li>Marketers have invented needs—like Listerine inventing "halitosis" (bad breath)!</li>
+        <li>New products often create needs we didn't know we had (e.g., iPads, smartphones).</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Market & Needs <span>🔗</span></h2>
+      <p>Match each term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Market analysis",
+          "Target market",
+          "Market sector",
+          "Market segment",
+          "User need",
+          "Consumer need",
+          "Marketer need",
+          "New products"
+        ];
+        const matchingDefs = [
+          "Appraisal of economic viability from a market perspective",
+          "The specific group a product is aimed at",
+          "Large division of a market (e.g., electronics)",
+          "Smaller group based on consumer characteristics (e.g., age)",
+          "The need or problem a product solves for users",
+          "How consumers identify needs/wants when buying",
+          "Needs created or influenced by marketing",
+          "Innovations that create new needs or wants"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is market analysis and why is it important?
+        <div class="model-answer"><strong>Model Answer:</strong> It's an appraisal of the economic viability of a design from a market perspective—helps you know if your product will succeed.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between a market sector and a market segment?
+        <div class="model-answer"><strong>Model Answer:</strong> Sector: large division (e.g., electronics). Segment: smaller group based on characteristics (e.g., age, gender).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of a marketer-induced need.
+        <div class="model-answer"><strong>Model Answer:</strong> Listerine invented "halitosis" (bad breath) to sell mouthwash.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Great design meets real needs—and real markets! <span>📊💡</span></h3>
+      <p>How will you make sure your next idea is a success?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Utilization (2.3) – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .model-answer { display: none; }
+        .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+        .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+        .matching-terms, .matching-defs { flex: 1; }
+        .matching-terms .pair-item, .matching-defs .pair-item {
+            background: #f7f7fa;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            user-select: none;
+            position: relative;
+        }
+        .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+        .pair-item.paired { border-width: 2px; }
+        .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+        .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+        .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+        .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+        .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+        .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+        .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+        .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+        .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+        .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+        .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+        @media (max-width: 700px) {
+            .matching-cols { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Energy Utilization <span>⚡🌍</span></h1>
+            <p><strong>Why does it matter?</strong> Understanding how we use, store, and distribute energy helps us design products that are efficient and sustainable! <span>🌱</span></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Energy utilization</strong> <span>⚡</span> – How energy is used, stored, and distributed</li>
+                <li><strong>Embodied energy</strong> <span>🔋</span> – Total energy used to make, transport, use, and dispose of a product</li>
+                <li><strong>Carbon footprint</strong> <span>🌫️</span> – Total greenhouse gases produced by a product or activity</li>
+                <li><strong>Renewable energy</strong> <span>🌞</span> – Energy from sources that are naturally replenished (solar, wind, hydro)</li>
+                <li><strong>Non-renewable energy</strong> <span>⛽</span> – Energy from sources that can run out (coal, oil, gas, nuclear)</li>
+                <li><strong>Cradle to grave</strong> <span>🔄</span> – The full life cycle of a product, from creation to disposal</li>
+                <li><strong>Megajoule (MJ)</strong> <span>💥</span> – A unit of energy (1 million joules)</li>
+                <li><strong>kg CO₂/kg</strong> <span>🌫️</span> – Kilograms of carbon dioxide per kilogram of material</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>What is Energy Utilization? <span>⚡</span></h2>
+            <div class="concept-card">
+                <h3>Definition</h3>
+                <div class="concept-content">
+                    <p>Energy utilization is how energy is used, stored, and distributed in products and systems. It includes how we generate, store, and move energy to where it's needed.</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Why It Matters</h3>
+                <div class="concept-content">
+                    <p>Efficient energy use reduces pollution, saves money, and helps fight climate change. Every product has an energy "footprint" from creation to disposal.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Energy Generation <span>🔋</span></h2>
+            <div class="concept-card">
+                <h3>Renewable Energy <span>🌞</span></h3>
+                <div class="concept-content">
+                    <p>Comes from sources that are naturally replenished, like solar, wind, and hydroelectric power.</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Non-renewable Energy <span>⛽</span></h3>
+                <div class="concept-content">
+                    <p>Comes from sources that can run out, like coal, oil, gas, and nuclear power.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Embodied Energy & Carbon <span>🔋🌫️</span></h2>
+            <div class="concept-card">
+                <h3>Embodied Energy</h3>
+                <div class="concept-content">
+                    <p>The total energy required to produce a product, from raw material extraction to disposal. Measured in megajoules per kilogram (MJ/kg).</p>
+                    <div class="example"><strong>Example:</strong> Aluminum: 155 MJ/kg; Copper: 42 MJ/kg</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Embodied Carbon</h3>
+                <div class="concept-content">
+                    <p>The total greenhouse gases (mainly CO₂) released during a product's life cycle. Measured in kg CO₂ per kg of material.</p>
+                    <div class="example"><strong>Example:</strong> 1 kg of aluminum = 8.24 kg CO₂</div>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>How to Calculate Embodied Energy</h3>
+                <div class="concept-content">
+                    <p>Multiply the energy per kg by the mass of the product. <br><strong>Example:</strong> 18 kg of copper × 42 MJ/kg = 756 MJ</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+            <ul class="tips-list">
+                <li>LED lights use up to 80% less energy than incandescent bulbs!</li>
+                <li>Electric cars have higher embodied energy at first, but lower over their lifetime compared to gas cars.</li>
+                <li>Solar panels pay back their embodied energy in 1–4 years of use.</li>
+            </ul>
+            <div class="example"><strong>Watch:</strong> <a href="https://www.youtube.com/watch?v=ZzCegQVljdY" target="_blank">What is Embodied Energy? (YouTube)</a></div>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise: Energy Terms <span>🔗</span></h2>
+            <p>Match each term to its correct definition or example. Click a term, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms"></div>
+                    <div class="matching-defs"></div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <script>
+                const matchingTerms = [
+                    'Energy utilization',
+                    'Embodied energy',
+                    'Carbon footprint',
+                    'Renewable energy',
+                    'Non-renewable energy',
+                    'Cradle to grave',
+                    'Megajoule (MJ)',
+                    'kg CO₂/kg'
+                ];
+                const matchingDefs = [
+                    'How energy is used, stored, and distributed',
+                    'Total energy used to make, transport, use, and dispose of a product',
+                    'Total greenhouse gases produced by a product or activity',
+                    'Energy from sources that are naturally replenished (solar, wind, hydro)',
+                    'Energy from sources that can run out (coal, oil, gas, nuclear)',
+                    'The full life cycle of a product, from creation to disposal',
+                    'A unit of energy (1 million joules)',
+                    'Kilograms of carbon dioxide per kilogram of material'
+                ];
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null);
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is embodied energy?
+                <div class="model-answer"><strong>Model Answer:</strong> Embodied energy is the total energy required to produce a product, from raw material extraction to disposal.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is the difference between renewable and non-renewable energy?
+                <div class="model-answer"><strong>Model Answer:</strong> Renewable energy comes from sources that are naturally replenished (like solar and wind), while non-renewable energy comes from sources that can run out (like coal and oil).</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                How do you calculate the embodied energy of a product?
+                <div class="model-answer"><strong>Model Answer:</strong> Multiply the energy per kg (MJ/kg) by the mass of the product (kg).</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is a carbon footprint?
+                <div class="model-answer"><strong>Model Answer:</strong> A carbon footprint is the total greenhouse gases produced by a product or activity, usually measured in kg CO₂.</div>
+            </div>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Design for energy-smart futures! <span>⚡🌱</span></h3>
+            <p>Understanding energy utilization helps you design products that are efficient, sustainable, and ready for tomorrow!</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

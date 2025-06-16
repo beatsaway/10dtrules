@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Life Cycles – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Product Life Cycles <span>🔄📈</span></h1>
+      <p><strong>From launch to decline—how products live, grow, and fade!</strong> <span>⏳</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Product life cycle</strong> – The stages a product goes through: launch, growth, maturity, decline</li>
+        <li><strong>Launch/Introduction</strong> – Product is introduced to the market</li>
+        <li><strong>Growth</strong> – Sales and profits increase</li>
+        <li><strong>Maturity</strong> – Sales slow, market is saturated</li>
+        <li><strong>Decline</strong> – Sales and profits fall</li>
+        <li><strong>Obsolescence</strong> – Product becomes outdated or no longer used</li>
+        <li><strong>Planned obsolescence</strong> – Product is intentionally made to become outdated</li>
+        <li><strong>Functional obsolescence</strong> – Product wears out or parts become unavailable</li>
+        <li><strong>Technological obsolescence</strong> – New technology replaces old products</li>
+        <li><strong>Market saturation</strong> – Most potential customers already own the product</li>
+        <li><strong>Limited release</strong> – Special, rare versions to boost sales</li>
+        <li><strong>Product range</strong> – Different versions, colors, or models to increase sales</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Stages of the Product Life Cycle</h3><div class="concept-content"><ul><li><strong>Pre-launch:</strong> Idea, design, prototyping, pre-production</li><li><strong>Launch/Introduction:</strong> Product enters the market, marketing hype, pricing strategies</li><li><strong>Growth:</strong> Sales rise, advertising, word of mouth, product changes to boost sales</li><li><strong>Maturity:</strong> Sales slow, market saturation, price reductions, new versions/colors</li><li><strong>Decline:</strong> Sales fall, price drops, product may be discontinued</li></ul></div></div>
+      <div class="concept-card"><h3>Obsolescence</h3><div class="concept-content"><ul><li>Process of becoming outdated or no longer used</li><li>Examples: cassette tapes, VHS players</li></ul></div></div>
+      <div class="concept-card"><h3>Planned Obsolescence</h3><div class="concept-content"><ul><li>Product is intentionally made to become outdated</li><li>Example: Apple stops updating old iPhones</li></ul></div></div>
+      <div class="concept-card"><h3>Functional Obsolescence</h3><div class="concept-content"><ul><li>Product wears out or parts become unavailable</li><li>Example: Old car parts no longer made</li></ul></div></div>
+      <div class="concept-card"><h3>Technological Obsolescence</h3><div class="concept-content"><ul><li>New technology replaces old products</li><li>Example: Streaming replaces CDs, iPods replace Walkmans</li></ul></div></div>
+      <div class="concept-card"><h3>Extending Product Life</h3><div class="concept-content"><ul><li>New versions, colors, or models (e.g., Post-its in many colors)</li><li>Limited releases (e.g., rare sneakers, LOL dolls)</li><li>Product ranges for different markets (e.g., Toyota Corolla vs. Camry)</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>3M gave away Post-its to create demand—now they come in every color!</li>
+        <li>Apple uses planned obsolescence to keep customers upgrading.</li>
+        <li>VHS players and cassette tapes were once essential—now they're obsolete.</li>
+        <li>Limited releases make products ultra-desirable (and collectible)!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Product Life Cycle <span>🔗</span></h2>
+      <p>Match each stage or concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Launch/Introduction',
+          'Growth',
+          'Maturity',
+          'Decline',
+          'Planned obsolescence',
+          'Functional obsolescence',
+          'Technological obsolescence',
+          'Limited release'
+        ];
+        const matchingDefs = [
+          'Product enters the market, marketing hype',
+          'Sales rise, advertising, word of mouth',
+          'Sales slow, market is saturated',
+          'Sales fall, product may be discontinued',
+          'Product is intentionally made to become outdated',
+          'Product wears out or parts become unavailable',
+          'New technology replaces old products',
+          'Special, rare versions to boost sales'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What are the main stages of the product life cycle?
+        <div class="model-answer"><strong>Model Answer:</strong> Launch/Introduction, Growth, Maturity, Decline.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is planned obsolescence?
+        <div class="model-answer"><strong>Model Answer:</strong> When a product is intentionally made to become outdated, so customers buy new versions.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        How can companies extend a product's life cycle?
+        <div class="model-answer"><strong>Model Answer:</strong> By releasing new versions, colors, models, or limited editions.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Every product has a story—from launch to legacy! <span>🔄⏳</span></h3>
+      <p>How will your designs stand the test of time?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

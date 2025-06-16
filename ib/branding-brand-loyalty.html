@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branding, Brand Loyalty & Value (9.5a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Branding, Brand Loyalty & Value <span>🏷️💎</span></h1>
+      <p><strong>Why do brands matter? How do companies build loyalty and value?</strong> <span>🌍</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Brand</strong> – A product of known source (e.g., Ford, Coca-Cola)</li>
+        <li><strong>Branding</strong> – Promotion by advertising and distinctive design</li>
+        <li><strong>Brand Loyalty</strong> – Preference for a supplier, even if others are cheaper or better</li>
+        <li><strong>Brand Value</strong> – The financial worth of a brand (e.g., Apple, Coca-Cola)</li>
+        <li><strong>Brand Ambassador</strong> – Celebrity or influencer who promotes a brand</li>
+        <li><strong>Market Segment</strong> – A group of customers with shared characteristics</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is a Brand?</h3><div class="concept-content"><ul><li>Product of known source (e.g., Ford, Apple)</li><li>Names/logos serve as brand identity</li></ul></div></div>
+      <div class="concept-card"><h3>Branding</h3><div class="concept-content"><ul><li>Promotion by advertising and design</li><li>Classic example: Coca-Cola's logo and ads</li></ul></div></div>
+      <div class="concept-card"><h3>Brand Loyalty</h3><div class="concept-content"><ul><li>Customers prefer one brand over others</li><li>Examples: Starbucks, Callaway golf balls</li><li>Built through marketing, ambassadors, campaigns</li><li>Can be lost if market changes (e.g., Nokia, Atari)</li></ul></div></div>
+      <div class="concept-card"><h3>Brand Value</h3><div class="concept-content"><ul><li>Brands can be worth billions (Apple, Google)</li><li>Positive press increases value, negative press can destroy it</li></ul></div></div>
+      <div class="concept-card"><h3>Brand Ambassadors</h3><div class="concept-content"><ul><li>Celebrities/influencers promote brands (e.g., Shaquille O'Neal for Buick)</li><li>Appeal to specific market segments</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>🤩</span></h2>
+      <ul class="tips-list">
+        <li>Apple's brand is worth more than the GDP of many countries!</li>
+        <li>Atari lost its brand value by releasing bad products (like the infamous E.T. game).</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is brand loyalty?
+        <div class="model-answer"><strong>Model Answer:</strong> When a customer prefers to buy from one brand, even if others are cheaper or better.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one way companies build brand loyalty.
+        <div class="model-answer"><strong>Model Answer:</strong> Through marketing campaigns, brand ambassadors, or distinctive design.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of a brand losing value.
+        <div class="model-answer"><strong>Model Answer:</strong> Atari lost value after releasing bad games and not keeping up with the market.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Great brands = loyal fans! <span>🏷️💡</span></h3>
+      <p>How would you build brand loyalty for your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

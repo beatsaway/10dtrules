@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Standardization & Types (9.3b) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Product Standardization & Types <span>📏🌍</span></h1>
+      <p><strong>How do standards, types, and pricing shape the market?</strong> <span>🛠️</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Standardization</strong> – Making products/components uniform across markets</li>
+        <li><strong>Component Standardization</strong> – Interchangeable parts (e.g., USB plugs, screws)</li>
+        <li><strong>Industry-wide Standards</strong> – Agreed norms across an industry (e.g., shipping containers)</li>
+        <li><strong>Trigger Product</strong> – Product bought to satisfy a need (e.g., smartphone)</li>
+        <li><strong>Incremental Product</strong> – Add-on product (e.g., phone case)</li>
+        <li><strong>Brick & Mortar</strong> – Physical store</li>
+        <li><strong>Online</strong> – E-commerce store</li>
+        <li><strong>Hybrid</strong> – Mix of online and physical shopping</li>
+        <li><strong>Cost-plus Pricing</strong> – Add profit margin to cost</li>
+        <li><strong>Demand Pricing</strong> – Set price based on demand</li>
+        <li><strong>Competitor Pricing</strong> – Set price based on rivals</li>
+        <li><strong>Psychological Pricing</strong> – Price to seem cheaper (e.g., $9.99)</li>
+        <li><strong>Promotion</strong> – Communicating product info to customers</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Why Standardization Matters</h3><div class="concept-content"><ul><li>Enables global trade and compatibility</li><li>Reduces confusion and increases trust</li><li>Examples: metric system, CE mark, USB plugs</li></ul></div></div>
+      <div class="concept-card"><h3>Component & Industry-wide Standards</h3><div class="concept-content"><ul><li>Component: interchangeable parts (e.g., screws, plugs)</li><li>Industry-wide: e.g., shipping containers, bolt sizes</li></ul></div></div>
+      <div class="concept-card"><h3>Types of Products</h3><div class="concept-content"><ul><li>Trigger product: bought to satisfy a need (e.g., phone)</li><li>Incremental product: add-on (e.g., phone case)</li></ul></div></div>
+      <div class="concept-card"><h3>Place: Where Products Are Sold</h3><div class="concept-content"><ul><li>Brick & mortar: physical store</li><li>Online: e-commerce</li><li>Hybrid: order online, pick up in store</li></ul></div></div>
+      <div class="concept-card"><h3>Price: How Products Are Priced</h3><div class="concept-content"><ul><li>Cost-plus: add profit margin</li><li>Demand: set by demand</li><li>Competitor: set by rivals</li><li>Psychological: e.g., $9.99</li></ul></div></div>
+      <div class="concept-card"><h3>Promotion: Communicating Value</h3><div class="concept-content"><ul><li>Advertising, publicity, personal selling</li><li>Informs and persuades customers</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Fact <span>🌍</span></h2>
+      <ul class="tips-list">
+        <li>There are only three countries in the world that don't use the metric system: the US, Liberia, and Myanmar!</li>
+        <li>Shipping containers revolutionized global trade by standardizing size and handling.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a trigger product? Give an example.
+        <div class="model-answer"><strong>Model Answer:</strong> A product bought to satisfy a need, e.g., a smartphone.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is component standardization?
+        <div class="model-answer"><strong>Model Answer:</strong> Making parts interchangeable, e.g., USB plugs, screws.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one advantage of brick & mortar stores.
+        <div class="model-answer"><strong>Model Answer:</strong> You can see and try products in person before buying.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Standards make the world work! <span>🌍🛠️</span></h3>
+      <p>How would you standardize your next product?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

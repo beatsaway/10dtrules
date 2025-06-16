@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategies for User Research – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Strategies for User Research <span>🔍🧑‍🤝‍🧑</span></h1>
+      <p><strong>How do you really get to know your users?</strong> <span>💡</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>User population</strong> – The range of users for a product or system</li>
+        <li><strong>Classification</strong> – Grouping users by age, gender, physical condition, etc.</li>
+        <li><strong>Persona</strong> – Fictional profile of a primary target user</li>
+        <li><strong>Secondary persona</strong> – Profile of a non-primary user whose needs should also be met</li>
+        <li><strong>Anti-persona</strong> – Profile of someone who would not use the product</li>
+        <li><strong>Scenario</strong> – Imagined sequence of events in a persona's daily life</li>
+        <li><strong>Best/average/worst case</strong> – Types of scenarios for different outcomes</li>
+        <li><strong>Abstraction</strong> – Level of detail in a scenario (general vs. specific)</li>
+        <li><strong>Niche</strong> – A specific, often unfilled, market segment</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>User Population</h3><div class="concept-content"><ul><li>The range of users for a product or system</li><li>Can be specific (e.g., children) or broad (all ages)</li></ul></div></div>
+      <div class="concept-card"><h3>Classification</h3><div class="concept-content"><ul><li>Group users by age, gender, physical condition, etc.</li><li>Allows for targeted feedback and insights</li></ul></div></div>
+      <div class="concept-card"><h3>Personas</h3><div class="concept-content"><ul><li>Fictional characters representing primary users</li><li>Help designers empathize and focus on user needs</li></ul></div></div>
+      <div class="concept-card"><h3>Secondary Personas</h3><div class="concept-content"><ul><li>Not the main target, but their needs should be met</li><li>Example: Divers using baby shampoo for masks</li></ul></div></div>
+      <div class="concept-card"><h3>Anti-Personas</h3><div class="concept-content"><ul><li>Profiles of people who would not use the product</li><li>Helps clarify who is not being designed for</li></ul></div></div>
+      <div class="concept-card"><h3>Benefits of Personas</h3><div class="concept-content"><ul><li>Prioritize design, focus on user goals</li><li>Identify opportunities and test concepts</li><li>Visualize data as real people</li></ul></div></div>
+      <div class="concept-card"><h3>Persona Pitfalls</h3><div class="concept-content"><ul><li>Personas should not replace real user research</li><li>Beware of bias and assumptions</li></ul></div></div>
+      <div class="concept-card"><h3>Scenarios</h3><div class="concept-content"><ul><li>Imagined sequence of events in a persona's life</li><li>Shows how users interact with a product</li></ul></div></div>
+      <div class="concept-card"><h3>Best/Average/Worst Case</h3><div class="concept-content"><ul><li>Best: everything goes right</li><li>Average: typical experience</li><li>Worst: things go wrong</li></ul></div></div>
+      <div class="concept-card"><h3>Abstraction</h3><div class="concept-content"><ul><li>General scenarios = high abstraction</li><li>Detailed scenarios = low abstraction</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Personas are often based on real user interviews and observations.</li>
+        <li>Secondary personas can reveal unexpected uses for products!</li>
+        <li>Scenarios help teams spot design flaws before building anything.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: User Research Concepts <span>🔗</span></h2>
+      <p>Match each concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "User population",
+          "Classification",
+          "Persona",
+          "Secondary persona",
+          "Anti-persona",
+          "Scenario",
+          "Best/average/worst case",
+          "Abstraction",
+          "Niche"
+        ];
+        const matchingDefs = [
+          "The range of users for a product or system",
+          "Grouping users by age, gender, physical condition, etc.",
+          "Fictional profile of a primary target user",
+          "Profile of a non-primary user whose needs should also be met",
+          "Profile of someone who would not use the product",
+          "Imagined sequence of events in a persona's daily life",
+          "Types of scenarios for different outcomes",
+          "Level of detail in a scenario (general vs. specific)",
+          "A specific, often unfilled, market segment"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 9; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 9; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a persona?
+        <div class="model-answer"><strong>Model Answer:</strong> A fictional profile of a primary target user, used to guide design decisions and user research.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why should you be careful not to rely only on personas?
+        <div class="model-answer"><strong>Model Answer:</strong> Because they are based on assumptions—real user research is needed to avoid bias and mistakes.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a scenario in user research?
+        <div class="model-answer"><strong>Model Answer:</strong> An imagined sequence of events in a persona's daily life, showing how they interact with a product.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Research your users! <span>🔍🧑‍🤝‍🧑</span></h3>
+      <p>How will you get to know your users better?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

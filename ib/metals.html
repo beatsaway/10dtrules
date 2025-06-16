@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metals: Properties, Ores, and Value Chains – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Metals: Properties, Ores, and Value Chains <span>⛏️🔩</span></h1>
+      <p><strong>From rocks to razor-sharp swords—metals shape our world!</strong> <span>⚡</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Metal</strong> – Hard, shiny, malleable, ductile, good conductor</li>
+        <li><strong>Alloy</strong> – Mixture of at least one metal with other metals or non-metals</li>
+        <li><strong>Native metal</strong> – Metal found in pure form in nature (e.g., gold, copper)</li>
+        <li><strong>Ore</strong> – Rock/mineral from which metal can be profitably extracted</li>
+        <li><strong>Bauxite</strong> – Main ore of aluminum</li>
+        <li><strong>Malachite</strong> – Copper ore</li>
+        <li><strong>Hematite</strong> – Iron ore</li>
+        <li><strong>Smelting</strong> – Extracting metal from ore by heating/melting</li>
+        <li><strong>Value chain</strong> – Steps that add value from raw material to final product</li>
+        <li><strong>Lattice</strong> – Regular arrangement of atoms in a solid</li>
+        <li><strong>Crystalline structure</strong> – Repeating pattern of atoms (crystals, grains)</li>
+        <li><strong>Grain</strong> – Region of similar crystal structure in a metal</li>
+        <li><strong>Nucleation</strong> – Starting point for crystal growth</li>
+        <li><strong>Grain boundary</strong> – Edge where grains meet</li>
+        <li><strong>Quenching</strong> – Rapid cooling to form small grains (harder, more brittle)</li>
+        <li><strong>Tempering</strong> – Heat treatment to increase toughness (differential tempering: katana example)</li>
+        <li><strong>Slip plane</strong> – Plane along which atoms in a lattice can slide</li>
+        <li><strong>Dislocation</strong> – Defect in lattice that allows deformation</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is a Metal?</h3><div class="concept-content"><p>Metals are hard, shiny, malleable, ductile, and conduct heat/electricity. <br><em>Examples:</em> Iron, copper, gold, aluminum.</p></div></div>
+      <div class="concept-card"><h3>Ores & Extraction</h3><div class="concept-content"><p>Most metals are found in ores (e.g., bauxite, malachite, hematite). <br><strong>Smelting:</strong> Heating ore to extract metal.<br><em>Fun fact:</em> The Washington Monument's capstone is aluminum!</p></div></div>
+      <div class="concept-card"><h3>Value Chains</h3><div class="concept-content"><p>Value is added as raw materials are processed into metals and products. <br><strong>Global issue:</strong> Raw material countries often get less profit than manufacturing countries.</p></div></div>
+      <div class="concept-card"><h3>Lattice & Crystalline Structure</h3><div class="concept-content"><p>Atoms in metals form regular, repeating patterns (lattices). <br><strong>Grains:</strong> Regions of similar structure. <br><strong>Nucleation:</strong> Where crystals start to grow. <br><strong>Grain boundaries:</strong> Where grains meet—can be weak spots.</p></div></div>
+      <div class="concept-card"><h3>Grain Size & Cooling</h3><div class="concept-content"><p>Rapid cooling (quenching) = small grains (hard, brittle).<br>Slow cooling = large grains (tough, ductile).<br><em>Example:</em> Obsidian (glassy, rapid) vs. granite (grainy, slow).</p></div></div>
+      <div class="concept-card"><h3>Tempering</h3><div class="concept-content"><p>Heat treatment to increase toughness. <br><strong>Differential tempering:</strong> Katana swords have hard, sharp edges (small grains) and flexible spines (large grains).</p></div></div>
+      <div class="concept-card"><h3>Slip Planes & Dislocation</h3><div class="concept-content"><p>Slip planes are planes in the lattice where atoms can slide, allowing metals to deform. <br><strong>Dislocations:</strong> Defects that make deformation easier.</p></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>The Washington Monument's capstone is aluminum—once more valuable than gold!</li>
+        <li>Obsidian is glassy (rapid cooling), granite is grainy (slow cooling).</li>
+        <li>Katana swords: hard edge, flexible spine—thanks to differential tempering.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Metal Terms <span>🔗</span></h2>
+      <p>Match each metal term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Metal',
+          'Alloy',
+          'Ore',
+          'Smelting',
+          'Value chain',
+          'Lattice',
+          'Grain',
+          'Quenching',
+          'Tempering',
+          'Slip plane',
+          'Dislocation'
+        ];
+        const matchingDefs = [
+          'Hard, shiny, malleable, ductile, good conductor',
+          'Mixture of at least one metal with other metals or non-metals',
+          'Rock/mineral from which metal can be profitably extracted',
+          'Extracting metal from ore by heating/melting',
+          'Steps that add value from raw material to final product',
+          'Regular arrangement of atoms in a solid',
+          'Region of similar crystal structure in a metal',
+          'Rapid cooling to form small grains (harder, more brittle)',
+          'Heat treatment to increase toughness',
+          'Plane along which atoms in a lattice can slide',
+          'Defect in lattice that allows deformation'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 11; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 11; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between quenching and tempering?
+        <div class="model-answer"><strong>Model Answer:</strong> Quenching is rapid cooling for hardness; tempering is reheating to increase toughness and reduce brittleness.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are grain boundaries important?
+        <div class="model-answer"><strong>Model Answer:</strong> They are weak spots where grains meet, affecting strength and toughness.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a slip plane?
+        <div class="model-answer"><strong>Model Answer:</strong> A plane in the lattice where atoms can slide, allowing metals to deform.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>From rocks to razor-sharp swords—metals shape our world! <span>⛏️🔩</span></h3>
+      <p>Metals are everywhere—choose, process, and design wisely!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

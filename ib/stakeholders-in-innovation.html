@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stakeholders in Innovation – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Stakeholders in Innovation <span>🤝💡</span></h1>
+      <p><strong>Who makes innovation happen?</strong> <span>🌟</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Inventor</strong> – Person who creates a new idea or product</li>
+        <li><strong>Product champion</strong> – Influential individual who pushes an idea forward within an organization</li>
+        <li><strong>Entrepreneur</strong> – Person who takes an invention to market, often by financing and developing it</li>
+        <li><strong>Multidisciplinary team</strong> – Group with diverse expertise working together on innovation</li>
+        <li><strong>Discipline</strong> – Area of knowledge or expertise (e.g., chemistry, marketing)</li>
+        <li><strong>Cross-fertilization</strong> – Sharing ideas between people with different backgrounds</li>
+        <li><strong>Groupthink</strong> – When everyone in a group thinks alike, limiting creativity</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Inventors</h3><div class="concept-content"><ul><li>Create new ideas or products</li><li>Examples: Edison, Tesla, Ford, Da Vinci, Wright brothers, Marconi, Babbage</li><li>Primary stakeholders in innovation</li></ul></div></div>
+      <div class="concept-card"><h3>Product Champions</h3><div class="concept-content"><ul><li>Influential individuals in organizations</li><li>Push ideas forward (e.g., Steve Jobs, Elon Musk)</li><li>May not be the original inventor</li></ul></div></div>
+      <div class="concept-card"><h3>Entrepreneurs</h3><div class="concept-content"><ul><li>Take inventions to market</li><li>Finance, develop, and diffuse products</li><li>Often work outside large organizations</li><li>Example: Inventor of Sugru</li></ul></div></div>
+      <div class="concept-card"><h3>Multidisciplinary Teams</h3><div class="concept-content"><ul><li>Groups with diverse expertise (e.g., engineering, marketing, law)</li><li>Most modern products require teamwork</li><li>Enable cross-fertilization of ideas</li></ul></div></div>
+      <div class="concept-card"><h3>Advantages & Disadvantages of Multidisciplinary Teams</h3><div class="concept-content"><ul><li><strong>Advantages:</strong> Wide range of knowledge, diverse perspectives, cross-fertilization, less groupthink</li><li><strong>Disadvantages:</strong> Loss of control/ownership, teamwork challenges, miscommunication, different working styles</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Charles Babbage's analytic engine was the ancestor of modern computers!</li>
+        <li>Steve Jobs was a product champion, not always the original inventor.</li>
+        <li>Most products today are created by multidisciplinary teams, not lone inventors.</li>
+        <li>Diverse teams help avoid groupthink and spark creativity.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Stakeholders <span>🔗</span></h2>
+      <p>Match each stakeholder or concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Inventor',
+          'Product champion',
+          'Entrepreneur',
+          'Multidisciplinary team',
+          'Cross-fertilization',
+          'Groupthink'
+        ];
+        const matchingDefs = [
+          'Person who creates a new idea or product',
+          'Influential individual who pushes an idea forward in an organization',
+          'Person who takes an invention to market',
+          'Group with diverse expertise working together',
+          'Sharing ideas between people with different backgrounds',
+          'When everyone in a group thinks alike, limiting creativity'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between an entrepreneur and a product champion?
+        <div class="model-answer"><strong>Model Answer:</strong> Entrepreneur: takes invention to market, often outside organizations. Product champion: pushes ideas forward within organizations, may not be the inventor.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are multidisciplinary teams important in innovation?
+        <div class="model-answer"><strong>Model Answer:</strong> They bring together diverse expertise, enable cross-fertilization of ideas, and help avoid groupthink.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one advantage and one disadvantage of multidisciplinary teams.
+        <div class="model-answer"><strong>Model Answer:</strong> Advantage: wide range of knowledge. Disadvantage: teamwork challenges or loss of control/ownership.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Innovation is a team effort! <span>🤝💡</span></h3>
+      <p>Who will you collaborate with on your next big idea?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

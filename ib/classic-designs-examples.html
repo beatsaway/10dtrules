@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Classic Designs: Examples & Impact – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Classic Designs: Examples & Impact <span>🌟🛠️</span></h1>
+      <p><strong>Explore the icons that shaped design history!</strong> <span>🏆</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Design classic</strong> – A product with timeless appeal, industrial manufacture, and iconic status</li>
+        <li><strong>Imitation</strong> – Copying a successful design</li>
+        <li><strong>Collectibility</strong> – Value as a collectible item</li>
+        <li><strong>Omnipresence</strong> – Found everywhere, for a long time</li>
+        <li><strong>Dominant design</strong> – A design whose features are widely adopted as standard</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Classic Design Examples <span>🖼️</span></h2>
+      <div class="concept-card"><h3>Swiss Army Knife</h3><div class="concept-content"><ul><li>Multi-tool, virtually unchanged for decades</li><li>Iconic red handle, instantly recognizable</li><li>Symbol of utility and reliability</li></ul></div></div>
+      <div class="concept-card"><h3>Fender Telecaster Guitar</h3><div class="concept-content"><ul><li>Introduced in the 1950s, still in production</li><li>Simple, functional, and iconic shape</li><li>Widely imitated by other guitar makers</li></ul></div></div>
+      <div class="concept-card"><h3>Porsche 911</h3><div class="concept-content"><ul><li>First launched in 1963, design remains recognizable</li><li>Rear-engine, unique silhouette</li><li>Symbol of performance and luxury</li></ul></div></div>
+      <div class="concept-card"><h3>Levi's Jeans</h3><div class="concept-content"><ul><li>Virtually unchanged for 150+ years</li><li>Iconic stitching and rivets</li><li>Symbol of durability and style</li></ul></div></div>
+      <div class="concept-card"><h3>Volkswagen Beetle</h3><div class="concept-content"><ul><li>Produced from 1941 to 2003 in original shape</li><li>Instantly recognizable, beloved worldwide</li><li>Symbol of affordability and fun</li></ul></div></div>
+      <div class="concept-card"><h3>Thonet Chair</h3><div class="concept-content"><ul><li>First flat-pack chair, 19th century</li><li>Simple, elegant bentwood design</li><li>Still used in cafes today</li></ul></div></div>
+      <div class="concept-card"><h3>Coca-Cola Bottle</h3><div class="concept-content"><ul><li>Curvy glass bottle, unchanged for over 100 years</li><li>Instantly recognizable worldwide</li><li>Symbol of brand identity</li></ul></div></div>
+      <div class="concept-card"><h3>Air Jordans</h3><div class="concept-content"><ul><li>First released in 1985, still popular</li><li>Iconic in basketball and streetwear culture</li><li>Highly collectible, some pairs worth thousands</li></ul></div></div>
+      <div class="concept-card"><h3>Bic Pen</h3><div class="concept-content"><ul><li>Simple, reliable, and cheap</li><li>Dominant design for ballpoint pens</li><li>Billions sold worldwide</li></ul></div></div>
+      <div class="concept-card"><h3>iPhone</h3><div class="concept-content"><ul><li>Launched in 2007, set the standard for smartphones</li><li>Iconic shape, widely imitated</li><li>Symbol of modern technology</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>The Coca-Cola bottle shape is protected by trademark law!</li>
+        <li>Some Air Jordans have sold for over $10,000 at auction.</li>
+        <li>The VW Beetle was produced for over 60 years with minimal changes.</li>
+        <li>The iPhone's design has influenced nearly every modern smartphone.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Classic Examples <span>🔗</span></h2>
+      <p>Match each classic design to its description. Click a design, then a description to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Swiss Army Knife",
+          "Telecaster",
+          "Porsche 911",
+          "Levi's jeans",
+          "VW Beetle",
+          "Thonet chair",
+          "Coca-Cola bottle",
+          "Air Jordans",
+          "Bic pen",
+          "iPhone"
+        ];
+        const matchingDefs = [
+          "Curvy glass bottle, unchanged for over 100 years",
+          "Multi-tool, iconic red handle, virtually unchanged for decades",
+          "First flat-pack chair, simple bentwood design, still used in cafes",
+          "Launched in 2007, set the standard for smartphones",
+          "First released in 1985, iconic in basketball and streetwear culture",
+          "Simple, reliable, dominant design for ballpoint pens",
+          "Virtually unchanged for 150+ years, iconic stitching and rivets",
+          "Produced from 1941 to 2003, instantly recognizable, beloved worldwide",
+          "Introduced in the 1950s, simple, functional, widely imitated guitar",
+          "First launched in 1963, rear-engine, unique silhouette, symbol of performance"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name two features that make a design a "classic." 
+        <div class="model-answer"><strong>Model Answer:</strong> Timeless appeal, iconic/instantly recognizable, mass produced, widely imitated, or collectible.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is the iPhone considered a classic design?
+        <div class="model-answer"><strong>Model Answer:</strong> It set the standard for smartphones, is iconic, and has been widely imitated.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a dominant design? Give an example.
+        <div class="model-answer"><strong>Model Answer:</strong> A design whose features are widely adopted as standard (e.g., Bic pen).</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Classic designs shape our world! <span>🌟🏆</span></h3>
+      <p>Which design icon inspires you?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

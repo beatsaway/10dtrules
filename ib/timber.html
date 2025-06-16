@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timber: Natural & Man-Made Woods – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Timber: Natural & Man-Made Woods <span>🌲🪵</span></h1>
+      <p><strong>From forests to furniture—timber builds our world!</strong> <span>🏡</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Timber</strong> – Wood used as a material (organic, cellulose & lignin)</li>
+        <li><strong>Cellulose</strong> – Protein in wood, strong in tension</li>
+        <li><strong>Lignin</strong> – Protein in wood, strong in compression</li>
+        <li><strong>Softwood</strong> – Timber from conifers/gymnosperms (e.g., pine, spruce)</li>
+        <li><strong>Hardwood</strong> – Timber from deciduous/angiosperms (e.g., oak, walnut, balsa)</li>
+        <li><strong>Tracheids</strong> – Fluid-transporting cells in softwood</li>
+        <li><strong>Vessels & fibers</strong> – Fluid-transporting cells in hardwood</li>
+        <li><strong>Grain</strong> – Pattern of growth rings in wood</li>
+        <li><strong>With/against the grain</strong> – Direction of cut relative to grain</li>
+        <li><strong>Janka hardness</strong> – Test for wood hardness (force to embed steel ball)</li>
+        <li><strong>Knot</strong> – Defect from a branch in timber</li>
+        <li><strong>Warp, cupping, bow, twist, crook</strong> – Types of wood deformation</li>
+        <li><strong>Seasoning</strong> – Drying wood to remove water</li>
+        <li><strong>Man-made wood</strong> – Engineered wood (plywood, glulam, MDF, particle board)</li>
+        <li><strong>Dimensional stability</strong> – Resistance to changes in shape/size</li>
+        <li><strong>Uniformity</strong> – Consistency of properties throughout material</li>
+        <li><strong>Aesthetics</strong> – Visual appeal</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is Timber?</h3><div class="concept-content"><p>Timber is wood used as a material, made of cellulose (strong in tension) and lignin (strong in compression). <br><em>Fun fact:</em> Ancient forests formed coal beds we use today!</p></div></div>
+      <div class="concept-card"><h3>Natural Timber: Softwood vs Hardwood</h3><div class="concept-content"><p><strong>Softwood:</strong> From conifers, mostly tracheids, e.g., pine, spruce, fir, cedar.<br><strong>Hardwood:</strong> From angiosperms, vessels & fibers, e.g., oak, walnut, balsa.<br><strong>Janka hardness:</strong> Measures force to embed a steel ball—balsa is a hardwood but softer than most softwoods!</p></div></div>
+      <div class="concept-card"><h3>Grain Structure</h3><div class="concept-content"><p>Wood grows in rings (grains). <br><strong>With the grain:</strong> Along the rings.<br><strong>Against the grain:</strong> Perpendicular to rings.<br>Grain affects strength and appearance.</p></div></div>
+      <div class="concept-card"><h3>Defects & Strength</h3><div class="concept-content"><p><strong>Knots:</strong> Branches in timber.<br><strong>Warps:</strong> Cupping, bow, twist, crook.<br><strong>Seasoning:</strong> Drying wood increases strength.<br>Wet wood is easier to bend; dry wood is stronger.</p></div></div>
+      <div class="concept-card"><h3>Man-Made Woods</h3><div class="concept-content"><p><strong>Plywood:</strong> Layers of wood glued with grains crossing.<br><strong>Glulam:</strong> Laminated wood glued together.<br><strong>MDF:</strong> Medium density fiberboard, uniform throughout.<br><strong>Particle board:</strong> Chips of wood glued together.<br><strong>Advantages:</strong> Dimensional stability, uniformity, product sizes.<br><strong>Disadvantages:</strong> Aesthetics, water resistance, staining.</p></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Coal beds formed from ancient forests in the Carboniferous period.</li>
+        <li>Balsa is a hardwood but softer than most softwoods!</li>
+        <li>Marine plywood is used for boats and resists water.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Timber Terms <span>🔗</span></h2>
+      <p>Match each timber term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Timber',
+          'Cellulose',
+          'Lignin',
+          'Softwood',
+          'Hardwood',
+          'Tracheids',
+          'Vessels & fibers',
+          'Grain',
+          'With/against the grain',
+          'Janka hardness',
+          'Knot',
+          'Warp',
+          'Seasoning',
+          'Man-made wood',
+          'Dimensional stability',
+          'Uniformity',
+          'Aesthetics'
+        ];
+        const matchingDefs = [
+          'Wood used as a material',
+          'Protein in wood, strong in tension',
+          'Protein in wood, strong in compression',
+          'Timber from conifers/gymnosperms',
+          'Timber from angiosperms/deciduous',
+          'Fluid-transporting cells in softwood',
+          'Fluid-transporting cells in hardwood',
+          'Pattern of growth rings in wood',
+          'Direction of cut relative to grain',
+          'Test for wood hardness (force to embed steel ball)',
+          'Defect from a branch in timber',
+          'Types of wood deformation (cupping, bow, twist, crook)',
+          'Drying wood to remove water',
+          'Engineered wood (plywood, glulam, MDF, particle board)',
+          'Resistance to changes in shape/size',
+          'Consistency of properties throughout material',
+          'Visual appeal'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 17; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 17; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between softwood and hardwood?
+        <div class="model-answer"><strong>Model Answer:</strong> Softwood comes from conifers (gymnosperms), hardwood from angiosperms; structure, not actual hardness, is the main difference.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the Janka hardness test?
+        <div class="model-answer"><strong>Model Answer:</strong> A test measuring the force needed to embed a steel ball halfway into wood.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is dimensional stability?
+        <div class="model-answer"><strong>Model Answer:</strong> The ability of a material to maintain its shape and size when exposed to changes in temperature and humidity.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>From forests to furniture—timber builds our world! <span>🌲🪵</span></h3>
+      <p>Choose the right wood for the job—nature and engineering combined!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

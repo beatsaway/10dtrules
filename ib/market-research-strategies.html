@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Market Research Strategies (9.4b) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Market Research Strategies <span>🧠📈</span></h1>
+      <p><strong>How do designers gather the right data? Explore the main research strategies!</strong> <span>🔬</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Literature Search</strong> – Reviewing existing reports, articles, and studies</li>
+        <li><strong>Expert Appraisal</strong> – Getting advice from specialists</li>
+        <li><strong>User Trial</strong> – Observing non-experts using a product</li>
+        <li><strong>User Research</strong> – Questionnaires, surveys, interviews</li>
+        <li><strong>Perceptual Mapping</strong> – Visualizing consumer perceptions on axes (e.g., classy vs. affordable)</li>
+        <li><strong>Environmental Scanning</strong> – Monitoring external factors for opportunities/threats</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Market Research Strategies <span>🛠️</span></h2>
+      <div class="concept-card"><h3>Literature Search</h3><div class="concept-content"><ul><li>Pros: Tons of data, historic perspective</li><li>Cons: Time-consuming, overwhelming</li></ul></div></div>
+      <div class="concept-card"><h3>Expert Appraisal</h3><div class="concept-content"><ul><li>Pros: Deep knowledge, expert advice</li><li>Cons: Can be biased, hard to find experts, qualitative data</li></ul></div></div>
+      <div class="concept-card"><h3>User Trial</h3><div class="concept-content"><ul><li>Pros: Real user feedback, cost-effective</li><li>Cons: Users may be inexperienced, qualitative data</li></ul></div></div>
+      <div class="concept-card"><h3>User Research</h3><div class="concept-content"><ul><li>Pros: Cheap, quick, can be qualitative or quantitative</li><li>Cons: May be biased, depends on sample</li></ul></div></div>
+      <div class="concept-card"><h3>Perceptual Mapping</h3><div class="concept-content"><ul><li>Pros: Visualizes perceptions, easy to conduct</li><li>Cons: Highly biased, qualitative</li></ul></div></div>
+      <div class="concept-card"><h3>Environmental Scanning</h3><div class="concept-content"><ul><li>Pros: Identifies opportunities/threats, big picture</li><li>Cons: Can be broad, may miss details</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Fact <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Perceptual mapping is used by car companies to see how people view their brand vs. competitors!</li>
+        <li>Environmental scanning helps companies spot trends before competitors do.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main advantage of a literature search?
+        <div class="model-answer"><strong>Model Answer:</strong> Access to a large amount of existing data and historic perspective.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is perceptual mapping?
+        <div class="model-answer"><strong>Model Answer:</strong> A way to visualize consumer perceptions of products/brands on axes (e.g., classy vs. affordable).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one con of expert appraisal.
+        <div class="model-answer"><strong>Model Answer:</strong> Can be biased or hard to find the right expert.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Research = better design! <span>🧠💡</span></h3>
+      <p>Which strategy would you use for your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

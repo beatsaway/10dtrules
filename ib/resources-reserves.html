@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources & Reserves (2.1) – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .reveal-answer-btn { pointer-events: none; opacity: 0.7; }
+        .sample-q .model-answer { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Resources & Reserves <span>🌍⛏️</span></h1>
+            <p><strong>Why does it matter?</strong> Understanding resources and reserves helps designers make sustainable choices and plan for the future. The planet's resources aren't infinite—let's design smart! <span>♻️</span></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Resource</strong> <span>🌳</span> – Any natural material that can be used by humans (e.g., water, wood, oil, minerals).</li>
+                <li><strong>Reserve</strong> <span>🛢️</span> – The known amount of a resource that can be economically and legally extracted with current technology.</li>
+                <li><strong>Renewable Resource</strong> <span>☀️</span> – Can be replaced naturally in a short time (e.g., solar, wind, timber).</li>
+                <li><strong>Non-renewable Resource</strong> <span>🦖</span> – Cannot be replaced quickly (e.g., coal, oil, metals).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Types of Resources <span>🗂️</span></h2>
+            <ul>
+                <li><strong>Natural resources:</strong> Found in nature (e.g., water, minerals, forests)</li>
+                <li><strong>Human resources:</strong> People and their skills</li>
+                <li><strong>Physical resources:</strong> Man-made items (e.g., machines, buildings)</li>
+                <li><strong>Energy resources:</strong> Sources of power (e.g., fossil fuels, wind, solar)</li>
+            </ul>
+            <div class="example"><strong>Fun Fact:</strong> The world's largest gold reserve is in the United States—at Fort Knox! <span>🏦</span></div>
+            <div class="example"><strong>Fun Fact:</strong> The rare metal <strong>neodymium</strong> is essential for high-tech electronics and green energy devices. Most of the world's supply is found in China! <span>🪙🇨🇳</span></div>
+        </div>
+
+        <div class="section">
+            <h2>Resources vs. Reserves <span>🤔</span></h2>
+            <div class="concept-card">
+                <h3>What's the difference?</h3>
+                <div class="concept-content">
+                    <p><strong>Resource:</strong> The total amount of a material in the ground (even if we can't get it all out yet).<br>
+                    <strong>Reserve:</strong> The part we can actually extract and use right now, with current technology.</p>
+                    <div class="example"><strong>Example:</strong> There might be a lot of gold deep underground, but only some is a reserve because it's too expensive or hard to reach the rest.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Real-World Relevance <span>🌐</span></h2>
+            <ul class="tips-list">
+                <li>Designers must consider if materials are sustainable and available for the long term</li>
+                <li>Using renewable resources helps protect the planet</li>
+                <li>Non-renewable resources are running out—think before you design!</li>
+                <li>Recycling and reusing materials can extend resource life</li>
+            </ul>
+            <div class="example"><strong>Design Tip:</strong> Choose materials that are abundant, renewable, or recyclable whenever possible! <span>♻️</span></div>
+        </div>
+
+        <div class="section">
+            <h2>Sample Questions <span>📝</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                <strong>Q1:</strong> What is the difference between a resource and a reserve?
+                <div class="model-answer"><strong>Model Answer:</strong> A resource is the total amount of a material in the ground, while a reserve is the part we can extract and use with current technology and at current prices.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                <strong>Q2:</strong> Give two examples of renewable and non-renewable resources.
+                <div class="model-answer"><strong>Model Answer:</strong> Renewable: solar energy, timber. Non-renewable: oil, coal.</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <ul class="quiz-list">
+                <li>What is a renewable resource? Give an example.</li>
+                <li>Why are reserves usually smaller than resources?</li>
+                <li>How can designers help conserve resources?</li>
+                <li>What's the difference between a physical and a natural resource?</li>
+            </ul>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Design for the future! <span>🌱🌏</span></h3>
+            <p>Understanding resources and reserves helps you make smart, sustainable design choices. The best designers think ahead!</p>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise <span>🔗</span></h2>
+            <p>Match each vocabulary word to its correct definition. Click a term, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms">
+                        <!-- Terms will be rendered here -->
+                    </div>
+                    <div class="matching-defs">
+                        <!-- Definitions will be rendered here -->
+                    </div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <style>
+                .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+                .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+                .matching-terms, .matching-defs { flex: 1; }
+                .matching-terms .pair-item, .matching-defs .pair-item {
+                    background: #f7f7fa;
+                    border: 1px solid #bbb;
+                    border-radius: 6px;
+                    margin-bottom: 10px;
+                    padding: 10px 12px;
+                    cursor: pointer;
+                    transition: background 0.2s, border 0.2s;
+                    user-select: none;
+                    position: relative;
+                }
+                .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+                .pair-item.paired { border-width: 2px; }
+                .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+                .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+                .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+                /* Pair colors */
+                .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+                .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+                .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+                .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+                .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+                .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+                .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+                .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+                @media (max-width: 700px) {
+                    .matching-cols { flex-direction: column; gap: 0; }
+                }
+            </style>
+            <script>
+                // Terms and definitions
+                const matchingTerms = [
+                    'Resource <span>🌳</span>',
+                    'Reserve <span>🛢️</span>',
+                    'Renewable Resource <span>☀️</span>',
+                    'Non-renewable Resource <span>🦖</span>',
+                    'Natural resources <span>🗂️</span>',
+                    'Human resources',
+                    'Physical resources',
+                    'Energy resources'
+                ];
+                const matchingDefs = [
+                    'Any natural material that can be used by humans (e.g., water, wood, oil, minerals)',
+                    'The known amount of a resource that can be economically and legally extracted with current technology',
+                    'Can be replaced naturally in a short time (e.g., solar, wind, timber)',
+                    'Cannot be replaced quickly (e.g., coal, oil, metals)',
+                    'Found in nature (e.g., water, minerals, forests)',
+                    'People and their skills',
+                    'Man-made items (e.g., machines, buildings)',
+                    'Sources of power (e.g., fossil fuels, wind, solar)'
+                ];
+                // Shuffle definitions for each page load
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                // Render terms and definitions
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                // Pairing logic
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null); // pairs[termIdx] = defIdx
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    // Remove all pair colors
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    // For each pair, add a color class
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                // Term click
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                // Def click
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    // Remove previous pairing if any
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    // Pair
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                // Keyboard accessibility
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            // Remove previous pairing if any
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            // Pair
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                // Check answers
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        // Toggle concept-card content
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

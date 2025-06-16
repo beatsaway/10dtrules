@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incremental vs. Radical Solutions (2.4) – IB Design Tech</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .sample-q { cursor: pointer; transition: background 0.2s; }
+        .sample-q:hover { background: #f5f5f5; }
+        .sample-q .model-answer { display: none; }
+        .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+        .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+        .matching-terms, .matching-defs { flex: 1; }
+        .matching-terms .pair-item, .matching-defs .pair-item {
+            background: #f7f7fa;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 10px 12px;
+            cursor: pointer;
+            transition: background 0.2s, border 0.2s;
+            user-select: none;
+            position: relative;
+        }
+        .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+        .pair-item.paired { border-width: 2px; }
+        .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+        .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+        .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+        .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+        .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+        .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+        .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+        .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+        .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+        .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+        .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+        @media (max-width: 700px) {
+            .matching-cols { flex-direction: column; gap: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Incremental vs. Radical Solutions <span>🔄🚀</span></h1>
+            <p><strong>Why does it matter?</strong> How we solve problems—step by step or all at once—shapes the future of design and the planet! <span>🌍💡</span></p>
+        </div>
+
+        <div class="section">
+            <h2>Key Vocabulary <span>📚</span></h2>
+            <ul class="vocab-list">
+                <li><strong>Incremental solution</strong> <span>🔄</span> – Small, gradual improvements over time (evolution, not revolution)</li>
+                <li><strong>Radical solution</strong> <span>🚀</span> – Big, game-changing leap (revolution, not evolution)</li>
+                <li><strong>End-of-pipe technology</strong> <span>🛑</span> – Tech that reduces pollution/waste at the end of a process</li>
+                <li><strong>Carbon sequestration</strong> <span>🌳</span> – Capturing and storing carbon dioxide to keep it out of the atmosphere</li>
+                <li><strong>Capital equipment</strong> <span>🏭</span> – Expensive machines or tools used in manufacturing</li>
+                <li><strong>Market resistance</strong> <span>🛡️</span> – When existing industries or consumers push back against new ideas</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Incremental vs. Radical Solutions <span>🔄🚀</span></h2>
+            <div class="concept-card">
+                <h3>Incremental Solutions</h3>
+                <div class="concept-content">
+                    <p>Small, steady improvements—think iPhone 1, 2, 3, 4... Each version gets a bit better! <br><strong>Pros:</strong> Uses trusted tech, less risky, easy to adapt, less downtime. <br><strong>Cons:</strong> Can be too slow, may not meet urgent needs, lots of small changes needed.</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Radical Solutions</h3>
+                <div class="concept-content">
+                    <p>Big, bold changes—like switching from horses to cars, or inventing solar panels! <br><strong>Pros:</strong> Can create new industries, big market growth, reputation boost, fewer competitors. <br><strong>Cons:</strong> Expensive, risky, high uncertainty, market resistance, unpredictable results.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Real-World Examples <span>🌍</span></h2>
+            <div class="concept-card">
+                <h3>Incremental Example</h3>
+                <div class="concept-content">
+                    <p>Car engines getting more fuel-efficient each year, or smartphones adding better cameras and features over time.</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Radical Example</h3>
+                <div class="concept-content">
+                    <p>Switching from fossil fuels to solar energy, or the invention of the electric light replacing kerosene lamps.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>End-of-Pipe Technology <span>🛑</span></h2>
+            <div class="concept-card">
+                <h3>What is it?</h3>
+                <div class="concept-content">
+                    <p>Tech that reduces pollution or waste at the end of a process—like filters on smokestacks, water treatment plants, or carbon capture systems.</p>
+                </div>
+            </div>
+            <div class="concept-card">
+                <h3>Carbon Sequestration</h3>
+                <div class="concept-content">
+                    <p>Capturing CO₂ from factories and pumping it underground, locking it away so it can't cause global warming. <br><em>Fun fact:</em> Most of Earth's carbon used to be "quarantined" underground until humans started burning fossil fuels!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+            <ul class="tips-list">
+                <li>Solar panels didn't exist 50 years ago—now they're everywhere!</li>
+                <li>Some factories recycle their own waste heat to save energy (radical + incremental!)</li>
+                <li>Electric cars faced huge market resistance at first, but now they're taking off.</li>
+            </ul>
+        </div>
+
+        <div class="section" style="margin-top:32px;">
+            <h2>Matching Exercise: Solutions & Tech <span>🔗</span></h2>
+            <p>Match each solution or tech to its main feature or impact. Click a type, then click a feature to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+            <div id="matching-pairs" class="matching-pairs-ex">
+                <div class="matching-cols">
+                    <div class="matching-terms"></div>
+                    <div class="matching-defs"></div>
+                </div>
+                <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+                <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+            </div>
+            <script>
+                const matchingTerms = [
+                    'Incremental solution',
+                    'Radical solution',
+                    'End-of-pipe technology',
+                    'Carbon sequestration',
+                    'Market resistance',
+                    'Capital equipment',
+                    'Fuel-efficient engines',
+                    'Electric light invention'
+                ];
+                const matchingDefs = [
+                    'Small, steady improvements over time',
+                    'Big, game-changing leap',
+                    'Reduces pollution at the end of a process',
+                    'Captures and stores CO₂ underground',
+                    'Pushback from existing industries or consumers',
+                    'Expensive machines/tools for manufacturing',
+                    'Example of incremental improvement',
+                    'Example of radical change'
+                ];
+                function shuffle(arr) {
+                    let a = arr.slice();
+                    for (let i = a.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        [a[i], a[j]] = [a[j], a[i]];
+                    }
+                    return a;
+                }
+                const shuffledDefs = shuffle(matchingDefs);
+                const termsCol = document.querySelector('.matching-terms');
+                const defsCol = document.querySelector('.matching-defs');
+                termsCol.innerHTML = '';
+                defsCol.innerHTML = '';
+                matchingTerms.forEach((term, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-term-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = term;
+                    termsCol.appendChild(div);
+                });
+                shuffledDefs.forEach((def, i) => {
+                    const div = document.createElement('div');
+                    div.className = 'pair-item';
+                    div.setAttribute('data-def-idx', i);
+                    div.setAttribute('tabindex', 0);
+                    div.innerHTML = def;
+                    defsCol.appendChild(div);
+                });
+                let selectedTerm = null;
+                let selectedDef = null;
+                const pairs = Array(matchingTerms.length).fill(null);
+                function clearSelections() {
+                    document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+                }
+                function clearPairHighlights() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        el.classList.remove('paired','correct','incorrect');
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                }
+                function updatePairColors() {
+                    document.querySelectorAll('.pair-item').forEach(el => {
+                        for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+                    });
+                    let pairNum = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (termEl && defEl) {
+                                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                                defEl.classList.add('paired', 'pair-color-' + pairNum);
+                            }
+                            pairNum++;
+                        }
+                    });
+                }
+                termsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    clearSelections();
+                    selectedTerm = e.target;
+                    selectedTerm.classList.add('selected');
+                });
+                defsCol.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('pair-item')) return;
+                    if (!selectedTerm) return;
+                    selectedDef = e.target;
+                    const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                    if (prevPair !== -1) pairs[prevPair] = null;
+                    const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                    const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                    pairs[termIdx] = defIdx;
+                    clearSelections();
+                    clearPairHighlights();
+                    updatePairColors();
+                    selectedTerm = null;
+                    selectedDef = null;
+                });
+                termsCol.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            clearSelections();
+                            selectedTerm = e.target;
+                            selectedTerm.classList.add('selected');
+                        }
+                    }
+                });
+                defsCol.addEventListener('keydown', function(e) {
+                    if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+                        e.preventDefault();
+                        if (e.target.classList.contains('pair-item')) {
+                            selectedDef = e.target;
+                            const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+                            if (prevPair !== -1) pairs[prevPair] = null;
+                            const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+                            const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+                            pairs[termIdx] = defIdx;
+                            clearSelections();
+                            clearPairHighlights();
+                            updatePairColors();
+                            selectedTerm = null;
+                            selectedDef = null;
+                        }
+                    }
+                });
+                document.getElementById('check-matching-pairs').onclick = function() {
+                    clearPairHighlights();
+                    let correct = 0;
+                    pairs.forEach((defIdx, termIdx) => {
+                        if (defIdx !== null) {
+                            const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+                            const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+                            if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                                termEl.classList.add('correct');
+                                defEl.classList.add('correct');
+                                correct++;
+                            } else {
+                                termEl.classList.add('incorrect');
+                                defEl.classList.add('incorrect');
+                            }
+                        }
+                    });
+                    updatePairColors();
+                    const feedback = document.getElementById('matching-pairs-feedback');
+                    if (correct === matchingTerms.length) {
+                        feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+                    } else {
+                        feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+                    }
+                };
+            </script>
+        </div>
+
+        <div class="section">
+            <h2>Quick Quiz <span>⚡</span></h2>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is an incremental solution?
+                <div class="model-answer"><strong>Model Answer:</strong> An incremental solution is a small, gradual improvement made over time.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is a radical solution?
+                <div class="model-answer"><strong>Model Answer:</strong> A radical solution is a big, game-changing leap that completely changes how something is done.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is end-of-pipe technology?
+                <div class="model-answer"><strong>Model Answer:</strong> End-of-pipe technology reduces pollution or waste at the end of a process, like filters or carbon capture.</div>
+            </div>
+            <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+                What is carbon sequestration?
+                <div class="model-answer"><strong>Model Answer:</strong> Carbon sequestration is capturing and storing carbon dioxide to keep it out of the atmosphere.</div>
+            </div>
+            <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+        </div>
+
+        <div class="footer">
+            <h3>Step by step or all at once—design for change! <span>🔄🚀🌱</span></h3>
+            <p>Both incremental and radical solutions help us build a better, cleaner world. Which will you choose?</p>
+        </div>
+    </div>
+    <script>
+        document.querySelectorAll('.sample-q').forEach(q => {
+            q.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                const answer = this.querySelector('.model-answer');
+                if (answer.style.display === 'none' || answer.style.display === '') {
+                    answer.style.display = 'block';
+                    this.setAttribute('aria-pressed', 'true');
+                } else {
+                    answer.style.display = 'none';
+                    this.setAttribute('aria-pressed', 'false');
+                }
+            });
+            q.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    this.click();
+                }
+            });
+        });
+        document.querySelectorAll('.concept-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html> 

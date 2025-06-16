@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Design – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .sample-q { cursor: pointer; transition: background 0.2s; }
+    .sample-q:hover { background: #f5f5f5; }
+    .sample-q .model-answer { display: none; }
+    .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+    .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+    .matching-terms, .matching-defs { flex: 1; }
+    .matching-terms .pair-item, .matching-defs .pair-item {
+      background: #f7f7fa;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      user-select: none;
+      position: relative;
+    }
+    .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+    .pair-item.paired { border-width: 2px; }
+    .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+    .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+    .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+    .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+    .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+    .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+    .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+    .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+    .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+    .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+    .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+    @media (max-width: 700px) {
+      .matching-cols { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Eco Design <span>🌿🛠️</span></h1>
+      <p><strong>Why does it matter?</strong> Eco design means thinking about materials, energy, pollution, and waste at every step—so products are better for people and the planet! <span>🌍✨</span></p>
+    </div>
+
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Eco design</strong> <span>🌿</span> – Design strategy focused on materials, energy, pollution, and waste</li>
+        <li><strong>Planned obsolescence</strong> <span>⏳</span> – Designing products to become outdated or unusable quickly</li>
+        <li><strong>Cradle to grave</strong> <span>⚰️</span> – Considering environmental impact from creation to disposal</li>
+        <li><strong>Cradle to cradle</strong> <span>♻️</span> – Designing so products can be reused or recycled into new products</li>
+        <li><strong>Life cycle analysis (LCA)</strong> <span>🔄</span> – Assessing environmental impact at every stage of a product's life</li>
+        <li><strong>Environmental impact matrix</strong> <span>🟩</span> – A tool to compare impacts of different products or processes</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>What is Eco Design? <span>🌿</span></h2>
+      <div class="concept-card">
+        <h3>Definition</h3>
+        <div class="concept-content">
+          <p>Eco design is a strategy that focuses on three big environmental categories: materials, energy, and pollution/waste. The goal? Reduce harm and make smarter choices at every step!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Drivers of Eco Design <span>🚦</span></h2>
+      <div class="concept-card">
+        <h3>Consumer Groups</h3>
+        <div class="concept-content">
+          <p>People and organizations push for greener products—think BPA-free bottles or fair trade chocolate.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Government Legislation</h3>
+        <div class="concept-content">
+          <p>Laws like the EU Eco Design Directive require companies to consider environmental impact in their products.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Key Considerations <span>📝</span></h2>
+      <div class="concept-card">
+        <h3>Reduce Toxic Materials</h3>
+        <div class="concept-content">
+          <p>Avoid harmful chemicals like BPA in plastics. <br><em>Example:</em> BPA-free water bottles.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Increase Recyclability</h3>
+        <div class="concept-content">
+          <p>Design so products can be easily recycled. <br><em>Example:</em> Using single-material packaging.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Reduce Energy Use</h3>
+        <div class="concept-content">
+          <p>Use less energy in production and use. <br><em>Example:</em> Energy-efficient appliances.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Use Renewables</h3>
+        <div class="concept-content">
+          <p>Choose renewable resources over non-renewables. <br><em>Example:</em> Solar panels, bioplastics.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Increase Durability</h3>
+        <div class="concept-content">
+          <p>Make products last longer to avoid waste. <br><em>Example:</em> Durable shoes, reusable bags.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Avoid Planned Obsolescence</h3>
+        <div class="concept-content">
+          <p>Don't design products to break or become outdated quickly. <br><em>Example:</em> Phones with replaceable batteries.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Reduce Material Requirements</h3>
+        <div class="concept-content">
+          <p>Use less material overall. <br><em>Example:</em> Minimalist packaging, lightweight products.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Time Scale Influences <span>⏱️</span></h2>
+      <div class="concept-card">
+        <h3>Cost & Technology</h3>
+        <div class="concept-content">
+          <p>Eco design can cost more and take longer, especially for radical changes or new tech. Incremental changes are usually faster and cheaper.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Complexity</h3>
+        <div class="concept-content">
+          <p>Eco design is more complex—balancing cost, technology, and environmental impact takes careful planning.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Philosophies: Cradle to Grave & Cradle to Cradle <span>♻️</span></h2>
+      <div class="concept-card">
+        <h3>Cradle to Grave</h3>
+        <div class="concept-content">
+          <p>Considers the environmental impact from raw material extraction to disposal. <br><em>Example:</em> Most products today follow this model.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Cradle to Cradle</h3>
+        <div class="concept-content">
+          <p>Aims to eliminate waste by reusing or recycling products into new ones. <br><em>Example:</em> Glass bottles remade into new bottles.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Life Cycle Analysis (LCA) <span>🔄</span></h2>
+      <div class="concept-card">
+        <h3>What is LCA?</h3>
+        <div class="concept-content">
+          <p>Life cycle analysis looks at the environmental impact of a product from pre-production to disposal. It's a deep dive into every stage!</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Stages of LCA</h3>
+        <div class="concept-content">
+          <ul>
+            <li><strong>Pre-production:</strong> Extracting and transporting raw materials</li>
+            <li><strong>Production:</strong> Making the product (factories, pollution, etc.)</li>
+            <li><strong>Distribution:</strong> Shipping, packaging, and getting it to users</li>
+            <li><strong>Utilization:</strong> How the product is used (energy, water, etc.)</li>
+            <li><strong>Disposal:</strong> What happens at the end—recycle, compost, landfill?</li>
+          </ul>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Environmental Impact Matrix</h3>
+        <div class="concept-content">
+          <p>A simpler tool than LCA—compares impacts of different products or processes. <br><em>Example:</em> Comparing the environmental impact of different phone models.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>LCA vs. Matrix</h3>
+        <div class="concept-content">
+          <p>LCA is detailed, expensive, and focuses on one product. Matrix is quicker, cheaper, and can compare broad categories.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Planned obsolescence is why some products seem to "die" right after the warranty ends!</li>
+        <li>Glass bottles can be recycled endlessly without losing quality.</li>
+        <li>Locally made products usually have a smaller environmental footprint than imported ones.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Eco Design <span>🔗</span></h2>
+      <p>Match each eco design consideration or philosophy to its example. Click a term, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Reduce toxic materials',
+          'Increase recyclability',
+          'Reduce energy use',
+          'Use renewables',
+          'Increase durability',
+          'Avoid planned obsolescence',
+          'Reduce material requirements',
+          'Cradle to grave',
+          'Cradle to cradle',
+          'Environmental impact matrix'
+        ];
+        const matchingDefs = [
+          'BPA-free water bottles',
+          'Single-material packaging',
+          'Energy-efficient appliances',
+          'Solar panels, bioplastics',
+          'Reusable bags, durable shoes',
+          'Phones with replaceable batteries',
+          'Minimalist packaging, lightweight products',
+          'Considers impact from creation to disposal',
+          'Glass bottles remade into new bottles',
+          'Compares impacts of different phone models'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What are the three main categories of eco design?
+        <div class="model-answer"><strong>Model Answer:</strong> Materials, energy, and pollution/waste.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is planned obsolescence?
+        <div class="model-answer"><strong>Model Answer:</strong> Designing products to become outdated or unusable quickly.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between cradle to grave and cradle to cradle?
+        <div class="model-answer"><strong>Model Answer:</strong> Cradle to grave considers impact from creation to disposal; cradle to cradle aims for products to be reused or recycled into new ones.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a life cycle analysis (LCA)?
+        <div class="model-answer"><strong>Model Answer:</strong> LCA assesses the environmental impact of a product at every stage of its life.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+
+    <div class="footer">
+      <h3>Design for a greener future! <span>🌿🌏</span></h3>
+      <p>Eco design helps us make smarter, more sustainable choices—every step of the way.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

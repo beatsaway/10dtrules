@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graphical Modeling – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .sample-q { cursor: pointer; transition: background 0.2s; }
+    .sample-q:hover { background: #f5f5f5; }
+    .sample-q .model-answer { display: none; }
+    .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+    .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+    .matching-terms, .matching-defs { flex: 1; }
+    .matching-terms .pair-item, .matching-defs .pair-item {
+      background: #f7f7fa;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      user-select: none;
+      position: relative;
+    }
+    .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+    .pair-item.paired { border-width: 2px; }
+    .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+    .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+    .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+    .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+    .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+    .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+    .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+    .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+    .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+    .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+    .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+    @media (max-width: 700px) {
+      .matching-cols { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Graphical Modeling <span>✏️📐</span></h1>
+      <p><strong>Why does it matter?</strong> Graphical models help us visualize, develop, and communicate ideas—on paper or screen! <span>🖼️✨</span></p>
+    </div>
+
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Graphical modeling</strong> <span>✏️</span> – Visualizing ideas in 2D or 3D, on paper or software</li>
+        <li><strong>Perspective drawing</strong> <span>👁️</span> – Drawing objects as they appear to the eye (1, 2, or 3 vanishing points)</li>
+        <li><strong>Isometric projection</strong> <span>📏</span> – 3D drawing with axes at 120° angles, shows all dimensions</li>
+        <li><strong>Orthographic projection</strong> <span>🔲</span> – 2D views from different sides (top, front, side)</li>
+        <li><strong>Exploded drawing</strong> <span>💥</span> – Shows parts separated along an axis to reveal assembly</li>
+        <li><strong>Scaled drawing</strong> <span>📏</span> – Drawing sized by a ratio (e.g., 1:5) to represent real size</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>What is Graphical Modeling? <span>✏️</span></h2>
+      <div class="concept-card">
+        <h3>Definition</h3>
+        <div class="concept-content">
+          <p>Graphical modeling is the visualization of ideas—on paper or with software—in 2D or 3D. It helps designers develop, test, and communicate their ideas clearly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Types of Graphical Models <span>🖼️</span></h2>
+      <div class="concept-card">
+        <h3>Mathematical Modeling</h3>
+        <div class="concept-content">
+          <p>Graphs and charts that represent data visually. <br><em>Example:</em> Stress-strain curve for materials.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>2D Modeling</h3>
+        <div class="concept-content">
+          <p>Drawings that show length and width (no depth). <br><em>Example:</em> Side or top view of a table.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Perspective Drawing</h3>
+        <div class="concept-content">
+          <p>Shows objects as they appear to the eye, with vanishing points. <br><em>Example:</em> 1-point, 2-point, or 3-point perspective of a room or box.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Isometric Projection</h3>
+        <div class="concept-content">
+          <p>3D drawing with axes at 120° angles, shows all dimensions. <br><em>Example:</em> Isometric view of a cube or product.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Orthographic Projection</h3>
+        <div class="concept-content">
+          <p>2D views from different sides (top, front, side). <br><em>Example:</em> Orthographic drawing of a cassette tape.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Part & Assembly Drawings</h3>
+        <div class="concept-content">
+          <p>Show how parts fit together and their relationships. <br><em>Example:</em> Assembly drawing of a pen or clock.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Exploded Drawing</h3>
+        <div class="concept-content">
+          <p>Shows parts separated along an axis to reveal assembly. <br><em>Example:</em> Exploded view of a pen or clock.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Scaled Drawing</h3>
+        <div class="concept-content">
+          <p>Drawing sized by a ratio to represent real size. <br><em>Example:</em> 1:5 scale drawing of a product.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Why It Matters <span>🌟</span></h2>
+      <div class="concept-card">
+        <h3>Required for IA</h3>
+        <div class="concept-content">
+          <p>Graphical modeling skills are essential for your Internal Assessment (IA) and real-world design work!</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Communication</h3>
+        <div class="concept-content">
+          <p>Helps you share ideas with your team, clients, and manufacturers—making sure everyone understands the design.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Exploded drawings are used in LEGO instructions and IKEA manuals!</li>
+        <li>Orthographic and isometric drawings are standard in engineering and architecture.</li>
+        <li>Scaled drawings help build everything from furniture to skyscrapers.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Graphical Modeling <span>🔗</span></h2>
+      <p>Match each type of graphical modeling to its example or definition. Click a type, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Mathematical modeling',
+          '2D modeling',
+          'Perspective drawing',
+          'Isometric projection',
+          'Orthographic projection',
+          'Part & assembly drawing',
+          'Exploded drawing',
+          'Scaled drawing'
+        ];
+        const matchingDefs = [
+          'Graphs and charts that represent data visually',
+          'Side or top view of a table',
+          'Shows objects as they appear to the eye, with vanishing points',
+          '3D drawing with axes at 120° angles',
+          '2D views from different sides (top, front, side)',
+          'Shows how parts fit together and their relationships',
+          'Shows parts separated along an axis to reveal assembly',
+          'Drawing sized by a ratio to represent real size'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is graphical modeling?
+        <div class="model-answer"><strong>Model Answer:</strong> Visualizing ideas in 2D or 3D, on paper or software.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between isometric and orthographic projection?
+        <div class="model-answer"><strong>Model Answer:</strong> Isometric shows 3D with axes at 120°; orthographic shows 2D views from different sides.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is an exploded drawing?
+        <div class="model-answer"><strong>Model Answer:</strong> A drawing that shows parts separated along an axis to reveal assembly.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are scaled drawings important?
+        <div class="model-answer"><strong>Model Answer:</strong> They let you represent real objects accurately at a different size.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+
+    <div class="footer">
+      <h3>Draw it, see it, build it! <span>✏️📐</span></h3>
+      <p>Graphical modeling brings your ideas to life and helps everyone understand your vision.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

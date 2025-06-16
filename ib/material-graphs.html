@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Material Graphs & Selection Charts – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Material Graphs & Selection Charts <span>📊🧩</span></h1>
+      <p><strong>Graphs make materials make sense—choose wisely!</strong> <span>🔎</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Material selection chart</strong> – Graph showing properties (e.g., strength vs. density) to help pick materials</li>
+        <li><strong>Strength</strong> – How much pressure a material can withstand (measured in megapascals, MPa)</li>
+        <li><strong>Density</strong> – Mass per unit volume (kg/m³)</li>
+        <li><strong>Cost</strong> – How expensive a material is (often on a log scale)</li>
+        <li><strong>Stress</strong> – Force per unit area (σ, measured in pascals or MPa)</li>
+        <li><strong>Strain</strong> – Change in length/original length (ε, no units)</li>
+        <li><strong>Proportional limit</strong> – Point where elastic deformation ends and plastic begins</li>
+        <li><strong>Yield point</strong> – Stress beyond which material deforms permanently</li>
+        <li><strong>Ultimate strength</strong> – Maximum stress a material can withstand</li>
+        <li><strong>Elastic deformation</strong> – Material returns to original shape after stress</li>
+        <li><strong>Plastic deformation</strong> – Material is permanently deformed</li>
+        <li><strong>Young's modulus</strong> – Slope of the elastic region; measures stiffness</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Material Selection Charts</h3><div class="concept-content"><p>Graphs that plot two properties (like strength vs. density or strength vs. cost) to help you pick the right material for your design. <br><strong>Logarithmic axes:</strong> The axes often increase by factors of 10, not linearly!<br><em>Example:</em> Foams are light & weak (bottom left), alloys are strong (top), composites are light & strong (top left).</p></div></div>
+      <div class="concept-card"><h3>Stress-Strain Graphs</h3><div class="concept-content"><p>Show how a material responds to force. <br><strong>Stress (σ):</strong> Force per area (y-axis, MPa).<br><strong>Strain (ε):</strong> Change in length/original length (x-axis).<br><strong>Elastic region:</strong> Straight line—material snaps back.<br><strong>Plastic region:</strong> Curved—material is permanently deformed.<br><strong>Proportional limit:</strong> End of elastic, start of plastic.<br><strong>Yield point:</strong> Where permanent deformation begins.<br><strong>Ultimate strength:</strong> Max stress before breaking.</p></div></div>
+      <div class="concept-card"><h3>Young's Modulus</h3><div class="concept-content"><p>The slope of the elastic (straight) region of a stress-strain graph. <br><strong>High slope = stiff (less strain for same stress).</strong><br><strong>Low slope = flexible (more strain for same stress).</strong></p></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Foams are used for packaging because they're light and don't need to be strong.</li>
+        <li>Alloys are chosen for strength—think airplane parts!</li>
+        <li>Engineers must know the yield point to keep bridges and buildings safe.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Graph Terms <span>🔗</span></h2>
+      <p>Match each graph term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Material selection chart',
+          'Strength',
+          'Density',
+          'Cost',
+          'Stress',
+          'Strain',
+          'Proportional limit',
+          'Yield point',
+          'Ultimate strength',
+          'Elastic deformation',
+          'Plastic deformation',
+          "Young's modulus"
+        ];
+        const matchingDefs = [
+          'Graph showing properties to help pick materials',
+          'How much pressure a material can withstand',
+          'Mass per unit volume',
+          'How expensive a material is (often on a log scale)',
+          'Force per unit area (σ, y-axis)',
+          'Change in length/original length (ε, x-axis)',
+          'End of elastic, start of plastic region',
+          'Stress where permanent deformation begins',
+          'Maximum stress before breaking',
+          'Material returns to original shape after stress',
+          'Material is permanently deformed',
+          "Slope of elastic region; measures stiffness"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 12; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 12; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does the slope of the elastic region on a stress-strain graph represent?
+        <div class="model-answer"><strong>Model Answer:</strong> Young's modulus—it measures stiffness.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the difference between elastic and plastic deformation?
+        <div class="model-answer"><strong>Model Answer:</strong> Elastic: material returns to original shape; Plastic: material is permanently deformed.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are axes on material selection charts often logarithmic?
+        <div class="model-answer"><strong>Model Answer:</strong> To show a wide range of values (e.g., 1 to 10,000) in a compact space.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Graphs make materials make sense—choose wisely! <span>📊🧩</span></h3>
+      <p>Use the right graph, pick the right material, ace your design!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

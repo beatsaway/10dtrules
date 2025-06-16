@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just in Time (JIT) Production (10.1a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Just in Time (JIT) Production <span>⏱️🏭</span></h1>
+      <p><strong>How do companies minimize storage and maximize flexibility?</strong> <span>🚚</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Just in Time (JIT)</strong> – Production system where materials/components are ordered and products made only as needed</li>
+        <li><strong>Cell Production</strong> – Small teams (cells) responsible for different parts of the process</li>
+        <li><strong>Supply Chain</strong> – Network of suppliers and logistics for production</li>
+        <li><strong>Cash Flow</strong> – Money available for use, not tied up in inventory</li>
+        <li><strong>Flexibility</strong> – Ability to adapt production quickly</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>What is JIT? <span>❓</span></h2>
+      <div class="concept-card"><h3>Definition</h3><div class="concept-content"><ul><li>Materials/components ordered only when needed</li><li>Products made to order, not stored</li><li>Production split into cells (teams)</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Advantages <span>✅</span></h2>
+      <div class="concept-card"><h3>Lower Storage/Warehousing Costs</h3><div class="concept-content"><ul><li>No need for large storage areas</li></ul></div></div>
+      <div class="concept-card"><h3>Requires Less Staffing & Security</h3><div class="concept-content"><ul><li>Fewer employees needed for storage/admin</li></ul></div></div>
+      <div class="concept-card"><h3>Less Wastage & Overstock</h3><div class="concept-content"><ul><li>Reduces waste, especially for perishables</li></ul></div></div>
+      <div class="concept-card"><h3>Frees Up Cash Flow</h3><div class="concept-content"><ul><li>Money not tied up in inventory</li></ul></div></div>
+      <div class="concept-card"><h3>Highly Flexible</h3><div class="concept-content"><ul><li>Easy to set up for short runs or changes</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Disadvantages <span>⚠️</span></h2>
+      <div class="concept-card"><h3>No Economy of Scale</h3><div class="concept-content"><ul><li>Can't get bulk discounts</li></ul></div></div>
+      <div class="concept-card"><h3>Supply Chain Risk</h3><div class="concept-content"><ul><li>Any delay or failure can halt production</li></ul></div></div>
+      <div class="concept-card"><h3>Hard to React to Demand</h3><div class="concept-content"><ul><li>Not easy to ramp up quickly if demand spikes</li></ul></div></div>
+      <div class="concept-card"><h3>Increased Transport Costs</h3><div class="concept-content"><ul><li>Frequent small deliveries cost more</li></ul></div></div>
+      <div class="concept-card"><h3>Distribution Delays</h3><div class="concept-content"><ul><li>Customers may wait for products to be made</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>🤓</span></h2>
+      <ul class="tips-list">
+        <li>JIT was popularized by Toyota in Japan to reduce costs and increase efficiency.</li>
+        <li>COVID-19 exposed JIT's vulnerability to supply chain disruptions (e.g., face masks).</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main advantage of JIT?
+        <div class="model-answer"><strong>Model Answer:</strong> Lower storage/warehousing costs and less wastage.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one disadvantage of JIT.
+        <div class="model-answer"><strong>Model Answer:</strong> Supply chain failures have a large impact.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is cell production?
+        <div class="model-answer"><strong>Model Answer:</strong> Dividing production into small teams (cells) responsible for different parts.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>JIT = lean, flexible production! <span>⏱️💡</span></h3>
+      <p>Would JIT work for your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

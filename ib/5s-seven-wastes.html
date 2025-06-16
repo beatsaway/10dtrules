@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5S & The Seven Wastes (TIMWOOD) (10.2d) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>5S & The Seven Wastes (TIMWOOD) <span>5️⃣♻️</span></h1>
+      <p><strong>How do you keep production lean, clean, and efficient?</strong> <span>🧹</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>5S</strong> – Workplace organization method: Sort, Set in Order, Shine, Standardize, Sustain</li>
+        <li><strong>Sort</strong> – Remove unnecessary items</li>
+        <li><strong>Set in Order</strong> – Organize needed items for easy access</li>
+        <li><strong>Shine</strong> – Clean and inspect the workspace</li>
+        <li><strong>Standardize</strong> – Create consistent practices and procedures</li>
+        <li><strong>Sustain</strong> – Maintain and review standards</li>
+        <li><strong>Seven Wastes (TIMWOOD)</strong> – Types of waste: Transportation, Inventory, Motion, Waiting, Overproduction, Overprocessing, Defects</li>
+        <li><strong>Transportation</strong> – Unnecessary movement of materials</li>
+        <li><strong>Inventory</strong> – Excess materials or products</li>
+        <li><strong>Motion</strong> – Unnecessary movement of people/equipment</li>
+        <li><strong>Waiting</strong> – Idle time when nothing is being produced</li>
+        <li><strong>Overproduction</strong> – Making more than needed</li>
+        <li><strong>Overprocessing</strong> – Doing more work than necessary</li>
+        <li><strong>Defects</strong> – Products that are faulty or need rework</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>5S Methodology <span>🧹</span></h2>
+      <div class="concept-card"><h3>Sort</h3><div class="concept-content"><ul><li>Remove unnecessary items from the workspace</li></ul></div></div>
+      <div class="concept-card"><h3>Set in Order</h3><div class="concept-content"><ul><li>Organize tools/materials for easy access</li></ul></div></div>
+      <div class="concept-card"><h3>Shine</h3><div class="concept-content"><ul><li>Clean and inspect regularly</li></ul></div></div>
+      <div class="concept-card"><h3>Standardize</h3><div class="concept-content"><ul><li>Create consistent procedures and checklists</li></ul></div></div>
+      <div class="concept-card"><h3>Sustain</h3><div class="concept-content"><ul><li>Maintain and review standards, keep improving</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>The Seven Wastes (TIMWOOD) <span>♻️</span></h2>
+      <div class="concept-card"><h3>Transportation</h3><div class="concept-content"><ul><li>Unnecessary movement of materials</li></ul></div></div>
+      <div class="concept-card"><h3>Inventory</h3><div class="concept-content"><ul><li>Excess materials or products not being processed</li></ul></div></div>
+      <div class="concept-card"><h3>Motion</h3><div class="concept-content"><ul><li>Unnecessary movement of people/equipment</li></ul></div></div>
+      <div class="concept-card"><h3>Waiting</h3><div class="concept-content"><ul><li>Idle time when nothing is being produced</li></ul></div></div>
+      <div class="concept-card"><h3>Overproduction</h3><div class="concept-content"><ul><li>Making more than is needed</li></ul></div></div>
+      <div class="concept-card"><h3>Overprocessing</h3><div class="concept-content"><ul><li>Doing more work than necessary</li></ul></div></div>
+      <div class="concept-card"><h3>Defects</h3><div class="concept-content"><ul><li>Products that are faulty or need rework</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>5S started in Japan and is now used by companies worldwide to keep workplaces efficient and safe.</li>
+        <li>TIMWOOD is a handy acronym to remember the seven wastes!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does 5S stand for?
+        <div class="model-answer"><strong>Model Answer:</strong> Sort, Set in Order, Shine, Standardize, Sustain.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name three of the seven wastes (TIMWOOD).
+        <div class="model-answer"><strong>Model Answer:</strong> Any three of: Transportation, Inventory, Motion, Waiting, Overproduction, Overprocessing, Defects.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is overproduction a waste?
+        <div class="model-answer"><strong>Model Answer:</strong> It leads to excess inventory, higher costs, and possible obsolescence.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Keep it lean, keep it clean! <span>5️⃣♻️</span></h3>
+      <p>How would you use 5S and TIMWOOD in your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

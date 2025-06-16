@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Design – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .sample-q { cursor: pointer; transition: background 0.2s; }
+    .sample-q:hover { background: #f5f5f5; }
+    .sample-q .model-answer { display: none; }
+    .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+    .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+    .matching-terms, .matching-defs { flex: 1; }
+    .matching-terms .pair-item, .matching-defs .pair-item {
+      background: #f7f7fa;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      user-select: none;
+      position: relative;
+    }
+    .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+    .pair-item.paired { border-width: 2px; }
+    .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+    .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+    .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+    .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+    .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+    .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+    .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+    .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+    .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+    .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+    .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+    @media (max-width: 700px) {
+      .matching-cols { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Green Design <span>🌱🛠️</span></h1>
+      <p><strong>Why does it matter?</strong> Green design means making products that are better for people and the planet—throughout their whole life! <span>🌍✨</span></p>
+    </div>
+
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Green design</strong> <span>🌱</span> – Designing with environmental impact in mind, from creation to disposal</li>
+        <li><strong>Efficiency</strong> <span>⚡</span> – Using materials, energy, and resources wisely</li>
+        <li><strong>Pollution</strong> <span>💨</span> – Harmful substances released into the environment</li>
+        <li><strong>Product life cycle</strong> <span>🔄</span> – The journey of a product from creation to disposal</li>
+        <li><strong>Compostable</strong> <span>🍃</span> – Can break down naturally and return to the earth</li>
+        <li><strong>Labeling</strong> <span>🏷️</span> – Marking products to help with recycling or disposal</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>What is Green Design? <span>🌱</span></h2>
+      <div class="concept-card">
+        <h3>Definition</h3>
+        <div class="concept-content">
+          <p>Green design is all about creating products that consider their environmental impact at every stage—from materials and manufacturing to use and disposal. It's about making things better for the planet and for people!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Objectives of Green Design <span>🎯</span></h2>
+      <div class="concept-card">
+        <h3>Increase Efficiency</h3>
+        <div class="concept-content">
+          <p>Use less material, energy, and resources. <br><em>Example:</em> LED bulbs use less energy than old-school bulbs!</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Minimize Waste & Pollution</h3>
+        <div class="concept-content">
+          <p>Choose materials and processes that create less waste and pollution. <br><em>Example:</em> PLA plastic (from corn) is compostable, unlike ABS plastic.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Reduce Long-Term Harm</h3>
+        <div class="concept-content">
+          <p>Design to avoid lasting damage to the environment. <br><em>Example:</em> Prevent toxic chemicals from leaking into rivers or water tables.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Appropriate Product Life</h3>
+        <div class="concept-content">
+          <p>Make products last as long as needed—no more, no less. <br><em>Example:</em> Reusable cloth bags vs. single-use plastic bags.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Consider End-of-Life</h3>
+        <div class="concept-content">
+          <p>Plan for recycling, composting, or safe disposal. <br><em>Example:</em> Minimize packaging, use recyclable materials, design for disassembly.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Eco-Friendly Packaging</h3>
+        <div class="concept-content">
+          <p>Use packaging that breaks down quickly or can be recycled. <br><em>Example:</em> Paper cups instead of polystyrene cups.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Minimize Noise & Smell</h3>
+        <div class="concept-content">
+          <p>Reduce unpleasant odors and loud sounds from products or factories. <br><em>Example:</em> Factories with filters and sound barriers.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Reduce Safety Hazards</h3>
+        <div class="concept-content">
+          <p>Follow the safety pyramid: eliminate, substitute, isolate, control, use PPE. <br><em>Example:</em> Safety goggles, emergency stop buttons, and safer machines.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Minimize Materials</h3>
+        <div class="concept-content">
+          <p>Use fewer types of materials to make recycling easier. <br><em>Example:</em> Avoid complex composites like Tetra Pak cartons.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Clear Labeling</h3>
+        <div class="concept-content">
+          <p>Label products so they can be sorted and recycled properly. <br><em>Example:</em> Recycling codes on plastics.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Single-use plastic bags are used for an average of just 12 minutes!</li>
+        <li>Some safety equipment can instantly stop a saw if it touches skin—amazing tech!</li>
+        <li>Polystyrene cups can last 500+ years in a landfill. Paper cups? Just a few months.</li>
+      </ul>
+    </div>
+
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Green Design Objectives <span>🔗</span></h2>
+      <p>Match each objective to its example or explanation. Click an objective, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Increase efficiency',
+          'Minimize waste & pollution',
+          'Reduce long-term harm',
+          'Appropriate product life',
+          'Consider end-of-life',
+          'Eco-friendly packaging',
+          'Minimize noise & smell',
+          'Reduce safety hazards',
+          'Minimize materials',
+          'Clear labeling'
+        ];
+        const matchingDefs = [
+          'LED bulbs use less energy than old-school bulbs',
+          'PLA plastic is compostable, unlike ABS',
+          'Prevent toxic chemicals from leaking into rivers',
+          'Reusable cloth bags vs. single-use plastic bags',
+          'Design for recycling, composting, or safe disposal',
+          'Paper cups instead of polystyrene cups',
+          'Factories with filters and sound barriers',
+          'Safety goggles, emergency stop buttons, safer machines',
+          'Avoid complex composites like Tetra Pak cartons',
+          'Recycling codes on plastics'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 10; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is green design?
+        <div class="model-answer"><strong>Model Answer:</strong> Green design is designing products with environmental impact in mind, from creation to disposal.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is minimizing the number of materials in a product important?
+        <div class="model-answer"><strong>Model Answer:</strong> Fewer materials make recycling easier and reduce waste.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of eco-friendly packaging.
+        <div class="model-answer"><strong>Model Answer:</strong> Paper cups instead of polystyrene cups—they break down much faster!</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the average use time for a single-use plastic bag?
+        <div class="model-answer"><strong>Model Answer:</strong> About 12 minutes!</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+
+    <div class="footer">
+      <h3>Design for a greener world! <span>🌱🌏</span></h3>
+      <p>Every design choice can help protect the planet. Go green!</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

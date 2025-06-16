@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Scenarios – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>User Scenarios <span>📝🧑‍💻</span></h1>
+      <p><strong>Imagine your user's journey—before you build!</strong> <span>🚀</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Scenario</strong> – An imagined sequence of events in a persona's daily life</li>
+        <li><strong>Best case</strong> – Everything goes right in the scenario</li>
+        <li><strong>Average case</strong> – Typical, expected experience</li>
+        <li><strong>Worst case</strong> – Things go wrong in the scenario</li>
+        <li><strong>Abstraction</strong> – Level of detail (general vs. specific)</li>
+        <li><strong>Scenario mapping</strong> – Visualizing user journeys and system interactions</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What is a User Scenario?</h3><div class="concept-content"><ul><li>An imagined story of how a persona interacts with a product or system</li><li>Shows steps, decisions, and possible outcomes</li></ul></div></div>
+      <div class="concept-card"><h3>Purpose of Scenarios</h3><div class="concept-content"><ul><li>Helps designers understand user needs and pain points</li><li>Spot design flaws before building</li></ul></div></div>
+      <div class="concept-card"><h3>Best/Average/Worst Case</h3><div class="concept-content"><ul><li>Best: everything works perfectly</li><li>Average: typical experience, some minor issues</li><li>Worst: major problems or failures</li></ul></div></div>
+      <div class="concept-card"><h3>Abstraction</h3><div class="concept-content"><ul><li>High abstraction: general, less detail</li><li>Low abstraction: specific, detailed steps</li></ul></div></div>
+      <div class="concept-card"><h3>Scenario Mapping</h3><div class="concept-content"><ul><li>Visual tool to map out user journeys</li><li>Shows interactions, decisions, and system responses</li></ul></div></div>
+      <div class="concept-card"><h3>Examples</h3><div class="concept-content"><ul><li>Ordering food online: best case—everything arrives as ordered; worst case—order is wrong or missing items</li><li>Using a kettle: best case—easy to pour; worst case—too heavy for user with arthritis</li></ul></div></div>
+      <div class="concept-card"><h3>Pitfalls</h3><div class="concept-content"><ul><li>Scenarios are based on assumptions—always validate with real users</li><li>Too much abstraction can miss important details</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Scenario mapping is used by top tech companies to design better apps and services.</li>
+        <li>Worst-case scenarios help teams prepare for real-world problems before launch.</li>
+        <li>Scenarios can be written, drawn, or even acted out!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Scenario Concepts <span>🔗</span></h2>
+      <p>Match each concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Scenario",
+          "Best case",
+          "Average case",
+          "Worst case",
+          "Abstraction",
+          "Scenario mapping"
+        ];
+        const matchingDefs = [
+          "An imagined sequence of events in a persona's daily life",
+          "Everything goes right in the scenario",
+          "Typical, expected experience",
+          "Things go wrong in the scenario",
+          "Level of detail (general vs. specific)",
+          "Visualizing user journeys and system interactions"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a user scenario?
+        <div class="model-answer"><strong>Model Answer:</strong> An imagined sequence of events showing how a persona interacts with a product or system.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why are worst-case scenarios important?
+        <div class="model-answer"><strong>Model Answer:</strong> They help teams prepare for problems and improve the design before launch.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is scenario mapping?
+        <div class="model-answer"><strong>Model Answer:</strong> A visual tool to map out user journeys, showing steps, decisions, and system responses.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Map the journey! <span>📝🚀</span></h3>
+      <p>How will you use scenarios to improve your next design?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

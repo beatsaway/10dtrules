@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rogers' Characteristics of Innovation & Consumers – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Rogers' Characteristics of Innovation & Consumers <span>🌟🧑‍🤝‍🧑</span></h1>
+      <p><strong>Why do people adopt new ideas? Rogers explains how innovation spreads!</strong> <span>🚀</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Relative advantage</strong> – Is the new product better than what came before?</li>
+        <li><strong>Compatibility</strong> – Does it fit with users' values, needs, and practices?</li>
+        <li><strong>Complexity</strong> – Is it easy or hard to use?</li>
+        <li><strong>Observability</strong> – Can people see the results of the innovation?</li>
+        <li><strong>Trialability</strong> – Can people try it before committing?</li>
+        <li><strong>Conspicuous consumption</strong> – Buying things to be seen by others</li>
+        <li><strong>Social roots of consumerism</strong> – How groups, values, and lifestyles affect adoption</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Relative Advantage</h3><div class="concept-content"><ul><li>Is the innovation better than what came before?</li><li>Example: Washing machines vs. hand washing</li><li>More advantage = more likely to be adopted</li></ul></div></div>
+      <div class="concept-card"><h3>Compatibility</h3><div class="concept-content"><ul><li>Does it fit with users' values, needs, and practices?</li><li>Example: Organic food for people who value natural products</li></ul></div></div>
+      <div class="concept-card"><h3>Complexity</h3><div class="concept-content"><ul><li>Is it easy or hard to use?</li><li>Less complex = more likely to be adopted</li><li>Example: Apple products are designed to feel simple</li></ul></div></div>
+      <div class="concept-card"><h3>Observability</h3><div class="concept-content"><ul><li>Can people see the results of the innovation?</li><li>Example: AirPods, solar panels on houses</li><li>More visible = more likely to be adopted</li></ul></div></div>
+      <div class="concept-card"><h3>Trialability</h3><div class="concept-content"><ul><li>Can people try it before committing?</li><li>Example: Test driving a car, trying devices at the Apple Store</li></ul></div></div>
+      <div class="concept-card"><h3>Social Roots of Consumerism</h3><div class="concept-content"><ul><li>Groups, values, and lifestyles affect adoption</li><li>Example: Techies adopt early, vegans avoid meat substitutes</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Everett Rogers published his theory in 1962—it's still used today!</li>
+        <li>Some people put solar panels on the wrong side of their house just to be seen!</li>
+        <li>Apple Stores let you try everything—boosting trialability and adoption.</li>
+        <li>Test drives are a classic way to increase trialability for cars.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Rogers' 5 Characteristics <span>🔗</span></h2>
+      <p>Match each characteristic to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Relative advantage",
+          "Compatibility",
+          "Complexity",
+          "Observability",
+          "Trialability"
+        ];
+        const matchingDefs = [
+          "Is the new product better than what came before?",
+          "Does it fit with users' values, needs, and practices?",
+          "Is it easy or hard to use?",
+          "Can people see the results of the innovation?",
+          "Can people try it before committing?"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 5; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 5; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What are Rogers' five characteristics of innovation adoption?
+        <div class="model-answer"><strong>Model Answer:</strong> Relative advantage, compatibility, complexity, observability, trialability.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of observability in innovation.
+        <div class="model-answer"><strong>Model Answer:</strong> AirPods or solar panels—people can see them, which encourages adoption.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is trialability important for new products?
+        <div class="model-answer"><strong>Model Answer:</strong> If people can try a product before buying, they're more likely to adopt it (e.g., test drives, Apple Store demos).</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Innovation spreads when it fits our lives! <span>🌟🚀</span></h3>
+      <p>Which new idea will you adopt next?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

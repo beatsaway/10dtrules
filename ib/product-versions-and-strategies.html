@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Versions & Strategies – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Product Versions & Strategies <span>🎨🛒</span></h1>
+      <p><strong>How do companies keep products fresh and sales strong?</strong> <span>💡</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Product version</strong> – Different models or types of a product for various markets</li>
+        <li><strong>Product range</strong> – A set of related products (e.g., basic to premium)</li>
+        <li><strong>Limited release</strong> – Special, rare versions to boost excitement and sales</li>
+        <li><strong>Throwaway culture</strong> – Society's tendency to discard products quickly</li>
+        <li><strong>Moore's Law</strong> – Computing power doubles every two years</li>
+        <li><strong>Market segmentation</strong> – Dividing a market into groups for targeted products</li>
+        <li><strong>Customization</strong> – Offering personalized options (e.g., colors, memory size)</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>Product Versions</h3><div class="concept-content"><ul><li>Different models for different regions/cultures (e.g., Toyota Fortuner vs. 4Runner)</li><li>Helps companies reach more customers</li></ul></div></div>
+      <div class="concept-card"><h3>Product Range</h3><div class="concept-content"><ul><li>Basic to premium options (e.g., Toyota Corolla vs. Camry)</li><li>Captures different market segments</li></ul></div></div>
+      <div class="concept-card"><h3>Limited Releases</h3><div class="concept-content"><ul><li>Special, rare versions (e.g., rare sneakers, LOL dolls)</li><li>Creates excitement and urgency</li></ul></div></div>
+      <div class="concept-card"><h3>Throwaway Culture</h3><div class="concept-content"><ul><li>Society's habit of quickly discarding products</li><li>Leads to more waste and faster product cycles</li></ul></div></div>
+      <div class="concept-card"><h3>Strategies to Extend Product Life</h3><div class="concept-content"><ul><li>New versions, colors, or models</li><li>Limited editions and special releases</li><li>Customization (e.g., memory size, color)</li><li>Targeting different market segments</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Toyota uses different names for similar cars in different countries!</li>
+        <li>Limited edition sneakers and toys can sell for huge amounts online.</li>
+        <li>Moore's Law means your phone gets outdated fast!</li>
+        <li>Throwaway culture is a big challenge for sustainability.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Product Strategies <span>🔗</span></h2>
+      <p>Match each strategy or concept to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          "Product version",
+          "Product range",
+          "Limited release",
+          "Throwaway culture",
+          "Customization",
+          "Market segmentation"
+        ];
+        const matchingDefs = [
+          "Different models for different regions/cultures",
+          "Basic to premium options for different customers",
+          "Special, rare versions to boost excitement and sales",
+          "Society's habit of quickly discarding products",
+          "Offering personalized options (e.g., color, memory size)",
+          "Dividing a market into groups for targeted products"
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 6; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!selectedTerm || !e.target.classList.contains('pair-item')) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a product version? Give an example.
+        <div class="model-answer"><strong>Model Answer:</strong> Different models for different regions/cultures (e.g., Toyota Fortuner vs. 4Runner).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        How do limited releases help companies?
+        <div class="model-answer"><strong>Model Answer:</strong> They create excitement, urgency, and boost sales by being rare or special.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is throwaway culture and why is it a problem?
+        <div class="model-answer"><strong>Model Answer:</strong> Society's habit of quickly discarding products, leading to more waste and environmental issues.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>Smart strategies keep products alive—and customers coming back! <span>🛒💡</span></h3>
+      <p>How would you keep your product fresh and exciting?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

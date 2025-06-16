@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Production Systems: Craft, Mechanized, Automated, and More – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Production Systems: Craft, Mechanized, Automated, and More <span>🏭🤖</span></h1>
+      <p><strong>From handmade rings to robot-built cars—production systems shape our world!</strong> <span>💍🚗</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Production system</strong> – Method for organizing manufacturing</li>
+        <li><strong>Craft production</strong> – Small-scale, manual, one-off or batch production</li>
+        <li><strong>Mechanized production</strong> – Volume production using machines controlled by humans</li>
+        <li><strong>Automated production</strong> – Volume production using machines controlled by computers</li>
+        <li><strong>Assembly line</strong> – Products move along a conveyor, parts added at each station</li>
+        <li><strong>Mass production</strong> – Large volumes of standardized products</li>
+        <li><strong>CNC</strong> – Computer Numeric Control, computer-controlled machines</li>
+        <li><strong>G-code</strong> – Programming language for CNC machines</li>
+        <li><strong>Feed speed</strong> – Rate at which material is fed into a machine</li>
+        <li><strong>Mass customization</strong> – Mass production with individual customization</li>
+        <li><strong>Computer integrated manufacturing</strong> – Systems linking design, production, and business</li>
+        <li><strong>Design for manufacture</strong> – Designing for available manufacturing capabilities</li>
+        <li><strong>Design for materials</strong> – Choosing materials available for production</li>
+        <li><strong>Design for process</strong> – Designing for a specific manufacturing process</li>
+        <li><strong>Design for assembly</strong> – Designing to simplify assembly</li>
+        <li><strong>Design for disassembly</strong> – Designing for easy disassembly and recycling</li>
+        <li><strong>Flexibility</strong> – Ability to adapt production to different products</li>
+        <li><strong>Labor market</strong> – Supply and demand for workers</li>
+        <li><strong>Economies of scale</strong> – Cost advantages from large-scale production</li>
+        <li><strong>Value</strong> – Worth of a product or process</li>
+        <li><strong>Interchangeable parts</strong> – Standardized parts that can be swapped</li>
+        <li><strong>Disassembly</strong> – Taking products apart for repair or recycling</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Core Concepts <span>🧠</span></h2>
+      <div class="concept-card"><h3>What are Production Systems?</h3><div class="concept-content"><p>Production systems are ways of organizing manufacturing. <br><strong>Selection criteria:</strong> Economy of scale, value, labor, flexibility, environment.</p></div></div>
+      <div class="concept-card"><h3>Craft Production</h3><div class="concept-content"><p>Small-scale, manual, one-off or batch production. <br><strong>Examples:</strong> Custom jewelry, handmade furniture.<br><strong>Pros:</strong> High quality, flexible, skilled labor.<br><strong>Cons:</strong> Expensive, slow, no economies of scale.</p></div></div>
+      <div class="concept-card"><h3>Mechanized Production</h3><div class="concept-content"><p>Volume production using machines controlled by humans. <br><strong>Examples:</strong> Shipbuilding, machine shops.<br><strong>Pros:</strong> More efficient than craft, skilled labor.<br><strong>Cons:</strong> Still expensive, needs skilled workers.</p></div></div>
+      <div class="concept-card"><h3>Automated Production</h3><div class="concept-content"><p>Volume production using machines controlled by computers. <br><strong>Examples:</strong> CNC machining, automated factories.<br><strong>Pros:</strong> High precision, lower labor costs, high volume.<br><strong>Cons:</strong> High machine cost, less flexibility, less skilled labor needed.</p></div></div>
+      <div class="concept-card"><h3>Assembly Lines & Mass Production</h3><div class="concept-content"><p>Products move along a conveyor, parts added at each station. <br><strong>Examples:</strong> Car factories, Lego factories.<br><strong>Pros:</strong> High volume, low cost per unit, interchangeable parts.<br><strong>Cons:</strong> Less customization, high capital investment, less motivated workers.</p></div></div>
+      <div class="concept-card"><h3>CNC & Mass Customization</h3><div class="concept-content"><p><strong>CNC:</strong> Computer-controlled machines using G-code for precise manufacturing.<br><strong>Mass customization:</strong> Mass production with individual customization (e.g., custom sneakers, cars).</p></div></div>
+      <div class="concept-card"><h3>Design for Manufacture</h3><div class="concept-content"><ul><li><strong>Design for materials:</strong> Choose materials you have available.</li><li><strong>Design for process:</strong> Design for the manufacturing process you can use.</li><li><strong>Design for assembly:</strong> Simplify assembly, reduce parts.</li><li><strong>Design for disassembly:</strong> Make products easy to take apart for repair or recycling.</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts & Real-World <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Custom jewelry is craft production; Lego factories are mass production.</li>
+        <li>CNC machines use G-code to make complex parts.</li>
+        <li>Mass customization lets you design your own sneakers or cars online!</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Production Systems <span>🔗</span></h2>
+      <p>Match each production system term to its definition or example. Click a term, then a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Craft production',
+          'Mechanized production',
+          'Automated production',
+          'Assembly line',
+          'Mass production',
+          'CNC',
+          'G-code',
+          'Feed speed',
+          'Mass customization',
+          'Design for materials',
+          'Design for process',
+          'Design for assembly',
+          'Design for disassembly',
+          'Interchangeable parts',
+          'Disassembly'
+        ];
+        const matchingDefs = [
+          'Small-scale, manual, one-off or batch production',
+          'Volume production using machines controlled by humans',
+          'Volume production using machines controlled by computers',
+          'Products move along a conveyor, parts added at each station',
+          'Large volumes of standardized products',
+          'Computer Numeric Control, computer-controlled machines',
+          'Programming language for CNC machines',
+          'Rate at which material is fed into a machine',
+          'Mass production with individual customization',
+          'Choosing materials available for production',
+          'Designing for a specific manufacturing process',
+          'Designing to simplify assembly',
+          'Designing for easy disassembly and recycling',
+          'Standardized parts that can be swapped',
+          'Taking products apart for repair or recycling'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 15; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 15; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the main advantage of automated production?
+        <div class="model-answer"><strong>Model Answer:</strong> High precision, lower labor costs, and high-volume production.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is mass customization?
+        <div class="model-answer"><strong>Model Answer:</strong> Mass production with individual customization—products are made to order but at mass production prices.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Why is design for disassembly important?
+        <div class="model-answer"><strong>Model Answer:</strong> It makes products easier to repair, recycle, or repurpose, reducing environmental impact.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+    <div class="footer">
+      <h3>From handmade rings to robot-built cars—production systems shape our world! <span>🏭🤖</span></h3>
+      <p>Choosing the right production system is key to efficient, sustainable design.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

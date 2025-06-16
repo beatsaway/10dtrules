@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quality Management: QC, QA & SPC (10.4a) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Quality Management: QC, QA & SPC <span>✅📊</span></h1>
+      <p><strong>How do companies make sure products are always great? Let's break down QC, QA, and SPC!</strong> <span>🏭</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Quality Management</strong> – Ensuring products/services meet standards</li>
+        <li><strong>Quality Control (QC)</strong> – Checking products to meet/exceed customer expectations</li>
+        <li><strong>Quality Assurance (QA)</strong> – Managing processes to prevent defects</li>
+        <li><strong>Statistical Process Control (SPC)</strong> – Using stats to monitor and control production</li>
+        <li><strong>Shewhart Cycle</strong> – Plan-Do-Check-Act cycle for continuous improvement</li>
+        <li><strong>Tolerances</strong> – Acceptable limits for product specs</li>
+        <li><strong>Internal/External Customer</strong> – Next person in process vs. end user</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>Concepts <span>💡</span></h2>
+      <div class="concept-card"><h3>Quality Control (QC)</h3><div class="concept-content"><ul><li>System to ensure products/services meet or exceed customer requirements</li><li>Defines tolerances (e.g., size, temp, speed)</li><li>Samples inspected, defects reworked or scrapped</li></ul></div></div>
+      <div class="concept-card"><h3>Shewhart Cycle</h3><div class="concept-content"><ul><li>Continuous improvement: Plan → Do → Check → Act</li><li>Used to standardize and improve processes</li></ul></div></div>
+      <div class="concept-card"><h3>Quality Assurance (QA)</h3><div class="concept-content"><ul><li>Focuses on process, not just product</li><li>Proactive: aims to prevent defects</li><li>Includes regulation of materials, documentation, inspection</li></ul></div></div>
+      <div class="concept-card"><h3>Statistical Process Control (SPC)</h3><div class="concept-content"><ul><li>Uses statistical methods to monitor production</li><li>Keeps product specs within set tolerances</li><li>Helps spot trends and prevent defects</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>QC vs QA <span>🔍</span></h2>
+      <div class="comparison-table" style="overflow-x:auto;">
+        <table>
+          <thead><tr><th>Quality Control (QC)</th><th>Quality Assurance (QA)</th></tr></thead>
+          <tbody>
+            <tr><td>Product-oriented</td><td>Process-oriented</td></tr>
+            <tr><td>Reactive (finds defects)</td><td>Proactive (prevents defects)</td></tr>
+            <tr><td>Checks final product</td><td>Checks process throughout</td></tr>
+            <tr><td>External customer focus</td><td>Internal & external customer focus</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>SPC was first used in the 1920s to improve telephone manufacturing!</li>
+        <li>Many companies use both QC and QA for the best results.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What does QC stand for?
+        <div class="model-answer"><strong>Model Answer:</strong> Quality Control.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the main difference between QC and QA?
+        <div class="model-answer"><strong>Model Answer:</strong> QC checks products (reactive), QA manages processes to prevent defects (proactive).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the Shewhart Cycle?
+        <div class="model-answer"><strong>Model Answer:</strong> Plan-Do-Check-Act cycle for continuous improvement.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>Quality is everyone's job! <span>🛠️✨</span></h3>
+      <p>How would you ensure quality in your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

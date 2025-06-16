@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physical Modeling – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+  <style>
+    .sample-q { cursor: pointer; transition: background 0.2s; }
+    .sample-q:hover { background: #f5f5f5; }
+    .sample-q .model-answer { display: none; }
+    .matching-pairs-ex { margin: 18px 0; max-width: 800px; }
+    .matching-cols { display: flex; gap: 32px; justify-content: flex-start; }
+    .matching-terms, .matching-defs { flex: 1; }
+    .matching-terms .pair-item, .matching-defs .pair-item {
+      background: #f7f7fa;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      cursor: pointer;
+      transition: background 0.2s, border 0.2s;
+      user-select: none;
+      position: relative;
+    }
+    .pair-item.selected { background: #e3f2fd; border-color: #1976d2; }
+    .pair-item.paired { border-width: 2px; }
+    .pair-item.correct { background: #d4f8e8 !important; border-color: #43a047 !important; }
+    .pair-item.incorrect { background: #ffd6d6 !important; border-color: #e53935 !important; }
+    .matching-terms .pair-item, .matching-defs .pair-item { min-height: 44px; display: flex; align-items: center; }
+    .pair-color-0 { background: #b3e5fc !important; border-color: #0288d1 !important; color: #222; }
+    .pair-color-1 { background: #c8e6c9 !important; border-color: #388e3c !important; color: #222; }
+    .pair-color-2 { background: #ffe082 !important; border-color: #fbc02d !important; color: #222; }
+    .pair-color-3 { background: #ffccbc !important; border-color: #e64a19 !important; color: #222; }
+    .pair-color-4 { background: #d1c4e9 !important; border-color: #7e57c2 !important; color: #222; }
+    .pair-color-5 { background: #f8bbd0 !important; border-color: #c2185b !important; color: #222; }
+    .pair-color-6 { background: #b2dfdb !important; border-color: #00796b !important; color: #222; }
+    .pair-color-7 { background: #f0f4c3 !important; border-color: #afb42b !important; color: #222; }
+    @media (max-width: 700px) {
+      .matching-cols { flex-direction: column; gap: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Physical Modeling <span>🛠️🌍</span></h1>
+      <p><strong>Why does it matter?</strong> Physical models let us test, explore, and communicate ideas in 3D—before making the real thing! <span>🏗️✨</span></p>
+    </div>
+
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Physical model</strong> <span>🛠️</span> – A 3D model made to test, explore, or communicate a design</li>
+        <li><strong>Scale model</strong> <span>🔍</span> – A model that is proportionally smaller or larger than the real object</li>
+        <li><strong>Mock-up</strong> <span>📦</span> – A scale or full-size model used to gain feedback, may have some functionality</li>
+        <li><strong>Aesthetic model</strong> <span>🎨</span> – Looks like the real product but doesn't function</li>
+        <li><strong>Prototype</strong> <span>🚀</span> – A working model that functions like the final product</li>
+        <li><strong>Instrumented model</strong> <span>📊</span> – A prototype with sensors to collect data</li>
+        <li><strong>Fidelity</strong> <span>🎚️</span> – How closely a model matches the final product (low, medium, high)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>What is Physical Modeling? <span>🛠️</span></h2>
+      <div class="concept-card">
+        <h3>Definition & Context</h3>
+        <div class="concept-content">
+          <p>Physical modeling means making a 3D model to test, explore, or communicate a design. It helps designers and users see and interact with a product in its real context—before it's built for real!</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Why Use Physical Models?</h3>
+        <div class="concept-content">
+          <p>To test ideas, get feedback, and see how a product fits in its environment. It's iterative—models are improved over time based on feedback and testing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Types of Physical Models <span>🧩</span></h2>
+      <div class="concept-card">
+        <h3>Scale Models</h3>
+        <div class="concept-content">
+          <p>Proportional models made smaller (like a globe or building) or larger (like an enzyme model) to help visualize and test ideas.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Mock-ups</h3>
+        <div class="concept-content">
+          <p>Scale or full-size models used to gain feedback. May have some functionality, but not fully working. <br><em>Example:</em> Cosmetic bottle mock-ups.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Aesthetic Models</h3>
+        <div class="concept-content">
+          <p>Look and feel like the real product, but don't function. <br><em>Example:</em> Clay car models, hose attachment models.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Prototypes</h3>
+        <div class="concept-content">
+          <p>Working models that function like the final product. <br><em>Example:</em> Cardboard or 3D-printed prototypes for user testing.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Instrumented Models</h3>
+        <div class="concept-content">
+          <p>Prototypes with sensors to collect data. <br><em>Example:</em> Wind tunnel car models, touchscreen user testing.</p>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Fidelity</h3>
+        <div class="concept-content">
+          <p>How closely a model matches the final product. <br><em>Low fidelity:</em> Cardboard, <em>Medium:</em> Some real materials, <em>High:</em> Just like the real thing!</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Advantages & Disadvantages <span>👍👎</span></h2>
+      <div class="concept-card">
+        <h3>Advantages</h3>
+        <div class="concept-content">
+          <ul>
+            <li>Test and explore ideas in 3D</li>
+            <li>Easy to understand and interact with</li>
+            <li>Great for communication and feedback</li>
+            <li>Tangible—can be used in user trials</li>
+          </ul>
+        </div>
+      </div>
+      <div class="concept-card">
+        <h3>Disadvantages</h3>
+        <div class="concept-content">
+          <ul>
+            <li>May not represent reality perfectly</li>
+            <li>Can be time-consuming and costly</li>
+            <li>Requires skill to make</li>
+            <li>Materials may differ from final product</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Fun Facts & Real-World Examples <span>💡</span></h2>
+      <ul class="tips-list">
+        <li>Architects often build scale models of buildings before construction begins.</li>
+        <li>Car companies use clay models and wind tunnels to test designs.</li>
+        <li>3D printing has made rapid prototyping much faster and cheaper!</li>
+      </ul>
+    </div>
+
+    <div class="section" style="margin-top:32px;">
+      <h2>Matching Exercise: Physical Modeling <span>🔗</span></h2>
+      <p>Match each type, advantage, or disadvantage to its example or explanation. Click a term, then click a definition to pair them. When all pairs are made, click <strong>Check Answers</strong>!</p>
+      <div id="matching-pairs" class="matching-pairs-ex">
+        <div class="matching-cols">
+          <div class="matching-terms"></div>
+          <div class="matching-defs"></div>
+        </div>
+        <button type="button" id="check-matching-pairs" style="margin-top:18px;">Check Answers</button>
+        <div id="matching-pairs-feedback" style="margin-top:10px;"></div>
+      </div>
+      <script>
+        const matchingTerms = [
+          'Scale model',
+          'Mock-up',
+          'Aesthetic model',
+          'Prototype',
+          'Instrumented model',
+          'Fidelity',
+          'Advantage: tangible',
+          'Disadvantage: costly'
+        ];
+        const matchingDefs = [
+          'A globe or enzyme model, proportionally sized',
+          'Cosmetic bottle with some functionality',
+          'Clay car model that looks real but doesn't work',
+          '3D-printed working model for user testing',
+          'Wind tunnel car model with sensors',
+          'How closely a model matches the final product',
+          'Can be used in user trials and feedback',
+          'Takes time, skill, and money to make'
+        ];
+        function shuffle(arr) {
+          let a = arr.slice();
+          for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+          }
+          return a;
+        }
+        const shuffledDefs = shuffle(matchingDefs);
+        const termsCol = document.querySelector('.matching-terms');
+        const defsCol = document.querySelector('.matching-defs');
+        termsCol.innerHTML = '';
+        defsCol.innerHTML = '';
+        matchingTerms.forEach((term, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-term-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = term;
+          termsCol.appendChild(div);
+        });
+        shuffledDefs.forEach((def, i) => {
+          const div = document.createElement('div');
+          div.className = 'pair-item';
+          div.setAttribute('data-def-idx', i);
+          div.setAttribute('tabindex', 0);
+          div.innerHTML = def;
+          defsCol.appendChild(div);
+        });
+        let selectedTerm = null;
+        let selectedDef = null;
+        const pairs = Array(matchingTerms.length).fill(null);
+        function clearSelections() {
+          document.querySelectorAll('.pair-item.selected').forEach(el => el.classList.remove('selected'));
+        }
+        function clearPairHighlights() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            el.classList.remove('paired','correct','incorrect');
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+        }
+        function updatePairColors() {
+          document.querySelectorAll('.pair-item').forEach(el => {
+            for (let i = 0; i < 8; i++) el.classList.remove('pair-color-' + i);
+          });
+          let pairNum = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (termEl && defEl) {
+                termEl.classList.add('paired', 'pair-color-' + pairNum);
+                defEl.classList.add('paired', 'pair-color-' + pairNum);
+              }
+              pairNum++;
+            }
+          });
+        }
+        termsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          clearSelections();
+          selectedTerm = e.target;
+          selectedTerm.classList.add('selected');
+        });
+        defsCol.addEventListener('click', function(e) {
+          if (!e.target.classList.contains('pair-item')) return;
+          if (!selectedTerm) return;
+          selectedDef = e.target;
+          const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+          if (prevPair !== -1) pairs[prevPair] = null;
+          const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+          const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+          pairs[termIdx] = defIdx;
+          clearSelections();
+          clearPairHighlights();
+          updatePairColors();
+          selectedTerm = null;
+          selectedDef = null;
+        });
+        termsCol.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              clearSelections();
+              selectedTerm = e.target;
+              selectedTerm.classList.add('selected');
+            }
+          }
+        });
+        defsCol.addEventListener('keydown', function(e) {
+          if ((e.key === 'Enter' || e.key === ' ') && selectedTerm) {
+            e.preventDefault();
+            if (e.target.classList.contains('pair-item')) {
+              selectedDef = e.target;
+              const prevPair = pairs.findIndex(idx => idx === parseInt(selectedDef.getAttribute('data-def-idx')));
+              if (prevPair !== -1) pairs[prevPair] = null;
+              const termIdx = parseInt(selectedTerm.getAttribute('data-term-idx'));
+              const defIdx = parseInt(selectedDef.getAttribute('data-def-idx'));
+              pairs[termIdx] = defIdx;
+              clearSelections();
+              clearPairHighlights();
+              updatePairColors();
+              selectedTerm = null;
+              selectedDef = null;
+            }
+          }
+        });
+        document.getElementById('check-matching-pairs').onclick = function() {
+          clearPairHighlights();
+          let correct = 0;
+          pairs.forEach((defIdx, termIdx) => {
+            if (defIdx !== null) {
+              const termEl = termsCol.querySelector(`[data-term-idx='${termIdx}']`);
+              const defEl = defsCol.querySelector(`[data-def-idx='${defIdx}']`);
+              if (shuffledDefs[defIdx] === matchingDefs[termIdx]) {
+                termEl.classList.add('correct');
+                defEl.classList.add('correct');
+                correct++;
+              } else {
+                termEl.classList.add('incorrect');
+                defEl.classList.add('incorrect');
+              }
+            }
+          });
+          updatePairColors();
+          const feedback = document.getElementById('matching-pairs-feedback');
+          if (correct === matchingTerms.length) {
+            feedback.innerHTML = '<span style="color:#388e3c;font-weight:bold;">🎉 All correct! Great job!</span>';
+          } else {
+            feedback.innerHTML = `<span style="color:#e53935;font-weight:bold;">${correct} / ${matchingTerms.length} correct. Try again!</span>`;
+          }
+        };
+      </script>
+    </div>
+
+    <div class="section">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is a physical model?
+        <div class="model-answer"><strong>Model Answer:</strong> A 3D model made to test, explore, or communicate a design.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What's the difference between a mock-up and a prototype?
+        <div class="model-answer"><strong>Model Answer:</strong> A mock-up may have some functionality, but a prototype is fully working.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is fidelity in physical modeling?
+        <div class="model-answer"><strong>Model Answer:</strong> How closely a model matches the final product (low, medium, high).</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Give an example of an instrumented model.
+        <div class="model-answer"><strong>Model Answer:</strong> A wind tunnel car model with sensors to collect data.</div>
+      </div>
+      <p style="margin-top:10px;">Try to answer these before checking your notes!</p>
+    </div>
+
+    <div class="footer">
+      <h3>Build it, test it, improve it! <span>🛠️🌍</span></h3>
+      <p>Physical modeling brings ideas to life and helps make better, user-friendly products.</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 

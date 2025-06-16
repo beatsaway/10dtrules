@@ -1,0 +1,44 @@
+{
+  "human-factors.html": [
+    {
+      "question": "Why do designers use the 5th and 95th percentiles when designing a product?",
+      "answer": "Designers use the 5th and 95th percentiles to ensure that products are usable by the vast majority of people, not just the average. This helps make products more inclusive and reduces the risk of excluding users at the extremes."
+    },
+    {
+      "question": "Give an example of how psychological factors influence product design.",
+      "answer": "Designers use color, shape, and layout to make controls easy to find and use. For example, using red for emergency buttons makes them stand out and easy to identify quickly."
+    },
+    {
+      "question": "Explain the importance of biomechanics in ergonomic design.",
+      "answer": "Biomechanics helps designers understand how forces act on the body during product use. This knowledge allows them to reduce strain, prevent injury, and improve comfort, especially for products used repeatedly or for long periods."
+    }
+  ],
+  "invention-and-intellectual-property.html": [
+    {
+      "question": "What motivates people to invent?",
+      "answer": "Personal interest, making life better, constructive discontent, money, scientific curiosity, necessity."
+    },
+    {
+      "question": "What are the advantages and disadvantages of being a lone inventor?",
+      "answer": "Advantages: full control, driven by vision. Disadvantages: may lack business/marketing skills, struggle with teamwork, lack resources."
+    },
+    {
+      "question": "What is a patent?",
+      "answer": "A government-granted right to make or sell an invention for a set number of years."
+    }
+  ],
+  "quality-management-qc-qa-spc.html": [
+    {
+      "question": "What does QC stand for?",
+      "answer": "Quality Control."
+    },
+    {
+      "question": "What's the main difference between QC and QA?",
+      "answer": "QC checks products (reactive), QA manages processes to prevent defects (proactive)."
+    },
+    {
+      "question": "What is the Shewhart Cycle?",
+      "answer": "Plan-Do-Check-Act cycle for continuous improvement."
+    }
+  ]
+} 

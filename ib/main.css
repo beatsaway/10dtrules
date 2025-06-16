@@ -1,0 +1,169 @@
+/* main.css - Shared styles for IB Design Tech topic pages */
+:root {
+    --primary-gradient: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    --accent-gradient: linear-gradient(135deg, #00b894, #0984e3);
+    --white: #fff;
+    --black: #2c3e50;
+    --blue: #1976d2;
+    --green: #009688;
+    --yellow: #ffe082;
+    --border-radius: 20px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--primary-gradient);
+    color: var(--black);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 32px 20px 18px 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+.header h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--white);
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.header p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.95);
+    margin-bottom: 10px;
+}
+.section {
+    background: rgba(255,255,255,0.97);
+    border-radius: var(--border-radius);
+    padding: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+}
+.section h2 {
+    font-size: 1.4rem;
+    color: var(--blue);
+    margin-bottom: 12px;
+}
+.concept-group {
+    background: #eaf6fb;
+    border-radius: 18px;
+    margin: 28px 0 28px 0;
+    padding: 18px 18px 8px 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    border: 2px solid #b2ebf2;
+}
+.concept-group h2 {
+    font-size: 1.18rem;
+    color: #0088c4;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.concept-subgroup {
+    background: #fafdff;
+    border-radius: 14px;
+    margin: 18px 0 18px 0;
+    padding: 14px 14px 8px 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1.5px solid #b2ebf2;
+}
+.concept-subgroup h3 {
+    font-size: 1.08rem;
+    color: #009688;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+.concept-card {
+    background: #f7fbff;
+    border-radius: 14px;
+    margin: 18px 0;
+    padding: 18px 18px 12px 18px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-left: 5px solid #74b9ff;
+    cursor: pointer;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+.concept-card h3 {
+    margin-top: 0;
+    color: #1976d2;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.concept-card.active {
+    background: #e3f2fd;
+    box-shadow: 0 4px 16px rgba(25,118,210,0.08);
+}
+.concept-card .concept-content {
+    display: none;
+    margin-top: 10px;
+}
+.concept-card.active .concept-content {
+    display: block;
+}
+.example {
+    background: #e3f2fd;
+    color: var(--black);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin: 10px 0 16px 0;
+}
+.footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(255,255,255,0.12);
+    border-radius: var(--border-radius);
+    color: var(--black);
+    margin-top: 32px;
+    font-size: 1rem;
+}
+.sense-card {
+    background: #f7fbff;
+    border-radius: 14px;
+    margin: 14px 0;
+    padding: 16px 16px 10px 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border-left: 5px solid #a18cd1;
+    cursor: pointer;
+    transition: box-shadow 0.2s, background 0.2s;
+}
+.sense-card h3 {
+    margin-top: 0;
+    color: #1976d2;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.sense-card .concept-content {
+    display: none;
+    margin-top: 10px;
+}
+.sense-card.active {
+    background: #e3f2fd;
+    box-shadow: 0 4px 16px rgba(25,118,210,0.08);
+}
+.sense-card.active .concept-content {
+    display: block;
+}
+@media (max-width: 600px) {
+    .container { padding: 8px; }
+    .section, .header, .footer { padding: 12px; margin-bottom: 12px; }
+    .section h2, .header h1 { font-size: 1.1rem; }
+} 

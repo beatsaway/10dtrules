@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Just in Case (JIC) Production (10.1b) – IB Design Tech</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Just in Case (JIC) Production <span>📦🏭</span></h1>
+      <p><strong>How do companies prepare for uncertainty and demand spikes?</strong> <span>📈</span></p>
+    </div>
+    <div class="section">
+      <h2>Key Vocabulary <span>📚</span></h2>
+      <ul class="vocab-list">
+        <li><strong>Just in Case (JIC)</strong> – Production system where materials/components are stockpiled and products are made in advance</li>
+        <li><strong>Overstock</strong> – Excess inventory that may not be sold</li>
+        <li><strong>Supply Chain</strong> – Network of suppliers and logistics for production</li>
+        <li><strong>Economies of Scale</strong> – Cost advantages from buying/producing in bulk</li>
+        <li><strong>Flexibility</strong> – Ability to adapt production quickly (JIC is less flexible)</li>
+      </ul>
+    </div>
+    <div class="section">
+      <h2>What is JIC? <span>❓</span></h2>
+      <div class="concept-card"><h3>Definition</h3><div class="concept-content"><ul><li>Materials/components stockpiled in advance</li><li>Products made and stored until needed</li><li>Prepares for supply chain disruptions or demand spikes</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Advantages <span>✅</span></h2>
+      <div class="concept-card"><h3>Cheaper Prices (Economies of Scale)</h3><div class="concept-content"><ul><li>Bulk buying reduces per-unit cost</li></ul></div></div>
+      <div class="concept-card"><h3>Supply Chain Resilience</h3><div class="concept-content"><ul><li>Easy to weather failures in the supply chain</li></ul></div></div>
+      <div class="concept-card"><h3>Easier to React to Demand</h3><div class="concept-content"><ul><li>Can meet sudden increases in demand</li></ul></div></div>
+      <div class="concept-card"><h3>Lower Transport Costs</h3><div class="concept-content"><ul><li>Bulk shipments reduce transport costs</li></ul></div></div>
+      <div class="concept-card"><h3>Fast Distribution</h3><div class="concept-content"><ul><li>No delay—products are ready to ship</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Disadvantages <span>⚠️</span></h2>
+      <div class="concept-card"><h3>Higher Storage/Warehousing Costs</h3><div class="concept-content"><ul><li>Need large storage areas, more staff/security</li></ul></div></div>
+      <div class="concept-card"><h3>Overstock & Wastage</h3><div class="concept-content"><ul><li>Risk of unsellable or perishable goods, theft</li></ul></div></div>
+      <div class="concept-card"><h3>Tied-up Capital</h3><div class="concept-content"><ul><li>Money tied up in inventory, not available for other uses</li></ul></div></div>
+      <div class="concept-card"><h3>Less Flexibility</h3><div class="concept-content"><ul><li>Harder to change production lines for new products</li></ul></div></div>
+      <div class="concept-card"><h3>More Staffing/Admin Needed</h3><div class="concept-content"><ul><li>More employees needed for storage/admin</li></ul></div></div>
+    </div>
+    <div class="section">
+      <h2>Fun Facts <span>🤓</span></h2>
+      <ul class="tips-list">
+        <li>JIC is common in industries with unpredictable demand or long supply chains (e.g., supermarkets, electronics).</li>
+        <li>COVID-19 showed the value of JIC for critical goods like PPE and ventilators.</li>
+      </ul>
+    </div>
+    <div class="section" style="margin-top:32px;">
+      <h2>Quick Quiz <span>⚡</span></h2>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is the main advantage of JIC?
+        <div class="model-answer"><strong>Model Answer:</strong> Cheaper prices (economies of scale) and supply chain resilience.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        Name one disadvantage of JIC.
+        <div class="model-answer"><strong>Model Answer:</strong> Higher storage/warehousing costs and risk of overstock/wastage.</div>
+      </div>
+      <div class="sample-q" tabindex="0" role="button" aria-pressed="false">
+        What is overstock?
+        <div class="model-answer"><strong>Model Answer:</strong> Excess inventory that may not be sold or may go to waste.</div>
+      </div>
+      <p style="margin-top:10px;">Tap a question to reveal the answer!</p>
+    </div>
+    <div class="footer">
+      <h3>JIC = security, but at a cost! <span>📦💡</span></h3>
+      <p>Would JIC work for your next project?</p>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll('.sample-q').forEach(q => {
+      q.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        const answer = this.querySelector('.model-answer');
+        if (answer.style.display === 'none' || answer.style.display === '') {
+          answer.style.display = 'block';
+          this.setAttribute('aria-pressed', 'true');
+        } else {
+          answer.style.display = 'none';
+          this.setAttribute('aria-pressed', 'false');
+        }
+      });
+      q.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+    document.querySelectorAll('.concept-card').forEach(card => {
+      card.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return;
+        this.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html> 
