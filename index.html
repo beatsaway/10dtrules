@@ -16,6 +16,7 @@
       --muted: #64748b;
       --radius: 1.25rem;
       --shadow: 0 2px 16px rgba(59, 130, 246, 0.07);
+      --transition: 0.18s cubic-bezier(.4,0,.2,1);
     }
 
     html, body {
@@ -31,23 +32,19 @@
     header {
       background: linear-gradient(90deg, var(--primary), var(--accent));
       color: #fff;
-      padding: 2rem 1rem 1.2rem 1rem;
+      padding: 2.3rem 1rem 1.5rem 1rem;
       text-align: center;
       border-bottom-left-radius: var(--radius);
       border-bottom-right-radius: var(--radius);
       box-shadow: var(--shadow);
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
     }
 
     header h1 {
       font-size: 2.2rem;
       margin: 0 0 0.5rem 0;
       letter-spacing: -1px;
-    }
-
-    header p {
-      font-size: 1.08rem;
-      margin: 0;
-      color: #f3f4f6;
     }
 
     main {
@@ -62,6 +59,10 @@
       box-shadow: var(--shadow);
       margin-bottom: 1.5rem;
       padding: 1.2rem 1.2rem 1rem 1.2rem;
+      transition: box-shadow var(--transition);
+    }
+    section:hover {
+      box-shadow: 0 4px 32px rgba(59, 130, 246, 0.11);
     }
 
     section h2 {
@@ -71,7 +72,9 @@
       margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
-      gap: 0.4em;
+      gap: 0.5em;
+      font-weight: 700;
+      letter-spacing: 0.2px;
     }
 
     ul.links {
@@ -86,7 +89,8 @@
     .links li {
       display: flex;
       align-items: center;
-      gap: 0.5em;
+      gap: 0.7em;
+      flex-wrap: wrap;
     }
 
     .links a {
@@ -96,16 +100,19 @@
       border-radius: 0.7em;
       font-weight: 600;
       text-decoration: none;
-      transition: background 0.15s, color 0.15s;
+      transition: background var(--transition), color var(--transition), box-shadow var(--transition);
       word-break: break-all;
       font-size: 1rem;
-      box-shadow: 0 0.5px 2px rgba(59,130,246,0.05);
+      box-shadow: 0 1px 4px 0 rgba(59,130,246,0.07);
+      border: 1px solid transparent;
     }
 
     .links a:hover, .links a:focus {
       background: var(--primary);
       color: #fff;
       outline: none;
+      box-shadow: 0 3px 12px 0 rgba(59,130,246,0.13);
+      border: 1px solid #2563eb;
     }
 
     .tag {
@@ -117,6 +124,66 @@
       margin-right: 0.5em;
       font-weight: 700;
       letter-spacing: 0.5px;
+      box-shadow: 0 1px 2px #fff2;
+      border: 1px solid #eee;
+    }
+
+    .extra-link {
+      margin-left: 2.1em;
+      margin-top: -0.4em;
+      font-size: 0.96em;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+      color: var(--muted);
+    }
+    .extra-link a {
+      color: var(--primary);
+      text-decoration: underline;
+      background: none;
+      padding: 0;
+      border-radius: 0;
+      font-weight: 500;
+      font-size: 0.98em;
+      box-shadow: none;
+      border: none;
+      transition: color var(--transition);
+    }
+    .extra-link a:hover {
+      color: #1d4ed8;
+      background: none;
+      text-decoration: underline;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      margin: 2.5em auto 0.6em auto;
+      font-size: 1em;
+      padding: 0.7em 0 0.3em 0;
+      border-top: 1px solid #ececec;
+      opacity: 0.98;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+      margin-top: 0.5em;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color var(--transition);
+      padding: 0.1em 0.6em;
+      border-radius: 0.5em;
+      font-size: 1em;
+    }
+    .footer-links a:hover {
+      color: var(--accent);
+      background: var(--primary);
+      text-decoration: none;
     }
 
     @media (max-width: 600px) {
@@ -136,12 +203,20 @@
         font-size: 0.97rem;
         padding: 0.5em 0.7em;
       }
+      .extra-link {
+        margin-left: 1.1em;
+        font-size: 0.91em;
+      }
+      .tag {
+        padding: 0.11em 0.4em;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>DT Online Resource Library 📚</h1>
+    <p>Curated resources for DT lessons – interactive, readable and student friendly!</p>
   </header>
   <main>
     <section>
@@ -149,15 +224,15 @@
       <ul class="links">
         <li>
           <span class="tag">Lesson</span>
-          <a href="https://10dtrules.netlify.app/print2.html" target="_blank">Classroom Entry (Fill in the Blanks)</a>
+          <a href="https://10dtrules.netlify.app/print2.html" target="_blank" rel="noopener">Classroom Entry (Fill in the Blanks)</a>
         </li>
         <li>
           <span class="tag">Homework</span>
-          <a href="https://dtmw.netlify.app/hsposter" target="_blank">Health & Safety Poster</a>
+          <a href="https://dtmw.netlify.app/hsposter" target="_blank" rel="noopener">Health & Safety Poster</a>
         </li>
         <li>
           <span class="tag">Fill</span>
-          <a href="https://10dtrules.netlify.app/print.html" target="_blank">Poster Fill in the Blanks</a>
+          <a href="https://10dtrules.netlify.app/print.html" target="_blank" rel="noopener">Poster Fill in the Blanks</a>
         </li>
       </ul>
     </section>
@@ -167,11 +242,11 @@
       <ul class="links">
         <li>
           <span class="tag">Lesson</span>
-          <a href="https://dtmw.netlify.app/iterativedesign/" target="_blank">Iterative Design Lesson</a>
+          <a href="https://dtmw.netlify.app/iterativedesign/" target="_blank" rel="noopener">Iterative Design Lesson</a>
         </li>
         <li>
           <span class="tag">Fill</span>
-          <a href="https://dtmw.netlify.app/iterativedesign/intro" target="_blank">Fill in the Blanks</a>
+          <a href="https://dtmw.netlify.app/iterativedesign/intro" target="_blank" rel="noopener">Fill in the Blanks</a>
         </li>
       </ul>
     </section>
@@ -181,15 +256,15 @@
       <ul class="links">
         <li>
           <span class="tag">Quiz</span>
-          <a href="https://designbriefquiz.netlify.app/" target="_blank">Design Brief Quiz</a>
+          <a href="https://designbriefquiz.netlify.app/" target="_blank" rel="noopener">Design Brief Quiz</a>
         </li>
         <li>
           <span class="tag">Y8</span>
-          <a href="https://dtphotoframe.netlify.app/" target="_blank">Photoframe 3D Demo</a>
+          <a href="https://dtphotoframe.netlify.app/" target="_blank" rel="noopener">Photoframe 3D Demo</a>
         </li>
         <li>
           <span class="tag">Y9</span>
-          <a href="https://dtpopartclock.netlify.app/" target="_blank">Pop Art Clock 3D Demo</a>
+          <a href="https://dtpopartclock.netlify.app/" target="_blank" rel="noopener">Pop Art Clock 3D Demo</a>
         </li>
       </ul>
     </section>
@@ -199,11 +274,19 @@
       <ul class="links">
         <li>
           <span class="tag">All Resources</span>
-          <a href="https://dttechnicaldraw.netlify.app/" target="_blank">Technical Drawing Lessons</a>
+          <a href="https://dttechnicaldraw.netlify.app/" target="_blank" rel="noopener">Technical Drawing Lessons</a>
+        </li>
+        <li class="extra-link">
+          <span>🎵</span>
+          <a href="https://www.youtube.com/watch?v=rzeZxGiTe2k" target="_blank" rel="noopener">Isometric Projection Song</a>
+        </li>
+        <li class="extra-link">
+          <span>🎵</span>
+          <a href="https://www.youtube.com/watch?v=CNYiqKi7was" target="_blank" rel="noopener">Oblique Projection Song</a>
         </li>
         <li>
           <span class="tag">Fill</span>
-          <a href="https://dtmw.netlify.app/technicaldrawings/technicaldrawings" target="_blank">Fill in the Blanks</a>
+          <a href="https://dtmw.netlify.app/technicaldrawings/technicaldrawings" target="_blank" rel="noopener">Fill in the Blanks</a>
         </li>
       </ul>
     </section>
@@ -213,15 +296,15 @@
       <ul class="links">
         <li>
           <span class="tag">Intro</span>
-          <a href="https://dtmaterials.netlify.app/" target="_blank">Chairs of Different Materials</a>
+          <a href="https://dtmaterials.netlify.app/" target="_blank" rel="noopener">Chairs of Different Materials</a>
         </li>
         <li>
           <span class="tag">Project</span>
-          <a href="https://revisematerials.netlify.app/" target="_blank">Materials for Our Project</a>
+          <a href="https://revisematerials.netlify.app/" target="_blank" rel="noopener">Materials for Our Project</a>
         </li>
         <li>
           <span class="tag">Quiz</span>
-          <a href="https://materialsquizks3.netlify.app/" target="_blank">Material Quiz</a>
+          <a href="https://materialsquizks3.netlify.app/" target="_blank" rel="noopener">Material Quiz</a>
         </li>
       </ul>
     </section>
@@ -231,7 +314,15 @@
       <ul class="links">
         <li>
           <span class="tag">Lesson</span>
-          <a href="https://dtmw.netlify.app/meme/meme" target="_blank">SCAMPER (Initial Ideas)</a>
+          <a href="https://dtmw.netlify.app/meme/meme" target="_blank" rel="noopener">SCAMPER (Initial Ideas)</a>
+        </li>
+        <li class="extra-link">
+          <span>🎵</span>
+          <a href="https://www.youtube.com/watch?v=7KfNdRNM1qE" target="_blank" rel="noopener">Pop Art Song</a>
+        </li>
+        <li>
+          <span class="tag">Research</span>
+          <a href="https://festivalsinfo.netlify.app" target="_blank" rel="noopener">100 Festivals</a>
         </li>
       </ul>
     </section>
@@ -241,15 +332,15 @@
       <ul class="links">
         <li>
           <span class="tag">Quiz</span>
-          <a href="https://cadcamquiz.netlify.app/" target="_blank">CAD Lesson Quiz</a>
+          <a href="https://cadcamquiz.netlify.app/" target="_blank" rel="noopener">CAD Lesson Quiz</a>
         </li>
         <li>
           <span class="tag">Y8/Y9</span>
-          <a href="https://cadcamquiz.netlify.app/tutorial" target="_blank">2D Design Tutorial</a>
+          <a href="https://cadcamquiz.netlify.app/tutorial" target="_blank" rel="noopener">2D Design Tutorial</a>
         </li>
         <li>
           <span class="tag">Y7</span>
-          <a href="https://learncad.netlify.app/" target="_blank">Pencil Box 2D Design</a>
+          <a href="https://learncad.netlify.app/" target="_blank" rel="noopener">Pencil Box 2D Design</a>
         </li>
       </ul>
     </section>
@@ -259,28 +350,29 @@
       <ul class="links">
         <li>
           <span class="tag">Fill</span>
-          <a href="https://10dtrules.netlify.app/copingsaw/" target="_blank">Fill in the Blanks 1</a>
+          <a href="https://10dtrules.netlify.app/copingsaw/" target="_blank" rel="noopener">Fill in the Blanks 1</a>
         </li>
         <li>
           <span class="tag">Fill</span>
-          <a href="https://10dtrules.netlify.app/copingsaw/ex3/" target="_blank">Fill in the Blanks 2</a>
+          <a href="https://10dtrules.netlify.app/copingsaw/ex3/" target="_blank" rel="noopener">Fill in the Blanks 2</a>
         </li>
         <li>
           <span class="tag">Fill</span>
-          <a href="https://10dtrules.netlify.app/copingsaw/temp" target="_blank">Fill in the Blanks 3</a>
+          <a href="https://10dtrules.netlify.app/copingsaw/temp" target="_blank" rel="noopener">Fill in the Blanks 3</a>
         </li>
         <li>
           <span class="tag">3D Demo</span>
-          <a href="https://dtcopingsaw.netlify.app/" target="_blank">Coping Saw 3D Demo</a>
+          <a href="https://dtcopingsaw.netlify.app/" target="_blank" rel="noopener">Coping Saw 3D Demo</a>
         </li>
       </ul>
     </section>
-    
-        <footer>
-            <a href='https://www.youtube.com/@tortorkeneducation' class="nodeco">
-                🐢 Tortorken Education ©2025
-            </a><br> <a href='https://buymeacoffee.com/beatsaway' class="nodeco">☕Buy Me a Coffee</a>
-        </footer>
+
+    <footer>
+      <div class="footer-links">
+        <a href='https://www.youtube.com/@tortorkeneducation' target="_blank" rel="noopener">🐢 Tortorken Education ©2025</a>
+        <a href='https://buymeacoffee.com/beatsaway' target="_blank" rel="noopener">☕ Buy Me a Coffee</a>
+      </div>
+    </footer>
   </main>
 </body>
 </html>
