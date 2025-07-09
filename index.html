@@ -1,438 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Using coping saw to cut pencil topper mid layer</title>
+  <meta charset="UTF-8">
+  <title>DT Online Resource Library 📚</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gen Z-friendly, easy-to-read, responsive online resource library for DT topics.">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --primary: #3b82f6;
+      --accent: #facc15;
+      --bg: #f9fafb;
+      --card: #fff;
+      --text: #191919;
+      --muted: #64748b;
+      --radius: 1.25rem;
+      --shadow: 0 2px 16px rgba(59, 130, 246, 0.07);
+    }
+
+    html, body {
       margin: 0;
       padding: 0;
-      background-color: #f5f5f5;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 17px;
+      scroll-behavior: smooth;
     }
-    .exercise-panel {
-      max-width: 700px;
-      margin: 30px auto 0 auto;
-      background-color: white;
-      border-radius: 10px;
-      padding: 24px 32px 24px 32px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
-    }
-    h2 {
-      text-align: center;
-      color: #333;
-      font-size: 18px;
-      margin: 10px 0 15px 0;
-    }
-    .sentence {
-      margin: 15px 0;
-      font-size: 16px;
-      line-height: 1.8;
-    }
-    .blank {
-      display: inline-block;
-      min-width: 111px;
-      border-bottom: 2px dashed #ccc;
-      margin: 0 3px;
-      min-height: 18px;
-      text-align: center;
-      padding: 0px;
-      background-color: #f9f9f9;
-      cursor: pointer;
-      position: relative;
-    }
-    .blank small {
-      color: #666;
-      font-size: 10px;
-      position: absolute;
-      margin-top: -5px;
-      margin-left: -5px;
-      background: #e6e6e6;
-      border-radius: 50%;
-      width: 16px;
-      height: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .blank.filled.correct {
-      border-bottom-color: #4CAF50;
-      background-color: #e8f5e9;
-    }
-    .blank.filled.incorrect {
-      border-bottom-color: #f44336;
-      background-color: #fdecea;
-    }
-    .keywords-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 0px;
-      padding: 0px;
-      background-color: #f0f8ff;
-      border-radius: 8px;
-    }
-    .draggable {
-      display: inline-block;
-      margin: 5px;
-      padding: 8px 12px;
-      border: 1px solid #999;
-      border-radius: 5px;
-      font-size: 14px;
-      cursor: grab;
-      background-color: #fff;
-      user-select: none;
-      position: relative;
-    }
-    .draggable.dragging {
-      opacity: 0.5;
-      cursor: grabbing;
-    }
-    .draggable.used {
-      background-color: #f0f0f0;
-      border-color: #ccc;
-      color: #999;
-      cursor: not-allowed;
-    }
-    .draggable-label {
-      position: absolute;
-      top: -5px;
-      right: -5px;
-      background: #1976d2;
+
+    header {
+      background: linear-gradient(90deg, var(--primary), var(--accent));
       color: #fff;
-      font-size: 8px;
-      font-weight: bold;
-      border-radius: 50%;
-      width: 20px;
-      height: 20px;
+      padding: 2rem 1rem 1.2rem 1rem;
+      text-align: center;
+      border-bottom-left-radius: var(--radius);
+      border-bottom-right-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin: 0 0 0.5rem 0;
+      letter-spacing: -1px;
+    }
+
+    header p {
+      font-size: 1.08rem;
+      margin: 0;
+      color: #f3f4f6;
+    }
+
+    main {
+      max-width: 750px;
+      margin: 2rem auto 1rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      margin-bottom: 1.5rem;
+      padding: 1.2rem 1.2rem 1rem 1.2rem;
+    }
+
+    section h2 {
+      font-size: 1.32rem;
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 0.6rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.10);
-      pointer-events: none;
+      gap: 0.4em;
+    }
+
+    ul.links {
+      list-style: none;
+      padding: 0;
+      margin: 0.1rem 0 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
+    }
+
+    .links li {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+    }
+
+    .links a {
+      color: var(--primary);
+      background: #e0e7ff;
+      padding: 0.5em 1em;
+      border-radius: 0.7em;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      word-break: break-all;
+      font-size: 1rem;
+      box-shadow: 0 0.5px 2px rgba(59,130,246,0.05);
+    }
+
+    .links a:hover, .links a:focus {
+      background: var(--primary);
+      color: #fff;
+      outline: none;
+    }
+
+    .tag {
+      font-size: 0.86em;
+      background: var(--accent);
+      color: #333;
+      border-radius: 5px;
+      padding: 0.12em 0.7em;
+      margin-right: 0.5em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 1.3rem 0.4rem 0.7rem 0.4rem;
+      }
+      main {
+        padding: 0 0.3rem;
+      }
+      section {
+        padding: 0.95rem 0.7rem;
+      }
+      header h1 {
+        font-size: 1.32rem;
+      }
+      .links a {
+        font-size: 0.97rem;
+        padding: 0.5em 0.7em;
+      }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>DT Online Resource Library 📚</h1>
+    <p>Quick links for Gen Z to ace your Design & Tech lessons!<br>Easy. Fast. Mobile-friendly.</p>
+  </header>
+  <main>
+    <section>
+      <h2>1️⃣ Health & Safety</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Lesson</span>
+          <a href="https://10dtrules.netlify.app/print2.html" target="_blank">Classroom Entry (Fill in the Blanks)</a>
+        </li>
+        <li>
+          <span class="tag">Homework</span>
+          <a href="https://dtmw.netlify.app/hsposter" target="_blank">Health & Safety Poster</a>
+        </li>
+        <li>
+          <span class="tag">Fill</span>
+          <a href="https://10dtrules.netlify.app/print.html" target="_blank">Poster Fill in the Blanks</a>
+        </li>
+      </ul>
+    </section>
 
-<!-- Educational Images Section -->
-<div class="image-education-section" style="max-width: 700px; margin: 30px auto 20px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 24px 24px 10px 24px;">
-  <h2 id="toggleScrollImages" style="text-align:center; color:#2d3a4a; margin-bottom: 18px; cursor:pointer; user-select:none; display:inline-block;">
-    How to use coping saw properly to cut our pencil topper's mid layer:</h2>
-  <label style="margin-left: 12px; font-size: 13px; vertical-align: middle;">
-    <input type="checkbox" id="descToggle" checked style="vertical-align: middle; margin-right: 3px;">
-  </label>
-  <span id="emojiChecklistTrigger" style="cursor:pointer; color:#1976d2; font-weight:bold; margin-left:8px;">🤔</span>
-   <div id="emojiChecklistPopup" style="display:none; position:fixed; top:0px; left:0; right:0; margin:auto; max-width:350px; background:#fff; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,0.18); z-index:1001; padding:24px 20px 18px 20px; font-size:18px;">
-    <div style="font-size:20px; font-weight:600; margin-bottom:10px; text-align:center;">Before you start cutting:</div>
-    <ul style="list-style:none; padding:0; margin:0 0 10px 0;">
-      <li style="margin:10px 0;">🪑 Stack chairs at the back of the room</li>
-      <li style="margin:10px 0;">🦺 Get aprons on</li>
-      <li style="margin:10px 0;">💇‍♀️ Tie long hair</li>
-      <li style="margin:10px 0;">✂️ Get your prototype or cut a new one with card</li>
-      <li style="margin:10px 0;">✏️ Trace the shape of it on all 3 pieces of plywood</li>
-      <li style="margin:10px 0;">🔲 Trace a tight rectangle on the thickest piece for holding your pencil</li>
-    </ul>
-    <button id="closeChecklistBtn" style="display:block; margin:0 auto; background:#1976d2; color:#fff; border:none; border-radius:6px; padding:7px 18px; font-size:15px; cursor:pointer;">Close</button>
-  </div>
-  <div id="emojiChecklistOverlay" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.12); z-index:1000;"></div>
-  <div id="eduImagesAll" style="display: block;">
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="perpendicular.jpg" alt="Blade perpendicular" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">Blade is held perpendicular (90°) to the wood for straight, accurate cuts.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="thickest.jpg" alt="Thickest piece" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">The thickest plywood piece is used for the middle layer of the pencil topper.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="rect.jpg" alt="Rectangle cut" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">A tight rectangle is cut out to fit and hold the pencil firmly.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="rect2.jpg" alt="Rectangle cut 2" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">Start by cutting the big triangle, then the smaller one, so the blade has more space to cut the bottom of the rectangle.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="cut.jpg" alt="Cutting shapes" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">Cut close to the vice so the piece is held firmly.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="sandspace.jpg" alt="Sanding space" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">Leave a little space from the pencil line so you can sand to the final shape later.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 32px auto; text-align: center;">
-      <img src="sandspace2.jpg" alt="Sanding space 2" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">You can draw dash lines to remind yourself to cut away from the actual pencil line of the shape.</div>
-    </div>
-    <div style="width: 100%; max-width: 420px; margin: 0 auto 0 auto; text-align: center;">
-      <img src="multicut.jpg" alt="Multiple cuts" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-      <div class="img-desc" style="margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;">Do multiple smaller cuts. Don't cut the whole shape out in one go.</div>
-    </div>
-  </div>
-  <div id="eduImagesScroll" style="display:none;">
-    <!-- JS will inject single image here -->
-  </div>
-</div>
+    <section>
+      <h2>2️⃣ Iterative Design</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Lesson</span>
+          <a href="https://dtmw.netlify.app/iterativedesign/" target="_blank">Iterative Design Lesson</a>
+        </li>
+        <li>
+          <span class="tag">Fill</span>
+          <a href="https://dtmw.netlify.app/iterativedesign/intro" target="_blank">Fill in the Blanks</a>
+        </li>
+      </ul>
+    </section>
 
-<div class="exercise-panel">
-  <h2>Using coping saw to cut pencil topper mid layer</h2>
+    <section>
+      <h2>3️⃣ Design Brief & 3D Demos</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Quiz</span>
+          <a href="https://designbriefquiz.netlify.app/" target="_blank">Design Brief Quiz</a>
+        </li>
+        <li>
+          <span class="tag">Y8</span>
+          <a href="https://dtphotoframe.netlify.app/" target="_blank">Photoframe 3D Demo</a>
+        </li>
+        <li>
+          <span class="tag">Y9</span>
+          <a href="https://dtpopartclock.netlify.app/" target="_blank">Pop Art Clock 3D Demo</a>
+        </li>
+      </ul>
+    </section>
 
-  <div class="sentence">
-    I place the blade <span class="blank" data-id="1"><small>(1)</small></span> against the edge of the piece.
-  
-    They always form a 90 degree angle. So I can cut the front and back of the piece <span class="blank" data-id="2"><small>(2)</small></span> shape and prevent the blade from getting <span class="blank" data-id="3"><small>(3)</small></span> as I cut deeper.
-  </div>
-  <div class="sentence">
-    Out of the 3 plywood pieces for making the pencil topper, I cut the middle piece first, which is the <span class="blank" data-id="4"><small>(4)</small></span> and must have a <span class="blank" data-id="5"><small>(5)</small></span> rectangle space for fitting and holding my <span class="blank" data-id="6"><small>(6)</small></span> firmly.
-  </div>
-  <div class="sentence">
-    To cut out the rectangle properly, I cut the <span class="blank" data-id="7"><small>(7)</small></span> first, then the <span class="blank" data-id="8"><small>(8)</small></span>. I will then have more <span class="blank" data-id="9"><small>(9)</small></span> to cut the remaining bit.
-  </div>
-  <div class="sentence">
-    I cut a bit <span class="blank" data-id="10"><small>(10)</small></span> the pencil line of my shape so I can <span class="blank" data-id="11"><small>(11)</small></span> to it later.
-  </div>
-  <div class="sentence">
-    I do <span class="blank" data-id="12"><small>(12)</small></span> shorter cuts that are relatively straight instead of cutting my shape in one go.
-  </div>
-  <div class="sentence">When doing curved cuts,
-    I cut  <span class="blank" data-id="13"><small>(13)</small></span> and turn  <span class="blank" data-id="14"><small>(14)</small></span> to not get stuck.
-  </div>
+    <section>
+      <h2>4️⃣ Technical Drawing</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">All Resources</span>
+          <a href="https://dttechnicaldraw.netlify.app/" target="_blank">Technical Drawing Lessons</a>
+        </li>
+        <li>
+          <span class="tag">Fill</span>
+          <a href="https://dtmw.netlify.app/technicaldrawings/technicaldrawings" target="_blank">Fill in the Blanks</a>
+        </li>
+      </ul>
+    </section>
 
-  <div class="keywords-container" id="keywords">
-    <div class="draggable" draggable="true"><span class="draggable-label">a</span>thickest</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">b</span>tight</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">c</span>pencil</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">d</span>big triangle</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">e</span>smaller one</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">f</span>space</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">g</span>away from</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">h</span>sand</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">n</span>multiple</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">m</span>perpendicular</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">l</span>the same</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">k</span>stuck</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">j</span>more</div>
-    <div class="draggable" draggable="true"><span class="draggable-label">i</span>slowly</div>
-  </div>
-</div>
+    <section>
+      <h2>5️⃣ Materials</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Intro</span>
+          <a href="https://dtmaterials.netlify.app/" target="_blank">Chairs of Different Materials</a>
+        </li>
+        <li>
+          <span class="tag">Project</span>
+          <a href="https://revisematerials.netlify.app/" target="_blank">Materials for Our Project</a>
+        </li>
+        <li>
+          <span class="tag">Quiz</span>
+          <a href="https://materialsquizks3.netlify.app/" target="_blank">Material Quiz</a>
+        </li>
+      </ul>
+    </section>
 
-<script>
-  const correctAnswers = {
-    1: 'perpendicular',
-    2: 'the same',
-    3: 'stuck',
-    4: 'thickest',
-    5: 'tight',
-    6: 'pencil',
-    7: 'big triangle',
-    8: 'smaller one',
-    9: 'space',
-    10: 'away from',
-    11: 'sand',
-    12: 'multiple',
-    13: 'quickly',
-    14: 'slowly',
-  };
+    <section>
+      <h2>6️⃣ SCAMPER Techniques</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Lesson</span>
+          <a href="https://dtmw.netlify.app/meme/meme" target="_blank">SCAMPER (Initial Ideas)</a>
+        </li>
+      </ul>
+    </section>
 
-  const draggables = document.querySelectorAll('.draggable');
-  const blanks = document.querySelectorAll('.blank');
+    <section>
+      <h2>7️⃣ CAD & 2D Design</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Quiz</span>
+          <a href="https://cadcamquiz.netlify.app/" target="_blank">CAD Lesson Quiz</a>
+        </li>
+        <li>
+          <span class="tag">Y8/Y9</span>
+          <a href="https://cadcamquiz.netlify.app/tutorial" target="_blank">2D Design Tutorial</a>
+        </li>
+        <li>
+          <span class="tag">Y7</span>
+          <a href="https://learncad.netlify.app/" target="_blank">Pencil Box 2D Design</a>
+        </li>
+      </ul>
+    </section>
 
-  draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => {
-      draggable.classList.add('dragging');
-    });
-    draggable.addEventListener('dragend', () => {
-      draggable.classList.remove('dragging');
-    });
-  });
-
-  blanks.forEach(blank => {
-    blank.addEventListener('dragover', e => e.preventDefault());
-
-    blank.addEventListener('drop', e => {
-      e.preventDefault();
-      const dragging = document.querySelector('.dragging');
-      if (!dragging || blank.classList.contains('filled')) return;
-
-      // Get only the keyword (without the label letter)
-      const answerText = dragging.textContent.replace(/^\s*\w\s*/, '').trim();
-      const correct = correctAnswers[blank.dataset.id];
-
-      const label = blank.querySelector('small');
-      blank.innerHTML = '';
-      blank.appendChild(label);
-
-      // Clone the draggable label and add it
-      const dragLabel = dragging.querySelector('.draggable-label');
-      if (dragLabel) {
-        blank.appendChild(dragLabel.cloneNode(true));
-      }
-      blank.appendChild(document.createTextNode(' ' + answerText));
-
-      blank.classList.add('filled');
-      dragging.classList.add('used');
-
-      if (answerText === correct) {
-        blank.classList.add('correct');
-        blank.classList.remove('incorrect');
-      } else {
-        blank.classList.add('incorrect');
-        blank.classList.remove('correct');
-      }
-    });
-
-    blank.addEventListener('click', () => {
-      if (!blank.classList.contains('filled')) return;
-
-      const keyword = blank.textContent.trim().replace(/\(\d+\)/, '').trim();
-      const label = blank.querySelector('small');
-      const draggable = Array.from(draggables).find(d => d.textContent === keyword);
-      if (draggable) draggable.classList.remove('used');
-
-      blank.innerHTML = '';
-      blank.appendChild(label);
-      blank.classList.remove('filled', 'correct', 'incorrect');
-    });
-
-    blank.addEventListener('contextmenu', e => {
-      e.preventDefault();
-      if (blank.classList.contains('filled')) return;
-
-      const correct = correctAnswers[blank.dataset.id];
-      const label = blank.querySelector('small');
-      blank.innerHTML = '';
-      blank.appendChild(label);
-
-      // Find the draggable for this answer using endsWith
-      const draggable = Array.from(draggables).find(d => d.textContent.trim().endsWith(correct));
-      if (draggable) {
-        // Clone the label span and add it
-        const dragLabel = draggable.querySelector('.draggable-label');
-        if (dragLabel) {
-          blank.appendChild(dragLabel.cloneNode(true));
-          draggable.classList.add('used');
-        }
-      }
-      blank.appendChild(document.createTextNode(' ' + correct));
-      blank.classList.add('filled', 'correct');
-    });
-  });
-
-  // --- Educational Images Scroll Toggle ---
-  const eduImages = [
-    {
-      src: 'perpendicular.jpg',
-      alt: 'Blade perpendicular',
-      note: 'Blade is held perpendicular (90°) to the wood for straight, accurate cuts.'
-    },
-    {
-      src: 'thickest.jpg',
-      alt: 'Thickest piece',
-      note: 'The thickest plywood piece is used for the middle layer of the pencil topper.'
-    },
-    {
-      src: 'rect.jpg',
-      alt: 'Rectangle cut',
-      note: 'A tight rectangle is cut out to fit and hold the pencil firmly.'
-    },
-    {
-      src: 'rect2.jpg',
-      alt: 'Rectangle cut 2',
-      note: 'Start by cutting the big triangle, then the smaller one, so the blade has more space to cut the bottom of the rectangle.'
-    },
-    {
-      src: 'cut.jpg',
-      alt: 'Cutting shapes',
-      note: 'Cut close to the vice so the piece is held firmly.'
-    },
-    {
-      src: 'sandspace.jpg',
-      alt: 'Sanding space',
-      note: 'Leave a little space from the pencil line so you can sand to the final shape later.'
-    },
-    {
-      src: 'sandspace2.jpg',
-      alt: 'Sanding space 2',
-      note: 'Multiple straight cuts make it easier to sand and finish the shape.'
-    },
-    {
-      src: 'multicut.jpg',
-      alt: 'Multiple cuts',
-      note: 'Making multiple, smaller cuts helps prevent the blade from breaking.'
-    }
-  ];
-  let scrollActive = false;
-  let scrollIdx = 0;
-  let scrollInterval = null;
-
-  function renderScrollImage(idx) {
-    const img = eduImages[idx];
-    const showDesc = document.getElementById('descToggle').checked;
-    document.getElementById('eduImagesScroll').innerHTML = `
-      <div style="width: 100%; max-width: 700px; margin: 0 auto 0 auto; text-align: center;">
-        <img src="${img.src}" alt="${img.alt}" style="max-width: 100%; max-height: 70vh; height: auto; width: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.07);">
-        ${showDesc ? `<div class=\"img-desc\" style=\"margin-top: 16px; font-size: 22px; color: #222; font-weight: 600;\">${img.note}</div>` : ''}
-      </div>
-    `;
-  }
-
-  function startScrollLoop() {
-    document.getElementById('eduImagesAll').style.display = 'none';
-    document.getElementById('eduImagesScroll').style.display = 'block';
-    renderScrollImage(scrollIdx);
-    scrollInterval = setInterval(() => {
-      scrollIdx = (scrollIdx + 1) % eduImages.length;
-      renderScrollImage(scrollIdx);
-    }, 5000);
-  }
-
-  function stopScrollLoop() {
-    document.getElementById('eduImagesAll').style.display = 'block';
-    document.getElementById('eduImagesScroll').style.display = 'none';
-    clearInterval(scrollInterval);
-    scrollInterval = null;
-    scrollIdx = 0;
-  }
-
-  document.getElementById('toggleScrollImages').addEventListener('click', function() {
-    scrollActive = !scrollActive;
-    if (scrollActive) {
-      startScrollLoop();
-    } else {
-      stopScrollLoop();
-    }
-  });
-
-  // --- Image Description Toggle ---
-  document.getElementById('descToggle').addEventListener('change', function() {
-    const show = this.checked;
-    document.querySelectorAll('.img-desc').forEach(desc => {
-      desc.style.display = show ? '' : 'none';
-    });
-    // If slideshow is active, re-render current image to update description visibility
-    if (scrollActive) {
-      renderScrollImage(scrollIdx);
-    }
-  });
-
-  // --- Emoji Checklist Popup ---
-  document.getElementById('emojiChecklistTrigger').addEventListener('click', function(e) {
-    document.getElementById('emojiChecklistPopup').style.display = 'block';
-    document.getElementById('emojiChecklistOverlay').style.display = 'block';
-    e.stopPropagation();
-  });
-  document.getElementById('closeChecklistBtn').onclick = function(e) {
-    document.getElementById('emojiChecklistPopup').style.display = 'none';
-    document.getElementById('emojiChecklistOverlay').style.display = 'none';
-    e.stopPropagation();
-  };
-  document.getElementById('emojiChecklistOverlay').onclick = function() {
-    document.getElementById('emojiChecklistPopup').style.display = 'none';
-    document.getElementById('emojiChecklistOverlay').style.display = 'none';
-  };
-</script>
-
+    <section>
+      <h2>8️⃣ Coping Saw Lesson</h2>
+      <ul class="links">
+        <li>
+          <span class="tag">Fill</span>
+          <a href="https://10dtrules.netlify.app/copingsaw/" target="_blank">Fill in the Blanks 1</a>
+        </li>
+        <li>
+          <span class="tag">Fill</span>
+          <a href="https://10dtrules.netlify.app/copingsaw/ex3/" target="_blank">Fill in the Blanks 2</a>
+        </li>
+        <li>
+          <span class="tag">Fill</span>
+          <a href="https://10dtrules.netlify.app/copingsaw/temp" target="_blank">Fill in the Blanks 3</a>
+        </li>
+        <li>
+          <span class="tag">3D Demo</span>
+          <a href="https://dtcopingsaw.netlify.app/" target="_blank">Coping Saw 3D Demo</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
