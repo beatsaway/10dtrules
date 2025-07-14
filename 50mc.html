@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KnowledgeDT Quiz</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            color: #22223b;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 4px 24px rgba(80,80,160,0.08);
+            padding: 20px 10px 10px 10px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.1rem;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #6366f1;
+            font-size: 1rem;
+            margin-bottom: 18px;
+        }
+        .question {
+            margin-bottom: 10px;
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 10px 8px 6px 8px;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.04);
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .question:hover {
+            background: #e0e7ff;
+            box-shadow: 0 4px 12px rgba(99,102,241,0.08);
+        }
+        .question p {
+            font-size: 1rem;
+            margin-bottom: 4px;
+            margin-top: 0;
+            font-weight: 500;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 2px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .options label:hover {
+            background: #e0e7ff;
+        }
+        input[type="radio"] {
+            accent-color: #6366f1;
+            margin-right: 6px;
+        }
+        .reveal-btn {
+            margin-top: 8px;
+            background: #a5b4fc;
+            color: #22223b;
+            border: none;
+            border-radius: 10px;
+            padding: 7px 18px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .reveal-btn:hover {
+            background: #6366f1;
+            color: #fff;
+        }
+        .answer {
+            display: none;
+            margin-top: 6px;
+            background: #e0e7ff;
+            border-radius: 8px;
+            padding: 6px 8px;
+            font-weight: 500;
+            color: #22223b;
+        }
+        .answer.visible {
+            display: block;
+            animation: fadeIn 0.4s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .submit-btn {
+            display: block;
+            margin: 18px auto 0 auto;
+            background: linear-gradient(90deg, #6366f1 0%, #a5b4fc 100%);
+            color: #fff;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 16px;
+            padding: 10px 30px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(99,102,241,0.10);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .submit-btn:hover {
+            background: linear-gradient(90deg, #818cf8 0%, #6366f1 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        @media (max-width: 600px) {
+            .container { padding: 4px; }
+            h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧠 KnowledgeDT Quiz</h1>
+        <div class="subtitle">Test your design & tech knowledge! <span style="font-size:1.3em;">✨</span></div>
+        <form id="quizForm">
+            <!-- Questions Start -->
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer1')" tabindex="0">
+                <p>1. 🧠 What is <b>convergent thinking</b>?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q1" value="a"> Brainstorming unusual ideas 💡</label>
+                    <label><b>B.</b> <input type="radio" name="q1" value="b"> Evaluating ideas to find the most suitable one ✅</label>
+                    <label><b>C.</b> <input type="radio" name="q1" value="c"> Ignoring feedback 🙈</label>
+                    <label><b>D.</b> <input type="radio" name="q1" value="d"> Copying others' work 📋</label>
+                </div>
+                <div id="answer1" class="answer">Correct answer: B. Evaluating ideas to find the most suitable one ✅</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer2')" tabindex="0">
+                <p>2. 🌈 What is <b>divergent thinking</b>?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q2" value="a"> Only choosing the best idea 🏆</label>
+                    <label><b>B.</b> <input type="radio" name="q2" value="b"> Following strict rules 📏</label>
+                    <label><b>C.</b> <input type="radio" name="q2" value="c"> Brainstorming different and creative ideas 💡</label>
+                    <label><b>D.</b> <input type="radio" name="q2" value="d"> Repeating the same idea 🔁</label>
+                </div>
+                <div id="answer2" class="answer">Correct answer: C. Brainstorming different and creative ideas 💡</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer3')" tabindex="0">
+                <p>3. 🔄 What is the <b>iterative design process</b>?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q3" value="a"> Doing everything perfectly the first time 🥇</label>
+                    <label><b>B.</b> <input type="radio" name="q3" value="b"> Repeating steps to improve a design over time 🌱</label>
+                    <label><b>C.</b> <input type="radio" name="q3" value="c"> Ignoring user feedback 🙅‍♂️</label>
+                    <label><b>D.</b> <input type="radio" name="q3" value="d"> Making random changes 🎲</label>
+                </div>
+                <div id="answer3" class="answer">Correct answer: B. Repeating steps to improve a design over time 🌱</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer4')" tabindex="0">
+                <p>4. 🤔 When do designers use <b>convergent and divergent thinking</b>?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q4" value="a"> Only at the start 🚦</label>
+                    <label><b>B.</b> <input type="radio" name="q4" value="b"> Only at the end 🏁</label>
+                    <label><b>C.</b> <input type="radio" name="q4" value="c"> Never together 🚫</label>
+                    <label><b>D.</b> <input type="radio" name="q4" value="d"> At different stages to develop better designs 🛠️</label>
+                </div>
+                <div id="answer4" class="answer">Correct answer: D. At different stages to develop better designs 🛠️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer5')" tabindex="0">
+                <p>5. 💭 What is the main goal of <b>divergent thinking</b>?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q5" value="a"> To criticize ideas harshly 😡</label>
+                    <label><b>B.</b> <input type="radio" name="q5" value="b"> To copy existing products 📋</label>
+                    <label><b>C.</b> <input type="radio" name="q5" value="c"> To come up with creative ideas 🎨</label>
+                    <label><b>D.</b> <input type="radio" name="q5" value="d"> To ignore new ideas 🚫</label>
+                </div>
+                <div id="answer5" class="answer">Correct answer: C. To come up with creative ideas 🎨</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer6')" tabindex="0">
+                <p>6. 🧐 What is the main goal of <b>convergent thinking</b>?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q6" value="a"> To generate as many ideas as possible 💡</label>
+                    <label><b>B.</b> <input type="radio" name="q6" value="b"> To avoid making decisions 🤷‍♂️</label>
+                    <label><b>C.</b> <input type="radio" name="q6" value="c"> To repeat the same idea 🔁</label>
+                    <label><b>D.</b> <input type="radio" name="q6" value="d"> To choose the best idea critically 🏆</label>
+                </div>
+                <div id="answer6" class="answer">Correct answer: D. To choose the best idea critically 🏆</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer7')" tabindex="0">
+                <p>7. 🔁 What does <b>iteration</b> mean in design?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q7" value="a"> Doing everything once 🕐</label>
+                    <label><b>B.</b> <input type="radio" name="q7" value="b"> Making small improvements over time 🌱</label>
+                    <label><b>C.</b> <input type="radio" name="q7" value="c"> Ignoring feedback 🙅‍♀️</label>
+                    <label><b>D.</b> <input type="radio" name="q7" value="d"> Copying others 📋</label>
+                </div>
+                <div id="answer7" class="answer">Correct answer: B. Making small improvements over time 🌱</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer8')" tabindex="0">
+                <p>8. 🧑‍💻 Why do designers collect user feedback?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q8" value="a"> To ignore user needs 🙅‍♂️</label>
+                    <label><b>B.</b> <input type="radio" name="q8" value="b"> To increase price 💸</label>
+                    <label><b>C.</b> <input type="radio" name="q8" value="c"> To make improvements on existing designs 🦄</label>
+                    <label><b>D.</b> <input type="radio" name="q8" value="d"> To reduce quality 📉</label>
+                </div>
+                <div id="answer8" class="answer">Correct answer: C. To make improvements on existing designs 🦄</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer9')" tabindex="0">
+                <p>9. 🌱 What is the benefit of small efforts in design?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q9" value="a"> They make no difference 🚫</label>
+                    <label><b>B.</b> <input type="radio" name="q9" value="b"> They slow down progress 🐢</label>
+                    <label><b>C.</b> <input type="radio" name="q9" value="c"> They increase costs 💸</label>
+                    <label><b>D.</b> <input type="radio" name="q9" value="d"> They add up to create better design over time ✨</label>
+                </div>
+                <div id="answer9" class="answer">Correct answer: D. They add up to create better design over time ✨</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer10')" tabindex="0">
+                <p>10. 🔄 What does the iterative process help designers do?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q10" value="a"> Avoid making changes 🚫</label>
+                    <label><b>B.</b> <input type="radio" name="q10" value="b"> Ignore user needs 🙅‍♀️</label>
+                    <label><b>C.</b> <input type="radio" name="q10" value="c"> Make random changes 🎲</label>
+                    <label><b>D.</b> <input type="radio" name="q10" value="d"> Create and select better designs to fit the context 🧩</label>
+                </div>
+                <div id="answer10" class="answer">Correct answer: D. Create and select better designs to fit the context 🧩</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer11')" tabindex="0">
+                <p>11. 🦈 In SCAMPER, what does 'S' stand for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q11" value="a"> Simplify</label>
+                    <label><b>B.</b> <input type="radio" name="q11" value="b"> Structure</label>
+                    <label><b>C.</b> <input type="radio" name="q11" value="c"> Support</label>
+                    <label><b>D.</b> <input type="radio" name="q11" value="d"> Substitute</label>
+                </div>
+                <div id="answer11" class="answer">Correct answer: D. Substitute</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer12')" tabindex="0">
+                <p>12. 🦈 In SCAMPER, what does 'C' stand for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q12" value="a"> Create</label>
+                    <label><b>B.</b> <input type="radio" name="q12" value="b"> Cut</label>
+                    <label><b>C.</b> <input type="radio" name="q12" value="c"> Combine</label>
+                    <label><b>D.</b> <input type="radio" name="q12" value="d"> Connect</label>
+                </div>
+                <div id="answer12" class="answer">Correct answer: C. Combine</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer13')" tabindex="0">
+                <p>13. 🦈 In SCAMPER, what does 'A' stand for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q13" value="a"> Add</label>
+                    <label><b>B.</b> <input type="radio" name="q13" value="b"> Adapt</label>
+                    <label><b>C.</b> <input type="radio" name="q13" value="c"> Apply</label>
+                    <label><b>D.</b> <input type="radio" name="q13" value="d"> Arrange</label>
+                </div>
+                <div id="answer13" class="answer">Correct answer: B. Adapt</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer14')" tabindex="0">
+                <p>14. 🦈 In SCAMPER, what does 'P' stand for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q14" value="a"> Paint</label>
+                    <label><b>B.</b> <input type="radio" name="q14" value="b"> Plan</label>
+                    <label><b>C.</b> <input type="radio" name="q14" value="c"> Put it into another use</label>
+                    <label><b>D.</b> <input type="radio" name="q14" value="d"> Produce</label>
+                </div>
+                <div id="answer14" class="answer">Correct answer: C. Put it into another use</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer15')" tabindex="0">
+                <p>15. 🦈 In SCAMPER, what does 'E' stand for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q15" value="a"> Elevate</label>
+                    <label><b>B.</b> <input type="radio" name="q15" value="b"> Eliminate</label>
+                    <label><b>C.</b> <input type="radio" name="q15" value="c"> Evaluate</label>
+                    <label><b>D.</b> <input type="radio" name="q15" value="d"> Engage</label>
+                </div>
+                <div id="answer15" class="answer">Correct answer: B. Eliminate</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer16')" tabindex="0">
+                <p>16. 🦈 In SCAMPER, what does 'R' stand for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q16" value="a"> Reuse</label>
+                    <label><b>B.</b> <input type="radio" name="q16" value="b"> Recycle</label>
+                    <label><b>C.</b> <input type="radio" name="q16" value="c"> Reverse</label>
+                    <label><b>D.</b> <input type="radio" name="q16" value="d"> Rebuild</label>
+                </div>
+                <div id="answer16" class="answer">Correct answer: C. Reverse</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer17')" tabindex="0">
+                <p>17. 🦈 What is the main purpose of SCAMPER?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q17" value="a"> Only eliminate ideas 🚫</label>
+                    <label><b>B.</b> <input type="radio" name="q17" value="b"> Only use technology push 🤖</label>
+                    <label><b>C.</b> <input type="radio" name="q17" value="c"> Only use market pull 📊</label>
+                    <label><b>D.</b> <input type="radio" name="q17" value="d"> Encourage creative thinking by changing and combining ideas 💡</label>
+                </div>
+                <div id="answer17" class="answer">Correct answer: D. Encourage creative thinking by changing and combining ideas 💡</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer18')" tabindex="0">
+                <p>18. 📈 What does 'market pull' mean in product design?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q18" value="a"> Technology advances drive design 🤖</label>
+                    <label><b>B.</b> <input type="radio" name="q18" value="b"> Designers' preferences drive design 🎨</label>
+                    <label><b>C.</b> <input type="radio" name="q18" value="c"> Cost reduction drives design 💸</label>
+                    <label><b>D.</b> <input type="radio" name="q18" value="d"> Demand in the market drives design 📊</label>
+                </div>
+                <div id="answer18" class="answer">Correct answer: D. Demand in the market drives design 📊</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer19')" tabindex="0">
+                <p>19. 🤖 What is 'technology push' in product design?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q19" value="a"> Lower production costs 💸</label>
+                    <label><b>B.</b> <input type="radio" name="q19" value="b"> Higher market demand 📈</label>
+                    <label><b>C.</b> <input type="radio" name="q19" value="c"> New technologies enable innovative designs ✨</label>
+                    <label><b>D.</b> <input type="radio" name="q19" value="d"> More user feedback 🧑‍💻</label>
+                </div>
+                <div id="answer19" class="answer">Correct answer: C. New technologies enable innovative designs ✨</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer20')" tabindex="0">
+                <p>20. 🧑‍💻 How do designers improve existing designs?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q20" value="a"> Ignore user needs 🙅‍♂️</label>
+                    <label><b>B.</b> <input type="radio" name="q20" value="b"> Reduce quality 📉</label>
+                    <label><b>C.</b> <input type="radio" name="q20" value="c"> Increase price 💸</label>
+                    <label><b>D.</b> <input type="radio" name="q20" value="d"> Collect user feedback 🧑‍💻</label>
+                </div>
+                <div id="answer20" class="answer">Correct answer: D. Collect user feedback 🧑‍💻</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer21')" tabindex="0">
+                <p>21. 🔁 What is the process of making small improvements over time called?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q21" value="a"> Elimination</label>
+                    <label><b>B.</b> <input type="radio" name="q21" value="b"> Iteration</label>
+                    <label><b>C.</b> <input type="radio" name="q21" value="c"> Adaptation</label>
+                    <label><b>D.</b> <input type="radio" name="q21" value="d"> Combination</label>
+                </div>
+                <div id="answer21" class="answer">Correct answer: B. Iteration</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer22')" tabindex="0">
+                <p>22. 🌳 Hardwood comes from which type of tree?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q22" value="a"> Coniferous trees 🌲</label>
+                    <label><b>B.</b> <input type="radio" name="q22" value="b"> Palm trees 🌴</label>
+                    <label><b>C.</b> <input type="radio" name="q22" value="c"> Manufactured boards 🪵</label>
+                    <label><b>D.</b> <input type="radio" name="q22" value="d"> Deciduous trees 🍂</label>
+                </div>
+                <div id="answer22" class="answer">Correct answer: D. Deciduous trees 🍂</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer23')" tabindex="0">
+                <p>23. 🌲 Softwood comes from which type of tree?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q23" value="a"> Deciduous trees 🍂</label>
+                    <label><b>B.</b> <input type="radio" name="q23" value="b"> Palm trees 🌴</label>
+                    <label><b>C.</b> <input type="radio" name="q23" value="c"> Manufactured boards 🪵</label>
+                    <label><b>D.</b> <input type="radio" name="q23" value="d"> Coniferous trees 🌲</label>
+                </div>
+                <div id="answer23" class="answer">Correct answer: D. Coniferous trees 🌲</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer24')" tabindex="0">
+                <p>24. 🪵 What are manufactured boards made from?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q24" value="a"> Pure metal 🪙</label>
+                    <label><b>B.</b> <input type="radio" name="q24" value="b"> Glass 🪟</label>
+                    <label><b>C.</b> <input type="radio" name="q24" value="c"> Sand 🏖️</label>
+                    <label><b>D.</b> <input type="radio" name="q24" value="d"> Natural timber into large sheets 🪵</label>
+                </div>
+                <div id="answer24" class="answer">Correct answer: D. Natural timber into large sheets 🪵</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer25')" tabindex="0">
+                <p>25. 🪵 What is plywood?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q25" value="a"> Wood dust and resin</label>
+                    <label><b>B.</b> <input type="radio" name="q25" value="b"> Pure metal</label>
+                    <label><b>C.</b> <input type="radio" name="q25" value="c"> Plastic sheets</label>
+                    <label><b>D.</b> <input type="radio" name="q25" value="d"> Thin layers of wood glued together</label>
+                </div>
+                <div id="answer25" class="answer">Correct answer: D. Thin layers of wood glued together</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer26')" tabindex="0">
+                <p>26. 🪵 What is MDF?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q26" value="a"> Metal Derived Fibre</label>
+                    <label><b>B.</b> <input type="radio" name="q26" value="b"> Manufactured Durable Foam</label>
+                    <label><b>C.</b> <input type="radio" name="q26" value="c"> Multi-Density Fabric</label>
+                    <label><b>D.</b> <input type="radio" name="q26" value="d"> Medium Density Fibreboard</label>
+                </div>
+                <div id="answer26" class="answer">Correct answer: D. Medium Density Fibreboard</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer27')" tabindex="0">
+                <p>27. 🪵 What is MDF made from?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q27" value="a"> Thin wood layers</label>
+                    <label><b>B.</b> <input type="radio" name="q27" value="b"> Metal and plastic</label>
+                    <label><b>C.</b> <input type="radio" name="q27" value="c"> Sand and glass</label>
+                    <label><b>D.</b> <input type="radio" name="q27" value="d"> Wood dust with wax and resin, compressed</label>
+                </div>
+                <div id="answer27" class="answer">Correct answer: D. Wood dust with wax and resin, compressed</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer28')" tabindex="0">
+                <p>28. 🪙 What is an alloy?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q28" value="a"> Pure metal</label>
+                    <label><b>B.</b> <input type="radio" name="q28" value="b"> Plastic and metal</label>
+                    <label><b>C.</b> <input type="radio" name="q28" value="c"> Wood and resin</label>
+                    <label><b>D.</b> <input type="radio" name="q28" value="d"> A mixture of a pure metal with other elements</label>
+                </div>
+                <div id="answer28" class="answer">Correct answer: D. A mixture of a pure metal with other elements</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer29')" tabindex="0">
+                <p>29. 🪙 What is a ferrous metal?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q29" value="a"> Metal without iron</label>
+                    <label><b>B.</b> <input type="radio" name="q29" value="b"> Only non-magnetic metals</label>
+                    <label><b>C.</b> <input type="radio" name="q29" value="c"> Only precious metals</label>
+                    <label><b>D.</b> <input type="radio" name="q29" value="d"> Metal containing iron</label>
+                </div>
+                <div id="answer29" class="answer">Correct answer: D. Metal containing iron</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer30')" tabindex="0">
+                <p>30. 🪙 What is rust?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q30" value="a"> Melting of metal</label>
+                    <label><b>B.</b> <input type="radio" name="q30" value="b"> Polishing of metal</label>
+                    <label><b>C.</b> <input type="radio" name="q30" value="c"> Painting of metal</label>
+                    <label><b>D.</b> <input type="radio" name="q30" value="d"> Corrosion of iron due to oxidation</label>
+                </div>
+                <div id="answer30" class="answer">Correct answer: D. Corrosion of iron due to oxidation</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer31')" tabindex="0">
+                <p>31. 🧲 What property do ferrous metals usually have?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q31" value="a"> Non-magnetic</label>
+                    <label><b>B.</b> <input type="radio" name="q31" value="b"> Transparent</label>
+                    <label><b>C.</b> <input type="radio" name="q31" value="c"> Flammable</label>
+                    <label><b>D.</b> <input type="radio" name="q31" value="d"> Magnetic 🧲</label>
+                </div>
+                <div id="answer31" class="answer">Correct answer: D. Magnetic 🧲</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer32')" tabindex="0">
+                <p>32. ⚡ What is electrolysis used for?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q32" value="a"> Gluing wood</label>
+                    <label><b>B.</b> <input type="radio" name="q32" value="b"> Extracting/purifying metals ⚡</label>
+                    <label><b>C.</b> <input type="radio" name="q32" value="c"> Making plastics</label>
+                    <label><b>D.</b> <input type="radio" name="q32" value="d"> Recycling paper</label>
+                </div>
+                <div id="answer32" class="answer">Correct answer: B. Extracting/purifying metals ⚡</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer33')" tabindex="0">
+                <p>33. 🧬 What is a polymer?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q33" value="a"> Short metal rods</label>
+                    <label><b>B.</b> <input type="radio" name="q33" value="b"> Thin wood sheets</label>
+                    <label><b>C.</b> <input type="radio" name="q33" value="c"> Long chains of repeating molecules 🧬</label>
+                    <label><b>D.</b> <input type="radio" name="q33" value="d"> Glass fibers</label>
+                </div>
+                <div id="answer33" class="answer">Correct answer: C. Long chains of repeating molecules 🧬</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer34')" tabindex="0">
+                <p>34. 🛢️ What are plastics made from?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q34" value="a"> Wood</label>
+                    <label><b>B.</b> <input type="radio" name="q34" value="b"> Fossil fuels 🛢️</label>
+                    <label><b>C.</b> <input type="radio" name="q34" value="c"> Water</label>
+                    <label><b>D.</b> <input type="radio" name="q34" value="d"> Sand</label>
+                </div>
+                <div id="answer34" class="answer">Correct answer: B. Fossil fuels 🛢️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer35')" tabindex="0">
+                <p>35. 🔥 What is a thermoplastic?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q35" value="a"> Cannot be remoulded</label>
+                    <label><b>B.</b> <input type="radio" name="q35" value="b"> Made from metal</label>
+                    <label><b>C.</b> <input type="radio" name="q35" value="c"> Made from wood</label>
+                    <label><b>D.</b> <input type="radio" name="q35" value="d"> Can be remoulded when reheated 🔥</label>
+                </div>
+                <div id="answer35" class="answer">Correct answer: D. Can be remoulded when reheated 🔥</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer36')" tabindex="0">
+                <p>36. 🧊 What is a thermosetting plastic?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q36" value="a"> Can be remoulded many times</label>
+                    <label><b>B.</b> <input type="radio" name="q36" value="b"> Made from glass</label>
+                    <label><b>C.</b> <input type="radio" name="q36" value="c"> Cannot be remoulded once set 🧊</label>
+                    <label><b>D.</b> <input type="radio" name="q36" value="d"> Made from paper</label>
+                </div>
+                <div id="answer36" class="answer">Correct answer: C. Cannot be remoulded once set 🧊</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer37')" tabindex="0">
+                <p>37. 🔄 What is the main difference between thermoplastics and thermosetting plastics?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q37" value="a"> Both can be remoulded</label>
+                    <label><b>B.</b> <input type="radio" name="q37" value="b"> Thermoplastics can be remoulded, thermosets cannot</label>
+                    <label><b>C.</b> <input type="radio" name="q37" value="c"> Both cannot be remoulded</label>
+                    <label><b>D.</b> <input type="radio" name="q37" value="d"> Thermosets are made from wood</label>
+                </div>
+                <div id="answer37" class="answer">Correct answer: B. Thermoplastics can be remoulded, thermosets cannot</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer38')" tabindex="0">
+                <p>38. 🛢️ What are fossil fuels?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q38" value="a"> Renewable resources</label>
+                    <label><b>B.</b> <input type="radio" name="q38" value="b"> Only water</label>
+                    <label><b>C.</b> <input type="radio" name="q38" value="c"> Only wood</label>
+                    <label><b>D.</b> <input type="radio" name="q38" value="d"> Non-renewable resources like oil and coal 🛢️</label>
+                </div>
+                <div id="answer38" class="answer">Correct answer: D. Non-renewable resources like oil and coal 🛢️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer39')" tabindex="0">
+                <p>39. ♻️ What is the main advantage of recycling thermoplastics?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q39" value="a"> They cannot be recycled</label>
+                    <label><b>B.</b> <input type="radio" name="q39" value="b"> They are biodegradable</label>
+                    <label><b>C.</b> <input type="radio" name="q39" value="c"> They are made from wood</label>
+                    <label><b>D.</b> <input type="radio" name="q39" value="d"> They can be melted and reshaped repeatedly ♻️</label>
+                </div>
+                <div id="answer39" class="answer">Correct answer: D. They can be melted and reshaped repeatedly ♻️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer40')" tabindex="0">
+                <p>40. ⛏️ What is an ore?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q40" value="a"> Manufactured board</label>
+                    <label><b>B.</b> <input type="radio" name="q40" value="b"> Plastic sheet</label>
+                    <label><b>C.</b> <input type="radio" name="q40" value="c"> Glass fiber</label>
+                    <label><b>D.</b> <input type="radio" name="q40" value="d"> Naturally occurring rock containing valuable metals ⛏️</label>
+                </div>
+                <div id="answer40" class="answer">Correct answer: D. Naturally occurring rock containing valuable metals ⛏️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer41')" tabindex="0">
+                <p>41. 🪙 What are ingots?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q41" value="a"> Plastic sheets</label>
+                    <label><b>B.</b> <input type="radio" name="q41" value="b"> Purified metal cast into shapes 🪙</label>
+                    <label><b>C.</b> <input type="radio" name="q41" value="c"> Wood planks</label>
+                    <label><b>D.</b> <input type="radio" name="q41" value="d"> Glass rods</label>
+                </div>
+                <div id="answer41" class="answer">Correct answer: B. Purified metal cast into shapes 🪙</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer42')" tabindex="0">
+                <p>42. 🛡️ What is the main reason for creating alloys?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q42" value="a"> To make metals weaker</label>
+                    <label><b>B.</b> <input type="radio" name="q42" value="b"> To reduce cost only</label>
+                    <label><b>C.</b> <input type="radio" name="q42" value="c"> To make metals magnetic</label>
+                    <label><b>D.</b> <input type="radio" name="q42" value="d"> To enhance properties like strength or corrosion resistance 🛡️</label>
+                </div>
+                <div id="answer42" class="answer">Correct answer: D. To enhance properties like strength or corrosion resistance 🛡️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer43')" tabindex="0">
+                <p>43. 🧊 What is the main property of thermosetting plastics?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q43" value="a"> They can be remoulded</label>
+                    <label><b>B.</b> <input type="radio" name="q43" value="b"> They are biodegradable</label>
+                    <label><b>C.</b> <input type="radio" name="q43" value="c"> They are made from wood</label>
+                    <label><b>D.</b> <input type="radio" name="q43" value="d"> They form permanent chemical bonds when heated 🧊</label>
+                </div>
+                <div id="answer43" class="answer">Correct answer: D. They form permanent chemical bonds when heated 🧊</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer44')" tabindex="0">
+                <p>44. 🪵 What is the main use of manufactured boards?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q44" value="a"> Making plastics</label>
+                    <label><b>B.</b> <input type="radio" name="q44" value="b"> Extracting metals</label>
+                    <label><b>C.</b> <input type="radio" name="q44" value="c"> Growing trees</label>
+                    <label><b>D.</b> <input type="radio" name="q44" value="d"> Large sheets for construction or furniture 🪑</label>
+                </div>
+                <div id="answer44" class="answer">Correct answer: D. Large sheets for construction or furniture 🪑</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer45')" tabindex="0">
+                <p>45. 🪵 Which of the following is a manufactured board?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q45" value="a"> Oak</label>
+                    <label><b>B.</b> <input type="radio" name="q45" value="b"> Pine</label>
+                    <label><b>C.</b> <input type="radio" name="q45" value="c"> MDF</label>
+                    <label><b>D.</b> <input type="radio" name="q45" value="d"> Steel</label>
+                </div>
+                <div id="answer45" class="answer">Correct answer: C. MDF</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer46')" tabindex="0">
+                <p>46. 🛢️ What is the main source of plastics?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q46" value="a"> Water</label>
+                    <label><b>B.</b> <input type="radio" name="q46" value="b"> Crude oil 🛢️</label>
+                    <label><b>C.</b> <input type="radio" name="q46" value="c"> Sand</label>
+                    <label><b>D.</b> <input type="radio" name="q46" value="d"> Wood</label>
+                </div>
+                <div id="answer46" class="answer">Correct answer: B. Crude oil 🛢️</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer47')" tabindex="0">
+                <p>47. 🌲 What is the main property of coniferous trees?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q47" value="a"> Lose leaves in autumn</label>
+                    <label><b>B.</b> <input type="radio" name="q47" value="b"> Grow slowly</label>
+                    <label><b>C.</b> <input type="radio" name="q47" value="c"> High density</label>
+                    <label><b>D.</b> <input type="radio" name="q47" value="d"> Keep needle-like leaves year-round 🌲</label>
+                </div>
+                <div id="answer47" class="answer">Correct answer: D. Keep needle-like leaves year-round 🌲</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer48')" tabindex="0">
+                <p>48. 🍂 What is the main property of deciduous trees?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q48" value="a"> Keep leaves year-round</label>
+                    <label><b>B.</b> <input type="radio" name="q48" value="b"> Grow faster</label>
+                    <label><b>C.</b> <input type="radio" name="q48" value="c"> Lower density</label>
+                    <label><b>D.</b> <input type="radio" name="q48" value="d"> Lose leaves in autumn 🍂</label>
+                </div>
+                <div id="answer48" class="answer">Correct answer: D. Lose leaves in autumn 🍂</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer49')" tabindex="0">
+                <p>49. 🪵 What is the main reason for using manufactured boards?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q49" value="a"> To grow trees faster</label>
+                    <label><b>B.</b> <input type="radio" name="q49" value="b"> To extract metals</label>
+                    <label><b>C.</b> <input type="radio" name="q49" value="c"> To make plastics</label>
+                    <label><b>D.</b> <input type="radio" name="q49" value="d"> To create large, uniform sheets 🪵</label>
+                </div>
+                <div id="answer49" class="answer">Correct answer: D. To create large, uniform sheets 🪵</div>
+            </div>
+            <div class="question clickable" onclick="revealAnswerBox(this, 'answer50')" tabindex="0">
+                <p>50. 🏆 What is the main property of alloys?</p>
+                <div class="options">
+                    <label><b>A.</b> <input type="radio" name="q50" value="a"> Weaker than pure metals</label>
+                    <label><b>B.</b> <input type="radio" name="q50" value="b"> Only used for decoration</label>
+                    <label><b>C.</b> <input type="radio" name="q50" value="c"> Enhanced properties like strength 🏆</label>
+                    <label><b>D.</b> <input type="radio" name="q50" value="d"> Made from wood</label>
+                </div>
+                <div id="answer50" class="answer">Correct answer: C. Enhanced properties like strength 🏆</div>
+            </div>
+        </form>
+    </div>
+    <script>
+        function revealAnswerBox(box, answerId) {
+            var ans = document.getElementById(answerId);
+            if (ans && !ans.classList.contains('visible')) {
+                ans.classList.add('visible');
+                box.classList.add('revealed');
+            }
+        }
+        // Keyboard accessibility: allow Enter/Space to trigger reveal
+        document.addEventListener('keydown', function(e) {
+            if ((e.key === 'Enter' || e.key === ' ') && document.activeElement.classList.contains('clickable')) {
+                var box = document.activeElement;
+                var answerId = box.querySelector('.answer').id;
+                revealAnswerBox(box, answerId);
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
